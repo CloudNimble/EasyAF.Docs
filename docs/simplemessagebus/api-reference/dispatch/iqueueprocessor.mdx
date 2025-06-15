@@ -1,0 +1,870 @@
+---
+title: IQueueProcessor Interface
+description: 'Defines the contract for queue processing components in the SimpleMessageBus system'
+---
+
+## Overview
+
+The `IQueueProcessor` interface serves as a marker interface for queue processing components in the SimpleMessageBus system. Queue processors are responsible for reading messages from different queue providers (Azure Storage Queue, Amazon SQS, File System, IndexedDB) and dispatching them to message handlers through the message dispatcher.
+
+```csharp
+public interface IQueueProcessor
+{
+    // Marker interface - no methods defined
+}
+```
+
+**Namespace**: `SimpleMessageBus.Dispatch`  
+**Assembly**: `SimpleMessageBus.Dispatch.dll`
+
+## Purpose
+
+The `IQueueProcessor` interface is intentionally empty to allow maximum flexibility in implementation while providing a common contract for the dependency injection system. This design enables:
+
+- **Dependency injection registration** and service discovery
+- **Provider-specific implementations** with varying capabilities
+- **Extensibility** for custom queue processing logic
+- **Service collection** and configuration management
+
+## Provider Implementations
+
+Each message transport provider implements its own queue processor:
+
+### Azure Storage Queue Processor
+
+```csharp
+public class AzureStorageQueueProcessor : IQueueProcessor
+{
+    // Polls Azure Storage Queues for new messages
+    // Handles message visibility timeouts
+    // Manages poison message detection
+    // Supports batch message retrieval
+}
+```
+
+### Amazon SQS Processor
+
+```csharp
+public class AmazonSQSProcessor : IQueueProcessor
+{
+    // Long-polls Amazon SQS queues
+    // Handles FIFO queue processing
+    // Manages dead letter queue integration
+    // Supports message attributes and metadata
+}
+```
+
+### File System Processor
+
+```csharp
+public class FileSystemQueueProcessor : IQueueProcessor
+{
+    // Watches file system directories for new messages
+    // Handles file locking and concurrency
+    // Manages processed/error file organization
+    // Supports Azure Functions trigger integration
+}
+```
+
+### IndexedDB Processor
+
+```csharp
+public class IndexedDbQueueProcessor : IQueueProcessor
+{
+    // Monitors IndexedDB for new messages
+    // Handles browser storage quotas
+    // Manages client-side message processing
+    // Supports offline scenarios
+}
+```
+
+## Configuration and Usage
+
+### Automatic Registration
+
+Queue processors are automatically registered when configuring providers:
+
+<CodeGroup>
+
+```csharp Azure Storage Queue
+services.AddSimpleMessageBusAzureStorageDispatcher(options =>
+{
+    options.ConnectionString = connectionString;
+    options.PollingInterval = TimeSpan.FromSeconds(5);
+    options.MaxConcurrentMessages = 32;
+});
+// Automatically registers AzureStorageQueueProcessor
+```
+
+```csharp Amazon SQS
+services.AddSimpleMessageBusAmazonSQSDispatcher(options =>
+{
+    options.Region = "us-east-1";
+    options.WaitTimeSeconds = 20; // Long polling
+    options.MaxNumberOfMessages = 10;
+});
+// Automatically registers AmazonSQSProcessor
+```
+
+```csharp File System
+services.AddSimpleMessageBusFileSystemDispatcher(options =>
+{
+    options.RootPath = @"C:\MessageQueue";
+    options.PollingInterval = TimeSpan.FromSeconds(1);
+});
+// Automatically registers FileSystemQueueProcessor
+```
+
+```csharp IndexedDB
+services.AddSimpleMessageBusIndexedDbDispatcher(options =>
+{
+    options.DatabaseName = "MessageBusDB";
+    options.PollingInterval = TimeSpan.FromSeconds(2);
+});
+// Automatically registers IndexedDbQueueProcessor
+```
+
+</CodeGroup>
+
+### Manual Service Discovery
+
+Access registered queue processors through dependency injection:
+
+```csharp
+public class QueueProcessorService
+{
+    private readonly IEnumerable<IQueueProcessor> _queueProcessors;
+    
+    public QueueProcessorService(IEnumerable<IQueueProcessor> queueProcessors)
+    {
+        _queueProcessors = queueProcessors;
+    }
+    
+    public void ListRegisteredProcessors()
+    {
+        foreach (var processor in _queueProcessors)
+        {
+            Console.WriteLine($"Registered processor: {processor.GetType().Name}");
+        }
+    }
+}
+```
+
+## Custom Queue Processor Implementation
+
+### Basic Custom Processor
+
+```csharp
+public class CustomQueueProcessor : IQueueProcessor
+{
+    private readonly IMessageDispatcher _dispatcher;
+    private readonly ILogger<CustomQueueProcessor> _logger;
+    private readonly Timer _pollingTimer;
+    private readonly CustomQueueOptions _options;
+    
+    public CustomQueueProcessor(
+        IMessageDispatcher dispatcher,
+        IOptions<CustomQueueOptions> options,
+        ILogger<CustomQueueProcessor> logger)
+    {
+        _dispatcher = dispatcher;
+        _options = options.Value;
+        _logger = logger;
+        
+        // Set up polling timer
+        _pollingTimer = new Timer(ProcessMessages, null, 
+            TimeSpan.Zero, _options.PollingInterval);
+    }
+    
+    private async void ProcessMessages(object state)
+    {
+        try
+        {
+            var messages = await RetrieveMessagesAsync();
+            
+            foreach (var message in messages)
+            {
+                await _dispatcher.Dispatch(message);
+                await AcknowledgeMessageAsync(message);
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error processing messages");
+        }
+    }
+    
+    private async Task<IEnumerable<MessageEnvelope>> RetrieveMessagesAsync()
+    {
+        // Custom logic to retrieve messages from your queue
+        // This could be database polling, HTTP endpoints, etc.
+        return Enumerable.Empty<MessageEnvelope>();
+    }
+    
+    private async Task AcknowledgeMessageAsync(MessageEnvelope envelope)
+    {
+        // Custom logic to acknowledge message processing
+        await Task.CompletedTask;
+    }
+}
+
+public class CustomQueueOptions
+{
+    public TimeSpan PollingInterval { get; set; } = TimeSpan.FromSeconds(5);
+    public int MaxConcurrentMessages { get; set; } = 10;
+    public string ConnectionString { get; set; }
+}
+
+// Register custom processor
+services.Configure<CustomQueueOptions>(configuration.GetSection("CustomQueue"));
+services.AddSingleton<IQueueProcessor, CustomQueueProcessor>();
+```
+
+### Database Queue Processor
+
+Implement a database-backed queue processor:
+
+```csharp
+public class DatabaseQueueProcessor : IQueueProcessor
+{
+    private readonly IMessageDispatcher _dispatcher;
+    private readonly IDbContextFactory<QueueDbContext> _dbContextFactory;
+    private readonly ILogger<DatabaseQueueProcessor> _logger;
+    private readonly Timer _pollingTimer;
+    private readonly DatabaseQueueOptions _options;
+    
+    public DatabaseQueueProcessor(
+        IMessageDispatcher dispatcher,
+        IDbContextFactory<QueueDbContext> dbContextFactory,
+        IOptions<DatabaseQueueOptions> options,
+        ILogger<DatabaseQueueProcessor> logger)
+    {
+        _dispatcher = dispatcher;
+        _dbContextFactory = dbContextFactory;
+        _options = options.Value;
+        _logger = logger;
+        
+        _pollingTimer = new Timer(ProcessPendingMessages, null,
+            TimeSpan.Zero, _options.PollingInterval);
+    }
+    
+    private async void ProcessPendingMessages(object state)
+    {
+        try
+        {
+            using var dbContext = await _dbContextFactory.CreateDbContextAsync();
+            
+            var pendingMessages = await dbContext.QueueMessages
+                .Where(m => m.Status == MessageStatus.Pending)
+                .Where(m => m.VisibleAfter <= DateTime.UtcNow)
+                .Take(_options.BatchSize)
+                .ToListAsync();
+            
+            var processingTasks = pendingMessages.Select(ProcessMessageAsync);
+            await Task.WhenAll(processingTasks);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error processing database queue messages");
+        }
+    }
+    
+    private async Task ProcessMessageAsync(QueueMessage queueMessage)
+    {
+        using var dbContext = await _dbContextFactory.CreateDbContextAsync();
+        
+        try
+        {
+            // Mark as processing
+            queueMessage.Status = MessageStatus.Processing;
+            queueMessage.ProcessingStarted = DateTime.UtcNow;
+            await dbContext.SaveChangesAsync();
+            
+            // Deserialize and dispatch
+            var envelope = JsonSerializer.Deserialize<MessageEnvelope>(queueMessage.Content);
+            await _dispatcher.Dispatch(envelope);
+            
+            // Mark as completed
+            queueMessage.Status = MessageStatus.Completed;
+            queueMessage.ProcessingCompleted = DateTime.UtcNow;
+            await dbContext.SaveChangesAsync();
+            
+            _logger.LogInformation("Successfully processed message {MessageId}", 
+                queueMessage.Id);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to process message {MessageId}", 
+                queueMessage.Id);
+            
+            // Handle retry logic
+            await HandleMessageFailureAsync(dbContext, queueMessage, ex);
+        }
+    }
+    
+    private async Task HandleMessageFailureAsync(
+        QueueDbContext dbContext, 
+        QueueMessage message, 
+        Exception exception)
+    {
+        message.RetryCount++;
+        message.LastError = exception.ToString();
+        message.LastRetryAt = DateTime.UtcNow;
+        
+        if (message.RetryCount >= _options.MaxRetryCount)
+        {
+            message.Status = MessageStatus.Failed;
+            _logger.LogError("Message {MessageId} failed after {RetryCount} attempts", 
+                message.Id, message.RetryCount);
+        }
+        else
+        {
+            // Calculate next retry time with exponential backoff
+            var delay = TimeSpan.FromSeconds(Math.Pow(2, message.RetryCount));
+            message.VisibleAfter = DateTime.UtcNow.Add(delay);
+            message.Status = MessageStatus.Pending;
+            
+            _logger.LogWarning("Message {MessageId} will be retried in {Delay}s", 
+                message.Id, delay.TotalSeconds);
+        }
+        
+        await dbContext.SaveChangesAsync();
+    }
+}
+
+public class QueueMessage
+{
+    public Guid Id { get; set; }
+    public string Content { get; set; }
+    public MessageStatus Status { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime VisibleAfter { get; set; }
+    public DateTime? ProcessingStarted { get; set; }
+    public DateTime? ProcessingCompleted { get; set; }
+    public int RetryCount { get; set; }
+    public DateTime? LastRetryAt { get; set; }
+    public string LastError { get; set; }
+}
+
+public enum MessageStatus
+{
+    Pending = 0,
+    Processing = 1,
+    Completed = 2,
+    Failed = 3
+}
+```
+
+### HTTP Webhook Processor
+
+Process messages from HTTP webhooks:
+
+```csharp
+public class WebhookQueueProcessor : IQueueProcessor
+{
+    private readonly IMessageDispatcher _dispatcher;
+    private readonly ILogger<WebhookQueueProcessor> _logger;
+    private readonly ConcurrentQueue<MessageEnvelope> _messageQueue;
+    private readonly Timer _processingTimer;
+    
+    public WebhookQueueProcessor(
+        IMessageDispatcher dispatcher,
+        ILogger<WebhookQueueProcessor> logger)
+    {
+        _dispatcher = dispatcher;
+        _logger = logger;
+        _messageQueue = new ConcurrentQueue<MessageEnvelope>();
+        
+        // Process queued messages periodically
+        _processingTimer = new Timer(ProcessQueuedMessages, null,
+            TimeSpan.Zero, TimeSpan.FromSeconds(1));
+    }
+    
+    public void EnqueueMessage(MessageEnvelope envelope)
+    {
+        _messageQueue.Enqueue(envelope);
+        _logger.LogInformation("Enqueued message {MessageType} from webhook", 
+            envelope.MessageType);
+    }
+    
+    private async void ProcessQueuedMessages(object state)
+    {
+        var processedCount = 0;
+        
+        while (_messageQueue.TryDequeue(out var envelope) && processedCount < 10)
+        {
+            try
+            {
+                await _dispatcher.Dispatch(envelope);
+                processedCount++;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to process webhook message {MessageType}", 
+                    envelope.MessageType);
+                
+                // Re-queue for retry (implement retry logic as needed)
+                _messageQueue.Enqueue(envelope);
+                break; // Stop processing on error to avoid infinite loop
+            }
+        }
+        
+        if (processedCount > 0)
+        {
+            _logger.LogInformation("Processed {Count} webhook messages", processedCount);
+        }
+    }
+}
+
+// Register webhook processor
+services.AddSingleton<IQueueProcessor, WebhookQueueProcessor>();
+
+// Webhook controller
+[ApiController]
+[Route("api/webhooks")]
+public class WebhookController : ControllerBase
+{
+    private readonly WebhookQueueProcessor _queueProcessor;
+    
+    public WebhookController(WebhookQueueProcessor queueProcessor)
+    {
+        _queueProcessor = queueProcessor;
+    }
+    
+    [HttpPost("messages")]
+    public IActionResult ReceiveMessage([FromBody] WebhookMessage webhookMessage)
+    {
+        // Convert webhook to message envelope
+        var message = ConvertToMessage(webhookMessage);
+        var envelope = new MessageEnvelope(message);
+        
+        _queueProcessor.EnqueueMessage(envelope);
+        
+        return Ok();
+    }
+}
+```
+
+## Advanced Patterns
+
+### Composite Queue Processor
+
+Combine multiple queue processors:
+
+```csharp
+public class CompositeQueueProcessor : IQueueProcessor
+{
+    private readonly IEnumerable<IQueueProcessor> _processors;
+    private readonly ILogger<CompositeQueueProcessor> _logger;
+    
+    public CompositeQueueProcessor(
+        IEnumerable<IQueueProcessor> processors,
+        ILogger<CompositeQueueProcessor> logger)
+    {
+        _processors = processors.Where(p => !(p is CompositeQueueProcessor));
+        _logger = logger;
+    }
+    
+    public async Task StartAllAsync()
+    {
+        _logger.LogInformation("Starting {Count} queue processors", _processors.Count());
+        
+        foreach (var processor in _processors)
+        {
+            if (processor is IStartableQueueProcessor startable)
+            {
+                await startable.StartAsync();
+            }
+        }
+    }
+    
+    public async Task StopAllAsync()
+    {
+        _logger.LogInformation("Stopping {Count} queue processors", _processors.Count());
+        
+        foreach (var processor in _processors)
+        {
+            if (processor is IStoppableQueueProcessor stoppable)
+            {
+                await stoppable.StopAsync();
+            }
+        }
+    }
+}
+
+public interface IStartableQueueProcessor : IQueueProcessor
+{
+    Task StartAsync();
+}
+
+public interface IStoppableQueueProcessor : IQueueProcessor
+{
+    Task StopAsync();
+}
+```
+
+### Monitored Queue Processor
+
+Add monitoring capabilities:
+
+```csharp
+public class MonitoredQueueProcessor : IQueueProcessor
+{
+    private readonly IQueueProcessor _innerProcessor;
+    private readonly IMetrics _metrics;
+    private readonly ILogger<MonitoredQueueProcessor> _logger;
+    
+    public MonitoredQueueProcessor(
+        IQueueProcessor innerProcessor,
+        IMetrics metrics,
+        ILogger<MonitoredQueueProcessor> logger)
+    {
+        _innerProcessor = innerProcessor;
+        _metrics = metrics;
+        _logger = logger;
+    }
+    
+    public async Task ProcessMessageWithMonitoring(MessageEnvelope envelope)
+    {
+        var messageType = envelope.MessageType;
+        var stopwatch = Stopwatch.StartNew();
+        
+        _metrics.Counter("queue.messages.received")
+            .WithTag("message_type", messageType)
+            .WithTag("processor", _innerProcessor.GetType().Name)
+            .Add(1);
+        
+        try
+        {
+            // Process message (implementation depends on processor type)
+            await ProcessMessageAsync(envelope);
+            
+            stopwatch.Stop();
+            
+            _metrics.Counter("queue.messages.processed.success")
+                .WithTag("message_type", messageType)
+                .Add(1);
+                
+            _metrics.Histogram("queue.message.processing.duration")
+                .WithTag("message_type", messageType)
+                .WithTag("status", "success")
+                .Record(stopwatch.ElapsedMilliseconds);
+        }
+        catch (Exception ex)
+        {
+            stopwatch.Stop();
+            
+            _metrics.Counter("queue.messages.processed.error")
+                .WithTag("message_type", messageType)
+                .WithTag("error_type", ex.GetType().Name)
+                .Add(1);
+                
+            _metrics.Histogram("queue.message.processing.duration")
+                .WithTag("message_type", messageType)
+                .WithTag("status", "error")
+                .Record(stopwatch.ElapsedMilliseconds);
+            
+            throw;
+        }
+    }
+}
+```
+
+## Testing
+
+### Unit Testing Custom Processors
+
+```csharp
+[TestFixture]
+public class CustomQueueProcessorTests
+{
+    private Mock<IMessageDispatcher> _mockDispatcher;
+    private Mock<ILogger<CustomQueueProcessor>> _mockLogger;
+    private CustomQueueProcessor _processor;
+    
+    [SetUp]
+    public void SetUp()
+    {
+        _mockDispatcher = new Mock<IMessageDispatcher>();
+        _mockLogger = new Mock<ILogger<CustomQueueProcessor>>();
+        
+        var options = Options.Create(new CustomQueueOptions
+        {
+            PollingInterval = TimeSpan.FromMilliseconds(100),
+            MaxConcurrentMessages = 5
+        });
+        
+        _processor = new CustomQueueProcessor(_mockDispatcher.Object, options, _mockLogger.Object);
+    }
+    
+    [Test]
+    public async Task ProcessMessage_ValidEnvelope_CallsDispatcher()
+    {
+        // Arrange
+        var message = new OrderCreatedMessage { OrderNumber = "ORD-001" };
+        var envelope = new MessageEnvelope(message);
+        
+        // Act
+        await _processor.ProcessMessageAsync(envelope);
+        
+        // Assert
+        _mockDispatcher.Verify(x => x.Dispatch(envelope), Times.Once);
+    }
+    
+    [Test]
+    public async Task ProcessMessage_DispatcherThrows_HandlesGracefully()
+    {
+        // Arrange
+        var envelope = new MessageEnvelope(new OrderCreatedMessage());
+        _mockDispatcher
+            .Setup(x => x.Dispatch(envelope))
+            .ThrowsAsync(new InvalidOperationException("Dispatch failed"));
+        
+        // Act & Assert
+        await Assert.ThrowsAsync<InvalidOperationException>(
+            () => _processor.ProcessMessageAsync(envelope));
+        
+        // Verify error was logged
+        _mockLogger.Verify(
+            x => x.Log(
+                LogLevel.Error,
+                It.IsAny<EventId>(),
+                It.Is<It.IsAnyType>((v, t) => v.ToString().Contains("Dispatch failed")),
+                It.IsAny<Exception>(),
+                It.IsAny<Func<It.IsAnyType, Exception, string>>()),
+            Times.Once);
+    }
+}
+```
+
+### Integration Testing
+
+```csharp
+[TestFixture]
+public class QueueProcessorIntegrationTests
+{
+    private IServiceProvider _serviceProvider;
+    private TestMessageHandler _testHandler;
+    
+    [SetUp]
+    public void SetUp()
+    {
+        var services = new ServiceCollection();
+        
+        _testHandler = new TestMessageHandler();
+        services.AddSingleton<IMessageHandler>(_testHandler);
+        services.AddScoped<IMessageDispatcher, ParallelMessageDispatcher>();
+        services.AddSingleton<IQueueProcessor, TestQueueProcessor>();
+        services.AddLogging();
+        
+        _serviceProvider = services.BuildServiceProvider();
+    }
+    
+    [Test]
+    public async Task QueueProcessor_EndsToEnd_ProcessesMessages()
+    {
+        // Arrange
+        var processor = _serviceProvider.GetRequiredService<IQueueProcessor>() as TestQueueProcessor;
+        var message = new OrderCreatedMessage { OrderNumber = "ORD-001" };
+        
+        // Act
+        processor.EnqueueMessage(message);
+        await Task.Delay(100); // Allow processing
+        
+        // Assert
+        Assert.That(_testHandler.ProcessedMessages, Has.Count.EqualTo(1));
+        Assert.That(_testHandler.ProcessedMessages[0].OrderNumber, Is.EqualTo("ORD-001"));
+    }
+}
+
+public class TestQueueProcessor : IQueueProcessor
+{
+    private readonly IMessageDispatcher _dispatcher;
+    private readonly ConcurrentQueue<IMessage> _queue = new();
+    private readonly Timer _timer;
+    
+    public TestQueueProcessor(IMessageDispatcher dispatcher)
+    {
+        _dispatcher = dispatcher;
+        _timer = new Timer(ProcessMessages, null, TimeSpan.FromMilliseconds(10), TimeSpan.FromMilliseconds(10));
+    }
+    
+    public void EnqueueMessage(IMessage message)
+    {
+        _queue.Enqueue(message);
+    }
+    
+    private async void ProcessMessages(object state)
+    {
+        while (_queue.TryDequeue(out var message))
+        {
+            var envelope = new MessageEnvelope(message);
+            await _dispatcher.Dispatch(envelope);
+        }
+    }
+}
+```
+
+## Best Practices
+
+### 1. Keep Interface Implementation Simple
+
+Since `IQueueProcessor` is a marker interface, keep implementations focused:
+
+<CodeGroup>
+
+```csharp Good
+public class FocusedQueueProcessor : IQueueProcessor
+{
+    // Single responsibility: process messages from specific queue
+    private readonly IMessageDispatcher _dispatcher;
+    
+    public FocusedQueueProcessor(IMessageDispatcher dispatcher)
+    {
+        _dispatcher = dispatcher;
+    }
+    
+    // Focused on queue processing logic
+}
+```
+
+```csharp Avoid
+public class KitchenSinkProcessor : IQueueProcessor, IMessagePublisher, IConfigurationService
+{
+    // Too many responsibilities
+    // Violates single responsibility principle
+}
+```
+
+</CodeGroup>
+
+### 2. Handle Errors Gracefully
+
+Implement robust error handling in queue processors:
+
+```csharp
+private async void ProcessMessages(object state)
+{
+    try
+    {
+        var messages = await RetrieveMessagesAsync();
+        
+        foreach (var message in messages)
+        {
+            try
+            {
+                await _dispatcher.Dispatch(message);
+                await AcknowledgeMessageAsync(message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to process message {MessageId}", message.Id);
+                await HandleMessageFailureAsync(message, ex);
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Error in queue processing loop");
+        // Don't let exceptions kill the processing loop
+    }
+}
+```
+
+### 3. Implement Proper Resource Disposal
+
+Ensure timers and resources are properly disposed:
+
+```csharp
+public class DisposableQueueProcessor : IQueueProcessor, IDisposable
+{
+    private readonly Timer _timer;
+    private volatile bool _disposed;
+    
+    public DisposableQueueProcessor()
+    {
+        _timer = new Timer(ProcessMessages, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
+    }
+    
+    private async void ProcessMessages(object state)
+    {
+        if (_disposed) return;
+        
+        // Processing logic...
+    }
+    
+    public void Dispose()
+    {
+        if (!_disposed)
+        {
+            _disposed = true;
+            _timer?.Dispose();
+        }
+    }
+}
+
+// Register as singleton with proper disposal
+services.AddSingleton<IQueueProcessor, DisposableQueueProcessor>();
+```
+
+### 4. Use Configuration for Flexibility
+
+Make processors configurable through options:
+
+```csharp
+public class ConfigurableQueueProcessor : IQueueProcessor
+{
+    private readonly QueueProcessorOptions _options;
+    
+    public ConfigurableQueueProcessor(IOptions<QueueProcessorOptions> options)
+    {
+        _options = options.Value;
+    }
+    
+    // Use _options for polling intervals, batch sizes, etc.
+}
+
+public class QueueProcessorOptions
+{
+    public TimeSpan PollingInterval { get; set; } = TimeSpan.FromSeconds(5);
+    public int BatchSize { get; set; } = 10;
+    public int MaxRetryAttempts { get; set; } = 3;
+    public TimeSpan RetryDelay { get; set; } = TimeSpan.FromSeconds(30);
+}
+
+// Configure in startup
+services.Configure<QueueProcessorOptions>(configuration.GetSection("QueueProcessor"));
+```
+
+## Related Components
+
+<CardGroup cols={2}>
+  <Card
+    title="IMessageDispatcher"
+    icon="route"
+    href="/api-reference/dispatch/imessagedispatcher"
+  >
+    Interface used by queue processors to dispatch messages
+  </Card>
+  <Card
+    title="MessageEnvelope"
+    icon="package"
+    href="/api-reference/core/messageenvelope"
+  >
+    Container processed by queue processors
+  </Card>
+  <Card
+    title="Provider Guides"
+    icon="cloud"
+    href="/providers/overview"
+  >
+    Specific queue processor implementations
+  </Card>
+  <Card
+    title="Configuration Guide"
+    icon="gear"
+    href="/guides/configuration"
+  >
+    Configure queue processor behavior
+  </Card>
+</CardGroup>

@@ -1,0 +1,86 @@
+---
+title: BlazorEssentials
+description: Essential Blazor components and utilities for rapid application development
+---
+
+# BlazorEssentials
+
+BlazorEssentials is a comprehensive library of reusable Blazor components and utilities designed to accelerate Blazor application development.
+
+## What is BlazorEssentials?
+
+BlazorEssentials provides:
+
+- **UI Components** - Production-ready Blazor components
+- **State Management** - Simplified state management patterns
+- **Navigation Helpers** - Enhanced routing and navigation
+- **Form Components** - Advanced form inputs and validation
+- **Authentication** - Auth components and utilities
+- **Layouts** - Responsive layout components
+
+## Key Features
+
+### Component Library
+A rich set of components including:
+- Data grids and tables
+- Modal dialogs
+- Navigation menus
+- Loading indicators
+- Toast notifications
+- And much more...
+
+### State Management
+Simple yet powerful state management without the complexity:
+```csharp
+@inject IStateManager State
+
+@code {
+    protected override void OnInitialized()
+    {
+        State.Set("user", currentUser);
+        var user = State.Get<User>("user");
+    }
+}
+```
+
+### Form Enhancements
+Enhanced form components with built-in validation:
+```razor
+<EasyForm Model="@model" OnValidSubmit="@HandleSubmit">
+    <EasyInputText @bind-Value="model.Name" />
+    <EasyInputNumber @bind-Value="model.Age" />
+    <EasySubmitButton>Save</EasySubmitButton>
+</EasyForm>
+```
+
+## Getting Started
+
+1. Install the NuGet package:
+```bash
+dotnet add package CloudNimble.BlazorEssentials
+```
+
+2. Add to your `_Imports.razor`:
+```razor
+@using CloudNimble.BlazorEssentials
+@using CloudNimble.BlazorEssentials.Components
+```
+
+3. Register services in `Program.cs`:
+```csharp
+builder.Services.AddBlazorEssentials();
+```
+
+## Why BlazorEssentials?
+
+- **Save Time** - Stop reinventing common components
+- **Consistent UI** - Maintain consistency across your app
+- **Best Practices** - Built following Blazor best practices
+- **Customizable** - Easily theme and customize components
+- **Well Tested** - Battle-tested in production applications
+
+## Next Steps
+
+- [Component Gallery](/docs/blazoressentials/components)
+- [State Management Guide](/docs/blazoressentials/state-management)
+- [Theming Guide](/docs/blazoressentials/theming)

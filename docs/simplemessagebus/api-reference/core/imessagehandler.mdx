@@ -1,0 +1,590 @@
+---
+title: IMessageHandler Interface
+description: 'Defines the functionality required for all IMessage processing handlers'
+---
+
+## Overview
+
+The `IMessageHandler` interface defines the contract for components that process messages in the SimpleMessageBus system. Message handlers contain the business logic for responding to specific message types and are the core processing units of the messaging system.
+
+```csharp
+public interface IMessageHandler
+{
+    IEnumerable<Type> GetHandledMessageTypes();
+    Task OnNextAsync(MessageEnvelope messageEnvelope);
+    Task OnErrorAsync(IMessage message, Exception exception);
+}
+```
+
+## Methods
+
+### GetHandledMessageTypes()
+
+Returns all of the IMessage types this handler supports.
+
+```csharp
+IEnumerable<Type> GetHandledMessageTypes()
+```
+
+**Returns**: `IEnumerable<Type>` containing all of the IMessage types this IMessageHandler supports. The types must implement IMessage.
+
+**Remarks**: This method is called during handler registration to determine message routing. Return all message types that this handler can process. The framework will ensure that only messages of these types are delivered to this handler's `OnNextAsync` method.
+
+### OnNextAsync(MessageEnvelope)
+
+Processes a message envelope containing a supported message type.
+
+```csharp
+Task OnNextAsync(MessageEnvelope messageEnvelope)
+```
+
+**Parameters**:
+- `messageEnvelope` (`MessageEnvelope`): The MessageEnvelope to process.
+
+**Returns**: A Task reference for the asynchronous function.
+
+**Remarks**: This is the main processing method for messages. The framework calls this method when a message of a supported type (as declared by `GetHandledMessageTypes`) is received from the queue. The message is pre-deserialized and available in the `MessageEnvelope.Message` property. Any unhandled exceptions thrown from this method will trigger a call to `OnErrorAsync`.
+
+### OnErrorAsync(IMessage, Exception)
+
+Handles errors that occur during message processing.
+
+```csharp
+Task OnErrorAsync(IMessage message, Exception exception)
+```
+
+**Parameters**:
+- `message` (`IMessage`): The deserialized IMessage instance that failed.
+- `exception` (`Exception`): The Exception that occurred during processing.
+
+**Returns**: A Task reference for the asynchronous function.
+
+**Remarks**: This method is called when an exception is thrown during message processing. Use this method to implement custom error handling logic such as logging, alerting, or compensating transactions. Note that after this method completes, the message will typically be moved to a poison queue unless retry policies dictate otherwise.
+
+## Basic Implementation
+
+### Simple Handler
+
+Here's a basic handler that processes a single message type:
+
+```csharp
+public class OrderCreatedHandler : IMessageHandler
+{
+    private readonly IOrderService _orderService;
+    private readonly ILogger<OrderCreatedHandler> _logger;
+
+    public OrderCreatedHandler(IOrderService orderService, ILogger<OrderCreatedHandler> logger)
+    {
+        _orderService = orderService;
+        _logger = logger;
+    }
+
+    public IEnumerable<Type> GetHandledMessageTypes()
+    {
+        yield return typeof(OrderCreatedMessage);
+    }
+
+    public async Task OnNextAsync(MessageEnvelope messageEnvelope)
+    {
+        var message = messageEnvelope.GetMessage<OrderCreatedMessage>();
+        
+        _logger.LogInformation("Processing order {OrderNumber}", message.OrderNumber);
+        
+        await _orderService.ProcessNewOrderAsync(message);
+        
+        _logger.LogInformation("Successfully processed order {OrderNumber}", message.OrderNumber);
+    }
+
+    public async Task OnErrorAsync(IMessage message, Exception exception)
+    {
+        var orderMessage = message as OrderCreatedMessage;
+        
+        _logger.LogError(exception, "Failed to process order {OrderNumber}", 
+            orderMessage?.OrderNumber);
+        
+        // Optional: Send alert or perform compensating action
+        await _orderService.HandleOrderProcessingErrorAsync(orderMessage, exception);
+    }
+}
+```
+
+## Advanced Implementations
+
+### Multi-Message Handler
+
+A handler can process multiple message types:
+
+```csharp
+public class OrderEventHandler : IMessageHandler
+{
+    private readonly IOrderService _orderService;
+    private readonly ILogger<OrderEventHandler> _logger;
+
+    public OrderEventHandler(IOrderService orderService, ILogger<OrderEventHandler> logger)
+    {
+        _orderService = orderService;
+        _logger = logger;
+    }
+
+    public IEnumerable<Type> GetHandledMessageTypes()
+    {
+        yield return typeof(OrderCreatedMessage);
+        yield return typeof(OrderCancelledMessage);
+        yield return typeof(OrderShippedMessage);
+    }
+
+    public async Task OnNextAsync(MessageEnvelope messageEnvelope)
+    {
+        switch (messageEnvelope.Message)
+        {
+            case OrderCreatedMessage created:
+                await ProcessOrderCreatedAsync(created);
+                break;
+            case OrderCancelledMessage cancelled:
+                await ProcessOrderCancelledAsync(cancelled);
+                break;
+            case OrderShippedMessage shipped:
+                await ProcessOrderShippedAsync(shipped);
+                break;
+            default:
+                throw new NotSupportedException($"Message type {messageEnvelope.MessageType} not supported");
+        }
+    }
+
+    public async Task OnErrorAsync(IMessage message, Exception exception)
+    {
+        _logger.LogError(exception, "Failed to process {MessageType} with ID {MessageId}", 
+            message.GetType().Name, message.Id);
+        
+        // Type-specific error handling
+        switch (message)
+        {
+            case OrderCreatedMessage created:
+                await _orderService.HandleCreationErrorAsync(created, exception);
+                break;
+            case OrderCancelledMessage cancelled:
+                await _orderService.HandleCancellationErrorAsync(cancelled, exception);
+                break;
+            case OrderShippedMessage shipped:
+                await _orderService.HandleShippingErrorAsync(shipped, exception);
+                break;
+        }
+    }
+
+    private async Task ProcessOrderCreatedAsync(OrderCreatedMessage message)
+    {
+        _logger.LogInformation("Creating order {OrderNumber}", message.OrderNumber);
+        await _orderService.CreateOrderAsync(message);
+    }
+
+    private async Task ProcessOrderCancelledAsync(OrderCancelledMessage message)
+    {
+        _logger.LogInformation("Cancelling order {OrderNumber}", message.OrderNumber);
+        await _orderService.CancelOrderAsync(message);
+    }
+
+    private async Task ProcessOrderShippedAsync(OrderShippedMessage message)
+    {
+        _logger.LogInformation("Marking order {OrderNumber} as shipped", message.OrderNumber);
+        await _orderService.MarkOrderShippedAsync(message);
+    }
+}
+```
+
+### Handler with Metadata Support
+
+Access message metadata and envelope information:
+
+```csharp
+public class OrderMetadataHandler : IMessageHandler
+{
+    private readonly ILogger<OrderMetadataHandler> _logger;
+
+    public IEnumerable<Type> GetHandledMessageTypes()
+    {
+        yield return typeof(OrderCreatedMessage);
+    }
+
+    public async Task OnNextAsync(MessageEnvelope messageEnvelope)
+    {
+        var message = messageEnvelope.GetMessage<OrderCreatedMessage>();
+        
+        // Access envelope metadata
+        var attempts = messageEnvelope.AttemptsCount;
+        var published = messageEnvelope.DatePublished;
+        
+        _logger.LogInformation("Processing order {OrderNumber} (attempt {Attempts}, published {Published})", 
+            message.OrderNumber, attempts, published);
+        
+        // Access message metadata if available
+        if (message is IMetadataAware metadataMessage)
+        {
+            var userId = metadataMessage.Metadata.GetValueOrDefault("UserId");
+            var source = metadataMessage.Metadata.GetValueOrDefault("Source");
+            
+            _logger.LogInformation("Message from user {UserId} via {Source}", userId, source);
+            
+            // Add processing metadata
+            metadataMessage.Metadata["ProcessedBy"] = "OrderMetadataHandler";
+            metadataMessage.Metadata["ProcessedAt"] = DateTime.UtcNow;
+        }
+        
+        // Use envelope logger for correlation
+        messageEnvelope.ProcessLog?.LogInformation("Processing order in metadata handler");
+        
+        await ProcessOrderAsync(message);
+    }
+
+    public async Task OnErrorAsync(IMessage message, Exception exception)
+    {
+        _logger.LogError(exception, "Error processing message {MessageId}", message.Id);
+    }
+}
+```
+
+## Error Handling Patterns
+
+### Retry vs. Poison Strategies
+
+Implement sophisticated error handling to determine when to retry vs. when to move to poison queue:
+
+```csharp
+public class RobustOrderHandler : IMessageHandler
+{
+    public async Task OnNextAsync(MessageEnvelope messageEnvelope)
+    {
+        var message = messageEnvelope.GetMessage<OrderCreatedMessage>();
+        
+        try
+        {
+            await ProcessOrderAsync(message);
+        }
+        catch (ValidationException ex)
+        {
+            // Business rule violations - don't retry
+            _logger.LogWarning(ex, "Validation failed for order {OrderNumber}", message.OrderNumber);
+            return; // Message will be marked as processed (won't retry)
+        }
+        catch (HttpRequestException ex) when (IsTransientError(ex))
+        {
+            // Transient HTTP errors - retry
+            _logger.LogWarning(ex, "Transient error processing order {OrderNumber}", message.OrderNumber);
+            throw; // Message will be retried
+        }
+        catch (Exception ex)
+        {
+            // Unexpected errors - log and retry
+            _logger.LogError(ex, "Unexpected error processing order {OrderNumber}", message.OrderNumber);
+            throw;
+        }
+    }
+
+    public async Task OnErrorAsync(IMessage message, Exception exception)
+    {
+        var orderMessage = message as OrderCreatedMessage;
+        
+        // Send alerts for critical errors
+        if (exception is not ValidationException)
+        {
+            await _alertService.SendErrorAlertAsync(orderMessage, exception);
+        }
+        
+        // Store error details for investigation
+        await _errorRepository.SaveErrorAsync(new ProcessingError
+        {
+            MessageId = message.Id,
+            MessageType = message.GetType().Name,
+            Exception = exception.ToString(),
+            Timestamp = DateTime.UtcNow
+        });
+    }
+
+    private bool IsTransientError(HttpRequestException ex)
+    {
+        return ex.Message.Contains("timeout") || 
+               ex.Message.Contains("connection") ||
+               ex.Message.Contains("502") ||
+               ex.Message.Contains("503");
+    }
+}
+```
+
+### Compensating Actions
+
+Implement compensating transactions in error handlers:
+
+```csharp
+public class PaymentHandler : IMessageHandler
+{
+    public async Task OnNextAsync(MessageEnvelope messageEnvelope)
+    {
+        var message = messageEnvelope.GetMessage<ProcessPaymentMessage>();
+        
+        try
+        {
+            // Process payment
+            var paymentResult = await _paymentService.ProcessPaymentAsync(message);
+            
+            // Publish success message
+            await _publisher.PublishAsync(new PaymentProcessedMessage
+            {
+                OrderId = message.OrderId,
+                PaymentId = paymentResult.PaymentId,
+                Amount = message.Amount
+            });
+        }
+        catch (InsufficientFundsException ex)
+        {
+            // Publish payment failed message instead of retrying
+            await _publisher.PublishAsync(new PaymentFailedMessage
+            {
+                OrderId = message.OrderId,
+                Reason = "Insufficient funds",
+                Amount = message.Amount
+            });
+            
+            _logger.LogWarning("Payment failed for order {OrderId}: {Reason}", 
+                message.OrderId, ex.Message);
+            
+            return; // Don't retry
+        }
+    }
+
+    public async Task OnErrorAsync(IMessage message, Exception exception)
+    {
+        var paymentMessage = message as ProcessPaymentMessage;
+        
+        // Send failure notification
+        await _publisher.PublishAsync(new PaymentFailedMessage
+        {
+            OrderId = paymentMessage.OrderId,
+            Reason = "Payment processing error",
+            Amount = paymentMessage.Amount
+        });
+    }
+}
+```
+
+## Performance Considerations
+
+### Efficient Message Processing
+
+Optimize handler performance for high-throughput scenarios:
+
+```csharp
+public class HighThroughputOrderHandler : IMessageHandler
+{
+    private readonly IMemoryCache _cache;
+    private readonly SemaphoreSlim _semaphore;
+
+    public HighThroughputOrderHandler(IMemoryCache cache)
+    {
+        _cache = cache;
+        _semaphore = new SemaphoreSlim(Environment.ProcessorCount * 2); // Limit concurrency
+    }
+
+    public async Task OnNextAsync(MessageEnvelope messageEnvelope)
+    {
+        await _semaphore.WaitAsync();
+        
+        try
+        {
+            var message = messageEnvelope.GetMessage<OrderCreatedMessage>();
+            
+            // Use caching to avoid repeated database calls
+            var customer = await GetCustomerCachedAsync(message.CustomerId);
+            
+            // Batch database operations
+            await ProcessOrderBatchedAsync(message, customer);
+        }
+        finally
+        {
+            _semaphore.Release();
+        }
+    }
+
+    private async Task<Customer> GetCustomerCachedAsync(string customerId)
+    {
+        if (_cache.TryGetValue($"customer:{customerId}", out Customer customer))
+        {
+            return customer;
+        }
+
+        customer = await _customerService.GetCustomerAsync(customerId);
+        _cache.Set($"customer:{customerId}", customer, TimeSpan.FromMinutes(5));
+        
+        return customer;
+    }
+}
+```
+
+### Batch Processing
+
+Process multiple messages efficiently:
+
+```csharp
+public class BatchOrderHandler : IMessageHandler
+{
+    private readonly List<OrderCreatedMessage> _batch = new();
+    private readonly Timer _flushTimer;
+    private readonly object _lock = new();
+
+    public BatchOrderHandler()
+    {
+        _flushTimer = new Timer(FlushBatch, null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
+    }
+
+    public async Task OnNextAsync(MessageEnvelope messageEnvelope)
+    {
+        var message = messageEnvelope.GetMessage<OrderCreatedMessage>();
+        
+        bool shouldFlush;
+        lock (_lock)
+        {
+            _batch.Add(message);
+            shouldFlush = _batch.Count >= 10; // Flush every 10 messages
+        }
+
+        if (shouldFlush)
+        {
+            await FlushBatchAsync();
+        }
+    }
+
+    private async void FlushBatch(object state)
+    {
+        await FlushBatchAsync();
+    }
+
+    private async Task FlushBatchAsync()
+    {
+        List<OrderCreatedMessage> currentBatch;
+        
+        lock (_lock)
+        {
+            if (_batch.Count == 0) return;
+            
+            currentBatch = new List<OrderCreatedMessage>(_batch);
+            _batch.Clear();
+        }
+
+        try
+        {
+            await _orderService.ProcessOrdersBatchAsync(currentBatch);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to process batch of {Count} orders", currentBatch.Count);
+            
+            // Re-queue individual messages for retry
+            foreach (var order in currentBatch)
+            {
+                await _publisher.PublishAsync(order);
+            }
+        }
+    }
+}
+```
+
+## Dependency Injection Registration
+
+Register handlers with the dependency injection container:
+
+```csharp
+// Register individual handlers
+services.AddScoped<IMessageHandler, OrderCreatedHandler>();
+services.AddScoped<IMessageHandler, PaymentHandler>();
+
+// Register multiple handlers from assembly
+services.Scan(scan => scan
+    .FromAssemblyOf<OrderCreatedHandler>()
+    .AddClasses(classes => classes.AssignableTo<IMessageHandler>())
+    .As<IMessageHandler>()
+    .WithScopedLifetime());
+
+// Register with factory pattern
+services.AddScoped<IMessageHandler>(provider => 
+    new OrderHandler(
+        provider.GetRequiredService<IOrderService>(),
+        provider.GetRequiredService<ILogger<OrderHandler>>()));
+```
+
+## Testing
+
+### Unit Testing Handlers
+
+```csharp
+[Test]
+public async Task OnNextAsync_ValidOrder_ProcessesSuccessfully()
+{
+    // Arrange
+    var orderService = new Mock<IOrderService>();
+    var logger = new Mock<ILogger<OrderCreatedHandler>>();
+    var handler = new OrderCreatedHandler(orderService.Object, logger.Object);
+    
+    var message = new OrderCreatedMessage
+    {
+        OrderNumber = "ORD-001",
+        Amount = 99.99m
+    };
+    var envelope = new MessageEnvelope(message);
+
+    // Act
+    await handler.OnNextAsync(envelope);
+
+    // Assert
+    orderService.Verify(x => x.ProcessNewOrderAsync(It.Is<OrderCreatedMessage>(
+        m => m.OrderNumber == "ORD-001")), Times.Once);
+}
+
+[Test]
+public async Task OnErrorAsync_HandlesErrorGracefully()
+{
+    // Arrange
+    var orderService = new Mock<IOrderService>();
+    var logger = new Mock<ILogger<OrderCreatedHandler>>();
+    var handler = new OrderCreatedHandler(orderService.Object, logger.Object);
+    
+    var message = new OrderCreatedMessage { OrderNumber = "ORD-001" };
+    var exception = new InvalidOperationException("Test error");
+
+    // Act
+    await handler.OnErrorAsync(message, exception);
+
+    // Assert
+    orderService.Verify(x => x.HandleOrderProcessingErrorAsync(message, exception), Times.Once);
+}
+```
+
+## Related Components
+
+<CardGroup cols={2}>
+  <Card
+    title="IMessage"
+    icon="envelope"
+    href="/api-reference/core/imessage"
+  >
+    The base message interface
+  </Card>
+  <Card
+    title="MessageEnvelope"
+    icon="package"
+    href="/api-reference/core/messageenvelope"
+  >
+    Message transport container
+  </Card>
+  <Card
+    title="IMessagePublisher"
+    icon="paper-plane"
+    href="/api-reference/publish/imessagepublisher"
+  >
+    Publishing messages from handlers
+  </Card>
+  <Card
+    title="Testing Guide"
+    icon="flask"
+    href="/guides/testing"
+  >
+    Learn how to test message handlers
+  </Card>
+</CardGroup>

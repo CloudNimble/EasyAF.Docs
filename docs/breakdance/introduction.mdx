@@ -1,0 +1,112 @@
+---
+title: Breakdance
+description: Testing and debugging utilities for .NET applications
+---
+
+# Breakdance
+
+Breakdance is a testing and debugging utility library that makes it easier to write and maintain tests for .NET applications.
+
+## What is Breakdance?
+
+Breakdance provides powerful utilities for:
+
+- **Test Data Generation** - Fluent builders for test data
+- **Mocking Helpers** - Simplified mocking patterns
+- **Assertion Extensions** - Enhanced assertions
+- **Performance Testing** - Tools for performance measurement
+- **Debugging Tools** - Advanced debugging helpers
+
+## Key Features
+
+### Test Data Builders
+Create test data with ease using fluent builders:
+```csharp
+var user = new UserBuilder()
+    .WithName("John Doe")
+    .WithEmail("john@example.com")
+    .WithRandomId()
+    .Build();
+
+var users = new UserBuilder()
+    .WithRandomData()
+    .BuildList(10);
+```
+
+### Enhanced Assertions
+More readable and powerful assertions:
+```csharp
+// Collection assertions
+users.Should().HaveCountGreaterThan(5);
+users.Should().AllSatisfy(u => u.Email.Contains("@"));
+
+// Date/time assertions
+result.CreatedAt.Should().BeWithin(1.Seconds()).Of(DateTime.Now);
+
+// Custom assertions
+result.Should().BeSuccessful()
+    .And.HaveData<User>()
+    .Which.Email.Should().EndWith("@example.com");
+```
+
+### Performance Testing
+Measure and assert performance:
+```csharp
+using (var timer = new PerformanceTimer("DatabaseQuery"))
+{
+    var results = await repository.GetAllAsync();
+    
+    timer.ElapsedTime.Should().BeLessThan(100.Milliseconds());
+}
+```
+
+### Debugging Helpers
+Enhanced debugging capabilities:
+```csharp
+// Detailed object dumps
+user.Dump("Current User State");
+
+// Conditional breakpoints
+user.BreakIf(u => u.Email == null);
+
+// Trace with context
+using (new TraceContext("Processing User"))
+{
+    // Your code here
+}
+```
+
+## Getting Started
+
+1. Install the NuGet package:
+```bash
+dotnet add package CloudNimble.Breakdance
+```
+
+2. Add to your test project:
+```csharp
+using CloudNimble.Breakdance;
+using CloudNimble.Breakdance.Builders;
+using CloudNimble.Breakdance.Assertions;
+```
+
+## Why Breakdance?
+
+- **Faster Test Writing** - Spend less time setting up test data
+- **More Maintainable** - Cleaner, more readable test code
+- **Better Debugging** - Find issues faster with enhanced tools
+- **Performance Aware** - Built-in performance testing support
+
+## Integration
+
+Breakdance works seamlessly with popular testing frameworks:
+- MSTest
+- xUnit
+- NUnit
+- FluentAssertions
+
+## Next Steps
+
+- [Test Data Builders Guide](/docs/breakdance/builders)
+- [Assertion Extensions](/docs/breakdance/assertions)
+- [Performance Testing Guide](/docs/breakdance/performance)

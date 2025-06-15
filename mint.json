@@ -1,0 +1,209 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "EasyAF Framework",
+  "colors": {
+    "primary": "#0078d4",
+    "light": "#4da6ff",
+    "dark": "#0056b3"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Introduction",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "docs/introduction",
+              "quickstart",
+              "development"
+            ]
+          },
+          {
+            "group": "Essentials",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/settings",
+              "essentials/navigation",
+              "essentials/reusable-snippets"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Core Framework",
+        "groups": [
+          {
+            "group": "Core Framework",
+            "pages": [
+              "docs/framework/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "SimpleMessageBus",
+        "groups": [
+          {
+            "group": "SimpleMessageBus",
+            "pages": [
+              "docs/simplemessagebus/introduction",
+              "docs/simplemessagebus/quickstart",
+              "docs/simplemessagebus/installation"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "docs/simplemessagebus/concepts/overview"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "docs/simplemessagebus/guides/configuration",
+              "docs/simplemessagebus/guides/testing"
+            ]
+          },
+          {
+            "group": "Providers",
+            "pages": [
+              "docs/simplemessagebus/providers/overview",
+              "docs/simplemessagebus/providers/azure-storage-queue",
+              "docs/simplemessagebus/providers/amazon-sqs"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
+              "docs/simplemessagebus/api-reference/overview"
+            ]
+          },
+          {
+            "group": "Core API",
+            "pages": [
+              "docs/simplemessagebus/api-reference/core/imessage",
+              "docs/simplemessagebus/api-reference/core/imessagehandler",
+              "docs/simplemessagebus/api-reference/core/imetadataaware",
+              "docs/simplemessagebus/api-reference/core/itrackable",
+              "docs/simplemessagebus/api-reference/core/messagebase",
+              "docs/simplemessagebus/api-reference/core/messageenvelope"
+            ]
+          },
+          {
+            "group": "Publishing API",
+            "pages": [
+              "docs/simplemessagebus/api-reference/publish/imessagepublisher"
+            ]
+          },
+          {
+            "group": "Dispatch API",
+            "pages": [
+              "docs/simplemessagebus/api-reference/dispatch/imessagedispatcher",
+              "docs/simplemessagebus/api-reference/dispatch/iqueueprocessor"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Breakdance",
+        "groups": [
+          {
+            "group": "Breakdance",
+            "pages": [
+              "docs/breakdance/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "BlazorEssentials",
+        "groups": [
+          {
+            "group": "BlazorEssentials",
+            "pages": [
+              "docs/blazoressentials/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "href": "https://mintlify.com/docs",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://mintlify.com/community",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://mintlify.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:opensource@nimbleapps.cloud"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.mintlify.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/cloudnimble",
+      "github": "https://github.com/cloudnimble",
+      "linkedin": "https://linkedin.com/company/cloudnimble"
+    }
+  },
+
+
+  "search": {
+    "prompt": "Search EasyAF documentation..."
+  }
+ }

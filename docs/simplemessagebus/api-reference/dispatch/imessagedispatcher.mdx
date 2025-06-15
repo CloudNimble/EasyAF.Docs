@@ -1,0 +1,800 @@
+---
+title: IMessageDispatcher Interface
+description: 'Defines the required composition of every Dispatcher used by SimpleMessageBus to send MessageEnvelopes to the IMessageHandlers'
+---
+
+## Overview
+
+The `IMessageDispatcher` interface defines the contract for dispatching messages to their registered handlers. Message dispatchers control how messages are delivered to handlers, determining whether processing happens sequentially, in parallel, or using custom logic. They coordinate the flow from message reception to handler execution.
+
+```csharp
+public interface IMessageDispatcher
+{
+    Task Dispatch(MessageEnvelope messageEnvelope);
+}
+```
+
+**Namespace**: `SimpleMessageBus.Dispatch`  
+**Assembly**: `SimpleMessageBus.Dispatch.dll`
+
+## Methods
+
+### Dispatch(MessageEnvelope)
+
+Dispatches a message envelope to all registered handlers that support the message type.
+
+```csharp
+Task Dispatch(MessageEnvelope messageEnvelope)
+```
+
+**Parameters**:
+- `messageEnvelope` (`MessageEnvelope`): The MessageEnvelope instance to send to the registered IMessageHandlers.
+
+**Returns**: A `Task` reference for the asynchronous function.
+
+**Remarks**: The implementation determines how handlers are invoked - sequentially, in parallel, or using custom logic. All matching handlers (those that declare support for the message type via `GetHandledMessageTypes()`) will be called. The dispatcher is responsible for:
+
+- Finding handlers that support the message type
+- Managing handler execution (sequential vs parallel)
+- Handling exceptions and retry logic
+- Managing service scopes and dependencies
+- Coordinating handler lifecycle
+
+## Built-in Implementations
+
+SimpleMessageBus provides two built-in dispatcher implementations:
+
+### ParallelMessageDispatcher
+
+Processes messages concurrently for maximum throughput:
+
+```csharp
+services.AddSimpleMessageBusParallelDispatcher(options =>
+{
+    options.MaxConcurrency = Environment.ProcessorCount * 2;
+    options.BatchSize = 10;
+});
+```
+
+**Characteristics**:
+- Handlers execute concurrently
+- Higher throughput
+- May process messages out of order
+- Default implementation
+
+### OrderedMessageDispatcher
+
+Processes messages sequentially to maintain order:
+
+```csharp
+services.AddSimpleMessageBusOrderedDispatcher();
+```
+
+**Characteristics**:
+- Handlers execute sequentially
+- Maintains message processing order
+- Lower throughput but deterministic
+- Useful for scenarios requiring strict ordering
+
+## Basic Usage
+
+### Dependency Injection Registration
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+// Register parallel dispatcher (default)
+builder.Services.AddSimpleMessageBusParallelDispatcher();
+
+// Or register ordered dispatcher
+builder.Services.AddSimpleMessageBusOrderedDispatcher();
+
+// Register message handlers
+builder.Services.AddScoped<IMessageHandler, OrderCreatedHandler>();
+builder.Services.AddScoped<IMessageHandler, PaymentProcessedHandler>();
+
+var app = builder.Build();
+```
+
+### Manual Dispatching
+
+While typically handled automatically by queue processors, you can dispatch manually:
+
+```csharp
+public class ManualDispatchService
+{
+    private readonly IMessageDispatcher _dispatcher;
+    
+    public ManualDispatchService(IMessageDispatcher dispatcher)
+    {
+        _dispatcher = dispatcher;
+    }
+    
+    public async Task ProcessMessageAsync(IMessage message)
+    {
+        var envelope = new MessageEnvelope(message);
+        await _dispatcher.Dispatch(envelope);
+    }
+}
+```
+
+## Custom Dispatcher Implementation
+
+### Basic Custom Dispatcher
+
+```csharp
+public class CustomMessageDispatcher : IMessageDispatcher
+{
+    private readonly IServiceProvider _serviceProvider;
+    private readonly ILogger<CustomMessageDispatcher> _logger;
+    
+    public CustomMessageDispatcher(
+        IServiceProvider serviceProvider,
+        ILogger<CustomMessageDispatcher> logger)
+    {
+        _serviceProvider = serviceProvider;
+        _logger = logger;
+    }
+    
+    public async Task Dispatch(MessageEnvelope messageEnvelope)
+    {
+        _logger.LogInformation("Dispatching message {MessageType} with ID {EnvelopeId}",
+            messageEnvelope.MessageType, messageEnvelope.Id);
+        
+        using var scope = _serviceProvider.CreateScope();
+        messageEnvelope.ServiceScope = scope;
+        
+        try
+        {
+            var handlers = GetMatchingHandlers(messageEnvelope, scope.ServiceProvider);
+            
+            foreach (var handler in handlers)
+            {
+                await ProcessWithHandler(messageEnvelope, handler);
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to dispatch message {MessageType}",
+                messageEnvelope.MessageType);
+            throw;
+        }
+    }
+    
+    private IEnumerable<IMessageHandler> GetMatchingHandlers(
+        MessageEnvelope envelope, 
+        IServiceProvider scopedProvider)
+    {
+        var allHandlers = scopedProvider.GetServices<IMessageHandler>();
+        var messageType = envelope.Message.GetType();
+        
+        return allHandlers.Where(handler =>
+            handler.GetHandledMessageTypes().Contains(messageType));
+    }
+    
+    private async Task ProcessWithHandler(MessageEnvelope envelope, IMessageHandler handler)
+    {
+        try
+        {
+            await handler.OnNextAsync(envelope);
+        }
+        catch (Exception ex)
+        {
+            await handler.OnErrorAsync(envelope.Message, ex);
+            throw;
+        }
+    }
+}
+
+// Register custom dispatcher
+services.AddScoped<IMessageDispatcher, CustomMessageDispatcher>();
+```
+
+### Priority-Based Dispatcher
+
+Implement priority-based message processing:
+
+```csharp
+public class PriorityMessageDispatcher : IMessageDispatcher
+{
+    private readonly IServiceProvider _serviceProvider;
+    private readonly ILogger<PriorityMessageDispatcher> _logger;
+    
+    public async Task Dispatch(MessageEnvelope messageEnvelope)
+    {
+        using var scope = _serviceProvider.CreateScope();
+        messageEnvelope.ServiceScope = scope;
+        
+        var priority = GetMessagePriority(messageEnvelope);
+        
+        _logger.LogInformation("Dispatching {Priority} priority message {MessageType}",
+            priority, messageEnvelope.MessageType);
+        
+        var handlers = GetHandlersOrderedByPriority(messageEnvelope, scope.ServiceProvider);
+        
+        if (priority == MessagePriority.High)
+        {
+            // Process high priority messages immediately
+            await ProcessHandlersSequentially(messageEnvelope, handlers);
+        }
+        else
+        {
+            // Process normal/low priority messages in parallel
+            await ProcessHandlersInParallel(messageEnvelope, handlers);
+        }
+    }
+    
+    private MessagePriority GetMessagePriority(MessageEnvelope envelope)
+    {
+        if (envelope.Message is IMetadataAware metadataMessage)
+        {
+            var priority = metadataMessage.Metadata.GetValueOrDefault("Priority")?.ToString();
+            if (Enum.TryParse<MessagePriority>(priority, out var parsed))
+                return parsed;
+        }
+        
+        return MessagePriority.Normal;
+    }
+    
+    private async Task ProcessHandlersSequentially(
+        MessageEnvelope envelope, 
+        IEnumerable<IMessageHandler> handlers)
+    {
+        foreach (var handler in handlers)
+        {
+            await ProcessWithHandler(envelope, handler);
+        }
+    }
+    
+    private async Task ProcessHandlersInParallel(
+        MessageEnvelope envelope, 
+        IEnumerable<IMessageHandler> handlers)
+    {
+        var tasks = handlers.Select(handler => ProcessWithHandler(envelope, handler));
+        await Task.WhenAll(tasks);
+    }
+}
+
+public enum MessagePriority
+{
+    Low = 0,
+    Normal = 1,
+    High = 2
+}
+```
+
+### Circuit Breaker Dispatcher
+
+Implement circuit breaker pattern for fault tolerance:
+
+```csharp
+public class CircuitBreakerDispatcher : IMessageDispatcher
+{
+    private readonly IMessageDispatcher _innerDispatcher;
+    private readonly ICircuitBreaker _circuitBreaker;
+    private readonly ILogger<CircuitBreakerDispatcher> _logger;
+    
+    public CircuitBreakerDispatcher(
+        IMessageDispatcher innerDispatcher,
+        ICircuitBreaker circuitBreaker,
+        ILogger<CircuitBreakerDispatcher> logger)
+    {
+        _innerDispatcher = innerDispatcher;
+        _circuitBreaker = circuitBreaker;
+        _logger = logger;
+    }
+    
+    public async Task Dispatch(MessageEnvelope messageEnvelope)
+    {
+        if (_circuitBreaker.State == CircuitBreakerState.Open)
+        {
+            _logger.LogWarning("Circuit breaker is open, dropping message {MessageType}",
+                messageEnvelope.MessageType);
+            
+            // Optionally send to dead letter queue
+            await HandleCircuitBreakerOpenAsync(messageEnvelope);
+            return;
+        }
+        
+        try
+        {
+            await _circuitBreaker.ExecuteAsync(async () =>
+            {
+                await _innerDispatcher.Dispatch(messageEnvelope);
+            });
+        }
+        catch (CircuitBreakerOpenException)
+        {
+            _logger.LogError("Circuit breaker opened during message processing");
+            await HandleCircuitBreakerOpenAsync(messageEnvelope);
+        }
+    }
+    
+    private async Task HandleCircuitBreakerOpenAsync(MessageEnvelope envelope)
+    {
+        // Send to dead letter queue or alternative processing
+        await _deadLetterService.SendAsync(envelope);
+    }
+}
+```
+
+### Metrics and Monitoring Dispatcher
+
+Add comprehensive monitoring to message dispatching:
+
+```csharp
+public class MonitoringDispatcher : IMessageDispatcher
+{
+    private readonly IMessageDispatcher _innerDispatcher;
+    private readonly IMetrics _metrics;
+    private readonly ILogger<MonitoringDispatcher> _logger;
+    
+    public MonitoringDispatcher(
+        IMessageDispatcher innerDispatcher,
+        IMetrics metrics,
+        ILogger<MonitoringDispatcher> logger)
+    {
+        _innerDispatcher = innerDispatcher;
+        _metrics = metrics;
+        _logger = logger;
+    }
+    
+    public async Task Dispatch(MessageEnvelope messageEnvelope)
+    {
+        var messageType = messageEnvelope.MessageType;
+        var stopwatch = Stopwatch.StartNew();
+        
+        using var activity = Activity.StartActivity("DispatchMessage");
+        activity?.SetTag("message.type", messageType);
+        activity?.SetTag("message.id", messageEnvelope.Id.ToString());
+        
+        _metrics.Counter("messages.dispatched.total")
+            .WithTag("message_type", messageType)
+            .Add(1);
+        
+        try
+        {
+            await _innerDispatcher.Dispatch(messageEnvelope);
+            
+            stopwatch.Stop();
+            
+            _metrics.Counter("messages.dispatched.success")
+                .WithTag("message_type", messageType)
+                .Add(1);
+                
+            _metrics.Histogram("message.dispatch.duration")
+                .WithTag("message_type", messageType)
+                .WithTag("status", "success")
+                .Record(stopwatch.ElapsedMilliseconds);
+            
+            activity?.SetStatus(ActivityStatusCode.Ok);
+            
+            _logger.LogInformation(
+                "Successfully dispatched {MessageType} in {Duration}ms",
+                messageType, stopwatch.ElapsedMilliseconds);
+        }
+        catch (Exception ex)
+        {
+            stopwatch.Stop();
+            
+            _metrics.Counter("messages.dispatched.error")
+                .WithTag("message_type", messageType)
+                .WithTag("error_type", ex.GetType().Name)
+                .Add(1);
+                
+            _metrics.Histogram("message.dispatch.duration")
+                .WithTag("message_type", messageType)
+                .WithTag("status", "error")
+                .Record(stopwatch.ElapsedMilliseconds);
+            
+            activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
+            
+            _logger.LogError(ex,
+                "Failed to dispatch {MessageType} after {Duration}ms",
+                messageType, stopwatch.ElapsedMilliseconds);
+            
+            throw;
+        }
+    }
+}
+```
+
+### Conditional Dispatcher
+
+Route messages to different processing strategies:
+
+```csharp
+public class ConditionalDispatcher : IMessageDispatcher
+{
+    private readonly IMessageDispatcher _highPriorityDispatcher;
+    private readonly IMessageDispatcher _normalDispatcher;
+    private readonly IMessageDispatcher _batchDispatcher;
+    private readonly ILogger<ConditionalDispatcher> _logger;
+    
+    public ConditionalDispatcher(
+        [FromKeyedServices("highpriority")] IMessageDispatcher highPriorityDispatcher,
+        [FromKeyedServices("normal")] IMessageDispatcher normalDispatcher,
+        [FromKeyedServices("batch")] IMessageDispatcher batchDispatcher,
+        ILogger<ConditionalDispatcher> logger)
+    {
+        _highPriorityDispatcher = highPriorityDispatcher;
+        _normalDispatcher = normalDispatcher;
+        _batchDispatcher = batchDispatcher;
+        _logger = logger;
+    }
+    
+    public async Task Dispatch(MessageEnvelope messageEnvelope)
+    {
+        var dispatcher = SelectDispatcher(messageEnvelope);
+        
+        _logger.LogInformation("Routing {MessageType} to {Dispatcher}",
+            messageEnvelope.MessageType, dispatcher.GetType().Name);
+        
+        await dispatcher.Dispatch(messageEnvelope);
+    }
+    
+    private IMessageDispatcher SelectDispatcher(MessageEnvelope envelope)
+    {
+        // Route based on message metadata
+        if (envelope.Message is IMetadataAware metadataMessage)
+        {
+            var priority = metadataMessage.Metadata.GetValueOrDefault("Priority")?.ToString();
+            if (priority == "High")
+                return _highPriorityDispatcher;
+                
+            var batchable = metadataMessage.Metadata.GetValueOrDefault("Batchable")?.ToString();
+            if (bool.TryParse(batchable, out var canBatch) && canBatch)
+                return _batchDispatcher;
+        }
+        
+        // Route based on message type
+        if (envelope.Message is ICriticalMessage)
+            return _highPriorityDispatcher;
+            
+        if (envelope.Message is IBatchableMessage)
+            return _batchDispatcher;
+        
+        return _normalDispatcher;
+    }
+}
+```
+
+## Advanced Patterns
+
+### Decorator Pattern
+
+Use decorators to add cross-cutting concerns:
+
+```csharp
+// Register dispatchers with decorators
+services.AddScoped<IMessageDispatcher, ParallelMessageDispatcher>();
+services.Decorate<IMessageDispatcher, MonitoringDispatcher>();
+services.Decorate<IMessageDispatcher, CircuitBreakerDispatcher>();
+services.Decorate<IMessageDispatcher, RetryDispatcher>();
+
+// Results in: RetryDispatcher -> CircuitBreakerDispatcher -> MonitoringDispatcher -> ParallelMessageDispatcher
+```
+
+### Handler Pipeline
+
+Implement a handler pipeline with middleware:
+
+```csharp
+public class PipelineDispatcher : IMessageDispatcher
+{
+    private readonly IServiceProvider _serviceProvider;
+    private readonly IEnumerable<IDispatcherMiddleware> _middleware;
+    
+    public async Task Dispatch(MessageEnvelope messageEnvelope)
+    {
+        using var scope = _serviceProvider.CreateScope();
+        messageEnvelope.ServiceScope = scope;
+        
+        var context = new DispatchContext(messageEnvelope, scope.ServiceProvider);
+        
+        // Build and execute middleware pipeline
+        var pipeline = BuildPipeline(context);
+        await pipeline.InvokeAsync();
+    }
+    
+    private RequestDelegate BuildPipeline(DispatchContext context)
+    {
+        RequestDelegate next = async () =>
+        {
+            // Terminal handler - actual message processing
+            await ProcessHandlersAsync(context);
+        };
+        
+        // Build pipeline in reverse order
+        foreach (var middleware in _middleware.Reverse())
+        {
+            var current = next;
+            next = async () => await middleware.InvokeAsync(context, current);
+        }
+        
+        return next;
+    }
+}
+
+public interface IDispatcherMiddleware
+{
+    Task InvokeAsync(DispatchContext context, RequestDelegate next);
+}
+
+public class LoggingMiddleware : IDispatcherMiddleware
+{
+    public async Task InvokeAsync(DispatchContext context, RequestDelegate next)
+    {
+        var logger = context.ServiceProvider.GetRequiredService<ILogger<LoggingMiddleware>>();
+        
+        logger.LogInformation("Processing message {MessageType}", 
+            context.Envelope.MessageType);
+        
+        await next();
+        
+        logger.LogInformation("Completed processing message {MessageType}", 
+            context.Envelope.MessageType);
+    }
+}
+```
+
+## Testing
+
+### Unit Testing Custom Dispatchers
+
+```csharp
+[TestFixture]
+public class CustomDispatcherTests
+{
+    private Mock<IServiceProvider> _mockServiceProvider;
+    private Mock<IServiceScope> _mockScope;
+    private Mock<IMessageHandler> _mockHandler;
+    private CustomMessageDispatcher _dispatcher;
+    
+    [SetUp]
+    public void SetUp()
+    {
+        _mockServiceProvider = new Mock<IServiceProvider>();
+        _mockScope = new Mock<IServiceScope>();
+        _mockHandler = new Mock<IMessageHandler>();
+        
+        _mockServiceProvider
+            .Setup(x => x.CreateScope())
+            .Returns(_mockScope.Object);
+            
+        _mockScope
+            .Setup(x => x.ServiceProvider.GetServices<IMessageHandler>())
+            .Returns(new[] { _mockHandler.Object });
+        
+        _dispatcher = new CustomMessageDispatcher(_mockServiceProvider.Object);
+    }
+    
+    [Test]
+    public async Task Dispatch_ValidMessage_CallsMatchingHandler()
+    {
+        // Arrange
+        var message = new OrderCreatedMessage { OrderNumber = "ORD-001" };
+        var envelope = new MessageEnvelope(message);
+        
+        _mockHandler
+            .Setup(x => x.GetHandledMessageTypes())
+            .Returns(new[] { typeof(OrderCreatedMessage) });
+        
+        // Act
+        await _dispatcher.Dispatch(envelope);
+        
+        // Assert
+        _mockHandler.Verify(x => x.OnNextAsync(envelope), Times.Once);
+    }
+    
+    [Test]
+    public async Task Dispatch_HandlerThrowsException_CallsOnErrorAsync()
+    {
+        // Arrange
+        var message = new OrderCreatedMessage();
+        var envelope = new MessageEnvelope(message);
+        var exception = new InvalidOperationException("Test error");
+        
+        _mockHandler
+            .Setup(x => x.GetHandledMessageTypes())
+            .Returns(new[] { typeof(OrderCreatedMessage) });
+            
+        _mockHandler
+            .Setup(x => x.OnNextAsync(envelope))
+            .ThrowsAsync(exception);
+        
+        // Act & Assert
+        await Assert.ThrowsAsync<InvalidOperationException>(
+            () => _dispatcher.Dispatch(envelope));
+        
+        _mockHandler.Verify(x => x.OnErrorAsync(message, exception), Times.Once);
+    }
+}
+```
+
+### Integration Testing
+
+```csharp
+[TestFixture]
+public class DispatcherIntegrationTests
+{
+    private IServiceProvider _serviceProvider;
+    private IMessageDispatcher _dispatcher;
+    private TestMessageHandler _testHandler;
+    
+    [SetUp]
+    public void SetUp()
+    {
+        var services = new ServiceCollection();
+        
+        _testHandler = new TestMessageHandler();
+        services.AddSingleton<IMessageHandler>(_testHandler);
+        services.AddScoped<IMessageDispatcher, ParallelMessageDispatcher>();
+        services.AddLogging();
+        
+        _serviceProvider = services.BuildServiceProvider();
+        _dispatcher = _serviceProvider.GetRequiredService<IMessageDispatcher>();
+    }
+    
+    [Test]
+    public async Task Dispatch_MessageWithHandler_ProcessesMessage()
+    {
+        // Arrange
+        var message = new OrderCreatedMessage { OrderNumber = "ORD-001" };
+        var envelope = new MessageEnvelope(message);
+        
+        // Act
+        await _dispatcher.Dispatch(envelope);
+        
+        // Assert
+        Assert.That(_testHandler.ProcessedMessages, Has.Count.EqualTo(1));
+        Assert.That(_testHandler.ProcessedMessages[0].OrderNumber, Is.EqualTo("ORD-001"));
+    }
+}
+
+public class TestMessageHandler : IMessageHandler
+{
+    public List<OrderCreatedMessage> ProcessedMessages { get; } = new();
+    
+    public IEnumerable<Type> GetHandledMessageTypes()
+    {
+        yield return typeof(OrderCreatedMessage);
+    }
+    
+    public async Task OnNextAsync(MessageEnvelope messageEnvelope)
+    {
+        var message = messageEnvelope.GetMessage<OrderCreatedMessage>();
+        ProcessedMessages.Add(message);
+        await Task.CompletedTask;
+    }
+    
+    public async Task OnErrorAsync(IMessage message, Exception exception)
+    {
+        await Task.CompletedTask;
+    }
+}
+```
+
+## Best Practices
+
+### 1. Use Built-in Dispatchers When Possible
+
+Start with built-in implementations unless you have specific requirements:
+
+<CodeGroup>
+
+```csharp Good
+// Use built-in dispatcher for most scenarios
+services.AddSimpleMessageBusParallelDispatcher();
+```
+
+```csharp Avoid
+// Don't create custom dispatchers unless necessary
+services.AddScoped<IMessageDispatcher, CustomComplexDispatcher>();
+```
+
+</CodeGroup>
+
+### 2. Handle Service Scope Properly
+
+Ensure proper service scope management in custom dispatchers:
+
+```csharp
+public async Task Dispatch(MessageEnvelope messageEnvelope)
+{
+    using var scope = _serviceProvider.CreateScope();
+    messageEnvelope.ServiceScope = scope; // Important: Set the scope
+    
+    try
+    {
+        await ProcessMessageAsync(messageEnvelope);
+    }
+    finally
+    {
+        messageEnvelope.ServiceScope = null; // Clean up reference
+    }
+}
+```
+
+### 3. Implement Proper Error Handling
+
+Always handle exceptions appropriately:
+
+```csharp
+private async Task ProcessWithHandler(MessageEnvelope envelope, IMessageHandler handler)
+{
+    try
+    {
+        await handler.OnNextAsync(envelope);
+    }
+    catch (Exception ex)
+    {
+        // Always call OnErrorAsync for handler errors
+        await handler.OnErrorAsync(envelope.Message, ex);
+        
+        // Decide whether to re-throw based on error handling strategy
+        throw;
+    }
+}
+```
+
+### 4. Add Monitoring and Logging
+
+Include comprehensive monitoring in custom dispatchers:
+
+```csharp
+public async Task Dispatch(MessageEnvelope messageEnvelope)
+{
+    _logger.LogInformation("Dispatching {MessageType}", messageEnvelope.MessageType);
+    
+    var stopwatch = Stopwatch.StartNew();
+    
+    try
+    {
+        await ProcessMessageAsync(messageEnvelope);
+        
+        _metrics.Counter("messages.dispatched.success").Add(1);
+        _logger.LogInformation("Successfully dispatched {MessageType} in {Duration}ms",
+            messageEnvelope.MessageType, stopwatch.ElapsedMilliseconds);
+    }
+    catch (Exception ex)
+    {
+        _metrics.Counter("messages.dispatched.error").Add(1);
+        _logger.LogError(ex, "Failed to dispatch {MessageType}", messageEnvelope.MessageType);
+        throw;
+    }
+}
+```
+
+## Related Components
+
+<CardGroup cols={2}>
+  <Card
+    title="IMessageHandler"
+    icon="gear"
+    href="/api-reference/core/imessagehandler"
+  >
+    Handlers invoked by dispatchers
+  </Card>
+  <Card
+    title="MessageEnvelope"
+    icon="package"
+    href="/api-reference/core/messageenvelope"
+  >
+    Container dispatched to handlers
+  </Card>
+  <Card
+    title="IQueueProcessor"
+    icon="layers"
+    href="/api-reference/dispatch/iqueueprocessor"
+  >
+    Components that use dispatchers
+  </Card>
+  <Card
+    title="Configuration Guide"
+    icon="gear"
+    href="/guides/configuration"
+  >
+    Configure dispatcher behavior
+  </Card>
+</CardGroup>
