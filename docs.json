@@ -11,12 +11,12 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Introduction",
+        "tab": "Overview",
         "groups": [
           {
             "group": "Get Started",
             "pages": [
-              "docs/introduction",
+              "docs/index",
               "quickstart",
               "development"
             ]
@@ -40,7 +40,7 @@
           {
             "group": "Core Framework",
             "pages": [
-              "docs/framework/introduction"
+              "docs/framework/index"
             ]
           },
           {
@@ -59,7 +59,7 @@
           {
             "group": "SimpleMessageBus",
             "pages": [
-              "docs/simplemessagebus/introduction",
+              "docs/simplemessagebus/index",
               "docs/simplemessagebus/quickstart",
               "docs/simplemessagebus/installation"
             ]
@@ -123,7 +123,7 @@
           {
             "group": "Breakdance",
             "pages": [
-              "docs/breakdance/introduction"
+              "docs/breakdance/index"
             ]
           },
           {
@@ -142,7 +142,7 @@
           {
             "group": "BlazorEssentials",
             "pages": [
-              "docs/blazoressentials/introduction"
+              "docs/blazoressentials/index"
             ]
           },
           {
