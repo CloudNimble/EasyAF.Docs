@@ -7,6 +7,26 @@
     ],
     "solutions": [
       {
+        "name": "Welcome",
+        "tab": "Welcome",
+        "source": "local",
+        "path": "D:\\Work\\EasyAF\\Dev",
+        "outputPath": "framework",
+        "projects": ["*.csproj"],
+        "exclude": ["*.Tests.*.csproj", "*.Tools.*.csproj", "*.Analyzers.*.csproj", "*.Edmx*"],
+        "navigation": {
+          "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "welcome/index",
+              "quickstart",
+              "development"
+            ]
+          },
+        }
+      },
+      {
         "name": "Core Framework",
         "tab": "Core Framework",
         "source": "local",
@@ -51,8 +71,8 @@
       "siteName": "EasyAF",
       "outputFolder": "./",
       "logo": {
-        "light": "/logo/light.svg",
-        "dark": "/logo/dark.svg"
+        "light": "/images/easyaf.svg",
+        "dark": "/images/easyaf.svg"
       },
       "theme": "mint",
       "colors": {

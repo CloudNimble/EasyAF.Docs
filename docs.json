@@ -2,8 +2,8 @@
   "schema": "https://mintlify.com/docs.json",
   "name": "EasyAF",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/easyaf.svg",
+    "dark": "/images/easyaf.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
