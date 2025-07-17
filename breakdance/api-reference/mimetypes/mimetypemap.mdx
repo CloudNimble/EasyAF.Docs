@@ -1,0 +1,94 @@
+---
+title: "MimeTypeMap"
+description: "Class MimeTypeMap."
+icon: "cube"
+---
+
+# MimeTypeMap
+
+<Badge variant="outline">Class</Badge>
+
+Class MimeTypeMap.
+
+## Syntax
+
+```csharp
+public static class MimeTypeMap
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetExtension
+
+```csharp
+public static string GetExtension(string mimeType, bool throwErrorIfNotFound = true)
+```
+
+Gets the extension from the provided MINE type.
+
+#### Parameters
+
+- **mimeType** [string](https://learn.microsoft.com/dotnet/api/system.string): Type of the MIME.
+- **throwErrorIfNotFound** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): if set to <code>true</code>, throws error if extension's not found.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The extension.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: 
+- `[ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception)`: 
+
+### GetMimeType
+
+```csharp
+public static string GetMimeType(string str)
+```
+
+Gets the type of the MIME from the provided string.
+
+#### Parameters
+
+- **str** [string](https://learn.microsoft.com/dotnet/api/system.string): The filename or extension.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MIME type.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: 
+
+### TryGetMimeType
+
+```csharp
+public static bool TryGetMimeType(string str, out string mimeType)
+```
+
+Tries to get the type of the MIME from the provided string.
+
+#### Parameters
+
+- **str** [string](https://learn.microsoft.com/dotnet/api/system.string): The filename or extension.
+- **mimeType** [string](https://learn.microsoft.com/dotnet/api/system.string): The variable to store the MIME type.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+The MIME type.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: 
+
+

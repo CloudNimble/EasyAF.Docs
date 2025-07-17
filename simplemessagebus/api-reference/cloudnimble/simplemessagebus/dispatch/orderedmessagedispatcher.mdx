@@ -1,0 +1,72 @@
+---
+title: "OrderedMessageDispatcher"
+description: "An <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# OrderedMessageDispatcher
+
+<Badge variant="outline">Class</Badge>
+
+An <xref href="CloudNimble.SimpleMessageBus.Dispatch.IMessageDispatcher" data-throw-if-not-resolved="false"></xref> implementation that processes the messages in the order the <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=IMessageHandlers" data-throw-if-not-resolved="false"></xref> 
+were registered with the Dependency Injection container.
+
+## Syntax
+
+```csharp
+public class OrderedMessageDispatcher : IMessageDispatcher
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IMessageDispatcher](/api-reference/cloudnimble/simplemessagebus/dispatch/imessagedispatcher)
+
+## Constructors
+
+### OrderedMessageDispatcher
+
+```csharp
+public OrderedMessageDispatcher(IEnumerable<IMessageHandler> messageHandlers)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.SimpleMessageBus.Dispatch.OrderedMessageDispatcher" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **messageHandlers** [IEnumerable&lt;IMessageHandler&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The collection of message handlers to dispatch to.
+
+
+## Methods
+
+### Dispatch
+
+```csharp
+public Task Dispatch(MessageEnvelope messageEnvelope)
+```
+
+Sends the <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> to the <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=MessageHandlers" data-throw-if-not-resolved="false"></xref> registered to that type, for processing.
+
+#### Parameters
+
+- **messageEnvelope** [MessageEnvelope](/api-reference/cloudnimble/simplemessagebus/core/messageenvelope): The <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> instance to be processed.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown when <code class="paramref">messageEnvelope</code> is null.
+
+
+## Remarks
+
+This dispatcher ensures that message handlers are invoked sequentially in registration order. This is useful
+when handler execution order matters, such as when one handler's output affects another handler's behavior.
+Each handler completes before the next one begins, providing predictable execution flow but potentially
+slower overall processing compared to parallel dispatching.
+

@@ -1,0 +1,69 @@
+---
+title: "ODataV401SingleEntityResponseBase"
+description: "Represents the base class for OData v4."
+icon: "cube"
+---
+
+# ODataV401SingleEntityResponseBase
+
+<Badge variant="outline">Class</Badge>
+
+Represents the base class for OData v4.01 single entity responses containing entity-specific metadata.
+Uses simplified OData v4.01 notation for entity type information and identification.
+
+## Syntax
+
+```csharp
+public class ODataV401SingleEntityResponseBase : ODataV401ResponseBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ODataV401ResponseBase](/api-reference/cloudnimble/easyaf/http/odata/odatav401responsebase)
+
+## Properties
+
+### ODataEditLink
+
+```csharp
+[JsonPropertyName("editLink")]
+public string ODataEditLink { get; set; }
+```
+
+Gets or sets the URL that can be used to edit the entity using OData v4.01 simplified notation.
+This property provides the endpoint for performing update operations on the entity.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ODataId
+
+```csharp
+[JsonPropertyName("@id")]
+public string ODataId { get; set; }
+```
+
+Gets or sets the canonical URL that identifies the entity using OData v4.01 simplified notation.
+This property provides a unique identifier for the entity resource.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ODataType
+
+```csharp
+[JsonPropertyName("@type")]
+public string ODataType { get; set; }
+```
+
+Gets or sets the type annotation specifying the entity type using OData v4.01 simplified notation.
+This property provides runtime type information for the entity.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

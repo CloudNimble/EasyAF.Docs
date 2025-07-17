@@ -1,0 +1,251 @@
+---
+title: "EdmxLoader"
+description: "Loads and parses EDMX files, extracting Entity Data Model components and EasyAF extensions."
+icon: "cube"
+---
+
+# EdmxLoader
+
+<Badge variant="outline">Class</Badge>
+
+Loads and parses EDMX files, extracting Entity Data Model components and EasyAF extensions.
+
+## Syntax
+
+```csharp
+public class EdmxLoader
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### EdmxLoader
+
+```csharp
+public EdmxLoader()
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.CodeGen.EdmxLoader" data-throw-if-not-resolved="false"></xref> class.
+
+### EdmxLoader
+
+```csharp
+public EdmxLoader(string filePath)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.CodeGen.EdmxLoader" data-throw-if-not-resolved="false"></xref> class with the specified file path.
+
+#### Parameters
+
+- **filePath** [string](https://learn.microsoft.com/dotnet/api/system.string): The path to the EDMX file to load.
+
+#### Exceptions
+
+- `[ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception)`: Thrown when the file path does not exist or is not an EDMX file.
+
+
+## Properties
+
+### CsdlElement
+
+```csharp
+public XElement CsdlElement { get; }
+```
+
+Gets or sets the CSDL (Conceptual Schema Definition Language) XML element.
+
+#### Returns
+
+[XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement)
+
+### EdmItems
+
+```csharp
+public EdmItemCollection EdmItems { get; }
+```
+
+Gets or sets the Entity Data Model item collection containing conceptual model metadata.
+
+#### Returns
+
+[EdmItemCollection](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmitemcollection)
+
+### EdmxSchemaErrors
+
+```csharp
+public List<CompilerError> EdmxSchemaErrors { get; }
+```
+
+Gets or sets the collection of EDMX schema errors encountered during loading.
+
+#### Returns
+
+[List&lt;CompilerError&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Entities
+
+```csharp
+public List<EntityComposition> Entities { get; }
+```
+
+Gets or sets the collection of entity compositions extracted from the model.
+
+#### Returns
+
+[List&lt;EntityComposition&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### EntityContainer
+
+```csharp
+public EntityContainer EntityContainer { get; }
+```
+
+Gets or sets the entity container from the conceptual model.
+
+#### Returns
+
+[EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer)
+
+### EntitySets
+
+```csharp
+public List<EntitySet> EntitySets { get; }
+```
+
+Gets the collection of entity sets from the entity container.
+
+#### Returns
+
+[List&lt;EntitySet&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### FilePath
+
+```csharp
+public string FilePath { get; }
+```
+
+Gets or sets the file path of the loaded EDMX file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### IsEFCore
+
+```csharp
+public bool IsEFCore { get; }
+```
+
+Gets a value indicating whether the model is using Entity Framework Core.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Mappings
+
+```csharp
+public StorageMappingItemCollection Mappings { get; }
+```
+
+Gets or sets the storage mapping item collection containing C-S mapping metadata.
+
+#### Returns
+
+[StorageMappingItemCollection](https://learn.microsoft.com/dotnet/api/system.data.entity.core.mapping.storagemappingitemcollection)
+
+### ModelNamespace
+
+```csharp
+public string ModelNamespace { get; set; }
+```
+
+Gets or sets the namespace of the conceptual model.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### MslElement
+
+```csharp
+public XElement MslElement { get; }
+```
+
+Gets or sets the MSL (Mapping Specification Language) XML element.
+
+#### Returns
+
+[XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement)
+
+### OnModelCreatingMethod
+
+```csharp
+public string OnModelCreatingMethod { get; }
+```
+
+Gets or sets the complete OnModelCreating method extracted from EasyAF extensions.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The complete C# OnModelCreating method including signature and braces as a string.
+Returns an empty string if no OnModelCreating method is found in the EDMX file.
+
+### SsdlElement
+
+```csharp
+public XElement SsdlElement { get; }
+```
+
+Gets or sets the SSDL (Store Schema Definition Language) XML element.
+
+#### Returns
+
+[XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement)
+
+### StoreItems
+
+```csharp
+public StoreItemCollection StoreItems { get; }
+```
+
+Gets or sets the store item collection containing storage model metadata.
+
+#### Returns
+
+[StoreItemCollection](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.storeitemcollection)
+
+
+## Methods
+
+### Load
+
+```csharp
+public void Load(bool fixProvider = true)
+```
+
+Loads and parses the EDMX file from the file path specified in the constructor.
+
+#### Parameters
+
+- **fixProvider** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to fix the provider attribute to use System.Data.SqlClient.
+
+### Load
+
+```csharp
+public void Load(string content, bool fixProvider = true)
+```
+
+Loads and parses the EDMX content from the specified string.
+
+#### Parameters
+
+- **content** [string](https://learn.microsoft.com/dotnet/api/system.string): The EDMX XML content to parse.
+- **fixProvider** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to fix the provider attribute to use System.Data.SqlClient.
+
+

@@ -1,0 +1,60 @@
+---
+title: "DocFxMintlifyGenerator"
+description: "Generates Mintlify documentation using DocFX metadata."
+icon: "cube"
+---
+
+# DocFxMintlifyGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates Mintlify documentation using DocFX metadata.
+
+## Syntax
+
+```csharp
+public class DocFxMintlifyGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### DocFxMintlifyGenerator
+
+```csharp
+public DocFxMintlifyGenerator()
+```
+
+Initializes a new instance of the DocFxMintlifyGenerator class.
+
+
+## Methods
+
+### GenerateAsync
+
+```csharp
+public Task GenerateAsync(IEnumerable<string> projectPaths, MintlifyOptions options)
+```
+
+Generates Mintlify documentation for the specified projects.
+
+#### Parameters
+
+- **projectPaths** [IEnumerable&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The paths to the .NET projects to document.
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+
+## Remarks
+
+This class orchestrates the entire process of generating Mintlify documentation
+from .NET source code using DocFX for metadata extraction and type resolution.
+

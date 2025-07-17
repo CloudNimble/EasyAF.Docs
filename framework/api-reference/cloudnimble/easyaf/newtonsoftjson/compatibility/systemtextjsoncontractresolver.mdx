@@ -1,0 +1,63 @@
+---
+title: "SystemTextJsonContractResolver"
+description: "Provides support for <xref href=\"System."
+icon: "cube"
+---
+
+# SystemTextJsonContractResolver
+
+<Badge variant="outline">Class</Badge>
+
+Provides support for <xref href="System.Text.Json.Serialization.JsonIgnoreAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="System.Text.Json.Serialization.JsonExtensionDataAttribute" data-throw-if-not-resolved="false"></xref>, and <xref href="System.Text.Json.Serialization.JsonPropertyNameAttribute" data-throw-if-not-resolved="false"></xref>
+in System.Text.Json scenarios.
+
+## Syntax
+
+```csharp
+public class SystemTextJsonContractResolver : DefaultContractResolver, IContractResolver
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `DefaultContractResolver`
+
+## Implements
+
+- `IContractResolver`
+
+## Methods
+
+### CreateProperty
+
+```csharp
+protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
+```
+
+#### Parameters
+
+- **member** [MemberInfo](https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo): 
+- **memberSerialization** ``MemberSerialization``: 
+
+#### Returns
+
+``JsonProperty``
+
+
+## Fields
+
+### Instance
+
+```csharp
+public static readonly SystemTextJsonContractResolver Instance
+```
+
+#### Returns
+
+[SystemTextJsonContractResolver](/api-reference/cloudnimble/easyaf/newtonsoftjson/compatibility/systemtextjsoncontractresolver)
+
+
+## Remarks
+
+Influenced by https://github.com/RicoSuter/NJsonSchema/blob/master/src/NJsonSchema/Generation/SystemTextJsonUtilities.cs
+

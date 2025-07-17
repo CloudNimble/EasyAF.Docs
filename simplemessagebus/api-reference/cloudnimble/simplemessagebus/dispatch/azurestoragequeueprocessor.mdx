@@ -1,0 +1,74 @@
+---
+title: "AzureStorageQueueProcessor"
+description: "Processes messages from Azure Storage Queues and dispatches them to registered message handlers."
+icon: "cube"
+---
+
+# AzureStorageQueueProcessor
+
+<Badge variant="outline">Class</Badge>
+
+Processes messages from Azure Storage Queues and dispatches them to registered message handlers.
+
+## Syntax
+
+```csharp
+public class AzureStorageQueueProcessor : IQueueProcessor
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IQueueProcessor](/api-reference/cloudnimble/simplemessagebus/dispatch/iqueueprocessor)
+
+## Constructors
+
+### AzureStorageQueueProcessor
+
+```csharp
+public AzureStorageQueueProcessor(IMessageDispatcher dispatcher, IServiceScopeFactory serviceScopeFactory)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.SimpleMessageBus.Dispatch.AzureStorageQueueProcessor" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **dispatcher** [IMessageDispatcher](/api-reference/cloudnimble/simplemessagebus/dispatch/imessagedispatcher): The message dispatcher to route messages to handlers.
+- **serviceScopeFactory** [IServiceScopeFactory](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory): The service scope factory for creating DI scopes per message.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown when <code class="paramref">dispatcher</code> or <code class="paramref">serviceScopeFactory</code> is null.
+
+
+## Methods
+
+### ProcessQueue
+
+```csharp
+public Task<QueueMessage> ProcessQueue(QueueMessage queueMessage, ILogger logger)
+```
+
+Processes a message from the Azure Storage Queue and dispatches it to registered handlers.
+
+#### Parameters
+
+- **queueMessage** [QueueMessage](https://learn.microsoft.com/dotnet/api/azure.storage.queues.models.queuemessage): The Azure Storage Queue message to process.
+- **logger** [ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger): The logger instance for this processing operation.
+
+#### Returns
+
+[Task&lt;QueueMessage&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+The processed queue message, which will be moved to the completed queue if configured.
+
+
+## Remarks
+
+This processor integrates with Azure WebJobs to automatically trigger message processing when
+messages arrive in Azure Storage Queues. It handles message deserialization, lifecycle management,
+and provides proper logging and dependency injection scope for each message.
+

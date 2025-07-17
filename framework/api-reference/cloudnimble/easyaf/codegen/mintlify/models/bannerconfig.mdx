@@ -1,0 +1,56 @@
+---
+title: "BannerConfig"
+description: "Represents the banner configuration for displaying announcements or notifications in the Mintlify documentation site."
+icon: "cube"
+---
+
+# BannerConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the banner configuration for displaying announcements or notifications in the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class BannerConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Content
+
+```csharp
+[JsonPropertyName("content")]
+public string Content { get; set; }
+```
+
+Gets or sets the content to display in the banner.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Dismissible
+
+```csharp
+[JsonPropertyName("dismissible")]
+public bool? Dismissible { get; set; }
+```
+
+Gets or sets whether to show a dismiss button on the banner.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+
+## Remarks
+
+This configuration allows you to display a banner at the top of your documentation
+for important announcements, updates, or notifications. The banner supports MDX formatting.
+

@@ -1,0 +1,90 @@
+---
+title: "IndexedDbOptions"
+description: "Specifies the options required to leverage a browser's IndexedDB instance as the SimpleMessageBus backing queue."
+icon: "cube"
+---
+
+# IndexedDbOptions
+
+<Badge variant="outline">Class</Badge>
+
+Specifies the options required to leverage a browser's IndexedDB instance as the SimpleMessageBus backing queue.
+
+## Syntax
+
+```csharp
+public class IndexedDbOptions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### IndexedDbOptions
+
+```csharp
+public IndexedDbOptions()
+```
+
+The default constructor, which sets the default values equal to the values specified in <xref href="CloudNimble.SimpleMessageBus.IndexedDb.Core.IndexedDbConstants" data-throw-if-not-resolved="false"></xref>.
+
+
+## Properties
+
+### CompletedQueueName
+
+```csharp
+public string CompletedQueueName { get; set; }
+```
+
+The IndexedDb table where successfully-processed queue items will be moved to upon completion. Defaults to <xref href="CloudNimble.SimpleMessageBus.IndexedDb.Core.IndexedDbConstants.Completed" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### DatabaseName
+
+```csharp
+public string DatabaseName { get; set; }
+```
+
+The name of the Database inside IndexedDb where the queue tables will be stored. Defaults to 'SimpleMessageBus'.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ErrorQueueName
+
+```csharp
+public string ErrorQueueName { get; set; }
+```
+
+The IndexedDb table where failed items will be stored while they are waiting to be analyzed and reprocessed. Defaults to <xref href="CloudNimble.SimpleMessageBus.IndexedDb.Core.IndexedDbConstants.Error" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### QueueName
+
+```csharp
+public string QueueName { get; set; }
+```
+
+The IndexedDb table where items will be stored while they are waiting to be processed. Defaults to <xref href="CloudNimble.SimpleMessageBus.IndexedDb.Core.IndexedDbConstants.Queue" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+These options configure the IndexedDB database and object store names used for message queuing
+in Blazor WebAssembly applications. The default values follow SimpleMessageBus conventions
+and can be customized for specific application requirements.
+

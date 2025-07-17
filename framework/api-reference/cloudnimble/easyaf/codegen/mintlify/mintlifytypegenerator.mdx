@@ -1,0 +1,86 @@
+---
+title: "MintlifyTypeGenerator"
+description: "Generates Mintlify MDX files for individual types."
+icon: "cube"
+---
+
+# MintlifyTypeGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates Mintlify MDX files for individual types.
+
+## Syntax
+
+```csharp
+public class MintlifyTypeGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### MintlifyTypeGenerator
+
+```csharp
+public MintlifyTypeGenerator(MintlifyOptions options, MintlifyLinkResolver linkResolver, MintlifyExampleExtractor exampleExtractor)
+```
+
+Initializes a new instance of the MintlifyTypeGenerator class.
+
+#### Parameters
+
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+- **linkResolver** [MintlifyLinkResolver](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifylinkresolver): The link resolver for cross-references.
+- **exampleExtractor** [MintlifyExampleExtractor](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyexampleextractor): The example extractor for code samples.
+
+
+## Methods
+
+### GenerateTypeAsync
+
+```csharp
+public Task GenerateTypeAsync(XmlMember type, AssemblyXmlDocumentation xmlDocumentation)
+```
+
+Generates an MDX file for a specific type.
+
+#### Parameters
+
+- **type** [XmlMember](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlmember): The type to generate documentation for.
+- **xmlDocumentation** [AssemblyXmlDocumentation](/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation): The complete XML documentation context.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+### GenerateTypeMdx
+
+```csharp
+public string GenerateTypeMdx(XmlMember type, AssemblyXmlDocumentation xmlDocumentation)
+```
+
+Generates the MDX content for a type.
+
+#### Parameters
+
+- **type** [XmlMember](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlmember): The type to generate content for.
+- **xmlDocumentation** [AssemblyXmlDocumentation](/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation): The complete XML documentation context.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX content as a string.
+
+
+## Remarks
+
+This class is responsible for creating detailed MDX documentation files for each type,
+including all members, inheritance information, and cross-references.
+It produces beautiful, interactive documentation that showcases the API effectively.
+

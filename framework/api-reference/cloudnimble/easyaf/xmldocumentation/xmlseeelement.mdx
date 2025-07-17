@@ -1,0 +1,95 @@
+---
+title: "XmlSeeElement"
+description: "Represents a see XML documentation element for cross-references."
+icon: "cube"
+---
+
+# XmlSeeElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a see XML documentation element for cross-references.
+
+## Syntax
+
+```csharp
+public class XmlSeeElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlSeeElement
+
+```csharp
+public XmlSeeElement()
+```
+
+Initializes a new instance of the XmlSeeElement class.
+
+### XmlSeeElement
+
+```csharp
+public XmlSeeElement(XElement element)
+```
+
+Initializes a new instance of the XmlSeeElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### Cref
+
+```csharp
+public string Cref { get; set; }
+```
+
+Gets or sets the cross-reference target.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### LinkText
+
+```csharp
+public string LinkText { get; set; }
+```
+
+Gets or sets the link text to display.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this see element to MDX format as a link.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this cross-reference.
+
+
+## Remarks
+
+The see element creates a link to another type or member within the documentation.
+It is used for inline cross-references within text.
+

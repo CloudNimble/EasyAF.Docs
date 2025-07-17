@@ -1,0 +1,48 @@
+---
+title: "Html"
+description: "A port of the ASP."
+icon: "cube"
+---
+
+# Html
+
+<Badge variant="outline">Class</Badge>
+
+A port of the ASP.NET MVC HtmlHelper class to Blazor.
+
+## Syntax
+
+```csharp
+public static class Html
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### Raw
+
+```csharp
+public static MarkupString Raw(string content)
+```
+
+Outputs HTML to the browser without encoding it.
+
+#### Parameters
+
+- **content** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[MarkupString](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.markupstring)
+
+A <xref href="Microsoft.AspNetCore.Components.MarkupString" data-throw-if-not-resolved="false"></xref> containing the pre-encoded HTML.
+
+
+## Remarks
+
+https://github.com/aspnet/AspNetWebStack/blob/main/src/System.Web.Mvc/HtmlHelper.cs &amp;
+https://github.com/dotnet/aspnetcore/tree/main/src/Mvc/Mvc.ViewFeatures/src/Rendering
+

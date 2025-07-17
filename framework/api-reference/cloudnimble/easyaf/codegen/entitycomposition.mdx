@@ -1,0 +1,289 @@
+---
+title: "EntityComposition"
+description: ""
+icon: "cube"
+---
+
+# EntityComposition
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class EntityComposition
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### EntityComposition
+
+```csharp
+public EntityComposition(EntityType entity)
+```
+
+#### Parameters
+
+- **entity** [EntityType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitytype): 
+
+
+## Properties
+
+### CollectionNavigationProperties
+
+```csharp
+public List<NavigationProperty> CollectionNavigationProperties { get; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing all of the Entity properties that map to the Many side of a One to Many association.
+
+#### Returns
+
+[List&lt;NavigationProperty&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### ComplexProperties
+
+```csharp
+public List<EdmProperty> ComplexProperties { get; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing all of the Entity properties that are not .NET simple types (int, string, etc).
+
+#### Returns
+
+[List&lt;EdmProperty&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### EntityType
+
+```csharp
+public EntityType EntityType { get; set; }
+```
+
+The Entity Framework <xref href="CloudNimble.EasyAF.CodeGen.EntityComposition.EntityType" data-throw-if-not-resolved="false"></xref> that represents the EF-processed shape and structure of the Entity.
+
+#### Returns
+
+[EntityType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitytype)
+
+### HasState
+
+```csharp
+public bool HasState { get; }
+```
+
+A boolean specifying whether or not this Entity has StateType and StateTypeId properties.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### HasStatus
+
+```csharp
+public bool HasStatus { get; }
+```
+
+A boolean specifying whether or not this Entity has StatusType and StatusTypeId properties.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsActiveTrackable
+
+```csharp
+public bool IsActiveTrackable { get; }
+```
+
+A boolean specifying whether or not this Entity has an IsActive property.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsCreatedAuditable
+
+```csharp
+public bool IsCreatedAuditable { get; }
+```
+
+A boolean specifying whether or not this Entity has a DateCreated property.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsCreatorTrackable
+
+```csharp
+public bool IsCreatorTrackable { get; }
+```
+
+A boolean specifying whether or not this Entity has a CreatedById property.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsDbEnum
+
+```csharp
+public bool IsDbEnum { get; }
+```
+
+A boolean specifying whether or not this Entity has Id, DisplayName, and IsActive properties.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsDbStateEnum
+
+```csharp
+public bool IsDbStateEnum { get; }
+```
+
+A boolean specifying whether or not <xref href="CloudNimble.EasyAF.CodeGen.EntityComposition.IsDbEnum" data-throw-if-not-resolved="false"></xref> is true and the Entity has InstructionText, PrimaryTargetDisplayText, 
+PrimaryTargetSortOrder, SecondaryTargetDisplayText, SecondaryTargetSortOrder properties.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsDbStatusEnum
+
+```csharp
+public bool IsDbStatusEnum { get; }
+```
+
+A boolean specifying whether or not <xref href="CloudNimble.EasyAF.CodeGen.EntityComposition.IsDbEnum" data-throw-if-not-resolved="false"></xref> is true and the EntityName ends in "StatusType".
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsHumanReadable
+
+```csharp
+public bool IsHumanReadable { get; }
+```
+
+A boolean specifying whether or not this Entity has DisplayName property.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsIdentifiable
+
+```csharp
+public bool IsIdentifiable { get; }
+```
+
+A boolean specifying whether or not this Entity has an Id property.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsSortable
+
+```csharp
+public bool IsSortable { get; }
+```
+
+A boolean specifying whether or not this Entity has a SortOrder property.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsUpdatedAuditable
+
+```csharp
+public bool IsUpdatedAuditable { get; }
+```
+
+A boolean specifying whether or not this Entity has an DateUpdated property.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsUpdaterTrackable
+
+```csharp
+public bool IsUpdaterTrackable { get; }
+```
+
+A boolean specifying whether or not this Entity has a UpdatedById property.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### KeyProperties
+
+```csharp
+public List<EdmProperty> KeyProperties { get; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing all of the Entity properties that make up the Entity's keys.
+
+#### Returns
+
+[List&lt;EdmProperty&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### NavigationProperties
+
+```csharp
+public List<NavigationProperty> NavigationProperties { get; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing all of the Entity properties that map to the other end of a One to One association.
+
+#### Returns
+
+[List&lt;NavigationProperty&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### OtherProperties
+
+```csharp
+public List<EdmProperty> OtherProperties { get; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing all of the Entity properties that are NOT tracked by EasyAF.
+
+#### Returns
+
+[List&lt;EdmProperty&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### PropertiesWithDefaults
+
+```csharp
+public List<EdmProperty> PropertiesWithDefaults { get; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing all of the Entity properties that make up the Entity's keys.
+
+#### Returns
+
+[List&lt;EdmProperty&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### SimpleProperties
+
+```csharp
+public List<EdmProperty> SimpleProperties { get; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing all of the Entity properties that are .NET simple types (int, string, etc).
+
+#### Returns
+
+[List&lt;EdmProperty&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

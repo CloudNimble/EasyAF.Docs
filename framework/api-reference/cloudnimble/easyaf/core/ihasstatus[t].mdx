@@ -1,0 +1,46 @@
+---
+title: "IHasStatus<T>"
+description: "An interface that specifes an implementing Entity contains a child Entity of T that implements <xref href=\"CloudNimble."
+icon: "plug"
+---
+
+# IHasStatus&lt;T&gt;
+
+<Badge variant="outline">Interface</Badge>
+
+An interface that specifes an implementing Entity contains a child Entity of T that implements <xref href="CloudNimble.EasyAF.Core.IDbStatusEnum" data-throw-if-not-resolved="false"></xref> and
+represents the Entity's current status.
+
+## Syntax
+
+```csharp
+public interface IHasStatus<T> : IIdentifiable<Guid> where T : class, IDbStatusEnum
+```
+
+## Properties
+
+### StatusType
+
+```csharp
+T StatusType { get; set; }
+```
+
+The populated instance of <xref href="CloudNimble.EasyAF.Core.IDbStatusEnum" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+``T``
+
+### StatusTypeId
+
+```csharp
+Guid StatusTypeId { get; set; }
+```
+
+The unique identifier for the SimpleStateMachine <xref href="CloudNimble.EasyAF.Core.IDbStatusEnum" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+

@@ -1,0 +1,69 @@
+---
+title: "RedirectConfig"
+description: "Represents a URL redirect configuration for the Mintlify documentation site."
+icon: "cube"
+---
+
+# RedirectConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a URL redirect configuration for the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class RedirectConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Destination
+
+```csharp
+[JsonPropertyName("destination")]
+public string Destination { get; set; }
+```
+
+Gets or sets the destination path where requests should be redirected.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Permanent
+
+```csharp
+[JsonPropertyName("permanent")]
+public bool? Permanent { get; set; }
+```
+
+Gets or sets whether the redirect is permanent (301) or temporary (302).
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Source
+
+```csharp
+[JsonPropertyName("source")]
+public string Source { get; set; }
+```
+
+Gets or sets the source path that should be redirected.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+This configuration defines how requests to specific paths should be redirected
+to different URLs, useful for maintaining backward compatibility or reorganizing content.
+

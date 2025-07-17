@@ -1,0 +1,60 @@
+---
+title: "IHostBuilderExtensions"
+description: "A class for extending an <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# IHostBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+A class for extending an <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance.
+
+## Syntax
+
+```csharp
+public static class IHostBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### AddBlazorEssentials&lt;TConfiguration, TAppState, TMessageHandler&gt;
+
+```csharp
+public static IHostBuilder AddBlazorEssentials<TConfiguration, TAppState, TMessageHandler>(this IHostBuilder builder, string configSectionName, HttpHandlerMode httpHandlerMode) where TConfiguration : ConfigurationBase where TAppState : AppStateBase where TMessageHandler : DelegatingHandler
+```
+
+Adds Blazor capabilities to the provided <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): 
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **httpHandlerMode** ``HttpHandlerMode``: 
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+### AddBlazorEssentials&lt;TConfiguration, TAppState, TMessageHandler&gt;
+
+```csharp
+public static IHostBuilder AddBlazorEssentials<TConfiguration, TAppState, TMessageHandler>(this IHostBuilder builder, string configSectionName) where TConfiguration : ConfigurationBase where TAppState : AppStateBase where TMessageHandler : DelegatingHandler
+```
+
+Adds Blazor capabilities to the provided <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): 
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+

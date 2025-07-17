@@ -1,0 +1,40 @@
+---
+title: "ODataV4ResponseBase"
+description: "Represents the base class for OData v4."
+icon: "cube"
+---
+
+# ODataV4ResponseBase
+
+<Badge variant="outline">Class</Badge>
+
+Represents the base class for OData v4.0 responses containing common OData metadata properties.
+Provides the foundation for strongly-typed OData response handling.
+
+## Syntax
+
+```csharp
+public class ODataV4ResponseBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### ODataContext
+
+```csharp
+[JsonPropertyName("@odata.context")]
+public string ODataContext { get; set; }
+```
+
+Gets or sets the OData context URL that describes the payload.
+This metadata property provides information about the entity set, type, and other context details.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

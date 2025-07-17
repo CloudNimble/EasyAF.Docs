@@ -1,0 +1,73 @@
+---
+title: "IMessage Interface"
+description: "Defines the required composition of every Message published to the SimpleMessageBus"
+icon: "envelope"
+iconType: "solid"
+---
+
+# IMessage
+
+<Badge variant="outline">Interface</Badge>
+
+Defines the required composition of every Message published to the SimpleMessageBus.
+
+## Overview
+
+The `IMessage` interface is the foundation of SimpleMessageBus, defining the contract that all messages must implement. It provides essential properties for message identification, timing, and type information that enable the message bus to properly route, process, and track messages throughout the system.
+
+This interface is designed to be simple yet comprehensive, ensuring that every message has the minimum required information for reliable processing while allowing flexibility in implementation.
+
+
+## Syntax
+
+```csharp
+public interface IMessage
+```
+
+## When to Use
+
+Implement `IMessage` directly when you need complete control over message properties or when creating custom base classes. For most scenarios, inherit from [`MessageBase`](/api-reference/cloudnimble/simplemessagebus/core/messagebase) which provides automatic implementation of all required properties.
+
+**Use direct implementation when:**
+- Creating custom message base classes with specific behaviors
+- Implementing specialized message types with custom ID generation logic
+- Migrating existing message types that already have Id/timestamp properties
+
+**Use MessageBase when:**
+- Building new message types (recommended approach)
+- You want automatic property management
+- You need standard GUID generation and UTC timestamping
+
+
+## Implementation Notes
+
+All three properties (`Id`, `When`, `TypeName`) are required for proper message bus operation:
+
+- **Id**: Must be unique per message instance. Use deterministic GUIDs for idempotent processing.
+- **When**: Should represent UTC creation time. Used for message ordering and debugging.
+- **TypeName**: Must match exactly between publisher and handler for proper routing.
+
+## Properties
+
+### Id
+
+```csharp
+Guid Id { get; set; }
+```
+
+Gets or sets the unique identifier for this Message.
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+A <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> that uniquely identifies this message instance. This value should be set when
+the message is created and remain constant throughout the message's lifetime.
+
+
+## Remarks
+
+All messages in the SimpleMessageBus system must implement this interface. The Id property ensures
+that each message can be uniquely identified throughout its lifecycle, including during processing,
+error handling, and when moved to poison queues.
+

@@ -1,0 +1,47 @@
+---
+title: "EasyAF_Configuration_IServiceCollectionExtensions"
+description: "Provides extension methods for registering EasyAF configuration services in the dependency injection container."
+icon: "cube"
+---
+
+# EasyAF_Configuration_IServiceCollectionExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Provides extension methods for registering EasyAF configuration services in the dependency injection container.
+
+## Syntax
+
+```csharp
+public static class EasyAF_Configuration_IServiceCollectionExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### AddConfigurationBase&lt;TConfiguration&gt;
+
+```csharp
+public static TConfiguration AddConfigurationBase<TConfiguration>(this IServiceCollection services, IConfiguration configuration, string configSectionName) where TConfiguration : ConfigurationBase
+```
+
+Adds a configuration class that inherits from <xref href="CloudNimble.EasyAF.Configuration.ConfigurationBase" data-throw-if-not-resolved="false"></xref> to the service collection.
+The configuration is bound from the specified configuration section and registered as both the specific
+type and the base <xref href="CloudNimble.EasyAF.Configuration.ConfigurationBase" data-throw-if-not-resolved="false"></xref> type for dependency injection.
+
+#### Parameters
+
+- **services** [IServiceCollection](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection): The service collection to add the configuration to.
+- **configuration** [IConfiguration](https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration): The configuration instance to bind from.
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the configuration section to bind from.
+
+#### Returns
+
+``TConfiguration``
+
+The bound configuration instance for immediate use or further configuration.
+
+

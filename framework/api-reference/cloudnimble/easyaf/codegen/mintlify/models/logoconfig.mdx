@@ -1,0 +1,66 @@
+---
+title: "LogoConfig"
+description: "Represents the logo configuration for Mintlify."
+icon: "cube"
+---
+
+# LogoConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the logo configuration for Mintlify.
+Can be a single image path for both light and dark mode, or separate paths for each mode.
+
+## Syntax
+
+```csharp
+public class LogoConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Dark
+
+```csharp
+[JsonPropertyName("dark")]
+public string Dark { get; set; }
+```
+
+Gets or sets the path to the dark logo file, including the file extension.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the URL to redirect to when clicking the logo.
+If not provided, the logo will link to the homepage.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Light
+
+```csharp
+[JsonPropertyName("light")]
+public string Light { get; set; }
+```
+
+Gets or sets the path to the light logo file, including the file extension.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

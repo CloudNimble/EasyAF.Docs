@@ -1,0 +1,85 @@
+---
+title: "AmazonSQSOptions"
+description: "Defines the configuration options available for SimpleMessageBus queues backed by Amazon SQS."
+icon: "cube"
+---
+
+# AmazonSQSOptions
+
+<Badge variant="outline">Class</Badge>
+
+Defines the configuration options available for SimpleMessageBus queues backed by Amazon SQS.
+
+## Syntax
+
+```csharp
+public class AmazonSQSOptions : SQSOptions, IOptionsFormatter
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `QueuesOptionsBase`
+    - `SQSOptions`
+
+## Implements
+
+- `IOptionsFormatter`
+
+## Properties
+
+### CompletedQueueName
+
+```csharp
+public string CompletedQueueName { get; set; }
+```
+
+Gets or sets the name of the queue to process for completed messages.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The SQS queue name where successfully processed messages are optionally stored. 
+This queue provides an audit trail of completed processing and can be used for analytics or compliance.
+
+### PoisonQueueName
+
+```csharp
+public string PoisonQueueName { get; set; }
+```
+
+Gets or sets the name of the queue to process for poison messages.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The SQS queue name where messages that fail processing multiple times are moved.
+This queue serves as a dead letter queue for failed message processing.
+
+### QueueName
+
+```csharp
+public string QueueName { get; set; }
+```
+
+Gets or sets the name of the queue to process for the main messages.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The primary SQS queue name where messages are published and from which they are consumed for processing.
+This is the main message processing queue in the SimpleMessageBus workflow.
+
+
+## Remarks
+
+This class extends the base SQS options to provide SimpleMessageBus-specific configuration for Amazon SQS queues.
+It defines the three-queue pattern used by SimpleMessageBus: a main queue for processing, a poison queue for
+failed messages, and an optional completed queue for successfully processed messages.
+
+The SimpleMessageBus Amazon SQS provider follows AWS best practices for message processing and error handling,
+including dead letter queues, visibility timeouts, and message retention policies.
+

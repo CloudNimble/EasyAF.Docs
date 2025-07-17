@@ -1,0 +1,86 @@
+---
+title: "ConceptualReferences"
+description: "Represents references to conceptual documentation files."
+icon: "cube"
+---
+
+# ConceptualReferences
+
+<Badge variant="outline">Class</Badge>
+
+Represents references to conceptual documentation files.
+
+## Syntax
+
+```csharp
+public class ConceptualReferences
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### BestPractices
+
+```csharp
+public string BestPractices { get; set; }
+```
+
+Gets or sets the path to the best practices documentation file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The file path to markdown content with best practices and recommendations.
+
+### Examples
+
+```csharp
+public string Examples { get; set; }
+```
+
+Gets or sets the path to the examples documentation file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The file path to markdown content containing code examples.
+
+### Patterns
+
+```csharp
+public string Patterns { get; set; }
+```
+
+Gets or sets the path to the patterns documentation file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The file path to markdown content explaining common usage patterns.
+
+### Usage
+
+```csharp
+public string Usage { get; set; }
+```
+
+Gets or sets the path to the usage documentation file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The file path to markdown content explaining how to use the API element.
+
+
+## Remarks
+
+This class contains file paths to conceptual documentation files that provide
+enhanced explanations, examples, and best practices for API elements.
+

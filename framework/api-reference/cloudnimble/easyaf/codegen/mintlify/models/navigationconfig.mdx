@@ -1,0 +1,129 @@
+---
+title: "NavigationConfig"
+description: "Represents the navigation configuration for Mintlify."
+icon: "cube"
+---
+
+# NavigationConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the navigation configuration for Mintlify.
+
+## Syntax
+
+```csharp
+public class NavigationConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Anchors
+
+```csharp
+[JsonPropertyName("anchors")]
+public List<AnchorConfig> Anchors { get; set; }
+```
+
+Gets or sets the anchors in the navigation.
+
+#### Returns
+
+[List&lt;AnchorConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Dropdowns
+
+```csharp
+[JsonPropertyName("dropdowns")]
+public List<DropdownConfig> Dropdowns { get; set; }
+```
+
+Gets or sets the dropdowns in the navigation.
+
+#### Returns
+
+[List&lt;DropdownConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Global
+
+```csharp
+[JsonPropertyName("global")]
+public GlobalNavigationConfig Global { get; set; }
+```
+
+Gets or sets global navigation items that appear on all sections and pages.
+
+#### Returns
+
+[GlobalNavigationConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globalnavigationconfig)
+
+### Groups
+
+```csharp
+[JsonPropertyName("groups")]
+public List<GroupConfig> Groups { get; set; }
+```
+
+Gets or sets the groups in the navigation.
+
+#### Returns
+
+[List&lt;GroupConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Languages
+
+```csharp
+[JsonPropertyName("languages")]
+public List<LanguageConfig> Languages { get; set; }
+```
+
+Gets or sets the languages in the navigation.
+
+#### Returns
+
+[List&lt;LanguageConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Pages
+
+```csharp
+[JsonPropertyName("pages")]
+public List<object> Pages { get; set; }
+```
+
+Gets or sets the pages in the navigation.
+
+#### Returns
+
+[List&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Tabs
+
+```csharp
+[JsonPropertyName("tabs")]
+public List<TabConfig> Tabs { get; set; }
+```
+
+Gets or sets the tabs in the navigation.
+
+#### Returns
+
+[List&lt;TabConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Versions
+
+```csharp
+[JsonPropertyName("versions")]
+public List<VersionConfig> Versions { get; set; }
+```
+
+Gets or sets the versions in the navigation.
+
+#### Returns
+
+[List&lt;VersionConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

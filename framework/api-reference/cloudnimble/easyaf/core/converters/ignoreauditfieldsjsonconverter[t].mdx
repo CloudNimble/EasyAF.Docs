@@ -1,0 +1,85 @@
+---
+title: "IgnoreAuditFieldsJsonConverter<T>"
+description: "A <xref href=\"System."
+icon: "cube"
+---
+
+# IgnoreAuditFieldsJsonConverter&lt;T&gt;
+
+<Badge variant="outline">Class</Badge>
+
+A <xref href="System.Text.Json.Serialization.JsonConverter%601" data-throw-if-not-resolved="false"></xref> that ignores certain properties on a <xref href="CloudNimble.EasyAF.Core.DbObservableObject" data-throw-if-not-resolved="false"></xref>.
+
+## Syntax
+
+```csharp
+public class IgnoreAuditFieldsJsonConverter<T> : JsonConverter<T> where T : DbObservableObject
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [JsonConverter](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter)
+    - [JsonConverter&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1)
+
+## Constructors
+
+### IgnoreAuditFieldsJsonConverter
+
+```csharp
+public IgnoreAuditFieldsJsonConverter(JsonSerializerOptions options)
+```
+
+#### Parameters
+
+- **options** [JsonSerializerOptions](https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions): 
+
+
+## Properties
+
+### HandleNull
+
+```csharp
+public override bool HandleNull { get; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+
+## Methods
+
+### Read
+
+```csharp
+public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+```
+
+#### Parameters
+
+- **reader** [Utf8JsonReader](https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonreader): 
+- **typeToConvert** [Type](https://learn.microsoft.com/dotnet/api/system.type): 
+- **options** [JsonSerializerOptions](https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions): 
+
+#### Returns
+
+``T``
+
+### Write
+
+```csharp
+public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+```
+
+#### Parameters
+
+- **writer** [Utf8JsonWriter](https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonwriter): 
+- **value** ``T``: 
+- **options** [JsonSerializerOptions](https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions): 
+
+
+## Remarks
+
+This converter also honors <xref href="System.Text.Json.Serialization.JsonIgnoreAttribute" data-throw-if-not-resolved="false"></xref> decorations on properties.
+

@@ -1,0 +1,435 @@
+---
+title: "MetadataTools"
+description: "Responsible for making the Entity Framework Metadata more accessible for code generation."
+icon: "cube"
+---
+
+# MetadataTools
+
+<Badge variant="outline">Class</Badge>
+
+Responsible for making the Entity Framework Metadata more accessible for code generation.
+
+## Syntax
+
+```csharp
+public static class MetadataTools
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### ClrType
+
+```csharp
+public static Type ClrType(TypeUsage typeUsage)
+```
+
+This method returns the underlying CLR type of the o-space type corresponding to the supplied <code class="paramref">typeUsage</code>
+Note that for an enum type this means that the type backing the enum will be returned, not the enum type itself.
+
+#### Parameters
+
+- **typeUsage** [TypeUsage](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.typeusage): 
+
+#### Returns
+
+[Type](https://learn.microsoft.com/dotnet/api/system.type)
+
+### Comment
+
+```csharp
+public static string Comment(EdmProperty edmProperty)
+```
+
+#### Parameters
+
+- **edmProperty** [EdmProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmproperty): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Comment
+
+```csharp
+public static string Comment(EdmType edmType)
+```
+
+#### Parameters
+
+- **edmType** [EdmType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmtype): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Comment
+
+```csharp
+public static string Comment(EntityContainer container)
+```
+
+#### Parameters
+
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Comment
+
+```csharp
+public static string Comment(EntitySet entitySet)
+```
+
+#### Parameters
+
+- **entitySet** [EntitySet](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entityset): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Comment
+
+```csharp
+public static string Comment(NavigationProperty navigationProperty)
+```
+
+#### Parameters
+
+- **navigationProperty** [NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### GetCorrespondingDependentProperty
+
+```csharp
+public static EdmProperty GetCorrespondingDependentProperty(NavigationProperty navProperty, EdmProperty principalProperty)
+```
+
+Given a property on the principal end of a referential constraint, returns the corresponding property on the dependent end.
+Requires: The association has a referential constraint, and the specified principalProperty is one of the properties on the principal end.
+
+#### Parameters
+
+- **navProperty** [NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty): 
+- **principalProperty** [EdmProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmproperty): 
+
+#### Returns
+
+[EdmProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmproperty)
+
+### GetCorrespondingPrincipalProperty
+
+```csharp
+public static EdmProperty GetCorrespondingPrincipalProperty(NavigationProperty navProperty, EdmProperty dependentProperty)
+```
+
+Given a property on the dependent end of a referential constraint, returns the corresponding property on the principal end.
+Requires: The association has a referential constraint, and the specified dependentProperty is one of the properties on the dependent end.
+
+#### Parameters
+
+- **navProperty** [NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty): 
+- **dependentProperty** [EdmProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmproperty): 
+
+#### Returns
+
+[EdmProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmproperty)
+
+### GetDependentProperties
+
+```csharp
+public static ReadOnlyMetadataCollection<EdmProperty> GetDependentProperties(NavigationProperty navProperty)
+```
+
+Gets the collection of properties that are on the dependent end of a referential constraint for the specified navigation property.
+Requires: The association has a referential constraint.
+
+#### Parameters
+
+- **navProperty** [NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty): 
+
+#### Returns
+
+[ReadOnlyMetadataCollection&lt;EdmProperty&gt;](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.readonlymetadatacollection-1)
+
+### GetElementType
+
+```csharp
+public static TypeUsage GetElementType(TypeUsage typeUsage)
+```
+
+If the passed in TypeUsage represents a collection this method returns final element
+type of the collection, otherwise it returns the value passed in.
+
+#### Parameters
+
+- **typeUsage** [TypeUsage](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.typeusage): 
+
+#### Returns
+
+[TypeUsage](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.typeusage)
+
+### GetPrincipalProperties
+
+```csharp
+public static ReadOnlyMetadataCollection<EdmProperty> GetPrincipalProperties(NavigationProperty navProperty)
+```
+
+Gets the collection of properties that are on the principal end of a referential constraint for the specified navigation property.
+Requires: The association has a referential constraint.
+
+#### Parameters
+
+- **navProperty** [NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty): 
+
+#### Returns
+
+[ReadOnlyMetadataCollection&lt;EdmProperty&gt;](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.readonlymetadatacollection-1)
+
+### GetSubtypesOf
+
+```csharp
+public static IEnumerable<EntityType> GetSubtypesOf(EntityType type, ItemCollection itemCollection, bool includeAbstractTypes)
+```
+
+Returns the subtype of the EntityType in the current itemCollection
+
+#### Parameters
+
+- **type** [EntityType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitytype): 
+- **itemCollection** [ItemCollection](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.itemcollection): 
+- **includeAbstractTypes** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[IEnumerable&lt;EntityType&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### Inverse
+
+```csharp
+public static NavigationProperty Inverse(NavigationProperty navProperty)
+```
+
+Returns the NavigationProperty that is the other end of the same association set if it is
+available, otherwise it returns null.
+
+#### Parameters
+
+- **navProperty** [NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty): 
+
+#### Returns
+
+[NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty)
+
+### IsCascadeDeletePrincipal
+
+```csharp
+public static bool IsCascadeDeletePrincipal(AssociationEndMember associationEnd)
+```
+
+True if the specified association end is the principal in an identifying relationship.
+or if the association end has cascade delete defined.
+
+#### Parameters
+
+- **associationEnd** [AssociationEndMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.associationendmember): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsCascadeDeletePrincipal
+
+```csharp
+public static bool IsCascadeDeletePrincipal(NavigationProperty navProperty)
+```
+
+True if the source end of the specified navigation property is the principal in an identifying relationship.
+or if the source end has cascade delete defined.
+
+#### Parameters
+
+- **navProperty** [NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsIdentifyingRelationship
+
+```csharp
+public static bool IsIdentifyingRelationship(AssociationType association)
+```
+
+True if the specified association type is an identifying relationship.
+In order to be an identifying relationship, the association must have a referential constraint where all of the dependent properties are part of the dependent type's primary key.
+
+#### Parameters
+
+- **association** [AssociationType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.associationtype): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsKey
+
+```csharp
+public static bool IsKey(EdmProperty property)
+```
+
+True if the EdmProperty is a key of its DeclaringType, False otherwise.
+
+#### Parameters
+
+- **property** [EdmProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmproperty): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsLazyLoadingEnabled
+
+```csharp
+public static bool IsLazyLoadingEnabled(EntityContainer container)
+```
+
+#### Parameters
+
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsNullable
+
+```csharp
+public static bool IsNullable(EdmProperty property)
+```
+
+True if the EdmProperty TypeUsage is Nullable, False otherwise.
+
+#### Parameters
+
+- **property** [EdmProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmproperty): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsNullable
+
+```csharp
+public static bool IsNullable(TypeUsage typeUsage)
+```
+
+True if the TypeUsage is Nullable, False otherwise.
+
+#### Parameters
+
+- **typeUsage** [TypeUsage](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.typeusage): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsPrincipalEndOfIdentifyingRelationship
+
+```csharp
+public static bool IsPrincipalEndOfIdentifyingRelationship(AssociationEndMember associationEnd)
+```
+
+True if the specified association end is the principal end in an identifying relationship.
+In order to be an identifying relationship, the association must have a referential constraint where all of the dependent properties are part of the dependent type's primary key.
+
+#### Parameters
+
+- **associationEnd** [AssociationEndMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.associationendmember): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsSubtypeOf
+
+```csharp
+public static bool IsSubtypeOf(EdmType firstType, EdmType secondType)
+```
+
+requires: firstType is not null
+effects: if secondType is among the base types of the firstType, return true,
+otherwise returns false.
+when firstType is same as the secondType, return false.
+
+#### Parameters
+
+- **firstType** [EdmType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmtype): 
+- **secondType** [EdmType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmtype): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### NeedsHandleCascadeDeleteMethod
+
+```csharp
+public static bool NeedsHandleCascadeDeleteMethod(ItemCollection itemCollection, EntityType entityType)
+```
+
+True if this entity type requires the HandleCascadeDelete method defined and the method has
+not been defined on any base type
+
+#### Parameters
+
+- **itemCollection** [ItemCollection](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.itemcollection): 
+- **entityType** [EntityType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitytype): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### TryGetStringMetadataPropertySetting
+
+```csharp
+public static bool TryGetStringMetadataPropertySetting(MetadataItem item, string propertyName, out string value)
+```
+
+#### Parameters
+
+- **item** [MetadataItem](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.metadataitem): 
+- **propertyName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **value** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### UnderlyingClrType
+
+```csharp
+public static Type UnderlyingClrType(EdmType edmType)
+```
+
+This method returns the underlying CLR type given the c-space type.
+Note that for an enum type this means that the type backing the enum will be returned, not the enum type itself.
+
+#### Parameters
+
+- **edmType** [EdmType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmtype): 
+
+#### Returns
+
+[Type](https://learn.microsoft.com/dotnet/api/system.type)
+
+

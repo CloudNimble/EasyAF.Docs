@@ -1,0 +1,175 @@
+---
+title: "EasyAF_DateTimeExtensions"
+description: "Extensions on <xref href=\"System."
+icon: "cube"
+---
+
+# EasyAF_DateTimeExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Extensions on <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> and <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref>.
+
+## Syntax
+
+```csharp
+public static class EasyAF_DateTimeExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### DaysInMonth
+
+```csharp
+public static int DaysInMonth(this DateTime value)
+```
+
+#### Parameters
+
+- **value** [DateTime](https://learn.microsoft.com/dotnet/api/system.datetime): 
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### DaysInMonth
+
+```csharp
+public static int DaysInMonth(this DateTimeOffset value)
+```
+
+#### Parameters
+
+- **value** [DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset): 
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### FirstDayOfMonth
+
+```csharp
+public static DateTime FirstDayOfMonth(this DateTime value)
+```
+
+#### Parameters
+
+- **value** [DateTime](https://learn.microsoft.com/dotnet/api/system.datetime): 
+
+#### Returns
+
+[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime)
+
+### FirstDayOfMonth
+
+```csharp
+public static DateTimeOffset FirstDayOfMonth(this DateTimeOffset value)
+```
+
+#### Parameters
+
+- **value** [DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset): 
+
+#### Returns
+
+[DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset)
+
+### GetQuarter
+
+```csharp
+public static int GetQuarter(this DateTime date, DateTime fiscalYearStart)
+```
+
+Calculates the quarter for the given <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>, assuming a the provided fiscal year begin date.
+
+#### Parameters
+
+- **date** [DateTime](https://learn.microsoft.com/dotnet/api/system.datetime): The <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> to use in the calculation.
+- **fiscalYearStart** [DateTime](https://learn.microsoft.com/dotnet/api/system.datetime): The <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> representing the start day of the fiscal year to use in calculation.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### GetQuarter
+
+```csharp
+public static int GetQuarter(this DateTime date)
+```
+
+Calculates the quarter for the given <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>, assuming a calendar-based fiscal year.
+
+#### Parameters
+
+- **date** [DateTime](https://learn.microsoft.com/dotnet/api/system.datetime): The <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> to use in the calculation.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### GetQuarter
+
+```csharp
+public static int GetQuarter(this DateTimeOffset date, DateTimeOffset fiscalYearStart)
+```
+
+Calculates the quarter for the given <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref>, assuming a the provided fiscal year begin date.
+
+#### Parameters
+
+- **date** [DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset): The <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> to use in the calculation.
+- **fiscalYearStart** [DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset): The <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> representing the start day of the fiscal year to use in calculation.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### GetQuarter
+
+```csharp
+public static int GetQuarter(this DateTimeOffset date)
+```
+
+Calculates the quarter for the given <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref>, assuming a calendar-based fiscal year.
+
+#### Parameters
+
+- **date** [DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset): The <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> to use in the calculation.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### LastDayOfMonth
+
+```csharp
+public static DateTime LastDayOfMonth(this DateTime value)
+```
+
+#### Parameters
+
+- **value** [DateTime](https://learn.microsoft.com/dotnet/api/system.datetime): 
+
+#### Returns
+
+[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime)
+
+### LastDayOfMonth
+
+```csharp
+public static DateTimeOffset LastDayOfMonth(this DateTimeOffset value)
+```
+
+#### Parameters
+
+- **value** [DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset): 
+
+#### Returns
+
+[DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset)
+
+

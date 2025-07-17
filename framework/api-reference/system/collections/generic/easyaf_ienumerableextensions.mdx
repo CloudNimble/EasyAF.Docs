@@ -1,0 +1,207 @@
+---
+title: "EasyAF_IEnumerableExtensions"
+description: ""
+icon: "cube"
+---
+
+# EasyAF_IEnumerableExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class EasyAF_IEnumerableExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### AcceptChanges&lt;T&gt;
+
+```csharp
+public static void AcceptChanges<T>(this IEnumerable<T> enumerable, bool goDeep = false) where T : DbObservableObject
+```
+
+Loops through the entries in a given <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> and accepts all current changes for each entry.
+
+#### Parameters
+
+- **enumerable** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+- **goDeep** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### ChangedCount&lt;T&gt;
+
+```csharp
+public static int ChangedCount<T>(this IEnumerable<T> enumerable, bool checkGraph = false) where T : DbObservableObject
+```
+
+Returns a <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> representing the number of objects in the enumerable that have changes.
+
+#### Parameters
+
+- **enumerable** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+- **checkGraph** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### ContainsId&lt;T, TId&gt;
+
+```csharp
+public static bool ContainsId<T, TId>(this IEnumerable<T> list, TId idValue) where T : class, IIdentifiable<TId> where TId : struct
+```
+
+Returns a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> if a list of <xref href="CloudNimble.EasyAF.Core.IIdentifiable%601.Id" data-throw-if-not-resolved="false"></xref>s from the given <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> contains
+the specified value.
+
+#### Parameters
+
+- **list** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> to check for the given ID value.
+- **idValue** ``TId``: The value to check for.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### ContentsAreChanged&lt;T, TForeign, TId&gt;
+
+```csharp
+public static bool ContentsAreChanged<T, TForeign, TId>(this IEnumerable<T> enumerable, IEnumerable<TForeign> foreignList, Func<T, TId> foreignIdFunc, bool checkGraph = false) where T : DbObservableObject, IIdentifiable<TId> where TForeign : DbObservableObject, IIdentifiable<TId> where TId : struct
+```
+
+Returns a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> if any <xref href="CloudNimble.EasyAF.Core.DbObservableObject" data-throw-if-not-resolved="false"></xref> in the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> has changes.
+
+#### Parameters
+
+- **enumerable** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+- **foreignList** [IEnumerable&lt;TForeign&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The list of related objects that we want to filter the <code class="paramref">enumerable</code> down to.
+- **foreignIdFunc** [Func&lt;T, TId&gt;](https://learn.microsoft.com/dotnet/api/system.func-2): The property from the <code class="paramref">enumerable</code> that points to the <xref href="CloudNimble.EasyAF.Core.IIdentifiable%601.Id" data-throw-if-not-resolved="false"></xref> for the objects in <code class="paramref">foreignList</code>.
+- **checkGraph** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### ContentsAreChanged&lt;T&gt;
+
+```csharp
+public static bool ContentsAreChanged<T>(this IEnumerable<T> enumerable, bool checkGraph = false) where T : DbObservableObject
+```
+
+Returns a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> if any <xref href="CloudNimble.EasyAF.Core.DbObservableObject" data-throw-if-not-resolved="false"></xref> in the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> has changes.
+
+#### Parameters
+
+- **enumerable** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+- **checkGraph** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### ContentsAreChanged&lt;T&gt;
+
+```csharp
+public static bool ContentsAreChanged<T>(this IEnumerable<T> enumerable, Func<T, bool> predicate, bool checkGraph = false) where T : DbObservableObject
+```
+
+Returns a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> if any <xref href="CloudNimble.EasyAF.Core.DbObservableObject" data-throw-if-not-resolved="false"></xref> in the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> has changes.
+
+#### Parameters
+
+- **enumerable** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+- **predicate** [Func&lt;T, bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-2): 
+- **checkGraph** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### FilterForChanges&lt;T, TForeign, TId&gt;
+
+```csharp
+public static IEnumerable<T> FilterForChanges<T, TForeign, TId>(this IEnumerable<T> enumerable, IEnumerable<TForeign> foreignList, Func<T, TId> foreignIdFunc) where T : DbObservableObject, IIdentifiable<TId> where TForeign : DbObservableObject, IIdentifiable<TId> where TId : struct
+```
+
+For a given <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref>, filter down the result to the changed items in <code class="paramref">enumerable</code> 
+whose foreign keys appear in the <code class="paramref">foreignList</code>.
+
+#### Parameters
+
+- **enumerable** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The list we want to check for changes in.
+- **foreignList** [IEnumerable&lt;TForeign&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The list of related objects that we want to filter the <code class="paramref">enumerable</code> down to.
+- **foreignIdFunc** [Func&lt;T, TId&gt;](https://learn.microsoft.com/dotnet/api/system.func-2): The property from the <code class="paramref">enumerable</code> that points to the <xref href="CloudNimble.EasyAF.Core.IIdentifiable%601.Id" data-throw-if-not-resolved="false"></xref> for the objects in <code class="paramref">foreignList</code>.
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### None&lt;T&gt;
+
+```csharp
+public static bool None<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+```
+
+Returns a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> specifying whether or not the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> has any items in it.
+
+#### Parameters
+
+- **source** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> to check.
+- **predicate** [Func&lt;T, bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-2): A set of additional parameters to check against.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### None&lt;T&gt;
+
+```csharp
+public static bool None<T>(this IEnumerable<T> source)
+```
+
+Returns a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> specifying whether or not the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> has any items in it.
+
+#### Parameters
+
+- **source** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> to check.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### RejectChanges&lt;T&gt;
+
+```csharp
+public static void RejectChanges<T>(this IEnumerable<T> enumerable, bool goDeep = false) where T : DbObservableObject
+```
+
+Loops through the entries in a given <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> and clears all current changes for each entry.
+
+#### Parameters
+
+- **enumerable** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+- **goDeep** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### ToTrackedList&lt;T&gt;
+
+```csharp
+public static List<T> ToTrackedList<T>(this IEnumerable<T> enumerable, bool deepTracking = false) where T : DbObservableObject
+```
+
+Returns a <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> where the <xref href="CloudNimble.EasyAF.Core.DbObservableObject?text=DbObservableObjects" data-throw-if-not-resolved="false"></xref> have <xref href="CloudNimble.EasyAF.Core.DbObservableObject.TrackChanges(System.Boolean)" data-throw-if-not-resolved="false"></xref> turned on.
+
+#### Parameters
+
+- **enumerable** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The list of objects to turn change tracking on for.
+- **deepTracking** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[List&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

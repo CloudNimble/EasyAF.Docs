@@ -1,0 +1,82 @@
+---
+title: "GlobalTabConfig"
+description: "Represents a tab configuration for global navigation in the Mintlify documentation site."
+icon: "cube"
+---
+
+# GlobalTabConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a tab configuration for global navigation in the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class GlobalTabConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Hidden
+
+```csharp
+[JsonPropertyName("hidden")]
+public bool? Hidden { get; set; }
+```
+
+Gets or sets whether this tab is hidden by default.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the URL or path for this tab.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Icon
+
+```csharp
+[JsonPropertyName("icon")]
+public object Icon { get; set; }
+```
+
+Gets or sets the icon to display alongside the tab name.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Tab
+
+```csharp
+[JsonPropertyName("tab")]
+public string Tab { get; set; }
+```
+
+Gets or sets the display name for the tab.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+This configuration defines a tab that appears globally across all sections and pages,
+providing users with quick access to different areas or types of documentation.
+

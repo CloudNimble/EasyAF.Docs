@@ -1,0 +1,33 @@
+---
+title: "ISortable"
+description: "An interface that specifies the implementing Entity can be contains an <xref href=\"System."
+icon: "plug"
+---
+
+# ISortable
+
+<Badge variant="outline">Interface</Badge>
+
+An interface that specifies the implementing Entity can be contains an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> that tracks the order items should be displayed in a list.
+
+## Syntax
+
+```csharp
+public interface ISortable
+```
+
+## Properties
+
+### SortOrder
+
+```csharp
+int SortOrder { get; set; }
+```
+
+The order this entity should be displayed in a list.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+

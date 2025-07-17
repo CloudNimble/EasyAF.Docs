@@ -1,0 +1,123 @@
+---
+title: "TestableMessagePublisher"
+description: "A test double for IMessagePublisher that captures published messages for assertions."
+icon: "cube"
+---
+
+# TestableMessagePublisher
+
+<Badge variant="outline">Class</Badge>
+
+A test double for IMessagePublisher that captures published messages for assertions.
+Used in testing scenarios to verify that expected messages were published correctly.
+
+## Syntax
+
+```csharp
+public class TestableMessagePublisher : IMessagePublisher
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IMessagePublisher](/api-reference/cloudnimble/simplemessagebus/publish/imessagepublisher)
+
+## Constructors
+
+### TestableMessagePublisher
+
+```csharp
+public TestableMessagePublisher()
+```
+
+Initializes a new instance of the <xref href="CloudNimble.SimpleMessageBus.Breakdance.TestableMessagePublisher" data-throw-if-not-resolved="false"></xref> class.
+Creates an empty publisher with no published messages or configured actions.
+
+
+## Properties
+
+### PublishedMessages
+
+```csharp
+public IReadOnlyList<IMessage> PublishedMessages { get; }
+```
+
+Gets a read-only list of all messages that have been published via this publisher.
+This collection can be used in test assertions to verify published message content.
+
+#### Returns
+
+[IReadOnlyList&lt;IMessage&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1)
+
+A read-only list containing all messages published through this publisher in the order they were published.
+The collection is empty when the publisher is first created or after <xref href="CloudNimble.SimpleMessageBus.Breakdance.TestableMessagePublisher.ClearMessages" data-throw-if-not-resolved="false"></xref> is called.
+
+
+## Methods
+
+### ClearMessages
+
+```csharp
+public void ClearMessages()
+```
+
+Clears all published messages from the internal collection.
+Use this method to reset the state between tests.
+
+### PublishAsync
+
+```csharp
+public Task PublishAsync(IMessage message, bool isSystemGenerated = false)
+```
+
+Implements the IMessagePublisher interface method by capturing the published message
+for later assertion and optionally invoking a configured action.
+
+#### Parameters
+
+- **message** [IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage): The message to publish.
+- **isSystemGenerated** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Indicates whether the message is system-generated.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A completed task.
+
+#### Exceptions
+
+- `[Exception](https://learn.microsoft.com/dotnet/api/system.exception)`: May throw exceptions if a custom action configured via <xref href="CloudNimble.SimpleMessageBus.Breakdance.TestableMessagePublisher.SetAction(System.Action%7bCloudNimble.SimpleMessageBus.Core.IMessage%2cSystem.Boolean%7d)" data-throw-if-not-resolved="false"></xref> throws.
+
+### SetAction
+
+```csharp
+public void SetAction(Action<IMessage, bool> onPublish)
+```
+
+Sets an action to be executed when a message is published.
+
+#### Parameters
+
+- **onPublish** [Action&lt;IMessage, bool&gt;](https://learn.microsoft.com/dotnet/api/system.action-2): The action to execute when PublishAsync is called. 
+    The action receives the published message and the isSystemGenerated flag.
+
+
+## Remarks
+
+The TestableMessagePublisher is designed for unit and integration testing of message publishing scenarios.
+It implements the IMessagePublisher interface but instead of sending messages to actual queues, it captures
+them in memory for verification. This enables testing of message publishing behavior without requiring
+real message queue infrastructure.
+
+Key testing features:
+- Captures all published messages for assertion
+- Supports configurable actions to simulate publish behavior
+- Provides methods to reset state between tests
+- Maintains message order for sequence verification
+
+This class is part of the "Breakdance" testing utilities, named after the dance style that emphasizes
+breaking conventional patterns - just like how test doubles break the normal execution flow for testing.
+

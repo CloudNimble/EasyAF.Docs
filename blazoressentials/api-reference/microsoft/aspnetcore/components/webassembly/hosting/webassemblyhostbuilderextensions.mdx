@@ -1,0 +1,58 @@
+---
+title: "WebAssemblyHostBuilderExtensions"
+description: ""
+icon: "cube"
+---
+
+# WebAssemblyHostBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class WebAssemblyHostBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### AddBlazorEssentials&lt;TConfiguration, TAppState, TMessageHandler&gt;
+
+```csharp
+public static WebAssemblyHostBuilder AddBlazorEssentials<TConfiguration, TAppState, TMessageHandler>(this WebAssemblyHostBuilder builder, string configSectionName) where TConfiguration : ConfigurationBase where TAppState : AppStateBase where TMessageHandler : DelegatingHandler
+```
+
+#### Parameters
+
+- **builder** [WebAssemblyHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder): The <xref href="Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder" data-throw-if-not-resolved="false"></xref> instance to configure.
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the Configuration node in appsettings.json that specifies BlazorEssentials settings.
+
+#### Returns
+
+[WebAssemblyHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder)
+
+### AddBlazorEssentials&lt;TConfiguration, TAppState&gt;
+
+```csharp
+public static WebAssemblyHostBuilder AddBlazorEssentials<TConfiguration, TAppState>(this WebAssemblyHostBuilder builder, string configSectionName) where TConfiguration : ConfigurationBase where TAppState : AppStateBase
+```
+
+Registers the necessary services to bootstrap BlazorEssentials, including a <xref href="CloudNimble.EasyAF.Configuration.ConfigurationBase" data-throw-if-not-resolved="false"></xref>, <xref href="CloudNimble.BlazorEssentials.AppStateBase" data-throw-if-not-resolved="false"></xref>, and 
+<xref href="System.Net.Http.HttpClient?text=HttpClients" data-throw-if-not-resolved="false"></xref> for interacting with both the
+
+#### Parameters
+
+- **builder** [WebAssemblyHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder): The <xref href="Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder" data-throw-if-not-resolved="false"></xref> instance to configure.
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the Configuration node in appsettings.json that specifies BlazorEssentials settings.
+
+#### Returns
+
+[WebAssemblyHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder)
+
+The
+
+

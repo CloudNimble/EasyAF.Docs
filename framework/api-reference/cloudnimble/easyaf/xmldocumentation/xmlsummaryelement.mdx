@@ -1,0 +1,69 @@
+---
+title: "XmlSummaryElement"
+description: "Represents a summary XML documentation element."
+icon: "cube"
+---
+
+# XmlSummaryElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a summary XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlSummaryElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlSummaryElement
+
+```csharp
+public XmlSummaryElement()
+```
+
+Initializes a new instance of the XmlSummaryElement class.
+
+### XmlSummaryElement
+
+```csharp
+public XmlSummaryElement(XElement element)
+```
+
+Initializes a new instance of the XmlSummaryElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this summary element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this summary.
+
+
+## Remarks
+
+The summary element provides a brief description of a type or member.
+It is typically displayed prominently in documentation and should be
+concise but informative.
+

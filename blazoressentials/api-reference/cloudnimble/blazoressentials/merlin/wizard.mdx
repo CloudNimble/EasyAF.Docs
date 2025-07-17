@@ -1,0 +1,247 @@
+---
+title: "Wizard"
+description: ""
+icon: "cube"
+---
+
+# Wizard
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class Wizard : ComponentBase, IComponent, IHandleEvent, IHandleAfterRender, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ComponentBase](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase)
+
+## Implements
+
+- [IComponent](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent)
+- [IHandleEvent](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent)
+- [IHandleAfterRender](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Properties
+
+### ContainerTemplate
+
+```csharp
+[Parameter]
+public RenderFragment<RenderFragment> ContainerTemplate { get; set; }
+```
+
+#### Returns
+
+[RenderFragment&lt;RenderFragment&gt;](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment-1)
+
+### CurrentPane
+
+```csharp
+public WizardPane CurrentPane { get; set; }
+```
+
+#### Returns
+
+[WizardPane](/api-reference/cloudnimble/blazoressentials/merlin/wizardpane)
+
+### FooterTemplate
+
+```csharp
+[Parameter]
+public RenderFragment FooterTemplate { get; set; }
+```
+
+#### Returns
+
+[RenderFragment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment)
+
+### HeaderTemplate
+
+```csharp
+[Parameter]
+public RenderFragment HeaderTemplate { get; set; }
+```
+
+#### Returns
+
+[RenderFragment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment)
+
+### IsBackEnabled
+
+```csharp
+public bool IsBackEnabled { get; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsFinishVisible
+
+```csharp
+public bool IsFinishVisible { get; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsNextEnabled
+
+```csharp
+public bool IsNextEnabled { get; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsNextVisible
+
+```csharp
+public bool IsNextVisible { get; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsOperationStartVisible
+
+```csharp
+public bool IsOperationStartVisible { get; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Operation
+
+```csharp
+[Parameter]
+public Operation Operation { get; set; }
+```
+
+#### Returns
+
+[Operation](/api-reference/cloudnimble/blazoressentials/merlin/operation)
+
+### Panes
+
+```csharp
+public List<WizardPane> Panes { get; }
+```
+
+#### Returns
+
+[List&lt;WizardPane&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### PanesContent
+
+```csharp
+[Parameter]
+public RenderFragment PanesContent { get; set; }
+```
+
+#### Returns
+
+[RenderFragment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment)
+
+### Title
+
+```csharp
+[Parameter]
+public string Title { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### Back
+
+```csharp
+public Task Back()
+```
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### BuildRenderTree
+
+```csharp
+protected override void BuildRenderTree(RenderTreeBuilder __builder)
+```
+
+Renders the component to the supplied <xref href="Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **__builder** [RenderTreeBuilder](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder): 
+
+### Next
+
+```csharp
+public Task Next()
+```
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnInitialized
+
+```csharp
+protected override void OnInitialized()
+```
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: 
+
+### Operation_PropertyChanged
+
+```csharp
+protected void Operation_PropertyChanged(object sender, PropertyChangedEventArgs e)
+```
+
+#### Parameters
+
+- **sender** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **e** [PropertyChangedEventArgs](https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventargs): 
+
+### Reset
+
+```csharp
+public Task Reset(bool clearPanes = false)
+```
+
+#### Parameters
+
+- **clearPanes** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### StartOperation
+
+```csharp
+public Task StartOperation()
+```
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+

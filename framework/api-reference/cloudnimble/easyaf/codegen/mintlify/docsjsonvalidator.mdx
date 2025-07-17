@@ -1,0 +1,152 @@
+---
+title: "DocsJsonValidator"
+description: "Validates Mintlify docs."
+icon: "cube"
+---
+
+# DocsJsonValidator
+
+<Badge variant="outline">Class</Badge>
+
+Validates Mintlify docs.json configuration against the official schema requirements.
+
+## Syntax
+
+```csharp
+public class DocsJsonValidator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### Validate
+
+```csharp
+public List<string> Validate(DocsJsonConfig config)
+```
+
+Validates a docs.json configuration against the Mintlify schema.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+A list of validation errors. Empty if configuration is valid.
+
+### ValidateAppearance
+
+```csharp
+public void ValidateAppearance(DocsJsonConfig config, List<string> errors)
+```
+
+Validates the appearance configuration.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+- **errors** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list to add errors to.
+
+### ValidateColors
+
+```csharp
+public void ValidateColors(DocsJsonConfig config, List<string> errors)
+```
+
+Validates the color configuration.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+- **errors** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list to add errors to.
+
+### ValidateIcons
+
+```csharp
+public void ValidateIcons(DocsJsonConfig config, List<string> errors)
+```
+
+Validates the icons configuration.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+- **errors** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list to add errors to.
+
+### ValidateLogo
+
+```csharp
+public void ValidateLogo(DocsJsonConfig config, List<string> errors)
+```
+
+Validates the logo configuration.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+- **errors** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list to add errors to.
+
+### ValidateNavigation
+
+```csharp
+public void ValidateNavigation(DocsJsonConfig config, List<string> errors)
+```
+
+Validates the navigation configuration.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+- **errors** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list to add errors to.
+
+### ValidateRequired
+
+```csharp
+public void ValidateRequired(DocsJsonConfig config, List<string> errors)
+```
+
+Validates that the configuration has all required properties.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+- **errors** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list to add errors to.
+
+### ValidateSeo
+
+```csharp
+public void ValidateSeo(DocsJsonConfig config, List<string> errors)
+```
+
+Validates the SEO configuration.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+- **errors** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list to add errors to.
+
+### ValidateTheme
+
+```csharp
+public void ValidateTheme(DocsJsonConfig config, List<string> errors)
+```
+
+Validates the theme configuration.
+
+#### Parameters
+
+- **config** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The configuration to validate.
+- **errors** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list to add errors to.
+
+
+## Remarks
+
+This class provides comprehensive validation of the docs.json configuration to ensure
+it complies with the Mintlify schema and will work correctly when deployed.
+

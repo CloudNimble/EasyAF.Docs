@@ -1,0 +1,75 @@
+---
+title: "SimpleMessageBusGenerator"
+description: "Generates SimpleMessageBus message classes for entity CRUD operations."
+icon: "cube"
+---
+
+# SimpleMessageBusGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates SimpleMessageBus message classes for entity CRUD operations.
+
+## Syntax
+
+```csharp
+public class SimpleMessageBusGenerator : EntityGeneratorBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+    - [EntityGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/entitygeneratorbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### SimpleMessageBusGenerator
+
+```csharp
+public SimpleMessageBusGenerator(List<string> extraUsings, string entityNamespace, EntityComposition entity, string messageType)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.CodeGen.SimpleMessageBusGenerator" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): Additional using statements to include.
+- **entityNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): The namespace where the generated messages will be placed.
+- **entity** [EntityComposition](/api-reference/cloudnimble/easyaf/codegen/entitycomposition): The entity composition metadata.
+- **messageType** [string](https://learn.microsoft.com/dotnet/api/system.string): The type of message to generate (Base, Created, Updated, Deleted).
+
+
+## Methods
+
+### Generate
+
+```csharp
+public override void Generate()
+```
+
+Generates the message class based on the configured message type.
+
+### WriteFile
+
+```csharp
+public string WriteFile(string directory = null)
+```
+
+Writes the generated file to the specified directory.
+
+#### Parameters
+
+- **directory** [string](https://learn.microsoft.com/dotnet/api/system.string): The directory to write the file to.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The path of the written file.
+
+

@@ -1,0 +1,72 @@
+  {
+    "$schema": "https://easyaf.dev/schemas/documentation/solutions.json",
+    "version": "1.0",
+    "ignoreFolders": [
+      "research",
+      ".claude"
+    ],
+    "solutions": [
+      {
+        "name": "Core Framework",
+        "tab": "Core Framework",
+        "source": "local",
+        "path": "D:\\Work\\EasyAF\\Dev",
+        "outputPath": "framework",
+        "projects": ["*.csproj"],
+        "exclude": ["*.Tests.*.csproj", "*.Tools.*.csproj", "*.Analyzers.*.csproj", "*.Edmx*"],
+        "navigation": { "inherit": true }
+      },
+      {
+        "name": "SimpleMessageBus",
+        "tab": "SimpleMessageBus",
+        "source": "local",
+        "path": "D:\\GitHub\\SimpleMessageBus",
+        "outputPath": "simplemessagebus",
+        "projects": ["*.csproj"],
+        "exclude": ["*.Tests.*.csproj", "*.Samples.*.csproj"],
+        "navigation": { "inherit": true }
+      },
+      {
+        "name": "Breakdance",
+        "tab": "Breakdance",
+        "source": "local",
+        "path": "D:\\GitHub\\Breakdance",
+        "outputPath": "breakdance",
+        "projects": ["*.csproj"],
+        "exclude": ["*.Tests.*.csproj", "*.Samples.*.csproj"],
+        "navigation": { "inherit": true }
+      },
+      {
+        "name": "BlazorEssentials",
+        "tab": "BlazorEssentials",
+        "source": "local",
+        "path": "D:\\GitHub\\BlazorEssentials",
+        "outputPath": "blazoressentials",
+        "projects": ["*.csproj"],
+        "exclude": ["*.Tests.*.csproj", "*.Samples.*.csproj"],
+        "navigation": { "inherit": true }
+      }
+    ],
+    "globalSettings": {
+      "siteName": "EasyAF",
+      "outputFolder": "./",
+      "logo": {
+        "light": "/logo/light.svg",
+        "dark": "/logo/dark.svg"
+      },
+      "theme": "mint",
+      "colors": {
+        "primary": "#0078d4",
+        "light": "#4da6ff",
+        "dark": "#0056b3"
+      },
+      "favicon": "/favicon.svg",
+      "footer": {
+        "socials": {
+          "x": "https://x.com/cloudnimble",
+          "github": "https://github.com/cloudnimble",
+          "linkedin": "https://linkedin.com/company/cloudnimble"
+        }
+      }
+    }
+  }

@@ -1,0 +1,68 @@
+---
+title: "XmlParagraphElement"
+description: "Represents a paragraph XML documentation element."
+icon: "cube"
+---
+
+# XmlParagraphElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a paragraph XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlParagraphElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlParagraphElement
+
+```csharp
+public XmlParagraphElement()
+```
+
+Initializes a new instance of the XmlParagraphElement class.
+
+### XmlParagraphElement
+
+```csharp
+public XmlParagraphElement(XElement element)
+```
+
+Initializes a new instance of the XmlParagraphElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this paragraph element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this paragraph.
+
+
+## Remarks
+
+The para element represents a paragraph break within documentation text.
+It is used to separate sections of content for better readability.
+

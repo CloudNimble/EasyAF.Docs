@@ -1,0 +1,68 @@
+---
+title: "XmlValueElement"
+description: "Represents a value XML documentation element for properties."
+icon: "cube"
+---
+
+# XmlValueElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a value XML documentation element for properties.
+
+## Syntax
+
+```csharp
+public class XmlValueElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlValueElement
+
+```csharp
+public XmlValueElement()
+```
+
+Initializes a new instance of the XmlValueElement class.
+
+### XmlValueElement
+
+```csharp
+public XmlValueElement(XElement element)
+```
+
+Initializes a new instance of the XmlValueElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this value element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this value description.
+
+
+## Remarks
+
+The value element describes the value that a property represents.
+It is used primarily for properties to explain what the property value means.
+

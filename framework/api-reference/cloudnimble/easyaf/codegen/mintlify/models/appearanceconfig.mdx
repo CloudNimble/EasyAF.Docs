@@ -1,0 +1,56 @@
+---
+title: "AppearanceConfig"
+description: "Represents the appearance configuration for light and dark mode settings in Mintlify."
+icon: "cube"
+---
+
+# AppearanceConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the appearance configuration for light and dark mode settings in Mintlify.
+
+## Syntax
+
+```csharp
+public class AppearanceConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Default
+
+```csharp
+[JsonPropertyName("default")]
+public string Default { get; set; }
+```
+
+Gets or sets the default light/dark mode for the documentation site.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Strict
+
+```csharp
+[JsonPropertyName("strict")]
+public bool? Strict { get; set; }
+```
+
+Gets or sets whether to hide the light/dark mode toggle from users.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+
+## Remarks
+
+This configuration controls the default appearance mode and whether users can toggle
+between light and dark modes in the documentation site.
+

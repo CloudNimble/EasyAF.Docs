@@ -1,0 +1,72 @@
+---
+title: "IndexedDbDatabaseDefinition"
+description: ""
+icon: "cube"
+---
+
+# IndexedDbDatabaseDefinition
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class IndexedDbDatabaseDefinition
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ObjectStores
+
+```csharp
+public List<IndexedDbObjectStoreDefinition> ObjectStores { get; set; }
+```
+
+#### Returns
+
+[List&lt;IndexedDbObjectStoreDefinition&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Version
+
+```csharp
+public int Version { get; set; }
+```
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+
+## Methods
+
+### GetDatabaseDefinition
+
+```csharp
+public static IndexedDbDatabaseDefinition GetDatabaseDefinition(string name, int version, List<IndexedDbObjectStore> objectStores)
+```
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **version** [int](https://learn.microsoft.com/dotnet/api/system.int32): 
+- **objectStores** [List&lt;IndexedDbObjectStore&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+
+#### Returns
+
+[IndexedDbDatabaseDefinition](/api-reference/cloudnimble/blazoressentials/indexeddb/schema/indexeddbdatabasedefinition)
+
+

@@ -1,0 +1,175 @@
+---
+title: "CodeGeneratorBase"
+description: ""
+icon: "cube"
+---
+
+# CodeGeneratorBase
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public abstract class CodeGeneratorBase : IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### CodeGeneratorBase
+
+```csharp
+public CodeGeneratorBase(List<string> extraUsings, string namespaceName)
+```
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **namespaceName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+
+## Properties
+
+### ExtraUsings
+
+```csharp
+public HashSet<string> ExtraUsings { get; }
+```
+
+#### Returns
+
+[HashSet&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1)
+
+### IsGenerated
+
+```csharp
+public bool IsGenerated { get; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Namespace
+
+```csharp
+public string Namespace { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ClassBegin
+
+```csharp
+public void ClassBegin(string declaration, string summaryText)
+```
+
+Sets the Indent to 1, writes the Summary tag, the Class declaration, and then the opening bracket.
+
+#### Parameters
+
+- **declaration** [string](https://learn.microsoft.com/dotnet/api/system.string): The full Class declaration string.
+- **summaryText** [string](https://learn.microsoft.com/dotnet/api/system.string): The test to put inside the &lt;summary&gt; tag.
+
+### ClassEnd
+
+```csharp
+public void ClassEnd()
+```
+
+Writes the end of a Class.
+
+### Dispose
+
+```csharp
+public void Dispose()
+```
+
+### Dispose
+
+```csharp
+protected virtual void Dispose(bool disposing)
+```
+
+#### Parameters
+
+- **disposing** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### Generate
+
+```csharp
+public abstract void Generate()
+```
+
+### Header
+
+```csharp
+public void Header()
+```
+
+### NamespaceBegin
+
+```csharp
+public void NamespaceBegin(string namespaceName)
+```
+
+#### Parameters
+
+- **namespaceName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### NamespaceEnd
+
+```csharp
+public void NamespaceEnd()
+```
+
+### RegionBegin
+
+```csharp
+public void RegionBegin(string regionName)
+```
+
+#### Parameters
+
+- **regionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### RegionEnd
+
+```csharp
+public void RegionEnd()
+```
+
+### ToString
+
+```csharp
+public override string ToString()
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Using
+
+```csharp
+public void Using(string usingName)
+```
+
+#### Parameters
+
+- **usingName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+

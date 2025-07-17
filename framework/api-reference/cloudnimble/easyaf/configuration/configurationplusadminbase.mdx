@@ -1,0 +1,83 @@
+---
+title: "ConfigurationPlusAdminBase"
+description: "An extended configuration class that includes both public and administrative endpoint configuration."
+icon: "cube"
+---
+
+# ConfigurationPlusAdminBase
+
+<Badge variant="outline">Class</Badge>
+
+An extended configuration class that includes both public and administrative endpoint configuration.
+Inherits from <xref href="CloudNimble.EasyAF.Configuration.ConfigurationBase" data-throw-if-not-resolved="false"></xref> and adds support for administrative APIs and applications.
+
+## Syntax
+
+```csharp
+public class ConfigurationPlusAdminBase : ConfigurationBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ConfigurationBase](/api-reference/cloudnimble/easyaf/configuration/configurationbase)
+
+## Properties
+
+### AdminApiClientName
+
+```csharp
+public string AdminApiClientName { get; set; }
+```
+
+The name of the HttpClient that will be used to hit the Admin (Private) API.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### AdminApiRoot
+
+```csharp
+[HttpEndpoint("AdminApiClientName")]
+public string AdminApiRoot { get; set; }
+```
+
+The root of the Admin (Private) API.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### AdminAppClientName
+
+```csharp
+public string AdminAppClientName { get; set; }
+```
+
+The name of the HttpClient that will be used to hit the Admin Blazor Controllers.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### AdminAppRoot
+
+```csharp
+[HttpEndpoint("AdminAppClientName")]
+public string AdminAppRoot { get; set; }
+```
+
+The website your Administrative Blazor app is being served from.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+This configuration class should be used for applications that need both customer-facing and 
+administrative functionality, such as multi-tenant applications with separate admin interfaces
+or applications that need to communicate with both public and private APIs.
+

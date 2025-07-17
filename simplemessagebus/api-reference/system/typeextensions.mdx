@@ -1,0 +1,44 @@
+---
+title: "TypeExtensions"
+description: "Extension methods to augment <xref href=\"System."
+icon: "cube"
+---
+
+# TypeExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Extension methods to augment <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+
+## Syntax
+
+```csharp
+public static class TypeExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### SimpleAssemblyQualifiedName
+
+```csharp
+public static string SimpleAssemblyQualifiedName(this Type type)
+```
+
+Guarantees the creation of an AssemblyQualifiedName that does not contain version or key details. That way when AssemblyVersions are incremented,
+the system will still attempt to process the <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **type** [Type](https://learn.microsoft.com/dotnet/api/system.type): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A string containing the <code class="paramref">type</code> name in the format "FullTypeName, SimpleAssemblyName".
+
+

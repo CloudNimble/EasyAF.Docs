@@ -1,0 +1,451 @@
+---
+title: "MintlifyOptions"
+description: "Configuration options for Mintlify documentation generation."
+icon: "cube"
+---
+
+# MintlifyOptions
+
+<Badge variant="outline">Class</Badge>
+
+Configuration options for Mintlify documentation generation.
+
+## Syntax
+
+```csharp
+public class MintlifyOptions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### AppearanceDefault
+
+```csharp
+public string AppearanceDefault { get; set; }
+```
+
+Gets or sets the default appearance mode (system, light, dark).
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### AppearanceStrict
+
+```csharp
+public bool AppearanceStrict { get; set; }
+```
+
+Gets or sets whether to hide the light/dark mode toggle.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### BaseUrl
+
+```csharp
+public string BaseUrl { get; set; }
+```
+
+Gets or sets the base URL for cross-references to external documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Clean
+
+```csharp
+public bool Clean { get; set; }
+```
+
+Gets or sets whether to clean the output directory before generating.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### ConfigOnly
+
+```csharp
+public bool ConfigOnly { get; set; }
+```
+
+Gets or sets whether to only generate the docs.json file without MDX files.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### FaviconDark
+
+```csharp
+public string FaviconDark { get; set; }
+```
+
+Gets or sets the dark mode favicon path.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### FaviconLight
+
+```csharp
+public string FaviconLight { get; set; }
+```
+
+Gets or sets the favicon path or light mode favicon.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForceBuild
+
+```csharp
+public bool ForceBuild { get; set; }
+```
+
+Gets or sets whether to force a rebuild instead of using existing binaries.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### GenerateConfig
+
+```csharp
+public bool GenerateConfig { get; set; }
+```
+
+Gets or sets whether to generate a docs.json configuration file.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### GitHubUrl
+
+```csharp
+public string GitHubUrl { get; set; }
+```
+
+Gets or sets the GitHub URL for footer social links.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### IconLibrary
+
+```csharp
+public string IconLibrary { get; set; }
+```
+
+Gets or sets the icon library to use (fontawesome, lucide).
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### IncludeExamples
+
+```csharp
+public bool IncludeExamples { get; set; }
+```
+
+Gets or sets whether to include code examples in the generated documentation.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IncludeInheritance
+
+```csharp
+public bool IncludeInheritance { get; set; }
+```
+
+Gets or sets whether to include inheritance information.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IncludeInternal
+
+```csharp
+public bool IncludeInternal { get; set; }
+```
+
+Gets or sets whether to include internal members in the documentation.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IncludeSeeAlso
+
+```csharp
+public bool IncludeSeeAlso { get; set; }
+```
+
+Gets or sets whether to include see also references.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### LogoDark
+
+```csharp
+public string LogoDark { get; set; }
+```
+
+Gets or sets the path to the dark logo file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### LogoHref
+
+```csharp
+public string LogoHref { get; set; }
+```
+
+Gets or sets the URL to redirect to when clicking the logo.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### LogoLight
+
+```csharp
+public string LogoLight { get; set; }
+```
+
+Gets or sets the path to the light logo file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### MaxDepth
+
+```csharp
+public int MaxDepth { get; set; }
+```
+
+Gets or sets the maximum depth for nested type documentation.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### NamespaceFilter
+
+```csharp
+public string NamespaceFilter { get; set; }
+```
+
+Gets or sets the namespace filter regex pattern.
+Only namespaces matching this pattern will be included.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### OutputDirectory
+
+```csharp
+public string OutputDirectory { get; set; }
+```
+
+Gets or sets the output directory for generated documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PreserveExistingConfig
+
+```csharp
+public bool PreserveExistingConfig { get; set; }
+```
+
+Gets or sets whether to preserve existing docs.json configuration when updating.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### PrimaryColor
+
+```csharp
+public string PrimaryColor { get; set; }
+```
+
+Gets or sets the primary color for the documentation theme.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PrimaryDarkColor
+
+```csharp
+public string PrimaryDarkColor { get; set; }
+```
+
+Gets or sets the primary color for dark mode.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SearchPrompt
+
+```csharp
+public string SearchPrompt { get; set; }
+```
+
+Gets or sets the search prompt text.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SeoIndexing
+
+```csharp
+public string SeoIndexing { get; set; }
+```
+
+Gets or sets the SEO indexing mode (navigable, all).
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SiteDescription
+
+```csharp
+public string SiteDescription { get; set; }
+```
+
+Gets or sets the description of the documentation site.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SiteName
+
+```csharp
+public string SiteName { get; set; }
+```
+
+Gets or sets the name of the documentation site.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SolutionNamePrefix
+
+```csharp
+public string SolutionNamePrefix { get; set; }
+```
+
+Gets or sets the solution name prefix to strip from project names when generating paths.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### StripBackticksAroundLinks
+
+```csharp
+public bool StripBackticksAroundLinks { get; set; }
+```
+
+Gets or sets whether to strip backticks around parameter and return value links.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Theme
+
+```csharp
+public string Theme { get; set; }
+```
+
+Gets or sets the theme for the documentation site.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### TypeFilter
+
+```csharp
+public string TypeFilter { get; set; }
+```
+
+Gets or sets the type filter regex pattern.
+Only types matching this pattern will be included.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Verbose
+
+```csharp
+public bool Verbose { get; set; }
+```
+
+Gets or sets whether to enable verbose output during generation.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### WebsiteUrl
+
+```csharp
+public string WebsiteUrl { get; set; }
+```
+
+Gets or sets the website URL for footer social links.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### Validate
+
+```csharp
+public void Validate()
+```
+
+Validates the options and throws an exception if any are invalid.
+
+
+## Remarks
+
+This class contains all the configuration settings that control how the Mintlify
+documentation is generated, including output paths, filtering options, and formatting preferences.
+

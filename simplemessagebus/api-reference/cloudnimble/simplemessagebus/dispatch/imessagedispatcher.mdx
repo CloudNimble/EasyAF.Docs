@@ -1,0 +1,46 @@
+---
+title: "IMessageDispatcher"
+description: "Defines the required composition of every Dispatcher used by SimpleMessageBus to send <xref href=\"CloudNimble."
+icon: "plug"
+---
+
+# IMessageDispatcher
+
+<Badge variant="outline">Interface</Badge>
+
+Defines the required composition of every Dispatcher used by SimpleMessageBus to send <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope?text=MessageEnvelopes" data-throw-if-not-resolved="false"></xref> to the 
+<xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=IMessageHandlers" data-throw-if-not-resolved="false"></xref> registered to handle that message's <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+
+## Syntax
+
+```csharp
+public interface IMessageDispatcher
+```
+
+## Methods
+
+### Dispatch
+
+```csharp
+Task Dispatch(MessageEnvelope messageEnvelope)
+```
+
+Dispatches an incoming <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> to the <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=IMessageHandlers" data-throw-if-not-resolved="false"></xref> registered to handle that message's <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **messageEnvelope** [MessageEnvelope](/api-reference/cloudnimble/simplemessagebus/core/messageenvelope): The <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> instance to send to the registered <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=IMessageHandlers" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> reference for the asynchronous function.
+
+
+## Remarks
+
+Message dispatchers control how messages are delivered to their handlers. SimpleMessageBus provides two built-in
+implementations: <xref href="CloudNimble.SimpleMessageBus.Dispatch.OrderedMessageDispatcher" data-throw-if-not-resolved="false"></xref> for sequential processing and <xref href="CloudNimble.SimpleMessageBus.Dispatch.ParallelMessageDispatcher" data-throw-if-not-resolved="false"></xref>
+for concurrent processing. Custom dispatchers can be implemented for specialized routing or processing logic.
+

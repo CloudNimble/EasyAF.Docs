@@ -1,0 +1,42 @@
+---
+title: "IConfigurationExtensions"
+description: "Provides extension methods for binding configuration sections to objects using JSON property names."
+icon: "cube"
+---
+
+# IConfigurationExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Provides extension methods for binding configuration sections to objects using JSON property names.
+Enables configuration binding that respects <xref href="System.Text.Json.Serialization.JsonPropertyNameAttribute" data-throw-if-not-resolved="false"></xref> when mapping
+configuration keys to object properties.
+
+## Syntax
+
+```csharp
+public static class IConfigurationExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### BindWithJsonNames&lt;T&gt;
+
+```csharp
+public static void BindWithJsonNames<T>(this IConfiguration configuration, T instance)
+```
+
+Binds the configuration values to the specified instance using JSON property names for key mapping.
+This method respects <xref href="System.Text.Json.Serialization.JsonPropertyNameAttribute" data-throw-if-not-resolved="false"></xref> when determining configuration keys,
+allowing for JSON-style configuration binding with different property naming conventions.
+
+#### Parameters
+
+- **configuration** [IConfiguration](https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration): The configuration instance to bind from.
+- **instance** ``T``: The instance to bind the configuration values to.
+
+

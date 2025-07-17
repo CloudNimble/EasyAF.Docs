@@ -1,0 +1,43 @@
+---
+title: "Error404Config"
+description: "Represents the configuration for 404 (Not Found) error handling in the Mintlify documentation site."
+icon: "cube"
+---
+
+# Error404Config
+
+<Badge variant="outline">Class</Badge>
+
+Represents the configuration for 404 (Not Found) error handling in the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class Error404Config
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Redirect
+
+```csharp
+[JsonPropertyName("redirect")]
+public bool? Redirect { get; set; }
+```
+
+Gets or sets whether to automatically redirect users to the home page when a 404 error occurs.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+
+## Remarks
+
+This configuration controls what happens when users try to access pages that don't exist,
+including whether to automatically redirect them to the home page.
+

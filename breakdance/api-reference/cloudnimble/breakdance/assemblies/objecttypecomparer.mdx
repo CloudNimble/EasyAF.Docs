@@ -1,0 +1,62 @@
+---
+title: "ObjectTypeComparer"
+description: "Legacy class used to compare types."
+icon: "cube"
+---
+
+# ObjectTypeComparer
+
+<Badge variant="outline">Class</Badge>
+
+Legacy class used to compare types.
+
+## Syntax
+
+```csharp
+public sealed class ObjectTypeComparer : IComparer, IComparer<object>
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IComparer](https://learn.microsoft.com/dotnet/api/system.collections.icomparer)
+- [IComparer&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1)
+
+## Methods
+
+### Compare
+
+```csharp
+public int Compare(object x, object y)
+```
+
+#### Parameters
+
+- **x** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **y** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+
+## Fields
+
+### Default
+
+```csharp
+public static readonly ObjectTypeComparer Default
+```
+
+#### Returns
+
+[ObjectTypeComparer](/api-reference/cloudnimble/breakdance/assemblies/objecttypecomparer)
+
+
+## Remarks
+
+Should be rewritten or eliminated at our earliest possible convenience.
+

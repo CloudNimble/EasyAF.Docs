@@ -1,0 +1,297 @@
+---
+title: "RatioInterval<T>"
+description: "Represents a ratio value that occurs at regular time intervals, enabling conversion between different time periods."
+icon: "cube"
+---
+
+# RatioInterval&lt;T&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Represents a ratio value that occurs at regular time intervals, enabling conversion between different time periods.
+This class combines a base time interval (from the <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> class) with a ratio value to calculate 
+total ratio amounts across different time periods.
+
+## Syntax
+
+```csharp
+public class RatioInterval<T> : Interval<T> where T : IComparable<T>, IConvertible
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [Interval&lt;T&gt;](CloudNimble.EasyAF.Core.Interval-1.html)
+
+## Constructors
+
+### RatioInterval
+
+```csharp
+public RatioInterval()
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Core.RatioInterval%601" data-throw-if-not-resolved="false"></xref> class with default values.
+
+### RatioInterval
+
+```csharp
+public RatioInterval(decimal ratio, T value, IntervalType type)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Core.RatioInterval%601" data-throw-if-not-resolved="false"></xref> class with the specified ratio, interval value, and type.
+
+#### Parameters
+
+- **ratio** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The decimal ratio value that is calculated over the given interval.
+- **value** ``T``: The duration of the interval.
+- **type** [IntervalType](/api-reference/cloudnimble/easyaf/core/intervaltype): The base unit that describes what the quantity of this interval references.
+
+### RatioInterval
+
+```csharp
+public RatioInterval(T value, IntervalType type)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Core.RatioInterval%601" data-throw-if-not-resolved="false"></xref> class with the specified interval value and type.
+
+#### Parameters
+
+- **value** ``T``: The duration of the interval.
+- **type** [IntervalType](/api-reference/cloudnimble/easyaf/core/intervaltype): The base unit that describes what the quantity of this interval references.
+
+
+## Properties
+
+### Ratio
+
+```csharp
+public decimal Ratio { get; set; }
+```
+
+Gets or sets the decimal ratio value that is calculated over the given interval.
+Can represent a ratio, rate, or other decimal value per time period.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+
+## Methods
+
+### RatioPerDay
+
+```csharp
+public decimal RatioPerDay()
+```
+
+Calculates the total ratio value per day based on the interval and ratio.
+This method multiplies the interval frequency (how many intervals occur per day) by the ratio value.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per day as a decimal.
+
+### RatioPerDay
+
+```csharp
+public decimal RatioPerDay(decimal quantity)
+```
+
+Calculates the total ratio value per day for a given quantity based on the interval and ratio.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to apply the ratio calculation to.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per day as a decimal.
+
+### RatioPerHour
+
+```csharp
+public decimal RatioPerHour()
+```
+
+Calculates the total ratio value per hour based on the interval and ratio.
+This method multiplies the interval frequency (how many intervals occur per hour) by the ratio value.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per hour as a decimal.
+
+### RatioPerHour
+
+```csharp
+public decimal RatioPerHour(decimal quantity)
+```
+
+Calculates the total ratio value per hour for a given quantity based on the interval and ratio.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to apply the ratio calculation to.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per hour as a decimal.
+
+### RatioPerMinute
+
+```csharp
+public decimal RatioPerMinute()
+```
+
+Calculates the total ratio value per minute based on the interval and ratio.
+This method multiplies the interval frequency (how many intervals occur per minute) by the ratio value.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per minute as a decimal.
+
+### RatioPerMinute
+
+```csharp
+public decimal RatioPerMinute(decimal quantity)
+```
+
+Calculates the total ratio value per minute for a given quantity based on the interval and ratio.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to apply the ratio calculation to.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per minute as a decimal.
+
+### RatioPerMonth
+
+```csharp
+public decimal RatioPerMonth()
+```
+
+Calculates the total ratio value per month based on the interval and ratio.
+This method multiplies the interval frequency (how many intervals occur per month) by the ratio value.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per month as a decimal.
+
+### RatioPerMonth
+
+```csharp
+public decimal RatioPerMonth(decimal quantity)
+```
+
+Calculates the total ratio value per month for a given quantity based on the interval and ratio.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to apply the ratio calculation to.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per month as a decimal.
+
+### RatioPerWeek
+
+```csharp
+public decimal RatioPerWeek()
+```
+
+Calculates the total ratio value per week based on the interval and ratio.
+This method multiplies the interval frequency (how many intervals occur per week) by the ratio value.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per week as a decimal.
+
+### RatioPerWeek
+
+```csharp
+public decimal RatioPerWeek(decimal quantity)
+```
+
+Calculates the total ratio value per week for a given quantity based on the interval and ratio.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to apply the ratio calculation to.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per week as a decimal.
+
+### RatioPerYear
+
+```csharp
+public decimal RatioPerYear()
+```
+
+Calculates the total ratio value per year based on the interval and ratio.
+This method multiplies the interval frequency (how many intervals occur per year) by the ratio value.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per year as a decimal.
+
+### RatioPerYear
+
+```csharp
+public decimal RatioPerYear(decimal quantity)
+```
+
+Calculates the total ratio value per year for a given quantity based on the interval and ratio.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to apply the ratio calculation to.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total ratio value per year as a decimal.
+
+
+## Remarks
+
+<p>
+<strong>Key Concepts:</strong>
+</p>
+<ul><li><strong>Value:</strong> Always represents a time duration (e.g., 1.5 hours, 2 days)</li><li><strong>Type:</strong> The time unit for the Value (Hours, Days, Months, etc.)</li><li><strong>Ratio:</strong> The decimal ratio that occurs each interval period</li></ul>
+
+<p>
+<strong>Method Types:</strong>
+</p>
+<ul><li><strong>Per* methods (inherited):</strong> Calculate how many intervals fit in a time period</li><li><strong>RatioPer* methods:</strong> Calculate total ratio value for a time period (intervals × ratio)</li></ul>
+
+<p>
+<strong>Common Use Cases:</strong>
+</p>
+<ul><li>Conversion rates: "Convert 70% of leads every 2 weeks"</li><li>Performance metrics: "Achieve 0.95 efficiency ratio every 8 hours"</li><li>Quality metrics: "Maintain 0.99 success ratio every day"</li></ul>
+

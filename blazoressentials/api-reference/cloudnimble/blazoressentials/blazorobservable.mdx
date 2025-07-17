@@ -1,0 +1,83 @@
+---
+title: "BlazorObservable"
+description: "A base class for Blazor ViewModels to implement <xref href=\"System."
+icon: "cube"
+---
+
+# BlazorObservable
+
+<Badge variant="outline">Class</Badge>
+
+A base class for Blazor ViewModels to implement <xref href="System.ComponentModel.INotifyPropertyChanged" data-throw-if-not-resolved="false"></xref> and <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref>.
+
+## Syntax
+
+```csharp
+public class BlazorObservable : EasyObservableObject, INotifyPropertyChanged, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `EasyObservableObject`
+
+## Implements
+
+- [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### BlazorObservable
+
+```csharp
+public BlazorObservable(StateHasChangedConfig stateHasChangedConfig = null)
+```
+
+Creates a new instance of the <xref href="CloudNimble.BlazorEssentials.BlazorObservable" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **stateHasChangedConfig** [StateHasChangedConfig](/api-reference/cloudnimble/blazoressentials/statehaschangedconfig): 
+
+
+## Properties
+
+### LoadingStatus
+
+```csharp
+public LoadingStatus LoadingStatus { get; set; }
+```
+
+A <xref href="CloudNimble.BlazorEssentials.BlazorObservable.LoadingStatus" data-throw-if-not-resolved="false"></xref> specifying the current state of the required data for this Observable.
+
+#### Returns
+
+[LoadingStatus](/api-reference/cloudnimble/blazoressentials/loadingstatus)
+
+### StateHasChanged
+
+```csharp
+public StateHasChangedConfig StateHasChanged { get; set; }
+```
+
+Determines how to trigger StateHasChanged events in a Blazor component.
+
+#### Returns
+
+[StateHasChangedConfig](/api-reference/cloudnimble/blazoressentials/statehaschangedconfig)
+
+
+## Methods
+
+### Dispose
+
+```csharp
+protected override void Dispose(bool disposing)
+```
+
+#### Parameters
+
+- **disposing** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+

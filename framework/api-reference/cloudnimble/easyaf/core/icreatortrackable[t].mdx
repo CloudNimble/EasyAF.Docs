@@ -1,0 +1,33 @@
+---
+title: "ICreatorTrackable<T>"
+description: "An interface that implements the CloudNimble common pattern for tracking who created an Entity."
+icon: "plug"
+---
+
+# ICreatorTrackable&lt;T&gt;
+
+<Badge variant="outline">Interface</Badge>
+
+An interface that implements the CloudNimble common pattern for tracking who created an Entity.
+
+## Syntax
+
+```csharp
+public interface ICreatorTrackable<T> where T : struct
+```
+
+## Properties
+
+### CreatedById
+
+```csharp
+T CreatedById { get; set; }
+```
+
+The unique identifier for the User that created this particular Entity.
+
+#### Returns
+
+``T``
+
+

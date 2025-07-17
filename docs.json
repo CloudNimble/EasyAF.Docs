@@ -1,54 +1,467 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "EasyAF Framework",
-  "colors": {
-    "primary": "#0078d4",
-    "light": "#4da6ff",
-    "dark": "#0056b3"
+  "schema": "https://mintlify.com/docs.json",
+  "name": "EasyAF",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#0078d4",
+    "dark": "#0056b3"
+  },
+  "theme": "mint",
   "navigation": {
     "tabs": [
-      {
-        "tab": "Overview",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "docs/index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
-            ]
-          }
-        ]
-      },
       {
         "tab": "Core Framework",
         "groups": [
           {
-            "group": "Core Framework",
+            "group": "Getting Started",
             "pages": [
-              "docs/framework/index"
+              "framework/index",
+              "framework/quickstart"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Guides",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "framework/guides/interval-calculations"
+            ]
+          },
+          {
+            "group": "CloudNimble",
+            "icon": "folder",
+            "pages": [
+              {
+                "group": "EasyAF",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Business",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/cloudnimble/easyaf/business/entitymanager[tcontext--tentity]",
+                      "framework/api-reference/cloudnimble/easyaf/business/identifiableentitymanager[tcontext--tentity--tid]",
+                      "framework/api-reference/cloudnimble/easyaf/business/managerbase[tcontext]",
+                      "framework/api-reference/cloudnimble/easyaf/business/statemachineentitymanager[tcontext--tentity--tid--tstatetype]",
+                      "framework/api-reference/cloudnimble/easyaf/business/statusentitymanager[tcontext--tentity--tid--tstatustype]"
+                    ]
+                  },
+                  {
+                    "group": "CodeGen",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "DocFx",
+                        "icon": "folder",
+                        "pages": [
+                          {
+                            "group": "Models",
+                            "icon": "folder",
+                            "pages": [
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/conceptualcontent",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/conceptualreferences",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxapiitem",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxexception",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxmetadata",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxpageitem",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxparameter",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxreference",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxremote",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxreturn",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxsource",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxsyntax",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxtocitem",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxtypeparameter",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/docfx/models/overridecontent"
+                            ]
+                          },
+                          "framework/api-reference/cloudnimble/easyaf/codegen/docfx/conceptualtemplategenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/docfx/docfxmetadataparser",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/docfx/docfxmintlifygenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/docfx/docfxnavigationgenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/docfx/docfxtempworkspace",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/docfx/docfxtypegenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/docfx/filebasednavigationgenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/docfx/overridecontentloader"
+                        ]
+                      },
+                      {
+                        "group": "Mintlify",
+                        "icon": "folder",
+                        "pages": [
+                          {
+                            "group": "Models",
+                            "icon": "folder",
+                            "pages": [
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/anchorconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/apiconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/appearanceconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/backgroundconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/bannerconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/colorpairconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/colorsconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/contextualconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/dropdownconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/error404config",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/errorsconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/faviconconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/faviconconfigjsonconverter",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/fontsconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/footerconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/footerlink",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/footerlinkgroup",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globalanchorconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globaldropdownconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globallanguageconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globalnavigationconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globalsiteconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globaltabconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globalversionconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/groupconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/iconsconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/integrationsconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/languageconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/logoconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/mergeconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/mergetransformations",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/navbarconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/navbarlink",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/navigationconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/navigationjsonconverter",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/redirectconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/searchconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/seoconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/simplenavigation",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/solutionconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/solutionnavigationconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/solutionnavigationgroup",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/solutionsconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/stylingconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/tabconfig",
+                              "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/models/versionconfig"
+                            ]
+                          },
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/docsjsonvalidator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyconstants",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyexampleextractor",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifygenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifylinkresolver",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifymembergenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifynavigationgenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifytypegenerator",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/solutionsconfigloader",
+                          "framework/api-reference/cloudnimble/easyaf/codegen/mintlify/xmldocumentationprocessor"
+                        ]
+                      },
+                      "framework/api-reference/cloudnimble/easyaf/codegen/accessibility",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/adminapicontrollergenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/apicontrollergenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/authorizationgenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/businessdependencygenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/codegenconstants",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/codegenerationtools",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/containergeneratorbase",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/dbcontextpartialgenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/dbviewgenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/edmxloader",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/entitycomposition",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/entitygenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/entitygeneratorbase",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/functionimportparameter",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/interceptorgenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/managergenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/metadatatools",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/modelbuildergenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/providerconstants",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/restierdependencygenerator",
+                      "framework/api-reference/cloudnimble/easyaf/codegen/simplemessagebusgenerator"
+                    ]
+                  },
+                  {
+                    "group": "Configuration",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/cloudnimble/easyaf/configuration/configurationbase",
+                      "framework/api-reference/cloudnimble/easyaf/configuration/configurationplusadminbase",
+                      "framework/api-reference/cloudnimble/easyaf/configuration/httpendpointattribute"
+                    ]
+                  },
+                  {
+                    "group": "Core",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Converters",
+                        "icon": "folder",
+                        "pages": [
+                          "framework/api-reference/cloudnimble/easyaf/core/converters/ignoreauditfieldsjsonconverter[t]",
+                          "framework/api-reference/cloudnimble/easyaf/core/converters/ignoreauditfieldsjsonconverterfactory"
+                        ]
+                      },
+                      "framework/api-reference/cloudnimble/easyaf/core/dbobservableobject",
+                      "framework/api-reference/cloudnimble/easyaf/core/easyobservableobject",
+                      "framework/api-reference/cloudnimble/easyaf/core/ensure",
+                      "framework/api-reference/cloudnimble/easyaf/core/httphandlermode",
+                      "framework/api-reference/cloudnimble/easyaf/core/iactivetrackable",
+                      "framework/api-reference/cloudnimble/easyaf/core/icreatedauditable",
+                      "framework/api-reference/cloudnimble/easyaf/core/icreatortrackable[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/idbenum",
+                      "framework/api-reference/cloudnimble/easyaf/core/idbstateenum",
+                      "framework/api-reference/cloudnimble/easyaf/core/idbstatusenum",
+                      "framework/api-reference/cloudnimble/easyaf/core/ihasstate[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/ihasstatus[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/ihumanreadable",
+                      "framework/api-reference/cloudnimble/easyaf/core/iidentifiable[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/iidentifiableequalitycomparer[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/interval[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/intervaltype",
+                      "framework/api-reference/cloudnimble/easyaf/core/isortable",
+                      "framework/api-reference/cloudnimble/easyaf/core/iupdatedauditable",
+                      "framework/api-reference/cloudnimble/easyaf/core/iupdatertrackable[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/moneyinterval[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/nameof",
+                      "framework/api-reference/cloudnimble/easyaf/core/percentageinterval[t]",
+                      "framework/api-reference/cloudnimble/easyaf/core/ratiointerval[t]"
+                    ]
+                  },
+                  {
+                    "group": "Data",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/cloudnimble/easyaf/data/azureactivedirectorysqlauthprovider",
+                      "framework/api-reference/cloudnimble/easyaf/data/easyafsqlazureconfiguration"
+                    ]
+                  },
+                  {
+                    "group": "Http",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "OData",
+                        "icon": "folder",
+                        "pages": [
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odataconstants",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav401list[t]",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav401primitiveresult[t]",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav401responsebase",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav401singleentityresponsebase",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4error",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4errordetail",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4errorresponse",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4innererror",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4list[t]",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4primitiveresult[t]",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4responsebase",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4resultlist[t]",
+                          "framework/api-reference/cloudnimble/easyaf/http/odata/odatav4singleentityresponsebase"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "NewtonsoftJson",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Compatibility",
+                        "icon": "folder",
+                        "pages": [
+                          "framework/api-reference/cloudnimble/easyaf/newtonsoftjson/compatibility/systemtextjsoncontractresolver"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Restier",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/cloudnimble/easyaf/restier/easyafentityframeworkapi[tcontext]",
+                      "framework/api-reference/cloudnimble/easyaf/restier/restierhelpers",
+                      "framework/api-reference/cloudnimble/easyaf/restier/restieroperationtype"
+                    ]
+                  },
+                  {
+                    "group": "XmlDocumentation",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/membertype",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlcodeblockelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlcodeelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlexampleelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlexceptionelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlgenericelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmllistelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlmember",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlparagraphelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlparameterelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlparamrefelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlpermissionelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlremarkselement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlreturnselement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlseealsoelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlseeelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlsummaryelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmltypeparameterelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmltypeparamrefelement",
+                      "framework/api-reference/cloudnimble/easyaf/xmldocumentation/xmlvalueelement"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Microsoft",
+            "icon": "folder",
+            "pages": [
+              {
+                "group": "DbContextPackage",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Utilities",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/microsoft/dbcontextpackage/utilities/csharpviewgenerator",
+                      "framework/api-reference/microsoft/dbcontextpackage/utilities/csharpviewgeneratorbase",
+                      "framework/api-reference/microsoft/dbcontextpackage/utilities/tostringinstancehelper"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "EntityFrameworkCore",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Metadata",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Builders",
+                        "icon": "folder",
+                        "pages": [
+                          "framework/api-reference/microsoft/entityframeworkcore/metadata/builders/dataefcore_entitytypebuilderextensions"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Extensions",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Configuration",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/microsoft/extensions/configuration/iconfigurationextensions"
+                    ]
+                  },
+                  {
+                    "group": "DependencyInjection",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/microsoft/extensions/dependencyinjection/easyaf_configuration_iservicecollectionextensions",
+                      "framework/api-reference/microsoft/extensions/dependencyinjection/easyaf_http_ihttpclientbuilderextensions",
+                      "framework/api-reference/microsoft/extensions/dependencyinjection/easyaf_http_iservicecollectionextensions"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Restier",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Core",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Model",
+                        "icon": "folder",
+                        "pages": [
+                          "framework/api-reference/microsoft/restier/core/model/imodelbuilderextensions"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "System",
+            "icon": "folder",
+            "pages": [
+              {
+                "group": "Collections",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Generic",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/system/collections/generic/easyaf_claimsextensions",
+                      "framework/api-reference/system/collections/generic/easyaf_ienumerableextensions",
+                      "framework/api-reference/system/collections/generic/easyaf_listextensions"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Data",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Entity",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/system/data/entity/easyaf_codegen_dbcontextextensions"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Net",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Http",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/system/net/http/easyaf_http_newtonsoftjson_httpresponsemessageextensions",
+                      "framework/api-reference/system/net/http/easyaf_http_systemtextjson_httpresponsemessageextensions"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Security",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Claims",
+                    "icon": "folder",
+                    "pages": [
+                      "framework/api-reference/system/security/claims/easyaf_claimsidentityextensions",
+                      "framework/api-reference/system/security/claims/easyaf_claimsprincipalextensions"
+                    ]
+                  }
+                ]
+              },
+              "framework/api-reference/system/easyaf_datetimeextensions",
+              "framework/api-reference/system/easyaf_exceptionextensions",
+              "framework/api-reference/system/easyaf_guidextensions",
+              "framework/api-reference/system/easyaf_http_uriextensions"
             ]
           }
         ]
@@ -57,62 +470,249 @@
         "tab": "SimpleMessageBus",
         "groups": [
           {
-            "group": "SimpleMessageBus",
+            "group": "Getting Started",
             "pages": [
-              "docs/simplemessagebus/index",
-              "docs/simplemessagebus/quickstart",
-              "docs/simplemessagebus/installation"
+              "simplemessagebus/index",
+              "simplemessagebus/quickstart",
+              "simplemessagebus/installation"
             ]
           },
           {
             "group": "Concepts",
             "pages": [
-              "docs/simplemessagebus/concepts/overview"
+              "simplemessagebus/concepts/overview"
             ]
           },
           {
             "group": "Guides",
             "pages": [
-              "docs/simplemessagebus/guides/configuration",
-              "docs/simplemessagebus/guides/testing"
+              "simplemessagebus/guides/configuration",
+              "simplemessagebus/guides/testing"
             ]
           },
           {
             "group": "Providers",
             "pages": [
-              "docs/simplemessagebus/providers/overview",
-              "docs/simplemessagebus/providers/azure-storage-queue",
-              "docs/simplemessagebus/providers/amazon-sqs"
+              "simplemessagebus/providers/amazon-sqs",
+              "simplemessagebus/providers/azure-storage-queue",
+              "simplemessagebus/providers/overview"
             ]
           },
           {
-            "group": "API Reference",
+            "group": "CloudNimble",
+            "icon": "folder",
             "pages": [
-              "docs/simplemessagebus/api-reference/overview"
+              {
+                "group": "SimpleMessageBus",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Amazon",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Core",
+                        "icon": "folder",
+                        "pages": [
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/amazon/core/amazonsqsoptions"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Breakdance",
+                    "icon": "folder",
+                    "pages": [
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/breakdance/testablemessagepublisher"
+                    ]
+                  },
+                  {
+                    "group": "Core",
+                    "icon": "folder",
+                    "pages": [
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/azurestoragequeueconstants",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/azurestoragequeueencoding",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/azurestoragequeueoptions",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/filesystemconstants",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/filesystemoptions",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/imessage",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/imessagehandler",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/imetadataaware",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/itrackable",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/messagebase",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/messageenvelope",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/core/messageextensions"
+                    ]
+                  },
+                  {
+                    "group": "Dispatch",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Amazon",
+                        "icon": "folder",
+                        "pages": [
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/amazon/amazonsqsconstants",
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/amazon/amazonsqsprocessor"
+                        ]
+                      },
+                      {
+                        "group": "IndexedDb",
+                        "icon": "folder",
+                        "pages": [
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/indexeddb/indexeddbqueueprocessor"
+                        ]
+                      },
+                      {
+                        "group": "Triggers",
+                        "icon": "folder",
+                        "pages": [
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/files_iwebjobsbuilderextensions",
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/isimplemessagebusfileprocessorfactory",
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfileattribute",
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfileprocessor",
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfileprocessorfactorycontext",
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfiletriggerattribute"
+                        ]
+                      },
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/amazonsqsnameresolver",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/azurestoragequeueprocessor",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/filesystemqueueprocessor",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/imessagedispatcher",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/iqueueprocessor",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/orderedmessagedispatcher",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/dispatch/parallelmessagedispatcher"
+                    ]
+                  },
+                  {
+                    "group": "IndexedDb",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Core",
+                        "icon": "folder",
+                        "pages": [
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/indexeddb/core/indexeddbconstants",
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/indexeddb/core/indexeddboptions"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Publish",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Amazon",
+                        "icon": "folder",
+                        "pages": [
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/publish/amazon/amazonsqsconstants",
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/publish/amazon/amazonsqsmessagepublisher"
+                        ]
+                      },
+                      {
+                        "group": "IndexedDb",
+                        "icon": "folder",
+                        "pages": [
+                          "simplemessagebus/api-reference/cloudnimble/simplemessagebus/publish/indexeddb/indexeddbmessagepublisher"
+                        ]
+                      },
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/publish/azurestoragequeuemessagepublisher",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/publish/filesystemmessagepublisher",
+                      "simplemessagebus/api-reference/cloudnimble/simplemessagebus/publish/imessagepublisher"
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
-            "group": "Core API",
+            "group": "Microsoft",
+            "icon": "folder",
             "pages": [
-              "docs/simplemessagebus/api-reference/core/imessage",
-              "docs/simplemessagebus/api-reference/core/imessagehandler",
-              "docs/simplemessagebus/api-reference/core/imetadataaware",
-              "docs/simplemessagebus/api-reference/core/itrackable",
-              "docs/simplemessagebus/api-reference/core/messagebase",
-              "docs/simplemessagebus/api-reference/core/messageenvelope"
+              {
+                "group": "AspNetCore",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Components",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "WebAssembly",
+                        "icon": "folder",
+                        "pages": [
+                          {
+                            "group": "Hosting",
+                            "icon": "folder",
+                            "pages": [
+                              "simplemessagebus/api-reference/microsoft/aspnetcore/components/webassembly/hosting/simplemessagebus_publish_indexeddb_webassemblyhostbuilderextensions"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Extensions",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Hosting",
+                    "icon": "folder",
+                    "pages": [
+                      "simplemessagebus/api-reference/microsoft/extensions/hosting/dispatchamazon_ihostbuilderextensions",
+                      "simplemessagebus/api-reference/microsoft/extensions/hosting/filesystem_ihostbuilderextensions",
+                      "simplemessagebus/api-reference/microsoft/extensions/hosting/ihostbuilderextensions",
+                      "simplemessagebus/api-reference/microsoft/extensions/hosting/simplemessagebus_hosting_ihostbuilderextensions",
+                      "simplemessagebus/api-reference/microsoft/extensions/hosting/simplemessagebus_publish_amazon_ihostbuilderextensions",
+                      "simplemessagebus/api-reference/microsoft/extensions/hosting/simplemessagebus_publish_ihostbuilderextensions",
+                      "simplemessagebus/api-reference/microsoft/extensions/hosting/simplemessagebus_publish_indexeddb_ihostbuilderextensions"
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
-            "group": "Publishing API",
+            "group": "SimpleMessageBus",
+            "icon": "folder",
             "pages": [
-              "docs/simplemessagebus/api-reference/publish/imessagepublisher"
+              {
+                "group": "IndexedDb",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Core",
+                    "icon": "folder",
+                    "pages": [
+                      "simplemessagebus/api-reference/simplemessagebus/indexeddb/core/simplemessagebusdb"
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
-            "group": "Dispatch API",
+            "group": "System",
+            "icon": "folder",
             "pages": [
-              "docs/simplemessagebus/api-reference/dispatch/imessagedispatcher",
-              "docs/simplemessagebus/api-reference/dispatch/iqueueprocessor"
+              {
+                "group": "Collections",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Concurrent",
+                    "icon": "folder",
+                    "pages": [
+                      "simplemessagebus/api-reference/system/collections/concurrent/simplemessagebus_concurrentdictionaryextensions"
+                    ]
+                  }
+                ]
+              },
+              "simplemessagebus/api-reference/system/typeextensions"
             ]
           }
         ]
@@ -121,17 +721,157 @@
         "tab": "Breakdance",
         "groups": [
           {
-            "group": "Breakdance",
+            "group": "Getting Started",
             "pages": [
-              "docs/breakdance/index"
+              "breakdance/index",
+              "breakdance/quickstart"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "CloudNimble",
+            "icon": "folder",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              {
+                "group": "Breakdance",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "AspNetCore",
+                    "icon": "folder",
+                    "pages": [
+                      "breakdance/api-reference/cloudnimble/breakdance/aspnetcore/aspnetcorebreakdancetestbase",
+                      "breakdance/api-reference/cloudnimble/breakdance/aspnetcore/aspnetcorebreakdancetestbase[tstartup]",
+                      "breakdance/api-reference/cloudnimble/breakdance/aspnetcore/aspnetcoretesthelpers",
+                      "breakdance/api-reference/cloudnimble/breakdance/aspnetcore/httpclienthelpers",
+                      "breakdance/api-reference/cloudnimble/breakdance/aspnetcore/webapiconstants"
+                    ]
+                  },
+                  {
+                    "group": "Assemblies",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Http",
+                        "icon": "folder",
+                        "pages": [
+                          "breakdance/api-reference/cloudnimble/breakdance/assemblies/http/testcachedelegatinghandlerbase",
+                          "breakdance/api-reference/cloudnimble/breakdance/assemblies/http/testcachereaddelegatinghandler",
+                          "breakdance/api-reference/cloudnimble/breakdance/assemblies/http/testcachewritedelegatinghandler"
+                        ]
+                      },
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/assemblyconstants",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/breakdancemanifestgeneratorattribute",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/breakdancetestassemblyattribute",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/breakdancetestbase",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/dependencyinjectiontesthelpers",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/membercomparer",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/memberdefinition",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/objecttypecomparer",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/privateobject",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/privatetype",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/publicapihelpers",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/typecomparer",
+                      "breakdance/api-reference/cloudnimble/breakdance/assemblies/typedefinition"
+                    ]
+                  },
+                  {
+                    "group": "Blazor",
+                    "icon": "folder",
+                    "pages": [
+                      "breakdance/api-reference/cloudnimble/breakdance/blazor/blazorbreakdancetestbase"
+                    ]
+                  },
+                  {
+                    "group": "WebApi",
+                    "icon": "folder",
+                    "pages": [
+                      "breakdance/api-reference/cloudnimble/breakdance/webapi/httpclienthelpers",
+                      "breakdance/api-reference/cloudnimble/breakdance/webapi/webapitesthelpers"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Microsoft",
+            "icon": "folder",
+            "pages": [
+              {
+                "group": "Extensions",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "DependencyInjection",
+                    "icon": "folder",
+                    "pages": [
+                      "breakdance/api-reference/microsoft/extensions/dependencyinjection/breakdance_assemblies_ihostbuilderextensions",
+                      "breakdance/api-reference/microsoft/extensions/dependencyinjection/breakdance_assemblies_iserviceproviderextensions",
+                      "breakdance/api-reference/microsoft/extensions/dependencyinjection/breakdance_assemblies_servicecollectionextensions"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "MimeTypes",
+            "icon": "folder",
+            "pages": [
+              "breakdance/api-reference/mimetypes/mimetypemap"
+            ]
+          },
+          {
+            "group": "System",
+            "icon": "folder",
+            "pages": [
+              {
+                "group": "Net",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Http",
+                    "icon": "folder",
+                    "pages": [
+                      "breakdance/api-reference/system/net/http/breakdance_webapi_httpclientextensions"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Reflection",
+                "icon": "folder",
+                "pages": [
+                  "breakdance/api-reference/system/reflection/breakdance_assemblies_methodbaseextensions"
+                ]
+              },
+              {
+                "group": "Security",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Claims",
+                    "icon": "folder",
+                    "pages": [
+                      "breakdance/api-reference/system/security/claims/claimsprincipaltesthelpers"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Web",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Http",
+                    "icon": "folder",
+                    "pages": [
+                      "breakdance/api-reference/system/web/http/breakdance_webapi_httpconfigurationextensions"
+                    ]
+                  }
+                ]
+              },
+              "breakdance/api-reference/system/breakdance_assemblies_objectextensions"
             ]
           }
         ]
@@ -140,59 +880,177 @@
         "tab": "BlazorEssentials",
         "groups": [
           {
-            "group": "BlazorEssentials",
+            "group": "Getting Started",
             "pages": [
-              "docs/blazoressentials/index"
+              "blazoressentials/index",
+              "blazoressentials/quickstart"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "CloudNimble",
+            "icon": "folder",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              {
+                "group": "BlazorEssentials",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Authentication",
+                    "icon": "folder",
+                    "pages": [
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/authentication/blazoressentialsauthorizationmessagehandler[t]"
+                    ]
+                  },
+                  {
+                    "group": "Breakdance",
+                    "icon": "folder",
+                    "pages": [
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/breakdance/blazoressentialstestbase[tconfiguration--tappstate]",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/breakdance/testableauthenticationstateprovider",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/breakdance/testablewebassemblyhostenvironment",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/breakdance/viewmodeltesthelpers"
+                    ]
+                  },
+                  {
+                    "group": "Controls",
+                    "icon": "folder",
+                    "pages": [
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/controls/loadingcontainer[titem]"
+                    ]
+                  },
+                  {
+                    "group": "Extensions",
+                    "icon": "folder",
+                    "pages": [
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/extensions/listextensions"
+                    ]
+                  },
+                  {
+                    "group": "IndexedDb",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Schema",
+                        "icon": "folder",
+                        "pages": [
+                          "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/schema/indexeddbdatabasedefinition",
+                          "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/schema/indexeddbindexdefinition",
+                          "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/schema/indexeddbobjectstoredefinition"
+                        ]
+                      },
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/indexattribute",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbdatabase",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbexception",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbindex",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbnotfoundexception",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbobjectstore",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/keyrange[tkey]",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/indexeddb/objectstoreattribute"
+                    ]
+                  },
+                  {
+                    "group": "Merlin",
+                    "icon": "folder",
+                    "pages": [
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/operation",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/operationstatus",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/operationstatusdisplay",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/operationstep",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/operationstepstatus",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/wizard",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/wizardpane",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/wizardpanestatus",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/merlin/wizardpanetype"
+                    ]
+                  },
+                  {
+                    "group": "Navigation",
+                    "icon": "folder",
+                    "pages": [
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/navigation/actionbutton",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/navigation/actionbutton[t]",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/navigation/actionbuttonbase",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/navigation/navigationhistory",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/navigation/navigationitem",
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/navigation/scrollrestorationtype"
+                    ]
+                  },
+                  {
+                    "group": "Threading",
+                    "icon": "folder",
+                    "pages": [
+                      "blazoressentials/api-reference/cloudnimble/blazoressentials/threading/delaydispatcher"
+                    ]
+                  },
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/_imports",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/appstatebase",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/blazorobservable",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/html",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/interfaceelement",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/jsmodule",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/loadingstatus",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/statehaschangedconfig",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/statehaschangeddebugmode",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/statehaschangeddelaymode",
+                  "blazoressentials/api-reference/cloudnimble/blazoressentials/viewmodelbase[tconfig--tappstate]"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Microsoft",
+            "icon": "folder",
+            "pages": [
+              {
+                "group": "AspNetCore",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Components",
+                    "icon": "folder",
+                    "pages": [
+                      {
+                        "group": "Forms",
+                        "icon": "folder",
+                        "pages": [
+                          "blazoressentials/api-reference/microsoft/aspnetcore/components/forms/editcontextextensions"
+                        ]
+                      },
+                      {
+                        "group": "WebAssembly",
+                        "icon": "folder",
+                        "pages": [
+                          {
+                            "group": "Hosting",
+                            "icon": "folder",
+                            "pages": [
+                              "blazoressentials/api-reference/microsoft/aspnetcore/components/webassembly/hosting/webassemblyhostbuilderextensions"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Extensions",
+                "icon": "folder",
+                "pages": [
+                  {
+                    "group": "Hosting",
+                    "icon": "folder",
+                    "pages": [
+                      "blazoressentials/api-reference/microsoft/extensions/hosting/ihostbuilderextensions"
+                    ]
+                  }
+                ]
+              }
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:opensource@nimbleapps.cloud"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    ]
   },
   "footer": {
     "socials": {
@@ -200,10 +1058,5 @@
       "github": "https://github.com/cloudnimble",
       "linkedin": "https://linkedin.com/company/cloudnimble"
     }
-  },
-
-
-  "search": {
-    "prompt": "Search EasyAF documentation..."
   }
- }
+}

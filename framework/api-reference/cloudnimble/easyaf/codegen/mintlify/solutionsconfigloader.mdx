@@ -1,0 +1,109 @@
+---
+title: "SolutionsConfigLoader"
+description: "Loads and validates solutions."
+icon: "cube"
+---
+
+# SolutionsConfigLoader
+
+<Badge variant="outline">Class</Badge>
+
+Loads and validates solutions.json configuration files for multi-solution documentation generation.
+
+## Syntax
+
+```csharp
+public class SolutionsConfigLoader
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### CreateDefault
+
+```csharp
+public SolutionsConfig CreateDefault(string siteName = "Documentation Site")
+```
+
+Creates a default solutions.json configuration template.
+
+#### Parameters
+
+- **siteName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the documentation site.
+
+#### Returns
+
+[SolutionsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/solutionsconfig)
+
+A SolutionsConfig with sensible defaults.
+
+### GetAllIgnorePatterns
+
+```csharp
+public IEnumerable<string> GetAllIgnorePatterns(SolutionsConfig config)
+```
+
+Gets all folders that should be ignored during processing.
+
+#### Parameters
+
+- **config** [SolutionsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/solutionsconfig): The solutions configuration.
+
+#### Returns
+
+[IEnumerable&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+A combined list of default and custom ignore patterns.
+
+### LoadAsync
+
+```csharp
+public Task<SolutionsConfig> LoadAsync(string filePath)
+```
+
+Loads and validates a solutions.json configuration file.
+
+#### Parameters
+
+- **filePath** [string](https://learn.microsoft.com/dotnet/api/system.string): The path to the solutions.json file.
+
+#### Returns
+
+[Task&lt;SolutionsConfig&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A validated SolutionsConfig object.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown when filePath is null or whitespace.
+- `[FileNotFoundException](https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception)`: Thrown when the solutions.json file does not exist.
+- `[InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception)`: Thrown when the configuration is invalid.
+
+### ShouldIgnoreDirectory
+
+```csharp
+public bool ShouldIgnoreDirectory(string directoryName, SolutionsConfig config)
+```
+
+Checks if a directory should be ignored during processing.
+
+#### Parameters
+
+- **directoryName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the directory to check.
+- **config** [SolutionsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/solutionsconfig): The solutions configuration containing custom ignore patterns.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+True if the directory should be ignored; otherwise, false.
+
+
+## Remarks
+
+This class handles parsing of solutions.json files, applies default configurations,
+and validates the resulting configuration for multi-solution documentation generation.
+

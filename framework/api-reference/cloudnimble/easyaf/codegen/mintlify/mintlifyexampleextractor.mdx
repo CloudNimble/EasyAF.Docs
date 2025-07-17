@@ -1,0 +1,103 @@
+---
+title: "MintlifyExampleExtractor"
+description: "Extracts and formats code examples from XML documentation for Mintlify display."
+icon: "cube"
+---
+
+# MintlifyExampleExtractor
+
+<Badge variant="outline">Class</Badge>
+
+Extracts and formats code examples from XML documentation for Mintlify display.
+
+## Syntax
+
+```csharp
+public class MintlifyExampleExtractor
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### MintlifyExampleExtractor
+
+```csharp
+public MintlifyExampleExtractor(MintlifyOptions options, MintlifyLinkResolver linkResolver)
+```
+
+Initializes a new instance of the MintlifyExampleExtractor class.
+
+#### Parameters
+
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+- **linkResolver** [MintlifyLinkResolver](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifylinkresolver): The link resolver for cross-references.
+
+
+## Methods
+
+### ExtractMemberExamples
+
+```csharp
+public string ExtractMemberExamples(XmlMember member)
+```
+
+Extracts examples from a member and formats them for Mintlify display.
+
+#### Parameters
+
+- **member** [XmlMember](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlmember): The member to extract examples from.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+Formatted MDX content containing the examples.
+
+### ExtractTypeExamples
+
+```csharp
+public string ExtractTypeExamples(XmlMember type, AssemblyXmlDocumentation xmlDocumentation)
+```
+
+Extracts examples from a type and formats them for Mintlify display.
+
+#### Parameters
+
+- **type** [XmlMember](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlmember): The type to extract examples from.
+- **xmlDocumentation** [AssemblyXmlDocumentation](/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation): The complete XML documentation context.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+Formatted MDX content containing the examples.
+
+### GenerateUsageExamples
+
+```csharp
+public string GenerateUsageExamples(XmlMember type, AssemblyXmlDocumentation xmlDocumentation)
+```
+
+Extracts usage examples for common patterns and scenarios.
+
+#### Parameters
+
+- **type** [XmlMember](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlmember): The type to generate usage examples for.
+- **xmlDocumentation** [AssemblyXmlDocumentation](/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation): The complete XML documentation context.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+Generated usage examples in MDX format.
+
+
+## Remarks
+
+This class processes XML documentation example elements and converts them into
+beautiful Mintlify code blocks with proper syntax highlighting and formatting.
+It supports multiple languages and can extract examples from various XML doc elements.
+

@@ -1,0 +1,57 @@
+---
+title: "ClaimsPrincipalTestHelpers"
+description: "A set of helpers to make it easier to test code that calls <xref href=\"System."
+icon: "cube"
+---
+
+# ClaimsPrincipalTestHelpers
+
+<Badge variant="outline">Class</Badge>
+
+A set of helpers to make it easier to test code that calls <xref href="System.Security.Claims.ClaimsPrincipal.Current" data-throw-if-not-resolved="false"></xref>.
+
+## Syntax
+
+```csharp
+public static class ClaimsPrincipalTestHelpers
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### SetSelector
+
+```csharp
+[Obsolete("Please use BreakdanceTestBase.SetClaimsPrincipalSelectorToThreadPrincipal() instead.", false)]
+public static void SetSelector(Claim claim, string authenticationType = "BreakdanceTests", string nameType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", string roleType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")
+```
+
+Sets the <xref href="System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector" data-throw-if-not-resolved="false"></xref> to a new ClaimsIdentity with the specified claims.
+
+#### Parameters
+
+- **claim** [Claim](https://learn.microsoft.com/dotnet/api/system.security.claims.claim): The Claims to set for the test run.
+- **authenticationType** [string](https://learn.microsoft.com/dotnet/api/system.string): If needed, the AuthenticationType of the ClaimsIdentity. Defaults to "BreakdanceTests".
+- **nameType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for the Name claim. Defaults to <xref href="System.Security.Claims.ClaimTypes.NameIdentifier" data-throw-if-not-resolved="false"></xref>.
+- **roleType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for Role claims. Defaults to <xref href="System.Security.Claims.ClaimTypes.Role" data-throw-if-not-resolved="false"></xref>.
+
+### SetSelector
+
+```csharp
+[Obsolete("Please use BreakdanceTestBase.SetClaimsPrincipalSelectorToThreadPrincipal() instead.", false)]
+public static void SetSelector(List<Claim> claims, string authenticationType = "BreakdanceTests", string nameType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", string roleType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")
+```
+
+Sets the <xref href="System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector" data-throw-if-not-resolved="false"></xref> to a new ClaimsIdentity with the specified claims.
+
+#### Parameters
+
+- **claims** [List&lt;Claim&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The Claims to set for the test run.
+- **authenticationType** [string](https://learn.microsoft.com/dotnet/api/system.string): If needed, the AuthenticationType of the ClaimsIdentity. Defaults to "BreakdanceTests".
+- **nameType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for the Name claim. Defaults to <xref href="System.Security.Claims.ClaimTypes.NameIdentifier" data-throw-if-not-resolved="false"></xref>.
+- **roleType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for Role claims. Defaults to <xref href="System.Security.Claims.ClaimTypes.Role" data-throw-if-not-resolved="false"></xref>.
+
+

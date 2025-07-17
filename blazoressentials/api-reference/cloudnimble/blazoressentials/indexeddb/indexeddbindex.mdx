@@ -1,0 +1,389 @@
+---
+title: "IndexedDbIndex"
+description: "Defines an Index for a given object store."
+icon: "cube"
+---
+
+# IndexedDbIndex
+
+<Badge variant="outline">Class</Badge>
+
+Defines an Index for a given object store.
+
+## Syntax
+
+```csharp
+public class IndexedDbIndex
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### IndexedDbIndex
+
+```csharp
+public IndexedDbIndex(IndexedDbObjectStore objectStore, string name, string keyPath, bool multiEntry = false, bool unique = false)
+```
+
+#### Parameters
+
+- **objectStore** [IndexedDbObjectStore](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbobjectstore): 
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **keyPath** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **multiEntry** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+- **unique** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Exceptions
+
+- `[IndexedDbException](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbexception)`: 
+
+
+## Properties
+
+### Database
+
+```csharp
+public IndexedDbDatabase Database { get; init; }
+```
+
+#### Returns
+
+[IndexedDbDatabase](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbdatabase)
+
+### KeyPath
+
+```csharp
+public string KeyPath { get; }
+```
+
+the identifier for the property in the object/record that is saved and is to be indexed.
+can be multiple properties separated by comma
+if null will default to index name
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### MultiEntry
+
+```csharp
+public bool MultiEntry { get; }
+```
+
+Affects how the index behaves when the result of evaluating the index's key path yields an array.
+If true, there is one record in the index for each item in an array of keys.
+If false, then there is one record for each key that is an array.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Name
+
+```csharp
+public string Name { get; }
+```
+
+The name of the index.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ObjectStore
+
+```csharp
+public IndexedDbObjectStore ObjectStore { get; init; }
+```
+
+Only use for indexes
+If true, this index does not allow duplicate values for a key.
+
+#### Returns
+
+[IndexedDbObjectStore](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbobjectstore)
+
+### Unique
+
+```csharp
+public bool Unique { get; }
+```
+
+Only use for indexes
+If true, this index does not allow duplicate values for a key.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+
+## Methods
+
+### CountAsync
+
+```csharp
+public Task<int> CountAsync()
+```
+
+Count records in Index
+
+#### Returns
+
+[Task&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### CountAsync&lt;TKey&gt;
+
+```csharp
+public Task<int> CountAsync<TKey>(KeyRange<TKey> key)
+```
+
+Count records in Index
+
+#### Parameters
+
+- **key** [KeyRange&lt;TKey&gt;](CloudNimble.BlazorEssentials.IndexedDb.KeyRange-1.html): 
+
+#### Returns
+
+[Task&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### CountAsync&lt;TKey&gt;
+
+```csharp
+public Task<int> CountAsync<TKey>(TKey key)
+```
+
+Count records in Index
+
+#### Parameters
+
+- **key** ``TKey``: 
+
+#### Returns
+
+[Task&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllAsync<TKey, TResult>(KeyRange<TKey> key, int? count = null)
+```
+
+Gets all of the records that match a given query in the specified index.
+
+#### Parameters
+
+- **key** [KeyRange&lt;TKey&gt;](CloudNimble.BlazorEssentials.IndexedDb.KeyRange-1.html): 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllAsync<TKey, TResult>(TKey key, int? count = null)
+```
+
+Gets all of the records that match a given query in the specified index.
+
+#### Parameters
+
+- **key** ``TKey``: 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllAsync<TKey, TResult>(TKey[] key)
+```
+
+Gets all of the records that match a given query in the specified index.
+
+#### Parameters
+
+- **key** ``TKey[]``: 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllAsync&lt;TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllAsync<TResult>(int? count = null)
+```
+
+Gets all of the records that match a given query in the specified index.
+
+#### Parameters
+
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllKeysAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllKeysAsync<TKey, TResult>(KeyRange<TKey> key, int? count = null)
+```
+
+Gets all of the records that match a given query in the specified index.
+
+#### Parameters
+
+- **key** [KeyRange&lt;TKey&gt;](CloudNimble.BlazorEssentials.IndexedDb.KeyRange-1.html): 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllKeysAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllKeysAsync<TKey, TResult>(TKey key, int? count = null)
+```
+
+Gets all of the records keys that match a given query in the specified index.
+
+#### Parameters
+
+- **key** ``TKey``: 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllKeysAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllKeysAsync<TKey, TResult>(TKey[] key)
+```
+
+Gets all of the records that match a given query in the specified index.
+
+#### Parameters
+
+- **key** ``TKey[]``: 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllKeysAsync&lt;TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllKeysAsync<TResult>(int? count = null)
+```
+
+Gets all of the records keys that match a given query in the specified index.
+
+#### Parameters
+
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<TResult> GetAsync<TKey, TResult>(TKey queryValue)
+```
+
+Returns the first record that matches a query against a given index
+
+#### Parameters
+
+- **queryValue** ``TKey``: 
+
+#### Returns
+
+[Task&lt;TResult&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetKeyAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<TResult> GetKeyAsync<TKey, TResult>(TKey key)
+```
+
+Returns the first record keys that matches a query against a given index
+
+#### Parameters
+
+- **key** ``TKey``: 
+
+#### Returns
+
+[Task&lt;TResult&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### QueryAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> QueryAsync<TKey, TResult>(string filter, KeyRange<TKey> key, int? count = null, int? skip = null)
+```
+
+Gets all of the records using a filter expression
+
+#### Parameters
+
+- **filter** [string](https://learn.microsoft.com/dotnet/api/system.string): expression that evaluates to true/false, each record es passed to "obj" parameter
+- **key** [KeyRange&lt;TKey&gt;](CloudNimble.BlazorEssentials.IndexedDb.KeyRange-1.html): 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+- **skip** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### QueryAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> QueryAsync<TKey, TResult>(string filter, TKey key, int? count = null, int? skip = null)
+```
+
+Gets all of the records using a filter expression
+
+#### Parameters
+
+- **filter** [string](https://learn.microsoft.com/dotnet/api/system.string): expression that evaluates to true/false, each record es passed to "obj" parameter
+- **key** ``TKey``: 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+- **skip** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### QueryAsync&lt;TResult&gt;
+
+```csharp
+public Task<List<TResult>> QueryAsync<TResult>(string filter, int? count = null, int? skip = null)
+```
+
+Gets all of the records using a filter expression
+
+#### Parameters
+
+- **filter** [string](https://learn.microsoft.com/dotnet/api/system.string): expression that evaluates to true/false, each record es passed to "obj" parameter
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+- **skip** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+

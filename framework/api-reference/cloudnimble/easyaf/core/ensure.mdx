@@ -1,0 +1,60 @@
+---
+title: "Ensure"
+description: "Provides methods for ensuring that method arguments meet specific criteria."
+icon: "cube"
+---
+
+# Ensure
+
+<Badge variant="outline">Class</Badge>
+
+Provides methods for ensuring that method arguments meet specific criteria.
+This class provides a consistent way to validate arguments and throw appropriate exceptions.
+
+## Syntax
+
+```csharp
+public static class Ensure
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### ArgumentNotNull
+
+```csharp
+public static void ArgumentNotNull(object argument, string argumentName)
+```
+
+Ensures that the specified argument is not null.
+
+#### Parameters
+
+- **argument** [object](https://learn.microsoft.com/dotnet/api/system.object): The argument to validate.
+- **argumentName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the argument being validated.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown when <code class="paramref">argument</code> is null.
+
+### ArgumentNotNullOrWhiteSpace
+
+```csharp
+public static void ArgumentNotNullOrWhiteSpace(string argument, string argumentName)
+```
+
+Ensures that the specified argument is not null or whitespace.
+
+#### Parameters
+
+- **argument** [string](https://learn.microsoft.com/dotnet/api/system.string): The argument to validate.
+- **argumentName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the argument being validated.
+
+#### Exceptions
+
+- `[ArgumentException](https://learn.microsoft.com/dotnet/api/system.argumentexception)`: Thrown when <code class="paramref">argument</code> is null or whitespace.
+
+

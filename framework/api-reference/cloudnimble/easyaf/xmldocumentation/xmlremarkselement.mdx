@@ -1,0 +1,69 @@
+---
+title: "XmlRemarksElement"
+description: "Represents a remarks XML documentation element."
+icon: "cube"
+---
+
+# XmlRemarksElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a remarks XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlRemarksElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlRemarksElement
+
+```csharp
+public XmlRemarksElement()
+```
+
+Initializes a new instance of the XmlRemarksElement class.
+
+### XmlRemarksElement
+
+```csharp
+public XmlRemarksElement(XElement element)
+```
+
+Initializes a new instance of the XmlRemarksElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this remarks element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of these remarks.
+
+
+## Remarks
+
+The remarks element provides additional detailed information about a type or member.
+It is typically displayed after the summary and can contain more extensive explanations,
+usage notes, or implementation details.
+

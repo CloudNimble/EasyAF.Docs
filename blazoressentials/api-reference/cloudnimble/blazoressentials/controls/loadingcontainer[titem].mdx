@@ -1,0 +1,166 @@
+---
+title: "LoadingContainer<TItem>"
+description: ""
+icon: "cube"
+---
+
+# LoadingContainer&lt;TItem&gt;
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class LoadingContainer<TItem> : ComponentBase, IComponent, IHandleEvent, IHandleAfterRender
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ComponentBase](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase)
+
+## Implements
+
+- [IComponent](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent)
+- [IHandleEvent](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent)
+- [IHandleAfterRender](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender)
+
+## Properties
+
+### Data
+
+```csharp
+[Parameter]
+public TItem Data { get; set; }
+```
+
+The information you will be binding this control against. You should typically use the two-way binding syntax of '@bind-Data' to connect this 
+information to the control.
+
+#### Returns
+
+``TItem``
+
+### DataChanged
+
+```csharp
+[Parameter]
+public EventCallback<TItem> DataChanged { get; set; }
+```
+
+The event handler used to update the Parent control about <xref href="CloudNimble.BlazorEssentials.Controls.LoadingContainer%601.Data" data-throw-if-not-resolved="false"></xref> changes during two-way binding.
+
+#### Returns
+
+[EventCallback&lt;TItem&gt;](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.eventcallback-1)
+
+### FailedContent
+
+```csharp
+[Parameter]
+public RenderFragment FailedContent { get; set; }
+```
+
+The content to display when the <xref href="CloudNimble.BlazorEssentials.Controls.LoadingContainer%601.LoadingStatus" data-throw-if-not-resolved="false"></xref> list set to <xref href="CloudNimble.BlazorEssentials.LoadingStatus.Failed" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[RenderFragment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment)
+
+### LoadedContent
+
+```csharp
+[Parameter]
+public RenderFragment<TItem> LoadedContent { get; set; }
+```
+
+The content to display when the <xref href="CloudNimble.BlazorEssentials.Controls.LoadingContainer%601.LoadingStatus" data-throw-if-not-resolved="false"></xref> list set to <xref href="CloudNimble.BlazorEssentials.LoadingStatus.Loaded" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[RenderFragment&lt;TItem&gt;](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment-1)
+
+### LoadingContent
+
+```csharp
+[Parameter]
+public RenderFragment LoadingContent { get; set; }
+```
+
+The content to display when the <xref href="CloudNimble.BlazorEssentials.Controls.LoadingContainer%601.LoadingStatus" data-throw-if-not-resolved="false"></xref> list set to <xref href="CloudNimble.BlazorEssentials.LoadingStatus.Loading" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[RenderFragment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment)
+
+### LoadingStatus
+
+```csharp
+[Parameter]
+public LoadingStatus LoadingStatus { get; set; }
+```
+
+The particular property containing the LoadingStatus that you want to track.. You should typically use the two-way binding syntax of '@bind-Data' to 
+connect this information to the control.
+
+#### Returns
+
+[LoadingStatus](/api-reference/cloudnimble/blazoressentials/loadingstatus)
+
+### LoadingStatusChanged
+
+```csharp
+[Parameter]
+public EventCallback<LoadingStatus> LoadingStatusChanged { get; set; }
+```
+
+The event handler used to update the Parent control about <xref href="CloudNimble.BlazorEssentials.Controls.LoadingContainer%601.LoadingStatus" data-throw-if-not-resolved="false"></xref> changes during two-way binding.
+
+#### Returns
+
+[EventCallback&lt;LoadingStatus&gt;](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.eventcallback-1)
+
+### NoResultsContent
+
+```csharp
+[Parameter]
+public RenderFragment NoResultsContent { get; set; }
+```
+
+The content to display when the <xref href="CloudNimble.BlazorEssentials.Controls.LoadingContainer%601.LoadingStatus" data-throw-if-not-resolved="false"></xref> list set to <xref href="CloudNimble.BlazorEssentials.LoadingStatus.Loaded" data-throw-if-not-resolved="false"></xref> and <xref href="CloudNimble.BlazorEssentials.Controls.LoadingContainer%601.Data" data-throw-if-not-resolved="false"></xref> list either null, 
+or is a list that contains no objects.
+
+#### Returns
+
+[RenderFragment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment)
+
+### NotLoadedContent
+
+```csharp
+[Parameter]
+public RenderFragment NotLoadedContent { get; set; }
+```
+
+The content to display when the <xref href="CloudNimble.BlazorEssentials.Controls.LoadingContainer%601.LoadingStatus" data-throw-if-not-resolved="false"></xref> list set to <xref href="CloudNimble.BlazorEssentials.LoadingStatus.NotLoaded" data-throw-if-not-resolved="false"></xref>. This is typically the initial state 
+for a ViewModel.
+
+#### Returns
+
+[RenderFragment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment)
+
+
+## Methods
+
+### BuildRenderTree
+
+```csharp
+protected override void BuildRenderTree(RenderTreeBuilder __builder)
+```
+
+Renders the component to the supplied <xref href="Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **__builder** [RenderTreeBuilder](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder): 
+
+

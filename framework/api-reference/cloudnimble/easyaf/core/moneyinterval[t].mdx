@@ -1,0 +1,307 @@
+---
+title: "MoneyInterval<T>"
+description: "Represents a sum of money to be exchanged during a given interval."
+icon: "cube"
+---
+
+# MoneyInterval&lt;T&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Represents a sum of money to be exchanged during a given interval.
+
+## Syntax
+
+```csharp
+public class MoneyInterval<T> : Interval<T> where T : IComparable<T>, IConvertible
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [Interval&lt;T&gt;](CloudNimble.EasyAF.Core.Interval-1.html)
+
+## Constructors
+
+### MoneyInterval
+
+```csharp
+public MoneyInterval()
+```
+
+### MoneyInterval
+
+```csharp
+public MoneyInterval(decimal money, T value, IntervalType type)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Core.MoneyInterval%601" data-throw-if-not-resolved="false"></xref> class with the specified money amount, interval value, and type.
+
+#### Parameters
+
+- **money** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The amount of money represented by the given interval.
+- **value** ``T``: The duration of the interval.
+- **type** [IntervalType](/api-reference/cloudnimble/easyaf/core/intervaltype): The base unit that describes what the quantity of this interval references.
+
+### MoneyInterval
+
+```csharp
+public MoneyInterval(T value, IntervalType type)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Core.MoneyInterval%601" data-throw-if-not-resolved="false"></xref> class with the specified interval value and type.
+
+#### Parameters
+
+- **value** ``T``: The duration of the interval.
+- **type** [IntervalType](/api-reference/cloudnimble/easyaf/core/intervaltype): The base unit that describes what the quantity of this interval references.
+
+
+## Properties
+
+### Money
+
+```csharp
+[DataType(DataType.Currency)]
+[DisplayFormat(DataFormatString = "{0:$###,###,##0;($###,###,##0);$0}", NullDisplayText = "$0")]
+public decimal Money { get; set; }
+```
+
+The amount of money represented by the given <xref href="CloudNimble.EasyAF.Core.IntervalType" data-throw-if-not-resolved="false"></xref>
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+
+## Methods
+
+### PerDay
+
+```csharp
+public override decimal PerDay()
+```
+
+Calculates the monetary amount per day based on this money interval.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The amount of money per day as a decimal value.
+
+### PerDay
+
+```csharp
+public override decimal PerDay(decimal quantity)
+```
+
+Calculates the total monetary amount per day based on this money interval and a quantity multiplier.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity multiplier (e.g., hours worked, units sold).
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total amount of money per day as a decimal value.
+
+### PerHour
+
+```csharp
+public override decimal PerHour()
+```
+
+Calculates the monetary amount per hour based on this money interval.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The amount of money per hour as a decimal value.
+
+### PerHour
+
+```csharp
+public override decimal PerHour(decimal quantity)
+```
+
+Calculates the total monetary amount per hour based on this money interval and a quantity multiplier.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity multiplier (e.g., hours worked, units sold).
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total amount of money per hour as a decimal value.
+
+### PerMinute
+
+```csharp
+public override decimal PerMinute()
+```
+
+Calculates the monetary amount per minute based on this money interval.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The amount of money per minute as a decimal value.
+
+### PerMinute
+
+```csharp
+public override decimal PerMinute(decimal quantity)
+```
+
+Calculates the total monetary amount per minute based on this money interval and a quantity multiplier.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity multiplier (e.g., hours worked, units sold).
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total amount of money per minute as a decimal value.
+
+### PerMonth
+
+```csharp
+public override decimal PerMonth()
+```
+
+Calculates the monetary amount per month based on this money interval.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The amount of money per month as a decimal value.
+
+### PerMonth
+
+```csharp
+public override decimal PerMonth(decimal quantity)
+```
+
+Calculates the total monetary amount per month based on this money interval and a quantity multiplier.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity multiplier (e.g., hours worked, units sold).
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total amount of money per month as a decimal value.
+
+### PerWeek
+
+```csharp
+public override decimal PerWeek()
+```
+
+Calculates the monetary amount per week based on this money interval.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The amount of money per week as a decimal value.
+
+### PerWeek
+
+```csharp
+public override decimal PerWeek(decimal quantity)
+```
+
+Calculates the total monetary amount per week based on this money interval and a quantity multiplier.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity multiplier (e.g., hours worked, units sold).
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total amount of money per week as a decimal value.
+
+### PerYear
+
+```csharp
+public override decimal PerYear()
+```
+
+Calculates the monetary amount per year based on this money interval.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The amount of money per year as a decimal value.
+
+### PerYear
+
+```csharp
+public override decimal PerYear(decimal quantity)
+```
+
+Calculates the total monetary amount per year based on this money interval and a quantity multiplier.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity multiplier (e.g., hours worked, units sold).
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total amount of money per year as a decimal value.
+
+### ToString
+
+```csharp
+public override string ToString()
+```
+
+Returns a string that represents the current object.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A string that represents the current object.
+
+### ToString
+
+```csharp
+public string ToString(int decimals)
+```
+
+Returns a string representation of the money interval with the specified number of decimal places for the currency value.
+
+#### Parameters
+
+- **decimals** [int](https://learn.microsoft.com/dotnet/api/system.int32): The number of decimal places to display for the currency value.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A formatted string showing the money amount per interval period.
+
+
+## Remarks
+
+This has been broken up to allow for conversions (for example, converting $/month into $/day) to be self-contained. This should reduce duplication.
+

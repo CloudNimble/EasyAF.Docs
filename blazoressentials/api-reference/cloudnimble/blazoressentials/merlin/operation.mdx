@@ -1,0 +1,262 @@
+---
+title: "Operation"
+description: "A class with observable elements to describe the different components of reporting operation progress to an end user."
+icon: "cube"
+---
+
+# Operation
+
+<Badge variant="outline">Class</Badge>
+
+A class with observable elements to describe the different components of reporting operation progress to an end user.
+
+## Syntax
+
+```csharp
+public class Operation : BlazorObservable, INotifyPropertyChanged, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `EasyObservableObject`
+    - [BlazorObservable](/api-reference/cloudnimble/blazoressentials/blazorobservable)
+
+## Implements
+
+- [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### Operation
+
+```csharp
+public Operation(string title, IEnumerable<OperationStep> steps, string successText, string failureText, string inProgressText = "Working...", string notStartedText = "", bool shouldObserveStatus = true)
+```
+
+#### Parameters
+
+- **title** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **steps** [IEnumerable&lt;OperationStep&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+- **successText** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for the Success value on the DisplayText property.
+- **failureText** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for the Failure value on the DisplayText property.
+- **inProgressText** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for the InProgress value on the DisplayText property.
+- **notStartedText** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for the NotStarted value on the DisplayText property.
+- **shouldObserveStatus** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Initializer for internal flag indicating if the control should trigger the StateHasChanged action in the <xref href="CloudNimble.BlazorEssentials.BlazorObservable" data-throw-if-not-resolved="false"></xref> when the <xref href="CloudNimble.BlazorEssentials.Merlin.OperationStatus" data-throw-if-not-resolved="false"></xref> changes.
+
+
+## Properties
+
+### CurrentIcon
+
+```csharp
+public string CurrentIcon { get; set; }
+```
+
+A computed string that determines what the icon should be as the Steps change.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### CurrentIconColor
+
+```csharp
+public string CurrentIconColor { get; set; }
+```
+
+A computed string that determines what the icon color should be as the Steps change.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### CurrentProgressClass
+
+```csharp
+public string CurrentProgressClass { get; set; }
+```
+
+A computed string containing the DisplayText for the currently running OperationStep.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### DisplayIcon
+
+```csharp
+public OperationStatusDisplay DisplayIcon { get; set; }
+```
+
+The icon to display to the end user through the Operation lifecycle.
+
+#### Returns
+
+[OperationStatusDisplay](/api-reference/cloudnimble/blazoressentials/merlin/operationstatusdisplay)
+
+### DisplayIconColor
+
+```csharp
+public OperationStatusDisplay DisplayIconColor { get; set; }
+```
+
+The colors to use for the <xref href="CloudNimble.BlazorEssentials.Merlin.Operation.CurrentIcon" data-throw-if-not-resolved="false"></xref> through the Operation lifecycle.
+
+#### Returns
+
+[OperationStatusDisplay](/api-reference/cloudnimble/blazoressentials/merlin/operationstatusdisplay)
+
+### DisplayProgressClass
+
+```csharp
+public OperationStatusDisplay DisplayProgressClass { get; set; }
+```
+
+The CSS Class to use for the Alert's background through the Operation lifecycle.
+
+#### Returns
+
+[OperationStatusDisplay](/api-reference/cloudnimble/blazoressentials/merlin/operationstatusdisplay)
+
+### DisplayText
+
+```csharp
+public OperationStatusDisplay DisplayText { get; set; }
+```
+
+The text to display to the end user through the Operation lifecycle.
+
+#### Returns
+
+[OperationStatusDisplay](/api-reference/cloudnimble/blazoressentials/merlin/operationstatusdisplay)
+
+### ProgressPercent
+
+```csharp
+public decimal ProgressPercent { get; set; }
+```
+
+A computed number containing the percentage of all the OperationSteps in the "Succeeded" status.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+### ProgressText
+
+```csharp
+public string ProgressText { get; set; }
+```
+
+A computed string containing the DisplayText for the currently running OperationStep.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ResultText
+
+```csharp
+public string ResultText { get; set; }
+```
+
+A computed string that determines if we display the SuccessText or FailureText based on the collective outcome of all the Steps.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ShowPanel
+
+```csharp
+public bool ShowPanel { get; set; }
+```
+
+A computed boolean specifying whether or not the &lt;div&gt; showing the status of this Operation should be displayed.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Status
+
+```csharp
+public OperationStatus Status { get; }
+```
+
+A computed boolean specifying whether or not ALL of the OperationSteps are successful.
+
+#### Returns
+
+[OperationStatus](/api-reference/cloudnimble/blazoressentials/merlin/operationstatus)
+
+### Steps
+
+```csharp
+public ObservableCollection<OperationStep> Steps { get; set; }
+```
+
+A <xref href="System.Collections.ObjectModel.ObservableCollection%601" data-throw-if-not-resolved="false"></xref> containing the different steps of the Operation.
+
+#### Returns
+
+[ObservableCollection&lt;OperationStep&gt;](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1)
+
+### Title
+
+```csharp
+public string Title { get; set; }
+```
+
+The text to display to the end user regarding what is happening in this step.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ReplaceSteps
+
+```csharp
+public void ReplaceSteps(List<OperationStep> steps)
+```
+
+#### Parameters
+
+- **steps** [List&lt;OperationStep&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+
+### Reset
+
+```csharp
+public void Reset()
+```
+
+Changes all of the Steps back to "NotStarted" so the Operation can be run again.
+
+### Start
+
+```csharp
+public void Start()
+```
+
+Starts the Operation, looping through each step until it is finished or until a step fails.
+
+### UpdateStep
+
+```csharp
+public void UpdateStep(int id, OperationStepStatus status, string errorText)
+```
+
+Modify the status of a specific <xref href="CloudNimble.BlazorEssentials.Merlin.OperationStep" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **id** [int](https://learn.microsoft.com/dotnet/api/system.int32): <xref href="CloudNimble.BlazorEssentials.Merlin.OperationStep" data-throw-if-not-resolved="false"></xref> identifier.
+- **status** [OperationStepStatus](/api-reference/cloudnimble/blazoressentials/merlin/operationstepstatus): New <xref href="CloudNimble.BlazorEssentials.Merlin.OperationStepStatus" data-throw-if-not-resolved="false"></xref>.
+- **errorText** [string](https://learn.microsoft.com/dotnet/api/system.string): New value for the ErrorText property on the <xref href="CloudNimble.BlazorEssentials.Merlin.OperationStep" data-throw-if-not-resolved="false"></xref>.
+
+

@@ -1,0 +1,108 @@
+---
+title: "FileSystemOptions"
+description: "Specifies the options required to leverage the local file system as the SimpleMessageBus backing queue."
+icon: "cube"
+---
+
+# FileSystemOptions
+
+<Badge variant="outline">Class</Badge>
+
+Specifies the options required to leverage the local file system as the SimpleMessageBus backing queue.
+
+## Syntax
+
+```csharp
+public class FileSystemOptions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### FileSystemOptions
+
+```csharp
+public FileSystemOptions()
+```
+
+The default constructor, which sets the default values equal to the values specified in <xref href="CloudNimble.SimpleMessageBus.Core.FileSystemConstants" data-throw-if-not-resolved="false"></xref>.
+
+
+## Properties
+
+### CompletedFolderPath
+
+```csharp
+public string CompletedFolderPath { get; }
+```
+
+The folder segment where successfully-processed queue items will be moved to upon completion.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ErrorFolderPath
+
+```csharp
+public string ErrorFolderPath { get; }
+```
+
+The folder segment where failed items will be stored while they are waiting to be analyzed and reprocessed.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### IsNetworkPath
+
+```csharp
+public bool IsNetworkPath { get; }
+```
+
+Gets a boolean specifying whether or not the <xref href="CloudNimble.SimpleMessageBus.Core.FileSystemOptions.RootFolder" data-throw-if-not-resolved="false"></xref> is a network path (either a UNC or mapped drive).
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### QueueFolderPath
+
+```csharp
+public string QueueFolderPath { get; }
+```
+
+The folder segment where items will be stored while they are waiting to be processed.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### RootFolder
+
+```csharp
+public string RootFolder { get; set; }
+```
+
+A string representing the folder that will hold the three required queue folders.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### VirusScanDelayInSeconds
+
+```csharp
+public int VirusScanDelayInSeconds { get; set; }
+```
+
+An integer representing the number of seconds to wait before firing FileSystemWatcher events to process the Queue.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+

@@ -1,0 +1,112 @@
+---
+title: "MintlifyLinkResolver"
+description: "Resolves cross-references and generates links between types and members in documentation."
+icon: "cube"
+---
+
+# MintlifyLinkResolver
+
+<Badge variant="outline">Class</Badge>
+
+Resolves cross-references and generates links between types and members in documentation.
+
+## Syntax
+
+```csharp
+public class MintlifyLinkResolver
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### MintlifyLinkResolver
+
+```csharp
+public MintlifyLinkResolver(MintlifyOptions options)
+```
+
+Initializes a new instance of the MintlifyLinkResolver class.
+
+#### Parameters
+
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+
+## Methods
+
+### BuildRegistry
+
+```csharp
+public void BuildRegistry(AssemblyXmlDocumentation xmlDocumentation)
+```
+
+Builds the type and member registry from XML documentation.
+
+#### Parameters
+
+- **xmlDocumentation** [AssemblyXmlDocumentation](/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation): The XML documentation to index.
+
+### ResolveLinksInContent
+
+```csharp
+public string ResolveLinksInContent(string content)
+```
+
+Processes text content and converts XML cref attributes to Mintlify links.
+
+#### Parameters
+
+- **content** [string](https://learn.microsoft.com/dotnet/api/system.string): The content to process.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The content with resolved links.
+
+### ResolveMemberLink
+
+```csharp
+public string ResolveMemberLink(string memberReference)
+```
+
+Resolves a member reference to a Mintlify link.
+
+#### Parameters
+
+- **memberReference** [string](https://learn.microsoft.com/dotnet/api/system.string): The member reference to resolve.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A Mintlify link if the member is documented; otherwise, the original member name.
+
+### ResolveTypeLink
+
+```csharp
+public string ResolveTypeLink(string typeReference)
+```
+
+Resolves a type reference to a Mintlify link.
+
+#### Parameters
+
+- **typeReference** [string](https://learn.microsoft.com/dotnet/api/system.string): The type reference to resolve.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A Mintlify link if the type is documented; otherwise, the original type name.
+
+
+## Remarks
+
+This class handles the conversion of XML documentation references (like cref attributes)
+into proper Mintlify links, enabling seamless navigation between related types and members.
+It maintains a registry of all documented types to ensure accurate link resolution.
+

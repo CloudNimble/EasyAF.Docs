@@ -1,0 +1,61 @@
+---
+title: "FaviconConfigJsonConverter"
+description: "Custom JSON converter for FaviconConfig that supports both string and object formats."
+icon: "cube"
+---
+
+# FaviconConfigJsonConverter
+
+<Badge variant="outline">Class</Badge>
+
+Custom JSON converter for FaviconConfig that supports both string and object formats.
+
+## Syntax
+
+```csharp
+public class FaviconConfigJsonConverter : JsonConverter<FaviconConfig>
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [JsonConverter](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter)
+    - [JsonConverter&lt;FaviconConfig&gt;](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1)
+
+## Methods
+
+### Read
+
+```csharp
+public override FaviconConfig Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+```
+
+Reads and converts the JSON to a FaviconConfig object.
+
+#### Parameters
+
+- **reader** [Utf8JsonReader](https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonreader): The JSON reader.
+- **typeToConvert** [Type](https://learn.microsoft.com/dotnet/api/system.type): The type to convert to.
+- **options** [JsonSerializerOptions](https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions): The serializer options.
+
+#### Returns
+
+[FaviconConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/faviconconfig)
+
+A FaviconConfig object.
+
+### Write
+
+```csharp
+public override void Write(Utf8JsonWriter writer, FaviconConfig value, JsonSerializerOptions options)
+```
+
+Writes a FaviconConfig object as JSON.
+
+#### Parameters
+
+- **writer** [Utf8JsonWriter](https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonwriter): The JSON writer.
+- **value** [FaviconConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/faviconconfig): The FaviconConfig object to write.
+- **options** [JsonSerializerOptions](https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions): The serializer options.
+
+

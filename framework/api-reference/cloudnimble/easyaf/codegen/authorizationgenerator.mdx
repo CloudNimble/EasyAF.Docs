@@ -1,0 +1,64 @@
+---
+title: "AuthorizationGenerator"
+description: ""
+icon: "cube"
+---
+
+# AuthorizationGenerator
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class AuthorizationGenerator : ContainerGeneratorBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+    - [ContainerGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/containergeneratorbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### AuthorizationGenerator
+
+```csharp
+public AuthorizationGenerator(List<string> extraUsings, string controllerNamespace, EntityContainer container)
+```
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **controllerNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+
+
+## Methods
+
+### Generate
+
+```csharp
+public override void Generate()
+```
+
+### WriteFile
+
+```csharp
+public string WriteFile(string directory = null)
+```
+
+#### Parameters
+
+- **directory** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

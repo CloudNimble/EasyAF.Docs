@@ -1,0 +1,59 @@
+---
+title: "SolutionNavigationConfig"
+description: "Represents the navigation configuration for a solution."
+icon: "cube"
+---
+
+# SolutionNavigationConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the navigation configuration for a solution.
+
+## Syntax
+
+```csharp
+public class SolutionNavigationConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Groups
+
+```csharp
+[JsonPropertyName("groups")]
+public List<SolutionNavigationGroup> Groups { get; set; }
+```
+
+Gets or sets the list of navigation groups for this solution.
+
+#### Returns
+
+[List&lt;SolutionNavigationGroup&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+The groups that organize pages within this solution's tab.
+
+### Inherit
+
+```csharp
+[JsonPropertyName("inherit")]
+public bool Inherit { get; set; }
+```
+
+Gets or sets whether to inherit navigation from the solution's own docs.json.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+If true, uses the navigation structure from the solution's existing docs.json file.
+
+
+## Remarks
+
+This class defines the structure of navigation groups and pages within a solution's tab.
+

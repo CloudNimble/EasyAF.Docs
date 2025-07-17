@@ -1,0 +1,69 @@
+---
+title: "ODataV401List<T>"
+description: "Represents an OData v4."
+icon: "cube"
+---
+
+# ODataV401List&lt;T&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Represents an OData v4.01 collection response containing a list of entities with optional pagination metadata.
+Uses simplified OData v4.01 notation for context and metadata properties.
+
+## Syntax
+
+```csharp
+public class ODataV401List<T> : ODataV401ResponseBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ODataV401ResponseBase](/api-reference/cloudnimble/easyaf/http/odata/odatav401responsebase)
+
+## Properties
+
+### Items
+
+```csharp
+[JsonPropertyName("value")]
+public List<T> Items { get; set; }
+```
+
+Gets or sets the collection of entities returned by the OData v4.01 service.
+This property contains the actual data payload of the response.
+
+#### Returns
+
+[List&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### ODataCount
+
+```csharp
+[JsonPropertyName("@count")]
+public long ODataCount { get; set; }
+```
+
+Gets or sets the total number of entities in the collection using OData v4.01 simplified count notation.
+This property is only populated when the $count query option is used.
+
+#### Returns
+
+[long](https://learn.microsoft.com/dotnet/api/system.int64)
+
+### ODataNextLink
+
+```csharp
+[JsonPropertyName("@nextLink")]
+public string ODataNextLink { get; set; }
+```
+
+Gets or sets the URL for retrieving the next page of results using OData v4.01 simplified notation.
+This property is null if there are no more pages available.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

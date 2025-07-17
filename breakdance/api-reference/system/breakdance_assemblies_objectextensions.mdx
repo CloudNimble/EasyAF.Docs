@@ -1,0 +1,83 @@
+---
+title: "Breakdance_Assemblies_ObjectExtensions"
+description: ""
+icon: "cube"
+---
+
+# Breakdance_Assemblies_ObjectExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class Breakdance_Assemblies_ObjectExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetFieldValue
+
+```csharp
+public static object GetFieldValue(this object obj, string fieldName, bool throwIfNull = true)
+```
+
+#### Parameters
+
+- **obj** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **fieldName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **throwIfNull** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### GetPropertyValue
+
+```csharp
+public static object GetPropertyValue(this object obj, string propertyName, bool throwIfNull = true)
+```
+
+#### Parameters
+
+- **obj** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **propertyName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **throwIfNull** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### SetFieldValue
+
+```csharp
+public static void SetFieldValue(this object obj, string fieldName, object val)
+```
+
+#### Parameters
+
+- **obj** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **fieldName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **val** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+
+### SetPropertyValue
+
+```csharp
+public static void SetPropertyValue(this object obj, string propertyName, object val)
+```
+
+#### Parameters
+
+- **obj** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **propertyName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **val** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+
+
+## Remarks
+
+Taken from https://stackoverflow.com/a/60529530/403765
+

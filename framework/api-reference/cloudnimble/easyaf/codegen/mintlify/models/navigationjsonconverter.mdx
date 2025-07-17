@@ -1,0 +1,59 @@
+---
+title: "NavigationJsonConverter"
+description: "Custom JSON converter for navigation that outputs simple array format for Mintlify compatibility."
+icon: "cube"
+---
+
+# NavigationJsonConverter
+
+<Badge variant="outline">Class</Badge>
+
+Custom JSON converter for navigation that outputs simple array format for Mintlify compatibility.
+
+## Syntax
+
+```csharp
+public class NavigationJsonConverter : JsonConverter<NavigationConfig>
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [JsonConverter](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter)
+    - [JsonConverter&lt;NavigationConfig&gt;](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1)
+
+## Methods
+
+### Read
+
+```csharp
+public override NavigationConfig Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+```
+
+Reads navigation from JSON, supporting both array and object formats.
+
+#### Parameters
+
+- **reader** [Utf8JsonReader](https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonreader): 
+- **typeToConvert** [Type](https://learn.microsoft.com/dotnet/api/system.type): 
+- **options** [JsonSerializerOptions](https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions): 
+
+#### Returns
+
+[NavigationConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/navigationconfig)
+
+### Write
+
+```csharp
+public override void Write(Utf8JsonWriter writer, NavigationConfig value, JsonSerializerOptions options)
+```
+
+Writes navigation to JSON in the appropriate format for Mintlify compatibility.
+
+#### Parameters
+
+- **writer** [Utf8JsonWriter](https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonwriter): 
+- **value** [NavigationConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/navigationconfig): 
+- **options** [JsonSerializerOptions](https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions): 
+
+

@@ -1,0 +1,61 @@
+---
+title: "ConceptualTemplateGenerator"
+description: "Generates conceptual documentation templates and override files for types."
+icon: "cube"
+---
+
+# ConceptualTemplateGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates conceptual documentation templates and override files for types.
+
+## Syntax
+
+```csharp
+public class ConceptualTemplateGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### ConceptualTemplateGenerator
+
+```csharp
+public ConceptualTemplateGenerator(DocFxMetadata metadata, MintlifyOptions options)
+```
+
+Initializes a new instance of the ConceptualTemplateGenerator class.
+
+#### Parameters
+
+- **metadata** [DocFxMetadata](/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxmetadata): The DocFX metadata.
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+
+## Methods
+
+### GenerateTemplatesAsync
+
+```csharp
+public Task GenerateTemplatesAsync()
+```
+
+Generates conceptual templates and override files for all types in the metadata.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+
+## Remarks
+
+This class creates template files for conceptual documentation (usage, examples, best practices, patterns)
+and override files for customizing frontmatter and additional content. All template content is commented
+out to prevent accidental inclusion in generated documentation.
+

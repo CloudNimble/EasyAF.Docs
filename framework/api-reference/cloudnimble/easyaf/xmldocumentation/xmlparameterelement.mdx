@@ -1,0 +1,83 @@
+---
+title: "XmlParameterElement"
+description: "Represents a parameter XML documentation element."
+icon: "cube"
+---
+
+# XmlParameterElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a parameter XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlParameterElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlParameterElement
+
+```csharp
+public XmlParameterElement()
+```
+
+Initializes a new instance of the XmlParameterElement class.
+
+### XmlParameterElement
+
+```csharp
+public XmlParameterElement(XElement element)
+```
+
+Initializes a new instance of the XmlParameterElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+Gets or sets the name of the parameter.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this parameter element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this parameter.
+
+
+## Remarks
+
+The param element describes a parameter of a method, constructor, or indexer.
+It includes the parameter name and description of its purpose and usage.
+

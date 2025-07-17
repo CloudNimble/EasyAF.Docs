@@ -1,0 +1,88 @@
+---
+title: "InterceptorGenerator"
+description: ""
+icon: "cube"
+---
+
+# InterceptorGenerator
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class InterceptorGenerator : EntityGeneratorBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+    - [EntityGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/entitygeneratorbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### InterceptorGenerator
+
+```csharp
+public InterceptorGenerator(List<string> extraUsings, string controllerNamespace, EntityContainer container, EntityComposition entity)
+```
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **controllerNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+- **entity** [EntityComposition](/api-reference/cloudnimble/easyaf/codegen/entitycomposition): 
+
+
+## Properties
+
+### EntityContainer
+
+```csharp
+public EntityContainer EntityContainer { get; }
+```
+
+#### Returns
+
+[EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer)
+
+### TypeName
+
+```csharp
+public string TypeName { get; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### Generate
+
+```csharp
+public override void Generate()
+```
+
+### WriteFile
+
+```csharp
+public string WriteFile(string directory = null)
+```
+
+#### Parameters
+
+- **directory** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

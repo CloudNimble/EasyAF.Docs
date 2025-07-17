@@ -1,0 +1,45 @@
+---
+title: "EasyAF_Http_IHttpClientBuilderExtensions"
+description: "Provides extension methods for IHttpClientBuilder to configure message handlers based on HttpHandlerMode."
+icon: "cube"
+---
+
+# EasyAF_Http_IHttpClientBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Provides extension methods for IHttpClientBuilder to configure message handlers based on HttpHandlerMode.
+Enables flexible configuration of HTTP message handler pipelines for different scenarios.
+
+## Syntax
+
+```csharp
+public static class EasyAF_Http_IHttpClientBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### AddHttpMessageHandler&lt;THandler&gt;
+
+```csharp
+public static IHttpClientBuilder AddHttpMessageHandler<THandler>(this IHttpClientBuilder builder, HttpHandlerMode mode) where THandler : DelegatingHandler
+```
+
+Given the <xref href="CloudNimble.EasyAF.Core.HttpHandlerMode" data-throw-if-not-resolved="false"></xref>, adds the specified <code class="typeparamref">THandler</code> to the beginning or end of the pipeline.
+
+#### Parameters
+
+- **builder** [IHttpClientBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder): The <xref href="Microsoft.Extensions.DependencyInjection.IHttpClientBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+- **mode** [HttpHandlerMode](/api-reference/cloudnimble/easyaf/core/httphandlermode): A <xref href="CloudNimble.EasyAF.Core.HttpHandlerMode" data-throw-if-not-resolved="false"></xref> specifying whether we are making this handler the first one in the pipeline, or the last.
+
+#### Returns
+
+[IHttpClientBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder)
+
+The IHttpClientBuilder instance for method chaining.
+
+

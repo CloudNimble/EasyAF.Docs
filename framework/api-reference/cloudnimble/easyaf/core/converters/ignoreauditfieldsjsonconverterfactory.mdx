@@ -1,0 +1,54 @@
+---
+title: "IgnoreAuditFieldsJsonConverterFactory"
+description: ""
+icon: "cube"
+---
+
+# IgnoreAuditFieldsJsonConverterFactory
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class IgnoreAuditFieldsJsonConverterFactory : JsonConverterFactory
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [JsonConverter](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter)
+    - [JsonConverterFactory](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverterfactory)
+
+## Methods
+
+### CanConvert
+
+```csharp
+public override bool CanConvert(Type typeToConvert)
+```
+
+#### Parameters
+
+- **typeToConvert** [Type](https://learn.microsoft.com/dotnet/api/system.type): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### CreateConverter
+
+```csharp
+public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
+```
+
+#### Parameters
+
+- **typeToConvert** [Type](https://learn.microsoft.com/dotnet/api/system.type): 
+- **options** [JsonSerializerOptions](https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions): 
+
+#### Returns
+
+[JsonConverter](https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter)
+
+

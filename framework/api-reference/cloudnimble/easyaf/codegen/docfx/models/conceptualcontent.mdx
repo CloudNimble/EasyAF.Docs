@@ -1,0 +1,86 @@
+---
+title: "ConceptualContent"
+description: "Represents loaded conceptual documentation content."
+icon: "cube"
+---
+
+# ConceptualContent
+
+<Badge variant="outline">Class</Badge>
+
+Represents loaded conceptual documentation content.
+
+## Syntax
+
+```csharp
+public class ConceptualContent
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### BestPractices
+
+```csharp
+public string BestPractices { get; set; }
+```
+
+Gets or sets the best practices documentation content.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+Markdown content with best practices, recommendations, and guidelines.
+
+### Examples
+
+```csharp
+public string Examples { get; set; }
+```
+
+Gets or sets the examples documentation content.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+Markdown content containing code examples and demonstrations.
+
+### Patterns
+
+```csharp
+public string Patterns { get; set; }
+```
+
+Gets or sets the patterns documentation content.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+Markdown content explaining common usage patterns and architectural guidance.
+
+### Usage
+
+```csharp
+public string Usage { get; set; }
+```
+
+Gets or sets the usage documentation content.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+Markdown content explaining how to use the API element.
+
+
+## Remarks
+
+This class contains the actual markdown content loaded from conceptual documentation
+files that will be integrated into the generated API documentation.
+

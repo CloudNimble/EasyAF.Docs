@@ -1,0 +1,67 @@
+---
+title: "EasyAF_Http_IServiceCollectionExtensions"
+description: "Provides extension methods for registering EasyAF HTTP clients in the dependency injection container."
+icon: "cube"
+---
+
+# EasyAF_Http_IServiceCollectionExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Provides extension methods for registering EasyAF HTTP clients in the dependency injection container.
+Automatically configures HttpClient instances based on configuration attributes.
+
+## Syntax
+
+```csharp
+public static class EasyAF_Http_IServiceCollectionExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### AddHttpClients&lt;TConfig, TMessageHandler&gt;
+
+```csharp
+public static IServiceCollection AddHttpClients<TConfig, TMessageHandler>(this IServiceCollection services, TConfig config, HttpHandlerMode httpHandlerMode) where TConfig : ConfigurationBase where TMessageHandler : DelegatingHandler
+```
+
+Adds HTTP clients to the service collection based on configuration properties marked with <xref href="CloudNimble.EasyAF.Configuration.HttpEndpointAttribute" data-throw-if-not-resolved="false"></xref>.
+Allows explicit specification of the HttpHandlerMode for message handler configuration.
+
+#### Parameters
+
+- **services** [IServiceCollection](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection): The service collection to add HTTP clients to.
+- **config** ``TConfig``: The configuration instance containing endpoint definitions.
+- **httpHandlerMode** [HttpHandlerMode](/api-reference/cloudnimble/easyaf/core/httphandlermode): Specifies how message handlers should be configured for the HTTP clients.
+
+#### Returns
+
+[IServiceCollection](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection)
+
+The service collection for method chaining.
+
+### AddHttpClients&lt;TConfig, TMessageHandler&gt;
+
+```csharp
+public static IServiceCollection AddHttpClients<TConfig, TMessageHandler>(this IServiceCollection services, TConfig config) where TConfig : ConfigurationBase where TMessageHandler : DelegatingHandler
+```
+
+Adds HTTP clients to the service collection based on configuration properties marked with <xref href="CloudNimble.EasyAF.Configuration.HttpEndpointAttribute" data-throw-if-not-resolved="false"></xref>.
+Uses the default HttpHandlerMode from the configuration.
+
+#### Parameters
+
+- **services** [IServiceCollection](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection): The service collection to add HTTP clients to.
+- **config** ``TConfig``: The configuration instance containing endpoint definitions.
+
+#### Returns
+
+[IServiceCollection](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection)
+
+The service collection for method chaining.
+
+

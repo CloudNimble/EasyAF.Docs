@@ -1,0 +1,194 @@
+---
+title: "CSharpViewGeneratorBase"
+description: "Base class for this transformation."
+icon: "cube"
+---
+
+# CSharpViewGeneratorBase
+
+<Badge variant="outline">Class</Badge>
+
+Base class for this transformation
+
+## Syntax
+
+```csharp
+public class CSharpViewGeneratorBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### CurrentIndent
+
+```csharp
+public string CurrentIndent { get; }
+```
+
+Gets the current indent we use when adding lines to the output
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Errors
+
+```csharp
+public CompilerErrorCollection Errors { get; }
+```
+
+The error collection for the generation process
+
+#### Returns
+
+[CompilerErrorCollection](https://learn.microsoft.com/dotnet/api/system.codedom.compiler.compilererrorcollection)
+
+### GenerationEnvironment
+
+```csharp
+protected StringBuilder GenerationEnvironment { get; set; }
+```
+
+The string builder that generation-time code is using to assemble generated output
+
+#### Returns
+
+[StringBuilder](https://learn.microsoft.com/dotnet/api/system.text.stringbuilder)
+
+### Session
+
+```csharp
+public virtual IDictionary<string, object> Session { get; set; }
+```
+
+Current transformation session
+
+#### Returns
+
+[IDictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2)
+
+### ToStringHelper
+
+```csharp
+public CSharpViewGeneratorBase.ToStringInstanceHelper ToStringHelper { get; }
+```
+
+Helper to produce culture-oriented representation of an object as a string
+
+#### Returns
+
+[CSharpViewGeneratorBase.ToStringInstanceHelper](/api-reference/microsoft/dbcontextpackage/utilities/tostringinstancehelper)
+
+
+## Methods
+
+### ClearIndent
+
+```csharp
+public void ClearIndent()
+```
+
+Remove any indentation
+
+### Error
+
+```csharp
+public void Error(string message)
+```
+
+Raise an error
+
+#### Parameters
+
+- **message** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### PopIndent
+
+```csharp
+public string PopIndent()
+```
+
+Remove the last indent that was added with PushIndent
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PushIndent
+
+```csharp
+public void PushIndent(string indent)
+```
+
+Increase the indent
+
+#### Parameters
+
+- **indent** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### Warning
+
+```csharp
+public void Warning(string message)
+```
+
+Raise a warning
+
+#### Parameters
+
+- **message** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### Write
+
+```csharp
+public void Write(string format, params object[] args)
+```
+
+Write formatted text directly into the generated output
+
+#### Parameters
+
+- **format** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): 
+
+### Write
+
+```csharp
+public void Write(string textToAppend)
+```
+
+Write text directly into the generated output
+
+#### Parameters
+
+- **textToAppend** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### WriteLine
+
+```csharp
+public void WriteLine(string format, params object[] args)
+```
+
+Write formatted text directly into the generated output
+
+#### Parameters
+
+- **format** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): 
+
+### WriteLine
+
+```csharp
+public void WriteLine(string textToAppend)
+```
+
+Write text directly into the generated output
+
+#### Parameters
+
+- **textToAppend** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+

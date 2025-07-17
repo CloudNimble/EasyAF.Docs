@@ -1,0 +1,267 @@
+---
+title: "NavigationItem"
+description: "Defines an app navigation structure suitable for binding to navigation menus."
+icon: "cube"
+---
+
+# NavigationItem
+
+<Badge variant="outline">Class</Badge>
+
+Defines an app navigation structure suitable for binding to navigation menus.
+
+## Syntax
+
+```csharp
+public class NavigationItem : InterfaceElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [InterfaceElement](/api-reference/cloudnimble/blazoressentials/interfaceelement)
+
+## Constructors
+
+### NavigationItem
+
+```csharp
+public NavigationItem()
+```
+
+### NavigationItem
+
+```csharp
+public NavigationItem(string text, string icon, string category, bool isVisible, List<NavigationItem> children)
+```
+
+#### Parameters
+
+- **text** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the text that will be displayed in the NavBar.
+- **icon** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.InterfaceElement.DisplayText" data-throw-if-not-resolved="false"></xref>.
+- **category** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the parent category for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>. Can be useful for grouping 
+<xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem?text=NavigationItems" data-throw-if-not-resolved="false"></xref> into caregories for display.
+- **isVisible** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Specifies whether or not this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref> is visible on the NavBar.
+- **children** [List&lt;NavigationItem&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing nodes to render underneath this one.
+
+### NavigationItem
+
+```csharp
+public NavigationItem(string text, string icon, string url, string category, bool isVisible, string pageTitle, string pageIcon, string roles, bool allowAnonymous = false)
+```
+
+#### Parameters
+
+- **text** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the text that will be displayed in the NavBar.
+- **icon** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.InterfaceElement.DisplayText" data-throw-if-not-resolved="false"></xref>.
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): A string corresponding to the route for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>.
+- **category** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the parent category for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>. Can be useful for grouping 
+<xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem?text=NavigationItems" data-throw-if-not-resolved="false"></xref> into caregories for display.
+- **isVisible** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Specifies whether or not this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref> is visible on the NavBar.
+- **pageTitle** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the text that can be displayed as a page header.
+- **pageIcon** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem.PageTitle" data-throw-if-not-resolved="false"></xref> in a page header.
+- **roles** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **allowAnonymous** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### NavigationItem
+
+```csharp
+public NavigationItem(string text, string icon, string url, string category, bool isVisible, string pageTitle, string pageIcon)
+```
+
+#### Parameters
+
+- **text** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the text that will be displayed in the NavBar.
+- **icon** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.InterfaceElement.DisplayText" data-throw-if-not-resolved="false"></xref>.
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): A string corresponding to the route for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>.
+- **category** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the parent category for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>. Can be useful for grouping 
+<xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem?text=NavigationItems" data-throw-if-not-resolved="false"></xref> into caregories for display.
+- **isVisible** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Specifies whether or not this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref> is visible on the NavBar.
+- **pageTitle** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the text that can be displayed as a page header.
+- **pageIcon** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem.PageTitle" data-throw-if-not-resolved="false"></xref> in a page header.
+
+### NavigationItem
+
+```csharp
+public NavigationItem(string text, string icon, string url, string category, bool isVisible)
+```
+
+#### Parameters
+
+- **text** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the text that will be displayed in the NavBar.
+- **icon** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.InterfaceElement.DisplayText" data-throw-if-not-resolved="false"></xref>.
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): A string corresponding to the route for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>.
+- **category** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the parent category for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>. Can be useful for grouping 
+<xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem?text=NavigationItems" data-throw-if-not-resolved="false"></xref> into caregories for display.
+- **isVisible** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Specifies whether or not this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref> is visible on the NavBar.
+
+### NavigationItem
+
+```csharp
+public NavigationItem(string text, string icon, string url, string category)
+```
+
+#### Parameters
+
+- **text** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the text that will be displayed in the NavBar.
+- **icon** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.InterfaceElement.DisplayText" data-throw-if-not-resolved="false"></xref>.
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): A string corresponding to the route for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>.
+- **category** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the parent category for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>. Can be useful for grouping 
+<xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem?text=NavigationItems" data-throw-if-not-resolved="false"></xref> into caregories for display.
+
+### NavigationItem
+
+```csharp
+public NavigationItem(string text, string icon, string url)
+```
+
+Creates a new instance with the minimum-required items to render a Blazor NavLink.
+
+#### Parameters
+
+- **text** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the text that will be displayed in the NavBar.
+- **icon** [string](https://learn.microsoft.com/dotnet/api/system.string): A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.InterfaceElement.DisplayText" data-throw-if-not-resolved="false"></xref>.
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): A string corresponding to the route for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>.
+
+
+## Properties
+
+### AccessibilityText
+
+```csharp
+public string AccessibilityText { get; set; }
+```
+
+Test to be used for screen readers when this item is rendered.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### AllowAnonymous
+
+```csharp
+public bool AllowAnonymous { get; }
+```
+
+A <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> specifying whether or not this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref> is visible when a user is not logged in.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Category
+
+```csharp
+public string Category { get; set; }
+```
+
+A string representing the parent category for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>. Can be left blank, but useful for grouping 
+<xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem?text=NavigationItems" data-throw-if-not-resolved="false"></xref> into caregories for display.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Children
+
+```csharp
+public List<NavigationItem> Children { get; set; }
+```
+
+#### Returns
+
+[List&lt;NavigationItem&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### IsVisible
+
+```csharp
+public bool IsVisible { get; set; }
+```
+
+Specifies whether or not this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref> is visible on the NavBar. Defaults to True.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### PageIcon
+
+```csharp
+public string PageIcon { get; set; }
+```
+
+A string representing the CSS class(es) for the icon that can be displayed next to the <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem.PageTitle" data-throw-if-not-resolved="false"></xref> in a page header.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PageTitle
+
+```csharp
+public string PageTitle { get; set; }
+```
+
+A string representing the text that can be displayed as a page header.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Parameters
+
+```csharp
+public dynamic Parameters { get; set; }
+```
+
+Allows you to set parameters specific to the page that you do NOT want to pass through the Routing system.
+
+#### Returns
+
+``dynamic``
+
+### Roles
+
+```csharp
+public HashSet<string> Roles { get; }
+```
+
+A <xref href="System.Collections.Generic.HashSet%601" data-throw-if-not-resolved="false"></xref> of roles that this NavigationItem is visible to.
+
+#### Returns
+
+[HashSet&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1)
+
+### Url
+
+```csharp
+public string Url { get; set; }
+```
+
+A string corresponding to the route for this <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### IsVisibleToUser
+
+```csharp
+public bool IsVisibleToUser(ClaimsPrincipal claimsPrincipal)
+```
+
+Returns a boolean indicating whether or not the NavItem is available to any of the Roles the <code class="paramref">claimsPrincipal</code> is in.
+
+#### Parameters
+
+- **claimsPrincipal** [ClaimsPrincipal](https://learn.microsoft.com/dotnet/api/system.security.claims.claimsprincipal): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+

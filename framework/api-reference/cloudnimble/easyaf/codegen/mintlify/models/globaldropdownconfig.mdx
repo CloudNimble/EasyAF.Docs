@@ -1,0 +1,108 @@
+---
+title: "GlobalDropdownConfig"
+description: "Represents a dropdown configuration for global navigation in the Mintlify documentation site."
+icon: "cube"
+---
+
+# GlobalDropdownConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a dropdown configuration for global navigation in the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class GlobalDropdownConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Color
+
+```csharp
+[JsonPropertyName("color")]
+public ColorPairConfig Color { get; set; }
+```
+
+Gets or sets the color configuration for the dropdown.
+
+#### Returns
+
+[ColorPairConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/colorpairconfig)
+
+### Description
+
+```csharp
+[JsonPropertyName("description")]
+public string Description { get; set; }
+```
+
+Gets or sets the description text for the dropdown.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Dropdown
+
+```csharp
+[JsonPropertyName("dropdown")]
+public string Dropdown { get; set; }
+```
+
+Gets or sets the display name for the dropdown button.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Hidden
+
+```csharp
+[JsonPropertyName("hidden")]
+public bool? Hidden { get; set; }
+```
+
+Gets or sets whether this dropdown is hidden by default.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the primary URL or path for this dropdown.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Icon
+
+```csharp
+[JsonPropertyName("icon")]
+public object Icon { get; set; }
+```
+
+Gets or sets the icon to display alongside the dropdown name.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+
+## Remarks
+
+This configuration defines a dropdown menu that appears globally across all sections
+and pages, providing users with organized access to multiple related links or sections.
+

@@ -1,0 +1,103 @@
+---
+title: "BlazorBreakdanceTestBase"
+description: "A base class for building BUnit unit tests for Blazor apps that automatically handles basic registration stuff for you."
+icon: "cube"
+---
+
+# BlazorBreakdanceTestBase
+
+<Badge variant="outline">Class</Badge>
+
+A base class for building BUnit unit tests for Blazor apps that automatically handles basic registration stuff for you.
+
+## Syntax
+
+```csharp
+public class BlazorBreakdanceTestBase : BreakdanceTestBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [BreakdanceTestBase](/api-reference/cloudnimble/breakdance/assemblies/breakdancetestbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Properties
+
+### BUnitTestContext
+
+```csharp
+public TestContext BUnitTestContext { get; set; }
+```
+
+The bUnit <xref href="Bunit.TestContext" data-throw-if-not-resolved="false"></xref> for the currently-executing test.
+
+#### Returns
+
+``TestContext``
+
+
+## Methods
+
+### GetService&lt;T&gt;
+
+```csharp
+public override T GetService<T>() where T : class
+```
+
+Get service of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Returns
+
+``T``
+
+A service object of type <code class="typeparamref">T</code>.
+
+### GetServices&lt;T&gt;
+
+```csharp
+public override IEnumerable<T> GetServices<T>() where T : class
+```
+
+Get an enumeration of services of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+An enumeration of services of type <code class="typeparamref">T</code>.
+
+### TestSetup
+
+```csharp
+public override void TestSetup()
+```
+
+Properly instantiates the <xref href="CloudNimble.Breakdance.Blazor.BlazorBreakdanceTestBase.BUnitTestContext" data-throw-if-not-resolved="false"></xref> and registers the <xref href="CloudNimble.Breakdance.Assemblies.BreakdanceTestBase.TestHost?text=TestHost%27s" data-throw-if-not-resolved="false"></xref> 
+<xref href="Microsoft.Extensions.Hosting.IHost.Services" data-throw-if-not-resolved="false"></xref> as a "fallback" <xref href="System.IServiceProvider" data-throw-if-not-resolved="false"></xref>.
+
+### TestSetup
+
+```csharp
+public void TestSetup(JSRuntimeMode jSRuntimeMode)
+```
+
+Properly instantiates the <xref href="CloudNimble.Breakdance.Blazor.BlazorBreakdanceTestBase.BUnitTestContext" data-throw-if-not-resolved="false"></xref> and registers the <xref href="CloudNimble.Breakdance.Assemblies.BreakdanceTestBase.TestHost?text=TestHost%27s" data-throw-if-not-resolved="false"></xref> 
+<xref href="Microsoft.Extensions.Hosting.IHost.Services" data-throw-if-not-resolved="false"></xref> as a "fallback" <xref href="System.IServiceProvider" data-throw-if-not-resolved="false"></xref> and allows you to set the bUnit JSInterop mode.
+
+#### Parameters
+
+- **jSRuntimeMode** ``JSRuntimeMode``: 
+
+### TestTearDown
+
+```csharp
+public override void TestTearDown()
+```
+
+Disposes of the <xref href="CloudNimble.Breakdance.Blazor.BlazorBreakdanceTestBase.BUnitTestContext" data-throw-if-not-resolved="false"></xref>.
+
+

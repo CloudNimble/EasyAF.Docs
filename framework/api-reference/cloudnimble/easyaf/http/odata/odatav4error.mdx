@@ -1,0 +1,91 @@
+---
+title: "ODataV4Error"
+description: "Represents an OData error payload."
+icon: "cube"
+---
+
+# ODataV4Error
+
+<Badge variant="outline">Class</Badge>
+
+Represents an OData error payload.
+
+## Syntax
+
+```csharp
+public class ODataV4Error
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Code
+
+```csharp
+[JsonPropertyName("code")]
+public string Code { get; set; }
+```
+
+Gets or sets the error code to be used in payloads.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Details
+
+```csharp
+[JsonPropertyName("details")]
+public List<ODataV4ErrorDetail> Details { get; set; }
+```
+
+Gets or sets a collection of additional error details providing more specific information about the error.
+This property may contain multiple error details for scenarios with multiple validation failures.
+
+#### Returns
+
+[List&lt;ODataV4ErrorDetail&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### InnerError
+
+```csharp
+[JsonPropertyName("innererror")]
+public ODataV4InnerError InnerError { get; set; }
+```
+
+&gt;Gets or sets the implementation-specific debugging information to help determine the cause of the error.
+
+#### Returns
+
+[ODataV4InnerError](/api-reference/cloudnimble/easyaf/http/odata/odatav4innererror)
+
+### Message
+
+```csharp
+[JsonPropertyName("message")]
+public string Message { get; set; }
+```
+
+Gets or sets the error message.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Target
+
+```csharp
+[JsonPropertyName("target")]
+public string Target { get; set; }
+```
+
+Gets or sets the target of the particular error.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

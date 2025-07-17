@@ -1,0 +1,57 @@
+---
+title: "StateHasChangedDebugMode"
+description: "Defines how BlazorObservables are monitored to reduce the number of times StateHasChanged is fired."
+icon: "list"
+---
+
+# StateHasChangedDebugMode
+
+<Badge variant="outline">Enum</Badge>
+
+Defines how BlazorObservables are monitored to reduce the number of times StateHasChanged is fired.
+
+## Syntax
+
+```csharp
+public enum StateHasChangedDebugMode
+```
+
+## Fields
+
+### Info
+
+```csharp
+Info = 1
+```
+
+Log basic summary information to the Browser Console.
+
+#### Returns
+
+[StateHasChangedDebugMode](/api-reference/cloudnimble/blazoressentials/statehaschangeddebugmode)
+
+### Off
+
+```csharp
+Off = 0
+```
+
+Does not log StateHasChanged calls to the Browser Console.
+
+#### Returns
+
+[StateHasChangedDebugMode](/api-reference/cloudnimble/blazoressentials/statehaschangeddebugmode)
+
+### Tuning
+
+```csharp
+Tuning = 2
+```
+
+Include performance recommendations in the information logged to the Browser Console.
+
+#### Returns
+
+[StateHasChangedDebugMode](/api-reference/cloudnimble/blazoressentials/statehaschangeddebugmode)
+
+

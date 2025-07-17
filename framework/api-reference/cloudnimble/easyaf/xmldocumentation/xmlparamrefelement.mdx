@@ -1,0 +1,83 @@
+---
+title: "XmlParamRefElement"
+description: "Represents a paramref XML documentation element for parameter references."
+icon: "cube"
+---
+
+# XmlParamRefElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a paramref XML documentation element for parameter references.
+
+## Syntax
+
+```csharp
+public class XmlParamRefElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlParamRefElement
+
+```csharp
+public XmlParamRefElement()
+```
+
+Initializes a new instance of the XmlParamRefElement class.
+
+### XmlParamRefElement
+
+```csharp
+public XmlParamRefElement(XElement element)
+```
+
+Initializes a new instance of the XmlParamRefElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+Gets or sets the name of the referenced parameter.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this paramref element to MDX format as inline code.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this parameter reference.
+
+
+## Remarks
+
+The paramref element creates a reference to a parameter within the documentation.
+It is used to refer to parameters inline within text.
+

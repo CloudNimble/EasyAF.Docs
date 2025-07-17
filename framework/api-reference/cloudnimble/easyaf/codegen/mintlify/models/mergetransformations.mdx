@@ -1,0 +1,60 @@
+---
+title: "MergeTransformations"
+description: "Represents the transformations applied during external documentation merge."
+icon: "cube"
+---
+
+# MergeTransformations
+
+<Badge variant="outline">Class</Badge>
+
+Represents the transformations applied during external documentation merge.
+
+## Syntax
+
+```csharp
+public class MergeTransformations
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### NavigationPrefix
+
+```csharp
+[JsonPropertyName("navigationPrefix")]
+public string NavigationPrefix { get; set; }
+```
+
+Gets or sets the navigation prefix for external content.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The prefix added to navigation items from external documentation.
+
+### PathPrefix
+
+```csharp
+[JsonPropertyName("pathPrefix")]
+public string PathPrefix { get; set; }
+```
+
+Gets or sets the path prefix to add to all external content.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The prefix added to file paths when copying external documentation.
+
+
+## Remarks
+
+This class defines how paths and navigation should be modified when integrating
+external documentation into the combined site.
+

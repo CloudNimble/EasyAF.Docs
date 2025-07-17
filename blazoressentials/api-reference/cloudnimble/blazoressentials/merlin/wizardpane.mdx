@@ -1,0 +1,164 @@
+---
+title: "WizardPane"
+description: ""
+icon: "cube"
+---
+
+# WizardPane
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class WizardPane : ComponentBase, IComponent, IHandleEvent, IHandleAfterRender
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ComponentBase](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase)
+
+## Implements
+
+- [IComponent](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent)
+- [IHandleEvent](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent)
+- [IHandleAfterRender](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender)
+
+## Properties
+
+### ChildContent
+
+```csharp
+[Parameter]
+public RenderFragment ChildContent { get; set; }
+```
+
+#### Returns
+
+[RenderFragment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment)
+
+### Description
+
+```csharp
+[Parameter]
+public string Description { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### IsNextEnabled
+
+```csharp
+[Parameter]
+public bool IsNextEnabled { get; set; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### NextLabel
+
+```csharp
+[Parameter]
+public string NextLabel { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### OnBackAction
+
+```csharp
+[Parameter]
+public Action OnBackAction { get; set; }
+```
+
+#### Returns
+
+[Action](https://learn.microsoft.com/dotnet/api/system.action)
+
+### OnNextAction
+
+```csharp
+[Parameter]
+public Func<Wizard, Task<bool>> OnNextAction { get; set; }
+```
+
+#### Returns
+
+[Func&lt;Wizard, Task&lt;bool&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.func-2)
+
+### Parent
+
+```csharp
+[CascadingParameter]
+public Wizard Parent { get; set; }
+```
+
+#### Returns
+
+[Wizard](/api-reference/cloudnimble/blazoressentials/merlin/wizard)
+
+### Status
+
+```csharp
+public WizardPaneStatus Status { get; set; }
+```
+
+#### Returns
+
+[WizardPaneStatus](/api-reference/cloudnimble/blazoressentials/merlin/wizardpanestatus)
+
+### Title
+
+```csharp
+[Parameter]
+public string Title { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Type
+
+```csharp
+[Parameter]
+public WizardPaneType Type { get; set; }
+```
+
+#### Returns
+
+[WizardPaneType](/api-reference/cloudnimble/blazoressentials/merlin/wizardpanetype)
+
+
+## Methods
+
+### BuildRenderTree
+
+```csharp
+protected override void BuildRenderTree(RenderTreeBuilder __builder)
+```
+
+Renders the component to the supplied <xref href="Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **__builder** [RenderTreeBuilder](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder): 
+
+### OnInitialized
+
+```csharp
+protected override void OnInitialized()
+```
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: 
+
+

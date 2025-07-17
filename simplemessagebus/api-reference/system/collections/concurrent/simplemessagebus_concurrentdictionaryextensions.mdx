@@ -1,0 +1,62 @@
+---
+title: "SimpleMessageBus_ConcurrentDictionaryExtensions"
+description: "Extension methods for the <xref href=\"System."
+icon: "cube"
+---
+
+# SimpleMessageBus_ConcurrentDictionaryExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Extension methods for the <xref href="System.Collections.Concurrent.ConcurrentDictionary%602" data-throw-if-not-resolved="false"></xref> class.
+
+## Syntax
+
+```csharp
+public static class SimpleMessageBus_ConcurrentDictionaryExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### Filter
+
+```csharp
+public static ConcurrentDictionary<string, object> Filter(this ConcurrentDictionary<string, object> metadata)
+```
+
+Filters the metadata <xref href="System.Collections.Concurrent.ConcurrentDictionary%602" data-throw-if-not-resolved="false"></xref> to exclude keys ending with "-Status" or "-Timestamp".
+
+#### Parameters
+
+- **metadata** [ConcurrentDictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2): The metadata dictionary to filter.
+
+#### Returns
+
+[ConcurrentDictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2)
+
+A new concurrent dictionary containing only the non-status entries.
+
+### FilterAndCombine
+
+```csharp
+public static Dictionary<string, object> FilterAndCombine(this ConcurrentDictionary<string, object> metadata, Dictionary<string, object> payload)
+```
+
+Filters the metadata dictionary to exclude keys ending with "-Status" and combines it with the payload dictionary.
+
+#### Parameters
+
+- **metadata** [ConcurrentDictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2): The metadata dictionary to filter and combine.
+- **payload** [Dictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2): The payload dictionary to combine with the filtered metadata.
+
+#### Returns
+
+[Dictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+A new dictionary containing the combined entries from the payload and filtered metadata.
+
+

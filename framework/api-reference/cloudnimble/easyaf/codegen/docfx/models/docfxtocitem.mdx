@@ -1,0 +1,73 @@
+---
+title: "DocFxTocItem"
+description: "Represents a table of contents item in DocFX metadata."
+icon: "cube"
+---
+
+# DocFxTocItem
+
+<Badge variant="outline">Class</Badge>
+
+Represents a table of contents item in DocFX metadata.
+
+## Syntax
+
+```csharp
+public class DocFxTocItem
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Href
+
+```csharp
+public string Href { get; set; }
+```
+
+Gets or sets the href for navigation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Items
+
+```csharp
+public List<DocFxTocItem> Items { get; set; }
+```
+
+Gets or sets the child items in the table of contents.
+
+#### Returns
+
+[List&lt;DocFxTocItem&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+Gets or sets the name to display in the table of contents.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Uid
+
+```csharp
+public string Uid { get; set; }
+```
+
+Gets or sets the UID of the referenced item.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

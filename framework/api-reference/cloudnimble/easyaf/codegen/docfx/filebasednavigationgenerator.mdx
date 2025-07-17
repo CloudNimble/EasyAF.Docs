@@ -1,0 +1,73 @@
+---
+title: "FileBasedNavigationGenerator"
+description: "Generates navigation structure for Mintlify documentation from existing MDX files."
+icon: "cube"
+---
+
+# FileBasedNavigationGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates navigation structure for Mintlify documentation from existing MDX files.
+
+## Syntax
+
+```csharp
+public class FileBasedNavigationGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### FileBasedNavigationGenerator
+
+```csharp
+public FileBasedNavigationGenerator(MintlifyOptions options)
+```
+
+Initializes a new instance of the FileBasedNavigationGenerator class.
+
+#### Parameters
+
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+
+## Methods
+
+### GenerateConfigOnlyAsync
+
+```csharp
+public Task GenerateConfigOnlyAsync()
+```
+
+Generates the complete configuration only (docs.json) without building.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+### GenerateNavigationAsync
+
+```csharp
+public Task<List<GroupConfig>> GenerateNavigationAsync()
+```
+
+Generates the navigation structure for the documentation from existing files.
+
+#### Returns
+
+[Task&lt;List&lt;GroupConfig&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+The navigation structure.
+
+
+## Remarks
+
+This class creates a hierarchical navigation structure by scanning existing MDX files
+and parsing their frontmatter to extract title and icon information.
+

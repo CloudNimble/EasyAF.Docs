@@ -1,0 +1,82 @@
+---
+title: "TestableWebAssemblyHostEnvironment"
+description: ""
+icon: "cube"
+---
+
+# TestableWebAssemblyHostEnvironment
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class TestableWebAssemblyHostEnvironment : IWebAssemblyHostEnvironment
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IWebAssemblyHostEnvironment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.iwebassemblyhostenvironment)
+
+## Constructors
+
+### TestableWebAssemblyHostEnvironment
+
+```csharp
+public TestableWebAssemblyHostEnvironment()
+```
+
+### TestableWebAssemblyHostEnvironment
+
+```csharp
+public TestableWebAssemblyHostEnvironment(string environment, string baseAddress)
+```
+
+#### Parameters
+
+- **environment** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **baseAddress** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### TestableWebAssemblyHostEnvironment
+
+```csharp
+public TestableWebAssemblyHostEnvironment(string environment)
+```
+
+#### Parameters
+
+- **environment** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+
+## Properties
+
+### BaseAddress
+
+```csharp
+public string BaseAddress { get; }
+```
+
+Gets the base address for the application. This is typically derived from the <code>&gt;base href&lt;</code> value in the host page.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Environment
+
+```csharp
+public string Environment { get; }
+```
+
+Gets the name of the environment. This is configured to use the environment of the application hosting the Blazor WebAssembly application.
+Configured to "Production" when not specified by the host.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

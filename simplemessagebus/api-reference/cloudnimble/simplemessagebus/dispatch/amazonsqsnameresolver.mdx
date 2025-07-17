@@ -1,0 +1,63 @@
+---
+title: "AmazonSQSNameResolver"
+description: "A <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# AmazonSQSNameResolver
+
+<Badge variant="outline">Class</Badge>
+
+A <xref href="Microsoft.Azure.WebJobs.INameResolver" data-throw-if-not-resolved="false"></xref> for SimpleMessageBus instances backed by Amazon SQS.
+
+## Syntax
+
+```csharp
+public class AmazonSQSNameResolver : INameResolver
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- `INameResolver`
+
+## Constructors
+
+### AmazonSQSNameResolver
+
+```csharp
+public AmazonSQSNameResolver(IOptions<AmazonSQSOptions> options, SQSNameResolver baseResolver)
+```
+
+Creates a new instance of the <xref href="CloudNimble.SimpleMessageBus.Dispatch.AmazonSQSNameResolver" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **options** [IOptions&lt;AmazonSQSOptions&gt;](https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1): The <xref href="CloudNimble.SimpleMessageBus.Amazon.Core.AmazonSQSOptions" data-throw-if-not-resolved="false"></xref> to use for configuration.
+- **baseResolver** ``SQSNameResolver``: The base SQS name resolver from WebJobs.Extensions.Amazon.
+
+
+## Methods
+
+### Resolve
+
+```csharp
+public string Resolve(string name)
+```
+
+Resolves the specified name.
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): The name to resolve.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The resolved value.
+
+

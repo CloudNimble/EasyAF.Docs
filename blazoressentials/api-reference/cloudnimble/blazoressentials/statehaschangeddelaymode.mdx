@@ -1,0 +1,57 @@
+---
+title: "StateHasChangedDelayMode"
+description: "Defines how BlazorObservables are monitored to reduce the number of times StateHasChanged is fired."
+icon: "list"
+---
+
+# StateHasChangedDelayMode
+
+<Badge variant="outline">Enum</Badge>
+
+Defines how BlazorObservables are monitored to reduce the number of times StateHasChanged is fired.
+
+## Syntax
+
+```csharp
+public enum StateHasChangedDelayMode
+```
+
+## Fields
+
+### Debounce
+
+```csharp
+Debounce = 1
+```
+
+Only fire StateHasChanged if it hasn't been called in X milliseconds.
+
+#### Returns
+
+[StateHasChangedDelayMode](/api-reference/cloudnimble/blazoressentials/statehaschangeddelaymode)
+
+### Off
+
+```csharp
+Off = 0
+```
+
+Does not reduce the number of times StateHasChanged is called.
+
+#### Returns
+
+[StateHasChangedDelayMode](/api-reference/cloudnimble/blazoressentials/statehaschangeddelaymode)
+
+### Throttle
+
+```csharp
+Throttle = 2
+```
+
+Only fire StateHasChanged once every X milliseconds.
+
+#### Returns
+
+[StateHasChangedDelayMode](/api-reference/cloudnimble/blazoressentials/statehaschangeddelaymode)
+
+

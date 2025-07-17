@@ -1,0 +1,82 @@
+---
+title: "InterfaceElement"
+description: "Represents the basic parts of any HTML element."
+icon: "cube"
+---
+
+# InterfaceElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents the basic parts of any HTML element.
+
+## Syntax
+
+```csharp
+public class InterfaceElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### InterfaceElement
+
+```csharp
+public InterfaceElement()
+```
+
+### InterfaceElement
+
+```csharp
+public InterfaceElement(string displayText, string iconClass, string cssClass = null)
+```
+
+#### Parameters
+
+- **displayText** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **iconClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **cssClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+
+## Properties
+
+### CssClass
+
+```csharp
+public string CssClass { get; set; }
+```
+
+A string representing the CSS classes that will be applied to the element.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### DisplayText
+
+```csharp
+public string DisplayText { get; set; }
+```
+
+A string representing the text that will be displayed inside the element.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### IconClass
+
+```csharp
+public string IconClass { get; set; }
+```
+
+A string representing the CSS class for the icon that will be rendered immediately before the <xref href="CloudNimble.BlazorEssentials.InterfaceElement.DisplayText" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

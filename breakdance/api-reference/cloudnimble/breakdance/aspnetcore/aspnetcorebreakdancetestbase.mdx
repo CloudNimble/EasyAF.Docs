@@ -1,0 +1,245 @@
+---
+title: "AspNetCoreBreakdanceTestBase"
+description: "A base class for building unit tests for AspNetCore APIs that automatically maintains a <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# AspNetCoreBreakdanceTestBase
+
+<Badge variant="outline">Class</Badge>
+
+A base class for building unit tests for AspNetCore APIs that automatically maintains a <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestServer" data-throw-if-not-resolved="false"></xref> with configuration and a Dependency Injection containers for you.
+
+## Syntax
+
+```csharp
+public class AspNetCoreBreakdanceTestBase : BreakdanceTestBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [BreakdanceTestBase](/api-reference/cloudnimble/breakdance/assemblies/breakdancetestbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### AspNetCoreBreakdanceTestBase
+
+```csharp
+public AspNetCoreBreakdanceTestBase()
+```
+
+Creates a new <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase" data-throw-if-not-resolved="false"></xref> instance.
+
+
+## Properties
+
+### TestHostBuilder
+
+```csharp
+public IWebHostBuilder TestHostBuilder { get; }
+```
+
+Replaces the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestHostBuilder" data-throw-if-not-resolved="false"></xref> from the <xref href="CloudNimble.Breakdance.Assemblies.BreakdanceTestBase" data-throw-if-not-resolved="false"></xref> with an <xref href="Microsoft.AspNetCore.Hosting.IWebHostBuilder" data-throw-if-not-resolved="false"></xref> implementation.
+
+#### Returns
+
+[IWebHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)
+
+### TestServer
+
+```csharp
+public TestServer TestServer { get; }
+```
+
+The <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestServer" data-throw-if-not-resolved="false"></xref> for handling requests.
+
+#### Returns
+
+[TestServer](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.testhost.testserver)
+
+
+## Methods
+
+### AddApis
+
+```csharp
+public void AddApis(Action<MvcOptions> options = null, Action<IApplicationBuilder> app = null)
+```
+
+Adds Controller services to the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestHostBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **options** [Action&lt;MvcOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+- **app** [Action&lt;IApplicationBuilder&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+
+### AddMinimalMvc
+
+```csharp
+public void AddMinimalMvc(Action<MvcOptions> options = null, Action<IApplicationBuilder> app = null)
+```
+
+Adds minimal MVC services to the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestHostBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **options** [Action&lt;MvcOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+- **app** [Action&lt;IApplicationBuilder&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+
+### AddRazorPages
+
+```csharp
+public void AddRazorPages(Action<RazorPagesOptions> options = null, Action<IApplicationBuilder> app = null)
+```
+
+Adds support for Controllers and Razor views to the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestHostBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **options** [Action&lt;RazorPagesOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+- **app** [Action&lt;IApplicationBuilder&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+
+### AddViews
+
+```csharp
+public void AddViews(Action<MvcOptions> options = null, Action<IApplicationBuilder> app = null)
+```
+
+Adds support for Controllers and Razor views to the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestHostBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **options** [Action&lt;MvcOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+- **app** [Action&lt;IApplicationBuilder&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+
+### AssemblySetup
+
+```csharp
+public override void AssemblySetup()
+```
+
+Method used by test assemblies to setup the environment.
+
+### GetHttpClient
+
+```csharp
+public HttpClient GetHttpClient(AuthenticationHeaderValue authHeader, string routePrefix = "api/tests/")
+```
+
+Retrieves an <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> instance from the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestServer" data-throw-if-not-resolved="false"></xref> and properly configures the <xref href="System.Net.Http.HttpClient.BaseAddress" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **authHeader** [AuthenticationHeaderValue](https://learn.microsoft.com/dotnet/api/system.net.http.headers.authenticationheadervalue): 
+- **routePrefix** [string](https://learn.microsoft.com/dotnet/api/system.string): The string to append to the <xref href="System.Net.Http.HttpClient.BaseAddress" data-throw-if-not-resolved="false"></xref> for all requests. Defaults to <xref href="CloudNimble.Breakdance.AspNetCore.WebApiConstants.RoutePrefix" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[HttpClient](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient)
+
+A properly configured <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref>instance from the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestServer" data-throw-if-not-resolved="false"></xref>.
+
+### GetHttpClient
+
+```csharp
+public HttpClient GetHttpClient(string routePrefix = "api/tests/")
+```
+
+Retrieves an <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> instance from the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestServer" data-throw-if-not-resolved="false"></xref> and properly configures the <xref href="System.Net.Http.HttpClient.BaseAddress" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **routePrefix** [string](https://learn.microsoft.com/dotnet/api/system.string): The string to append to the <xref href="System.Net.Http.HttpClient.BaseAddress" data-throw-if-not-resolved="false"></xref> for all requests. Defaults to <xref href="CloudNimble.Breakdance.AspNetCore.WebApiConstants.RoutePrefix" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[HttpClient](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient)
+
+A properly configured <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref>instance from the <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase.TestServer" data-throw-if-not-resolved="false"></xref>.
+
+### GetKeyedService&lt;T&gt;
+
+```csharp
+public override T GetKeyedService<T>(string key) where T : class
+```
+
+Get service of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Parameters
+
+- **key** [string](https://learn.microsoft.com/dotnet/api/system.string): The key of the service to get.
+
+#### Returns
+
+``T``
+
+A service object of type <code class="typeparamref">T</code>.
+
+### GetKeyedServices&lt;T&gt;
+
+```csharp
+public override IEnumerable<T> GetKeyedServices<T>(string key) where T : class
+```
+
+Get services of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Parameters
+
+- **key** [string](https://learn.microsoft.com/dotnet/api/system.string): The
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+An <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> of type <code class="typeparamref">T</code>.
+
+### GetService&lt;T&gt;
+
+```csharp
+public override T GetService<T>() where T : class
+```
+
+Get service of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Returns
+
+``T``
+
+A service object of type <code class="typeparamref">T</code>.
+
+### GetServices&lt;T&gt;
+
+```csharp
+public override IEnumerable<T> GetServices<T>() where T : class
+```
+
+Get an enumeration of services of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+An enumeration of services of type <code class="typeparamref">T</code>.
+
+### TestSetup
+
+```csharp
+public override void TestSetup()
+```
+
+Method used by test classes to setup the environment.
+
+### TestTearDown
+
+```csharp
+public override void TestTearDown()
+```
+
+Method used by test classes to clean up the environment.
+
+

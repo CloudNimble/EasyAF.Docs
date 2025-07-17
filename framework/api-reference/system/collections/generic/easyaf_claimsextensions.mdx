@@ -1,0 +1,40 @@
+---
+title: "EasyAF_ClaimsExtensions"
+description: ""
+icon: "cube"
+---
+
+# EasyAF_ClaimsExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class EasyAF_ClaimsExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetStandardizedClaims
+
+```csharp
+public static List<Claim> GetStandardizedClaims(this IEnumerable<Claim> claims)
+```
+
+Translates a set of generic Claims (like the ones returned from Auth0) to a set of Claims from the
+<xref href="System.Security.Claims.ClaimTypes" data-throw-if-not-resolved="false"></xref> constants wherever possible.
+
+#### Parameters
+
+- **claims** [IEnumerable&lt;Claim&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+
+#### Returns
+
+[List&lt;Claim&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

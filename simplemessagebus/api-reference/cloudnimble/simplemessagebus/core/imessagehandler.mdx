@@ -1,0 +1,79 @@
+---
+title: "IMessageHandler"
+description: "Defines the functionality required for all <xref href=\"CloudNimble."
+icon: "plug"
+---
+
+# IMessageHandler
+
+<Badge variant="outline">Interface</Badge>
+
+Defines the functionality required for all <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref> processing handlers.
+
+## Syntax
+
+```csharp
+public interface IMessageHandler
+```
+
+## Methods
+
+### GetHandledMessageTypes
+
+```csharp
+IEnumerable<Type> GetHandledMessageTypes()
+```
+
+Specifies which <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref> types are handled by this <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[IEnumerable&lt;Type&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+An <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> containing all of the <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref> types this 
+<xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler" data-throw-if-not-resolved="false"></xref> supports. The types must implement <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref>.
+
+### OnErrorAsync
+
+```csharp
+Task OnErrorAsync(IMessage message, Exception exception)
+```
+
+Specifies what this handler should do when an error occurs during processing.
+
+#### Parameters
+
+- **message** [IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage): The deserialized <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref> instance that failed.
+- **exception** [Exception](https://learn.microsoft.com/dotnet/api/system.exception): The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> that occurred during processing.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> reference for the asynchronous function.
+
+### OnNextAsync
+
+```csharp
+Task OnNextAsync(MessageEnvelope messageEnvelope)
+```
+
+Specifies what this handler should do when it is time to process the <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **messageEnvelope** [MessageEnvelope](/api-reference/cloudnimble/simplemessagebus/core/messageenvelope): The <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> to process.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> reference for the asynchronous function.
+
+
+## Remarks
+
+Message handlers are the core processing units in SimpleMessageBus. They receive messages from queues,
+process them according to business logic, and handle any errors that occur during processing.
+Handlers can process multiple message types and are responsible for declaring which types they support.
+

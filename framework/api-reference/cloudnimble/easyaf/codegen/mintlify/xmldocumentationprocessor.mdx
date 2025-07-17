@@ -1,0 +1,88 @@
+---
+title: "XmlDocumentationProcessor"
+description: "Processes XML documentation elements and applies link resolution."
+icon: "cube"
+---
+
+# XmlDocumentationProcessor
+
+<Badge variant="outline">Class</Badge>
+
+Processes XML documentation elements and applies link resolution.
+
+## Syntax
+
+```csharp
+public static class XmlDocumentationProcessor
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### ProcessElement
+
+```csharp
+public static string ProcessElement(XmlDocumentationElement element, MintlifyLinkResolver linkResolver)
+```
+
+Processes an XML documentation element and resolves any cross-references.
+
+#### Parameters
+
+- **element** [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement): The documentation element to process.
+- **linkResolver** [MintlifyLinkResolver](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifylinkresolver): The link resolver to use for cross-references.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The processed MDX content with resolved links.
+
+### ProcessSeeAlsoElement
+
+```csharp
+public static string ProcessSeeAlsoElement(XmlSeeAlsoElement seeAlsoElement, MintlifyLinkResolver linkResolver)
+```
+
+Processes an XML documentation element specifically for see also references.
+
+#### Parameters
+
+- **seeAlsoElement** [XmlSeeAlsoElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlseealsoelement): The see also element to process.
+- **linkResolver** [MintlifyLinkResolver](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifylinkresolver): The link resolver to use.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The processed link in MDX format.
+
+### ProcessSeeElement
+
+```csharp
+public static string ProcessSeeElement(XmlSeeElement seeElement, MintlifyLinkResolver linkResolver)
+```
+
+Processes an XML documentation element specifically for see references.
+
+#### Parameters
+
+- **seeElement** [XmlSeeElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlseeelement): The see element to process.
+- **linkResolver** [MintlifyLinkResolver](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifylinkresolver): The link resolver to use.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The processed link in MDX format.
+
+
+## Remarks
+
+This class provides a centralized way to process XML documentation elements
+and apply cross-reference link resolution using the MintlifyLinkResolver.
+It acts as a bridge between the parsed XML elements and the final MDX output.
+

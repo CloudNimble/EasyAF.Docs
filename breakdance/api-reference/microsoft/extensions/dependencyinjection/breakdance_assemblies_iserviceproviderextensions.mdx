@@ -1,0 +1,53 @@
+---
+title: "Breakdance_Assemblies_IServiceProviderExtensions"
+description: ""
+icon: "cube"
+---
+
+# Breakdance_Assemblies_IServiceProviderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class Breakdance_Assemblies_IServiceProviderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetAllServiceDescriptors
+
+```csharp
+public static Dictionary<Type, ServiceDescriptor> GetAllServiceDescriptors(this IServiceProvider provider)
+```
+
+Get all registered <xref href="Microsoft.Extensions.DependencyInjection.ServiceDescriptor?text=ServiceDescriptors" data-throw-if-not-resolved="false"></xref> for a given container.
+
+#### Parameters
+
+- **provider** [IServiceProvider](https://learn.microsoft.com/dotnet/api/system.iserviceprovider): 
+
+#### Returns
+
+[Dictionary&lt;Type, ServiceDescriptor&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### GetContainerContentsLog
+
+```csharp
+public static string GetContainerContentsLog(this IServiceProvider provider)
+```
+
+#### Parameters
+
+- **provider** [IServiceProvider](https://learn.microsoft.com/dotnet/api/system.iserviceprovider): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

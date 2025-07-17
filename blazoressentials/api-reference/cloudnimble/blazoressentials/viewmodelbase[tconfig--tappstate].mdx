@@ -1,0 +1,108 @@
+---
+title: "ViewModelBase<TConfig, TAppState>"
+description: "A base class for your Blazor MVVM implementation that gives you access to all the useful stuff Blazor and BlazorEssentials inject into the app."
+icon: "cube"
+---
+
+# ViewModelBase&lt;TConfig, TAppState&gt;
+
+<Badge variant="outline">Class</Badge>
+
+A base class for your Blazor MVVM implementation that gives you access to all the useful stuff Blazor and BlazorEssentials inject into the app.
+
+## Syntax
+
+```csharp
+public class ViewModelBase<TConfig, TAppState> : BlazorObservable, INotifyPropertyChanged, IDisposable where TConfig : ConfigurationBase where TAppState : AppStateBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `EasyObservableObject`
+    - [BlazorObservable](/api-reference/cloudnimble/blazoressentials/blazorobservable)
+
+## Implements
+
+- [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### ViewModelBase
+
+```csharp
+public ViewModelBase(IHttpClientFactory httpClientFactory, TConfig configuration = null, TAppState appState = null, StateHasChangedConfig stateHasChangedConfig = null)
+```
+
+Creates a new instance of the <xref href="CloudNimble.BlazorEssentials.ViewModelBase%602" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **httpClientFactory** [IHttpClientFactory](https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory): The <xref href="System.Net.Http.IHttpClientFactory" data-throw-if-not-resolved="false"></xref> instance injected from the DI container.
+- **configuration** ``TConfig``: The <code class="typeparamref">TConfig</code> instance injected from the DI container.
+- **appState** ``TAppState``: The <code class="typeparamref">TAppState</code> instance injected from the DI container.
+- **stateHasChangedConfig** [StateHasChangedConfig](/api-reference/cloudnimble/blazoressentials/statehaschangedconfig): 
+
+
+## Properties
+
+### AppState
+
+```csharp
+public TAppState AppState { get; }
+```
+
+The injected <xref href="CloudNimble.BlazorEssentials.AppStateBase" data-throw-if-not-resolved="false"></xref> instance for the ViewModel.
+
+#### Returns
+
+``TAppState``
+
+### Configuration
+
+```csharp
+public TConfig Configuration { get; }
+```
+
+The injected <xref href="CloudNimble.EasyAF.Configuration.ConfigurationBase" data-throw-if-not-resolved="false"></xref> instance for the ViewModel.
+
+#### Returns
+
+``TConfig``
+
+### DelayDispatcher
+
+```csharp
+public DelayDispatcher DelayDispatcher { get; }
+```
+
+#### Returns
+
+[DelayDispatcher](/api-reference/cloudnimble/blazoressentials/threading/delaydispatcher)
+
+### FilterCriteria
+
+```csharp
+public string FilterCriteria { get; set; }
+```
+
+Allows you to set any additional filtering criteria for this ViewModels' HTTP requests from inside the Page itself.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### HttpClientFactory
+
+```csharp
+public IHttpClientFactory HttpClientFactory { get; }
+```
+
+The injected <xref href="System.Net.Http.IHttpClientFactory" data-throw-if-not-resolved="false"></xref> instance for the ViewModel.
+
+#### Returns
+
+[IHttpClientFactory](https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory)
+
+

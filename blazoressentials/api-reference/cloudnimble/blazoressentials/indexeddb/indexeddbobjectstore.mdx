@@ -1,0 +1,593 @@
+---
+title: "IndexedDbObjectStore"
+description: "Defines a store to add to database."
+icon: "cube"
+---
+
+# IndexedDbObjectStore
+
+<Badge variant="outline">Class</Badge>
+
+Defines a store to add to database
+
+## Syntax
+
+```csharp
+public class IndexedDbObjectStore
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### IndexedDbObjectStore
+
+```csharp
+public IndexedDbObjectStore(IndexedDbDatabase database, ObjectStoreAttribute attribute = null)
+```
+
+Add new ObjectStore definition
+
+#### Parameters
+
+- **database** [IndexedDbDatabase](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbdatabase): 
+- **attribute** [ObjectStoreAttribute](/api-reference/cloudnimble/blazoressentials/indexeddb/objectstoreattribute): 
+
+### IndexedDbObjectStore
+
+```csharp
+public IndexedDbObjectStore(IndexedDbDatabase database, string name, string keyPath = "id", bool autoIncrement = false)
+```
+
+Add new ObjectStore definition
+
+#### Parameters
+
+- **database** [IndexedDbDatabase](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbdatabase): 
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **keyPath** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **autoIncrement** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+
+## Properties
+
+### AutoIncrement
+
+```csharp
+public bool AutoIncrement { get; init; }
+```
+
+If true, the object store has a key generator. Defaults to false.
+Note that every object store has its own separate auto increment counter.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Database
+
+```csharp
+public IndexedDbDatabase Database { get; init; }
+```
+
+IDMManager
+
+#### Returns
+
+[IndexedDbDatabase](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbdatabase)
+
+### Indexes
+
+```csharp
+public List<IndexedDbIndex> Indexes { get; init; }
+```
+
+Provides a set of additional indexes if required.
+
+#### Returns
+
+[List&lt;IndexedDbIndex&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### KeyPath
+
+```csharp
+public string? KeyPath { get; init; }
+```
+
+the identifier for the property in the object/record that is saved and is to be indexed.
+can be multiple properties separated by comma
+If this property is null, the application must provide a key for each modification operation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Name
+
+```csharp
+public string Name { get; }
+```
+
+The name for the store
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### AddAsync&lt;TData, TKey&gt;
+
+```csharp
+public Task<TKey> AddAsync<TData, TKey>(TData data, TKey key)
+```
+
+Adds a new record/object to the specified ObjectStore
+
+#### Parameters
+
+- **data** ``TData``: 
+- **key** ``TKey``: 
+
+#### Returns
+
+[Task&lt;TKey&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### AddAsync&lt;TData, TKey&gt;
+
+```csharp
+public Task<TKey> AddAsync<TData, TKey>(TData data)
+```
+
+Adds a new record/object to the specified ObjectStore
+
+#### Parameters
+
+- **data** ``TData``: 
+
+#### Returns
+
+[Task&lt;TKey&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### AddAsync&lt;TData&gt;
+
+```csharp
+public Task AddAsync<TData>(TData data) where TData : notnull
+```
+
+Adds a new record/object to the specified ObjectStore
+
+#### Parameters
+
+- **data** ``TData``: 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### BatchAddAsync&lt;TData, TKey&gt;
+
+```csharp
+public Task<TKey[]> BatchAddAsync<TData, TKey>(TData[] data)
+```
+
+Add an array of new record/object in one transaction to the specified store
+
+#### Parameters
+
+- **data** ``TData[]``: 
+
+#### Returns
+
+[Task&lt;TKey[]&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### BatchAddAsync&lt;TData&gt;
+
+```csharp
+public Task BatchAddAsync<TData>(TData[] data)
+```
+
+Add an array of new record/object in one transaction to the specified store
+
+#### Parameters
+
+- **data** ``TData[]``: 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### BatchDeleteAsync&lt;TKey&gt;
+
+```csharp
+public Task BatchDeleteAsync<TKey>(TKey[] ids)
+```
+
+Delete multiple records from the store based on the id
+
+#### Parameters
+
+- **ids** ``TKey[]``: 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### BatchPutAsync&lt;TData, TKey&gt;
+
+```csharp
+public Task<TKey[]> BatchPutAsync<TData, TKey>(TData[] data)
+```
+
+Put an array of new record/object in one transaction to the specified store
+
+#### Parameters
+
+- **data** ``TData[]``: 
+
+#### Returns
+
+[Task&lt;TKey[]&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### BatchPutAsync&lt;TData&gt;
+
+```csharp
+public Task BatchPutAsync<TData>(TData[] data)
+```
+
+Put an array of new record/object in one transaction to the specified store
+
+#### Parameters
+
+- **data** ``TData[]``: 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### ClearStoreAsync
+
+```csharp
+public Task ClearStoreAsync()
+```
+
+Clears all of the records from a given store.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### CountAsync
+
+```csharp
+public Task<int> CountAsync()
+```
+
+Count records in ObjectStore
+
+#### Returns
+
+[Task&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### CountAsync&lt;TKey&gt;
+
+```csharp
+public Task<int> CountAsync<TKey>(KeyRange<TKey> key)
+```
+
+Count records in ObjectStore
+
+#### Parameters
+
+- **key** [KeyRange&lt;TKey&gt;](CloudNimble.BlazorEssentials.IndexedDb.KeyRange-1.html): 
+
+#### Returns
+
+[Task&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### CountAsync&lt;TKey&gt;
+
+```csharp
+public Task<int> CountAsync<TKey>(TKey key)
+```
+
+Count records in ObjectStore
+
+#### Parameters
+
+- **key** ``TKey``: 
+
+#### Returns
+
+[Task&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### DeleteAsync&lt;TKey&gt;
+
+```csharp
+public Task DeleteAsync<TKey>(TKey key) where TKey : notnull
+```
+
+Deletes a record from the store based on the id
+
+#### Parameters
+
+- **key** ``TKey``: 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### GetAllAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllAsync<TKey, TResult>(KeyRange<TKey> key, int? count = null)
+```
+
+Gets all of the records by KeyRange in a given store.
+
+#### Parameters
+
+- **key** [KeyRange&lt;TKey&gt;](CloudNimble.BlazorEssentials.IndexedDb.KeyRange-1.html): 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllAsync<TKey, TResult>(TKey key, int? count = null)
+```
+
+Gets all of the records by Key in a given store.
+
+#### Parameters
+
+- **key** ``TKey``: 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllAsync<TKey, TResult>(TKey[] key)
+```
+
+Gets all of the records by ArrayKey in a given store.
+
+#### Parameters
+
+- **key** ``TKey[]``: 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllAsync&lt;TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllAsync<TResult>(int? count = null)
+```
+
+Gets all of the records in a given store.
+
+#### Parameters
+
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllKeysAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllKeysAsync<TKey, TResult>(KeyRange<TKey> key, int? count = null)
+```
+
+Gets all of the records by KeyRange in a given store.
+
+#### Parameters
+
+- **key** [KeyRange&lt;TKey&gt;](CloudNimble.BlazorEssentials.IndexedDb.KeyRange-1.html): 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllKeysAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllKeysAsync<TKey, TResult>(TKey key, int? count = null)
+```
+
+Gets all of the records keys by Key in a given store.
+
+#### Parameters
+
+- **key** ``TKey``: 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllKeysAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllKeysAsync<TKey, TResult>(TKey[] key)
+```
+
+Gets all of the records by ArrayKey in a given store.
+
+#### Parameters
+
+- **key** ``TKey[]``: 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAllKeysAsync&lt;TResult&gt;
+
+```csharp
+public Task<List<TResult>> GetAllKeysAsync<TResult>(int? count = null)
+```
+
+Gets all of the records keys in a given store.
+
+#### Parameters
+
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<TResult?> GetAsync<TKey, TResult>(TKey key)
+```
+
+Retrieve a record by Key
+
+#### Parameters
+
+- **key** ``TKey``: the key of the record
+
+#### Returns
+
+[Task&lt;TResult&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### GetKeyAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<TResult?> GetKeyAsync<TKey, TResult>(TKey key)
+```
+
+Retrieve a record key by Key
+
+#### Parameters
+
+- **key** ``TKey``: the key of the record
+
+#### Returns
+
+[Task&lt;TResult&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### PutAsync&lt;TData, TKey&gt;
+
+```csharp
+public Task<TKey> PutAsync<TData, TKey>(TData data, TKey key)
+```
+
+Updates and existing record
+
+#### Parameters
+
+- **data** ``TData``: 
+- **key** ``TKey``: 
+
+#### Returns
+
+[Task&lt;TKey&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### PutAsync&lt;TData, TKey&gt;
+
+```csharp
+public Task<TKey> PutAsync<TData, TKey>(TData data)
+```
+
+Updates and existing record
+
+#### Parameters
+
+- **data** ``TData``: 
+
+#### Returns
+
+[Task&lt;TKey&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### PutAsync&lt;TData&gt;
+
+```csharp
+public Task PutAsync<TData>(TData data) where TData : notnull
+```
+
+Updates and existing record
+
+#### Parameters
+
+- **data** ``TData``: 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### QueryAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> QueryAsync<TKey, TResult>(string filter, KeyRange<TKey> key, int? count = null, int? skip = null)
+```
+
+Gets all of the records using a filter expression
+
+#### Parameters
+
+- **filter** [string](https://learn.microsoft.com/dotnet/api/system.string): expression that evaluates to true/false, each record es passed to "obj" parameter
+- **key** [KeyRange&lt;TKey&gt;](CloudNimble.BlazorEssentials.IndexedDb.KeyRange-1.html): 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+- **skip** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### QueryAsync&lt;TKey, TResult&gt;
+
+```csharp
+public Task<List<TResult>> QueryAsync<TKey, TResult>(string name, string filter, TKey key, int? count = null, int? skip = null)
+```
+
+Gets all of the records using a filter expression
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **filter** [string](https://learn.microsoft.com/dotnet/api/system.string): expression that evaluates to true/false, each record es passed to "obj" parameter
+- **key** ``TKey``: 
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+- **skip** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### QueryAsync&lt;TResult&gt;
+
+```csharp
+public Task<List<TResult>> QueryAsync<TResult>(string filter, int? count = null, int? skip = null)
+```
+
+Gets all of the records using a filter expression
+
+#### Parameters
+
+- **filter** [string](https://learn.microsoft.com/dotnet/api/system.string): expression that evaluates to true/false, each record es passed to "obj" parameter
+- **count** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+- **skip** [int?](https://learn.microsoft.com/dotnet/api/system.int32): 
+
+#### Returns
+
+[Task&lt;List&lt;TResult&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+

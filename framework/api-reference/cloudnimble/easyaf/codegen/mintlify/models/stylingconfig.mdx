@@ -1,0 +1,56 @@
+---
+title: "StylingConfig"
+description: "Represents the styling configuration for various UI elements in the Mintlify documentation site."
+icon: "cube"
+---
+
+# StylingConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the styling configuration for various UI elements in the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class StylingConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Codeblocks
+
+```csharp
+[JsonPropertyName("codeblocks")]
+public string Codeblocks { get; set; }
+```
+
+Gets or sets the code block theme.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Eyebrows
+
+```csharp
+[JsonPropertyName("eyebrows")]
+public string Eyebrows { get; set; }
+```
+
+Gets or sets the eyebrows style for content sections.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+This configuration controls the visual styling of specific components such as
+breadcrumbs, section eyebrows, and code blocks throughout the documentation.
+

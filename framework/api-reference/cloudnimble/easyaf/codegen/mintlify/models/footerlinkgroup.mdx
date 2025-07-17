@@ -1,0 +1,51 @@
+---
+title: "FooterLinkGroup"
+description: "Represents a group of footer links."
+icon: "cube"
+---
+
+# FooterLinkGroup
+
+<Badge variant="outline">Class</Badge>
+
+Represents a group of footer links.
+
+## Syntax
+
+```csharp
+public class FooterLinkGroup
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Header
+
+```csharp
+[JsonPropertyName("header")]
+public string Header { get; set; }
+```
+
+Gets or sets the header title of the column.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Items
+
+```csharp
+[JsonPropertyName("items")]
+public List<FooterLink> Items { get; set; }
+```
+
+Gets or sets the items in the footer group.
+
+#### Returns
+
+[List&lt;FooterLink&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

@@ -1,0 +1,128 @@
+---
+title: "BlazorEssentialsTestBase<TConfiguration, TAppState>"
+description: ""
+icon: "cube"
+---
+
+# BlazorEssentialsTestBase&lt;TConfiguration, TAppState&gt;
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class BlazorEssentialsTestBase<TConfiguration, TAppState> : BlazorBreakdanceTestBase, IDisposable where TConfiguration : ConfigurationBase where TAppState : AppStateBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `BreakdanceTestBase`
+    - `BlazorBreakdanceTestBase`
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### BlazorEssentialsTestBase
+
+```csharp
+public BlazorEssentialsTestBase()
+```
+
+
+## Methods
+
+### AssemblySetup
+
+```csharp
+public override void AssemblySetup()
+```
+
+DO NOT USE THIS METHOD. Throws a <xref href="System.NotSupportedException" data-throw-if-not-resolved="false"></xref> when called. You must call <xref href="CloudNimble.BlazorEssentials.Breakdance.BlazorEssentialsTestBase%602.ClassSetup(System.String)" data-throw-if-not-resolved="false"></xref> 
+or <xref href="CloudNimble.BlazorEssentials.Breakdance.BlazorEssentialsTestBase%602.TestSetup" data-throw-if-not-resolved="false"></xref> instead.
+
+#### Exceptions
+
+- `[NotSupportedException](https://learn.microsoft.com/dotnet/api/system.notsupportedexception)`: Throws a NotSupportedException when called.
+
+### ClassSetup
+
+```csharp
+public void ClassSetup(string configSectionName)
+```
+
+#### Parameters
+
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### ClassSetup&lt;TMessageHandler&gt;
+
+```csharp
+public void ClassSetup<TMessageHandler>(string configSectionName, HttpHandlerMode httpHandlerMode, string environment = "Development", string baseAddress = "https://localhost") where TMessageHandler : DelegatingHandler
+```
+
+#### Parameters
+
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **httpHandlerMode** ``HttpHandlerMode``: 
+- **environment** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **baseAddress** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### ClassSetup&lt;TMessageHandler&gt;
+
+```csharp
+public void ClassSetup<TMessageHandler>(string configSectionName, string environment = "Development", string baseAddress = "https://localhost") where TMessageHandler : DelegatingHandler
+```
+
+#### Parameters
+
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **environment** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **baseAddress** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### TestSetup
+
+```csharp
+public override void TestSetup()
+```
+
+DO NOT USE THIS METHOD. Throws a <xref href="System.NotSupportedException" data-throw-if-not-resolved="false"></xref> when called. You must call <xref href="CloudNimble.BlazorEssentials.Breakdance.BlazorEssentialsTestBase%602.ClassSetup(System.String)" data-throw-if-not-resolved="false"></xref> 
+or <xref href="CloudNimble.BlazorEssentials.Breakdance.BlazorEssentialsTestBase%602.TestSetup" data-throw-if-not-resolved="false"></xref> instead.
+
+#### Exceptions
+
+- `[NotSupportedException](https://learn.microsoft.com/dotnet/api/system.notsupportedexception)`: Throws a NotSupportedException when called.
+
+### TestSetup
+
+```csharp
+public void TestSetup(string configSectionName, string environment = "Development", string baseAddress = "https://localhost")
+```
+
+Configures the BlazorEssentials services into the BUnitTestContext IServiceProvider for the currently-executing test only.
+
+#### Parameters
+
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **environment** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **baseAddress** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### TestSetup&lt;TMessageHandler&gt;
+
+```csharp
+public void TestSetup<TMessageHandler>(string configSectionName, HttpHandlerMode httpHandlerMode = HttpHandlerMode.Replace, string environment = "Development", string baseAddress = "https://localhost") where TMessageHandler : DelegatingHandler
+```
+
+Configures the BlazorEssentials services into the BUnitTestContext IServiceProvider for the currently-executing test only.
+
+#### Parameters
+
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **httpHandlerMode** ``HttpHandlerMode``: 
+- **environment** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **baseAddress** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+

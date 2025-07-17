@@ -1,0 +1,61 @@
+---
+title: "EasyAF_GuidExtensions"
+description: "Methods to extend <xref href=\"System."
+icon: "cube"
+---
+
+# EasyAF_GuidExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Methods to extend <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> in useful ways.
+
+## Syntax
+
+```csharp
+public static class EasyAF_GuidExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### IsNullOrEmpty
+
+```csharp
+public static bool IsNullOrEmpty(this Guid? instance)
+```
+
+A sweet little extension to check if a Nullable Guid has a real value or not.
+
+#### Parameters
+
+- **instance** [Guid?](https://learn.microsoft.com/dotnet/api/system.guid): 
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+A <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> indicating whether or not the Guid is null or empty.
+
+### ToComparableString
+
+```csharp
+public static string ToComparableString(this Guid instance)
+```
+
+A little syntactical sugar to make sure GUIDs are outputted to a format that ensures accurate string comparisons.
+
+#### Parameters
+
+- **instance** [Guid](https://learn.microsoft.com/dotnet/api/system.guid): The Guid to convert.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+An upper-case string representing the GUID instance to be compared.
+
+

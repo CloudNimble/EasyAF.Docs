@@ -1,0 +1,88 @@
+---
+title: "AspNetCoreTestHelpers"
+description: "Helper methods for creating testable resources for AspNetCore."
+icon: "cube"
+---
+
+# AspNetCoreTestHelpers
+
+<Badge variant="outline">Class</Badge>
+
+Helper methods for creating testable resources for AspNetCore.
+
+## Syntax
+
+```csharp
+public static class AspNetCoreTestHelpers
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetTestableHttpServer
+
+```csharp
+public static TestServer GetTestableHttpServer()
+```
+
+Gets a new <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref> with default services.
+
+#### Returns
+
+[TestServer](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.testhost.testserver)
+
+### GetTestableHttpServer
+
+```csharp
+public static TestServer GetTestableHttpServer(Action<IServiceCollection> registration, Action<IApplicationBuilder> builder, Action<IConfigurationBuilder> configuration)
+```
+
+Gets a new <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref> with the provided service registration, application builder and configuration builder.
+
+#### Parameters
+
+- **registration** [Action&lt;IServiceCollection&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): Delegate for customizing the <xref href="Microsoft.Extensions.DependencyInjection.IServiceCollection" data-throw-if-not-resolved="false"></xref> of services available to the <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref>.
+- **builder** [Action&lt;IApplicationBuilder&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): Delegate for customizing the <xref href="Microsoft.AspNetCore.Builder.IApplicationBuilder" data-throw-if-not-resolved="false"></xref> used to configure the <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref>.
+- **configuration** [Action&lt;IConfigurationBuilder&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): Delegate for providing an <xref href="Microsoft.Extensions.Configuration.IConfigurationBuilder" data-throw-if-not-resolved="false"></xref> used to generate an <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref> for the <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[TestServer](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.testhost.testserver)
+
+### GetTestableHttpServer
+
+```csharp
+public static TestServer GetTestableHttpServer(Action<IServiceCollection> registration, Action<IApplicationBuilder> builder)
+```
+
+Gets a new <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref> with the provided service registration and application builder.
+
+#### Parameters
+
+- **registration** [Action&lt;IServiceCollection&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): Delegate for customizing the <xref href="Microsoft.Extensions.DependencyInjection.IServiceCollection" data-throw-if-not-resolved="false"></xref> of services available to the <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref>.
+- **builder** [Action&lt;IApplicationBuilder&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): Delegate for customizing the <xref href="Microsoft.AspNetCore.Builder.IApplicationBuilder" data-throw-if-not-resolved="false"></xref> used to configure the <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[TestServer](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.testhost.testserver)
+
+### GetTestableHttpServer
+
+```csharp
+public static TestServer GetTestableHttpServer(Action<IServiceCollection> registration)
+```
+
+Gets a new <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref> with the provided service registration.
+
+#### Parameters
+
+- **registration** [Action&lt;IServiceCollection&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): Delegate for customizing the <xref href="Microsoft.Extensions.DependencyInjection.IServiceCollection" data-throw-if-not-resolved="false"></xref> of services available to the <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[TestServer](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.testhost.testserver)
+
+

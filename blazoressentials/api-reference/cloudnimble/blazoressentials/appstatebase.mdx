@@ -1,0 +1,295 @@
+---
+title: "AppStateBase"
+description: "A base class to control application-wide state in a Blazor app."
+icon: "cube"
+---
+
+# AppStateBase
+
+<Badge variant="outline">Class</Badge>
+
+A base class to control application-wide state in a Blazor app.
+
+## Syntax
+
+```csharp
+public class AppStateBase : BlazorObservable, INotifyPropertyChanged, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `EasyObservableObject`
+    - [BlazorObservable](/api-reference/cloudnimble/blazoressentials/blazorobservable)
+
+## Implements
+
+- [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### AppStateBase
+
+```csharp
+public AppStateBase(NavigationManager navigationManager, IHttpClientFactory httpClientFactory, IJSRuntime jsRuntime, IWebAssemblyHostEnvironment environment, NavigationHistory navHistory, StateHasChangedConfig stateHasChangedConfig = null)
+```
+
+#### Parameters
+
+- **navigationManager** [NavigationManager](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.navigationmanager): The Blazor <xref href="CloudNimble.BlazorEssentials.AppStateBase.NavigationManager" data-throw-if-not-resolved="false"></xref> instance from the DI container.
+- **httpClientFactory** [IHttpClientFactory](https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory): The <xref href="System.Net.Http.IHttpClientFactory" data-throw-if-not-resolved="false"></xref> instance from the DI container.
+- **jsRuntime** [IJSRuntime](https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime): The <xref href="Microsoft.JSInterop.IJSRuntime" data-throw-if-not-resolved="false"></xref> instance from the DI container.
+- **environment** [IWebAssemblyHostEnvironment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.iwebassemblyhostenvironment): The <xref href="Microsoft.AspNetCore.Components.WebAssembly.Hosting.IWebAssemblyHostEnvironment" data-throw-if-not-resolved="false"></xref> instance from the DI container.
+- **navHistory** [NavigationHistory](/api-reference/cloudnimble/blazoressentials/navigation/navigationhistory): The <xref href="CloudNimble.BlazorEssentials.AppStateBase.NavigationHistory" data-throw-if-not-resolved="false"></xref> instance from the DI container.
+- **stateHasChangedConfig** [StateHasChangedConfig](/api-reference/cloudnimble/blazoressentials/statehaschangedconfig): The <xref href="CloudNimble.BlazorEssentials.StateHasChangedConfig" data-throw-if-not-resolved="false"></xref> instance from the DI container.
+
+
+## Properties
+
+### AuthenticationStateProvider
+
+```csharp
+public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+```
+
+The <xref href="CloudNimble.BlazorEssentials.AppStateBase.AuthenticationStateProvider" data-throw-if-not-resolved="false"></xref> instance for the application.
+
+#### Returns
+
+[AuthenticationStateProvider](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.authorization.authenticationstateprovider)
+
+### ClaimsPrincipal
+
+```csharp
+public ClaimsPrincipal ClaimsPrincipal { get; set; }
+```
+
+The <xref href="CloudNimble.BlazorEssentials.AppStateBase.ClaimsPrincipal" data-throw-if-not-resolved="false"></xref> returned from calling <xref href="Microsoft.AspNetCore.Components.Authorization.AuthenticationState.User" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[ClaimsPrincipal](https://learn.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)
+
+### CurrentNavItem
+
+```csharp
+public NavigationItem CurrentNavItem { get; set; }
+```
+
+The <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref> from <xref href="CloudNimble.BlazorEssentials.AppStateBase.NavItems" data-throw-if-not-resolved="false"></xref> that corresponds to the current Route.
+
+#### Returns
+
+[NavigationItem](/api-reference/cloudnimble/blazoressentials/navigation/navigationitem)
+
+### Environment
+
+```csharp
+public IWebAssemblyHostEnvironment Environment { get; set; }
+```
+
+The <xref href="Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostEnvironment" data-throw-if-not-resolved="false"></xref> injected from the DI container.
+
+#### Returns
+
+[IWebAssemblyHostEnvironment](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.iwebassemblyhostenvironment)
+
+### HttpClientFactory
+
+```csharp
+public IHttpClientFactory HttpClientFactory { get; }
+```
+
+The instance of the <xref href="System.Net.Http.IHttpClientFactory" data-throw-if-not-resolved="false"></xref> injected by the DI system.
+
+#### Returns
+
+[IHttpClientFactory](https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory)
+
+### IsClaimsPrincipalAuthenticated
+
+```csharp
+public bool IsClaimsPrincipalAuthenticated { get; }
+```
+
+Returns a value indicating whether or not the current <xref href="CloudNimble.BlazorEssentials.AppStateBase.ClaimsPrincipal?text=ClaimsPrincipal%27s" data-throw-if-not-resolved="false"></xref> Identity is authenticated.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### JSRuntime
+
+```csharp
+public IJSRuntime JSRuntime { get; set; }
+```
+
+#### Returns
+
+[IJSRuntime](https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime)
+
+### NavigationHistory
+
+```csharp
+public NavigationHistory NavigationHistory { get; }
+```
+
+Allows the application to interact with the browser's History API.
+
+#### Returns
+
+[NavigationHistory](/api-reference/cloudnimble/blazoressentials/navigation/navigationhistory)
+
+### NavigationManager
+
+```csharp
+public NavigationManager NavigationManager { get; }
+```
+
+The instance of the <xref href="CloudNimble.BlazorEssentials.AppStateBase.NavigationManager" data-throw-if-not-resolved="false"></xref> injected by the DI system.
+
+#### Returns
+
+[NavigationManager](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.navigationmanager)
+
+### NavItems
+
+```csharp
+public ObservableCollection<NavigationItem> NavItems { get; }
+```
+
+An <xref href="System.Collections.ObjectModel.ObservableCollection%601" data-throw-if-not-resolved="false"></xref> containing the primary navigation details for the application.
+
+#### Returns
+
+[ObservableCollection&lt;NavigationItem&gt;](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1)
+
+
+## Methods
+
+### Dispose
+
+```csharp
+protected override void Dispose(bool disposing)
+```
+
+#### Parameters
+
+- **disposing** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### LoadNavItems
+
+```csharp
+public void LoadNavItems(List<NavigationItem> items)
+```
+
+Load the NavigationItems into <xref href="CloudNimble.BlazorEssentials.AppStateBase.NavItems" data-throw-if-not-resolved="false"></xref> and properly wire up the PropertyChanged event.
+
+#### Parameters
+
+- **items** [List&lt;NavigationItem&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+
+### Navigate
+
+```csharp
+public void Navigate(string uri, bool setCurrentNavItem = false)
+```
+
+Navigates to the specified Uri and sets <xref href="CloudNimble.BlazorEssentials.AppStateBase.CurrentNavItem" data-throw-if-not-resolved="false"></xref> to the matching <xref href="CloudNimble.BlazorEssentials.Navigation.NavigationItem" data-throw-if-not-resolved="false"></xref> in <xref href="CloudNimble.BlazorEssentials.AppStateBase.NavItems" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **uri** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **setCurrentNavItem** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Determines whether or not we should also set the CurrentNavItem. Usually this is no because the MainLayout should call 
+AppState.SetCurrentNavItem in OnParametersSet. This parameter gives you flexibility without potentially calling it twice.
+
+### NavigateBackAsync
+
+```csharp
+public Task NavigateBackAsync(bool setCurrentNavItem = false)
+```
+
+Utilizes the injected <xref href="CloudNimble.BlazorEssentials.AppStateBase.NavigationHistory" data-throw-if-not-resolved="false"></xref> History API to navigate to the last entry in the history stack, and attempts
+to set the <xref href="CloudNimble.BlazorEssentials.AppStateBase.CurrentNavItem" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **setCurrentNavItem** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Determines whether or not we should also set the CurrentNavItem. Usually this is no because the MainLayout should call 
+AppState.SetCurrentNavItem in OnParametersSet. This parameter gives you flexibility without potentially calling it twice.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> representing the completion state of the operation.
+
+### NavigateForwardAsync
+
+```csharp
+public Task NavigateForwardAsync(bool setCurrentNavItem = false)
+```
+
+Utilizes the injected <xref href="CloudNimble.BlazorEssentials.AppStateBase.NavigationHistory" data-throw-if-not-resolved="false"></xref> History API to navigate to the next entry in the history stack, and attempts
+to set the <xref href="CloudNimble.BlazorEssentials.AppStateBase.CurrentNavItem" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **setCurrentNavItem** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Determines whether or not we should also set the CurrentNavItem. Usually this is no because the MainLayout should call 
+AppState.SetCurrentNavItem in OnParametersSet. This parameter gives you flexibility without potentially calling it twice.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> representing the completion state of the operation.
+
+### OpenInNewTab
+
+```csharp
+public Task OpenInNewTab(string url)
+```
+
+#### Parameters
+
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### RefreshClaimsPrincipal
+
+```csharp
+public Task RefreshClaimsPrincipal()
+```
+
+Tells the AuthenticationProvider to get the latest ClaimsPrincipal and run it through the internal AuthenticationStateChanged handler.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> representing the completion state of the operation.
+
+### SetCurrentNavItem
+
+```csharp
+public void SetCurrentNavItem()
+```
+
+Initializes <xref href="CloudNimble.BlazorEssentials.AppStateBase.CurrentNavItem" data-throw-if-not-resolved="false"></xref> to the proper value based on the current route.
+
+### SetCurrentNavItem
+
+```csharp
+public void SetCurrentNavItem(string url)
+```
+
+Initializes <xref href="CloudNimble.BlazorEssentials.AppStateBase.CurrentNavItem" data-throw-if-not-resolved="false"></xref> to the proper value based on the current route.
+
+#### Parameters
+
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+

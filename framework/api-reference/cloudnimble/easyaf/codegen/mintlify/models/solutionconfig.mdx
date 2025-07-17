@@ -1,0 +1,180 @@
+---
+title: "SolutionConfig"
+description: "Represents the configuration for an individual solution within the multi-solution setup."
+icon: "cube"
+---
+
+# SolutionConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the configuration for an individual solution within the multi-solution setup.
+
+## Syntax
+
+```csharp
+public class SolutionConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### DocsPath
+
+```csharp
+[JsonPropertyName("docsPath")]
+public string DocsPath { get; set; }
+```
+
+Gets or sets the path to pre-generated documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The path to existing documentation files when using external source.
+
+### Exclude
+
+```csharp
+[JsonPropertyName("exclude")]
+public List<string> Exclude { get; set; }
+```
+
+Gets or sets the list of project patterns to exclude.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+Patterns for .csproj files that should be excluded from processing.
+
+### MergeConfig
+
+```csharp
+[JsonPropertyName("mergeConfig")]
+public MergeConfig MergeConfig { get; set; }
+```
+
+Gets or sets the merge configuration for external sources.
+
+#### Returns
+
+[MergeConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/mergeconfig)
+
+Settings for how to merge external documentation into the combined site.
+
+### Name
+
+```csharp
+[JsonPropertyName("name")]
+public string Name { get; set; }
+```
+
+Gets or sets the display name of the solution.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The human-readable name used in navigation and display.
+
+### Navigation
+
+```csharp
+[JsonPropertyName("navigation")]
+public SolutionNavigationConfig Navigation { get; set; }
+```
+
+Gets or sets the navigation configuration for this solution.
+
+#### Returns
+
+[SolutionNavigationConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/solutionnavigationconfig)
+
+The structure and organization of navigation elements for this solution's tab.
+
+### OutputPath
+
+```csharp
+[JsonPropertyName("outputPath")]
+public string OutputPath { get; set; }
+```
+
+Gets or sets the output path for this solution's documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The subdirectory name where this solution's docs will be placed in the final output.
+
+### Path
+
+```csharp
+[JsonPropertyName("path")]
+public string Path { get; set; }
+```
+
+Gets or sets the path to the solution source code.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The relative or absolute path to the solution's source directory.
+
+### Projects
+
+```csharp
+[JsonPropertyName("projects")]
+public List<string> Projects { get; set; }
+```
+
+Gets or sets the list of project files to include.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+Patterns or specific filenames for .csproj files to process.
+
+### Source
+
+```csharp
+[JsonPropertyName("source")]
+public string Source { get; set; }
+```
+
+Gets or sets the source type for this solution.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The method used to generate documentation for this solution.
+
+### Tab
+
+```csharp
+[JsonPropertyName("tab")]
+public string Tab { get; set; }
+```
+
+Gets or sets the tab name for this solution in the navigation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The text displayed in the top-level tab for this solution.
+
+
+## Remarks
+
+This class defines how a single solution should be processed and integrated
+into the combined documentation site, including its tab configuration and content sources.
+

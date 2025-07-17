@@ -1,0 +1,751 @@
+---
+title: "CodeGenerationTools"
+description: "Responsible for helping to create source code that is correctly formatted and functional."
+icon: "cube"
+---
+
+# CodeGenerationTools
+
+<Badge variant="outline">Class</Badge>
+
+Responsible for helping to create source code that is
+correctly formatted and functional
+
+## Syntax
+
+```csharp
+public static class CodeGenerationTools
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### CamelCaseFields
+
+```csharp
+public static bool CamelCaseFields { get; set; }
+```
+
+When true, the field names are Camel Cased,
+otherwise they will preserve the case they
+start with.
+
+Default is true.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### FullyQualifySystemTypes
+
+```csharp
+public static bool FullyQualifySystemTypes { get; set; }
+```
+
+When true, all types that are not being generated
+are fully qualified to keep them from conflicting with
+types that are being generated. Useful when you have
+something like a type being generated named System.
+
+Default is false.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+
+## Methods
+
+### AbstractOption
+
+```csharp
+public static string AbstractOption(EntityType entity)
+```
+
+Returns the abstract option if the entity is Abstract, otherwise returns String.Empty.
+
+#### Parameters
+
+- **entity** [EntityType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitytype): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### AdminControllerClassDeclaration
+
+```csharp
+public static string AdminControllerClassDeclaration(string dbContextName, bool addInheritance = false, string baseClass = null)
+```
+
+Generates the class declaration for an Admin API controller.
+
+#### Parameters
+
+- **dbContextName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the DbContext class.
+- **addInheritance** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to include inheritance in the class declaration.
+- **baseClass** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the base class to inherit from. Defaults to the value in CodeGenConstants.ApiBaseClassName.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The class declaration string for the Admin API controller.
+
+### AuthorizationClassDeclaration
+
+```csharp
+public static string AuthorizationClassDeclaration(EntityContainer container)
+```
+
+#### Parameters
+
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### BusinessDependencyClassDeclaration
+
+```csharp
+public static string BusinessDependencyClassDeclaration(string projectName)
+```
+
+#### Parameters
+
+- **projectName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### CamelCase
+
+```csharp
+public static string CamelCase(string identifier)
+```
+
+Returns the passed in identifier with the first letter changed to lowercase.
+
+#### Parameters
+
+- **identifier** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ControllerClassDeclaration
+
+```csharp
+public static string ControllerClassDeclaration(string dbContextName, bool addInheritance = false, string baseClass = null)
+```
+
+Generates the class declaration for an API controller.
+
+#### Parameters
+
+- **dbContextName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the DbContext class.
+- **addInheritance** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to include inheritance in the class declaration.
+- **baseClass** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the base class to inherit from. Defaults to the value in CodeGenConstants.ApiBaseClassName.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The class declaration string for the API controller.
+
+### CreateFullName
+
+```csharp
+public static string CreateFullName(string namespaceName, string name)
+```
+
+Returns as full of a name as possible, if a namespace is provided the namespace and name are combined with a period, otherwise just the name is returned.
+
+#### Parameters
+
+- **namespaceName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### CreateLiteral
+
+```csharp
+public static string CreateLiteral(object value)
+```
+
+Retuns a literal representing the supplied value.
+
+#### Parameters
+
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### DbContextClassDeclaration
+
+```csharp
+public static string DbContextClassDeclaration(EntityContainer container)
+```
+
+#### Parameters
+
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### DbSet
+
+```csharp
+public static string DbSet(EntitySet entitySet)
+```
+
+#### Parameters
+
+- **entitySet** [EntitySet](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entityset): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### EntityClassDeclaration
+
+```csharp
+public static string EntityClassDeclaration(EntityComposition entity)
+```
+
+Creates the class declaration for a given <xref href="CloudNimble.EasyAF.CodeGen.EntityComposition" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **entity** [EntityComposition](/api-reference/cloudnimble/easyaf/codegen/entitycomposition): The <xref href="CloudNimble.EasyAF.CodeGen.EntityComposition" data-throw-if-not-resolved="false"></xref> instance that contains the EasyAF breakdowns plus the EDMX model metadata for a given Entity.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A string that contains the Entity class' name and base types.
+
+### Escape
+
+```csharp
+public static string Escape(EdmFunction function)
+```
+
+Returns the name of the EdmFunction that is safe for use as an identifier.
+
+#### Parameters
+
+- **function** [EdmFunction](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmfunction): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(EdmMember member)
+```
+
+Returns the name of the EdmMember that is safe for use as an identifier.
+
+#### Parameters
+
+- **member** [EdmMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmmember): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(EdmType type)
+```
+
+Returns the name of the EdmType that is safe for use as an identifier.
+
+#### Parameters
+
+- **type** [EdmType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmtype): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(EntityContainer container)
+```
+
+Returns the name of the EntityContainer that is safe for use as an identifier.
+
+#### Parameters
+
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(EntitySet set)
+```
+
+Returns the name of the EntitySet that is safe for use as an identifier.
+
+#### Parameters
+
+- **set** [EntitySet](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entityset): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(EnumMember member)
+```
+
+Returns the name of the EnumMember that is safe for use as an identifier.
+
+#### Parameters
+
+- **member** [EnumMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.enummember): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(string name)
+```
+
+Returns a string that is safe for use as an identifier in C#. Keywords are escaped.
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(StructuralType type)
+```
+
+Returns the name of the StructuralType that is safe for use as an identifier.
+
+#### Parameters
+
+- **type** [StructuralType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.structuraltype): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(Type clrType, bool fullyQualifySystemTypes)
+```
+
+Returns the name of the Type object formatted for use in source code.
+
+#### Parameters
+
+- **clrType** [Type](https://learn.microsoft.com/dotnet/api/system.type): 
+- **fullyQualifySystemTypes** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(Type clrType)
+```
+
+Returns the name of the Type object formatted for use in source code.
+
+#### Parameters
+
+- **clrType** [Type](https://learn.microsoft.com/dotnet/api/system.type): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Escape
+
+```csharp
+public static string Escape(TypeUsage typeUsage, bool ignoreNullables = false)
+```
+
+Returns the name of the TypeUsage's EdmType that is safe for use as an identifier.
+
+#### Parameters
+
+- **typeUsage** [TypeUsage](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.typeusage): 
+- **ignoreNullables** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### EscapeNamespace
+
+```csharp
+public static string EscapeNamespace(string namespaceName)
+```
+
+Returns the NamespaceName with each segment safe to use as an identifier.
+
+#### Parameters
+
+- **namespaceName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### FieldName
+
+```csharp
+public static string FieldName(EdmMember member)
+```
+
+Returns the name of the EdmMember formatted for
+use as a field identifier.
+
+This method changes behavior based on the CamelCaseFields
+setting.
+
+#### Parameters
+
+- **member** [EdmMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmmember): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### FieldName
+
+```csharp
+public static string FieldName(EntitySet set)
+```
+
+Returns the name of the EntitySet formatted for
+use as a field identifier.
+
+This method changes behavior based on the CamelCaseFields
+setting.
+
+#### Parameters
+
+- **set** [EntitySet](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entityset): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### FieldName
+
+```csharp
+public static string FieldName(EntityType entityType)
+```
+
+Returns the name of the EntitySet formatted for
+use as a field identifier.
+
+This method changes behavior based on the CamelCaseFields
+setting.
+
+#### Parameters
+
+- **entityType** [EntityType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitytype): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### GetAllGlobalItems
+
+```csharp
+public static IEnumerable<string> GetAllGlobalItems(EdmItemCollection itemCollection)
+```
+
+Returns the names of the items in the supplied collection that correspond to O-Space types.
+
+#### Parameters
+
+- **itemCollection** [EdmItemCollection](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmitemcollection): 
+
+#### Returns
+
+[IEnumerable&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### GetGlobalItemName
+
+```csharp
+public static string GetGlobalItemName(GlobalItem item)
+```
+
+Returns the name of the supplied GlobalItem.
+
+#### Parameters
+
+- **item** [GlobalItem](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.globalitem): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### GetItemsToGenerate&lt;T&gt;
+
+```csharp
+public static IEnumerable<T> GetItemsToGenerate<T>(ItemCollection itemCollection) where T : GlobalItem
+```
+
+Gets the entity, complex, or enum types for which code should be generated from the given item collection. Any types for which an ExternalTypeName annotation 
+has been applied in the conceptual model metadata (CSDL) are filtered out of the returned list.
+
+#### Parameters
+
+- **itemCollection** [ItemCollection](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.itemcollection): The item collection to look in.
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+The items to generate.
+
+### GetTypeName
+
+```csharp
+public static string GetTypeName(EdmType edmType, string modelNamespace)
+```
+
+Returns the escaped type name to use for the given c-space type in o-space. This might be an external type name if the ExternalTypeName annotation has been specified 
+in the conceptual model metadata (CSDL).
+
+#### Parameters
+
+- **edmType** [EdmType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmtype): The c-space type to get a name for.
+- **modelNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): If not null and the type's namespace does not match this namespace, then a fully qualified name will be returned.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The type name to use.
+
+### GetTypeName
+
+```csharp
+public static string GetTypeName(EdmType edmType)
+```
+
+Returns the escaped type name to use for the given c-space type in o-space. This might be an external type name if the ExternalTypeName annotation has been 
+specified in the conceptual model metadata (CSDL).
+
+#### Parameters
+
+- **edmType** [EdmType](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmtype): The c-space type to get a name for.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The type name to use.
+
+### GetTypeName
+
+```csharp
+public static string GetTypeName(TypeUsage typeUsage, string modelNamespace)
+```
+
+Returns the escaped type name to use for the given usage of an c-space type in o-space. This might be an external type name if the ExternalTypeName annotation 
+has been specified in the conceptual model metadata (CSDL).
+
+#### Parameters
+
+- **typeUsage** [TypeUsage](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.typeusage): The c-space type usage to get a name for.
+- **modelNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): If not null and the type's namespace does not match this namespace, then a fully qualified name will be returned.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The type name to use.
+
+### GetTypeName
+
+```csharp
+public static string GetTypeName(TypeUsage typeUsage)
+```
+
+Returns the escaped type name to use for the given usage of a c-space type in o-space. This might be an external type name if the ExternalTypeName annotation 
+has been specified in the conceptual model metadata (CSDL).
+
+#### Parameters
+
+- **typeUsage** [TypeUsage](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.typeusage): The c-space type usage to get a name for.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The type name to use.
+
+### ManagerClassDeclaration
+
+```csharp
+public static string ManagerClassDeclaration(EntityComposition entity, string dbContextTypeName)
+```
+
+Creates the class declaration for a given <xref href="CloudNimble.EasyAF.CodeGen.EntityComposition" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **entity** [EntityComposition](/api-reference/cloudnimble/easyaf/codegen/entitycomposition): The <xref href="CloudNimble.EasyAF.CodeGen.EntityComposition" data-throw-if-not-resolved="false"></xref> instance that contains the EasyAF breakdowns plus the EDMX model metadata for a given Entity.
+- **dbContextTypeName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A string that contains the Entity class' name and base types.
+
+### ModelBuilderClassDeclaration
+
+```csharp
+public static string ModelBuilderClassDeclaration(EntityContainer container)
+```
+
+#### Parameters
+
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PropertyVirtualModifier
+
+```csharp
+public static string PropertyVirtualModifier(string accessibility)
+```
+
+#### Parameters
+
+- **accessibility** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### RestierDependencyClassDeclaration
+
+```csharp
+public static string RestierDependencyClassDeclaration(string projectName)
+```
+
+#### Parameters
+
+- **projectName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SpaceAfter
+
+```csharp
+public static string SpaceAfter(string value)
+```
+
+If the value parameter is null or empty an empty string is returned, otherwise it retuns value with a single space concatenated on the end.
+
+#### Parameters
+
+- **value** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SpaceBefore
+
+```csharp
+public static string SpaceBefore(string value)
+```
+
+If the value parameter is null or empty an empty string is returned, otherwise it retuns value with a single space concatenated on the end.
+
+#### Parameters
+
+- **value** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### StringAfter
+
+```csharp
+public static string StringAfter(string value, string append)
+```
+
+If the value parameter is null or empty an empty string is returned, otherwise it retuns value with append concatenated on the end.
+
+#### Parameters
+
+- **value** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **append** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### StringBefore
+
+```csharp
+public static string StringBefore(string prepend, string value)
+```
+
+If the value parameter is null or empty an empty string is returned, otherwise it retuns value with prepend concatenated on the front.
+
+#### Parameters
+
+- **prepend** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **value** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

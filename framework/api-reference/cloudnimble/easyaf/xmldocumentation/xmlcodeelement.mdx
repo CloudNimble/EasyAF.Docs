@@ -1,0 +1,68 @@
+---
+title: "XmlCodeElement"
+description: "Represents an inline code XML documentation element."
+icon: "cube"
+---
+
+# XmlCodeElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents an inline code XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlCodeElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlCodeElement
+
+```csharp
+public XmlCodeElement()
+```
+
+Initializes a new instance of the XmlCodeElement class.
+
+### XmlCodeElement
+
+```csharp
+public XmlCodeElement(XElement element)
+```
+
+Initializes a new instance of the XmlCodeElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this inline code element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this inline code.
+
+
+## Remarks
+
+The c element marks text as inline code within documentation.
+It is typically rendered with monospace font and different styling.
+

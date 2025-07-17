@@ -1,0 +1,332 @@
+---
+title: "Interval<T>"
+description: "Describes an interval of time to be used in time-based calculations."
+icon: "cube"
+---
+
+# Interval&lt;T&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Describes an interval of time to be used in time-based calculations.
+Provides methods to calculate rates and frequencies based on the interval value and type.
+
+## Syntax
+
+```csharp
+public class Interval<T> where T : IComparable<T>, IConvertible
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### Interval
+
+```csharp
+public Interval()
+```
+
+Creates a new instance of the <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> class.
+
+### Interval
+
+```csharp
+public Interval(T value, IntervalType type)
+```
+
+Creates a new instance of the <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **value** ``T``: The duration of the interval.
+- **type** [IntervalType](/api-reference/cloudnimble/easyaf/core/intervaltype): The base unit that describes what the quantity of this Interval references.
+
+
+## Properties
+
+### Type
+
+```csharp
+public IntervalType Type { get; set; }
+```
+
+The base unit that describes what the quantity of this Interval references.
+
+#### Returns
+
+[IntervalType](/api-reference/cloudnimble/easyaf/core/intervaltype)
+
+### Value
+
+```csharp
+[DataType(DataType.Duration)]
+public T Value { get; set; }
+```
+
+The duration of the Interval.
+
+#### Returns
+
+``T``
+
+
+## Methods
+
+### PerDay
+
+```csharp
+public virtual decimal PerDay()
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance, calculates how many occurrences will happen per day.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The number of occurrences per day as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerDay
+
+```csharp
+public virtual decimal PerDay(decimal quantity)
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance and a quantity, calculates the total output per day.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to multiply by the interval frequency.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total output per day as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerHour
+
+```csharp
+public virtual decimal PerHour()
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance, calculates how many occurrences will happen per hour.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The number of occurrences per hour as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerHour
+
+```csharp
+public virtual decimal PerHour(decimal quantity)
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance and a quantity, calculates the total output per hour.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to multiply by the interval frequency.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total output per hour as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerMinute
+
+```csharp
+public virtual decimal PerMinute()
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance, calculates how many occurrences will happen per minute.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The number of occurrences per minute as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerMinute
+
+```csharp
+public virtual decimal PerMinute(decimal quantity)
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance and a quantity, calculates the total output per minute.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to multiply by the interval frequency.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total output per minute as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerMonth
+
+```csharp
+public virtual decimal PerMonth()
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance, calculates how many occurrences will happen per month.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The number of occurrences per month as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerMonth
+
+```csharp
+public virtual decimal PerMonth(decimal quantity)
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance and a quantity, calculates the total output per month.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to multiply by the interval frequency.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total output per month as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerWeek
+
+```csharp
+public virtual decimal PerWeek()
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance, calculates how many occurrences will happen per week.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The number of occurrences per week as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerWeek
+
+```csharp
+public virtual decimal PerWeek(decimal quantity)
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance and a quantity, calculates the total output per week.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to multiply by the interval frequency.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total output per week as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerYear
+
+```csharp
+public virtual decimal PerYear()
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance, calculates how many occurrences will happen per year.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The number of occurrences per year as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### PerYear
+
+```csharp
+public virtual decimal PerYear(decimal quantity)
+```
+
+Given this <xref href="CloudNimble.EasyAF.Core.Interval%601" data-throw-if-not-resolved="false"></xref> instance and a quantity, calculates the total output per year.
+
+#### Parameters
+
+- **quantity** [decimal](https://learn.microsoft.com/dotnet/api/system.decimal): The quantity to multiply by the interval frequency.
+
+#### Returns
+
+[decimal](https://learn.microsoft.com/dotnet/api/system.decimal)
+
+The total output per year as a decimal value.
+
+#### Exceptions
+
+- `[InvalidCastException](https://learn.microsoft.com/dotnet/api/system.invalidcastexception)`: Thrown if <code class="typeparamref">T</code> is not convertible to a <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>.
+
+### ToString
+
+```csharp
+public override string ToString()
+```
+
+Returns a string that represents the current object.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A string that represents the current object.
+
+

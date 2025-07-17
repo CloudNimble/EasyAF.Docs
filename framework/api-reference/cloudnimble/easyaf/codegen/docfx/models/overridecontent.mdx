@@ -1,0 +1,86 @@
+---
+title: "OverrideContent"
+description: "Represents override content for enhancing API documentation with conceptual elements."
+icon: "cube"
+---
+
+# OverrideContent
+
+<Badge variant="outline">Class</Badge>
+
+Represents override content for enhancing API documentation with conceptual elements.
+
+## Syntax
+
+```csharp
+public class OverrideContent
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### AdditionalSections
+
+```csharp
+public Dictionary<string, string> AdditionalSections { get; set; }
+```
+
+Gets or sets additional content sections to inject at specific points.
+
+#### Returns
+
+[Dictionary&lt;string, string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+A dictionary of section names and their markdown content to inject.
+
+### Conceptual
+
+```csharp
+public ConceptualReferences Conceptual { get; set; }
+```
+
+Gets or sets references to conceptual documentation files.
+
+#### Returns
+
+[ConceptualReferences](/api-reference/cloudnimble/easyaf/codegen/docfx/models/conceptualreferences)
+
+File paths to conceptual documentation that should be included in the generated output.
+
+### Frontmatter
+
+```csharp
+public Dictionary<string, object> Frontmatter { get; set; }
+```
+
+Gets or sets the custom frontmatter properties for Mintlify.
+
+#### Returns
+
+[Dictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+A dictionary of frontmatter keys and values to override default generation.
+
+### Uid
+
+```csharp
+public string Uid { get; set; }
+```
+
+Gets or sets the unique identifier that this override applies to.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The UID from DocFX metadata that this override targets.
+
+
+## Remarks
+
+This class contains override data loaded from YAML files that specify custom frontmatter,
+references to conceptual documentation files, and additional content sections.
+

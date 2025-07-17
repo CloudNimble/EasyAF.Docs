@@ -1,0 +1,62 @@
+---
+title: "Breakdance_WebApi_HttpConfigurationExtensions"
+description: "Extension methods for making HttpConfiguration a little more test-friendly."
+icon: "cube"
+---
+
+# Breakdance_WebApi_HttpConfigurationExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Extension methods for making HttpConfiguration a little more test-friendly.
+
+## Syntax
+
+```csharp
+public static class Breakdance_WebApi_HttpConfigurationExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetTestableHttpClient
+
+```csharp
+public static HttpClient GetTestableHttpClient(this HttpConfiguration config)
+```
+
+Creates a new HttpServer for a given HttpConfiguration, and returns a new <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> that uses said HttpServer.
+
+#### Parameters
+
+- **config** ``HttpConfiguration``: The HttpConfiguration to use with the internal HttpServer.
+
+#### Returns
+
+[HttpClient](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient)
+
+An <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> whose configuration is bonded to an HttpServer so developers don't have to manually configure all of the elements required to
+successfully test the API.
+
+### GetTestableHttpServer
+
+```csharp
+public static HttpServer GetTestableHttpServer(this HttpConfiguration config)
+```
+
+Gets a new HttpServer instance for a given HttpConfiguration, suitable for use in unit tests.
+
+#### Parameters
+
+- **config** ``HttpConfiguration``: 
+
+#### Returns
+
+``HttpServer``
+
+A new HttpServer instance whose InnerHandler allows for automatic HTTP redirects.
+
+

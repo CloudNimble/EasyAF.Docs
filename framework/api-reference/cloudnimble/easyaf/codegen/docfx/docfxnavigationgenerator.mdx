@@ -1,0 +1,60 @@
+---
+title: "DocFxNavigationGenerator"
+description: "Generates navigation structure for Mintlify documentation from DocFX metadata."
+icon: "cube"
+---
+
+# DocFxNavigationGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates navigation structure for Mintlify documentation from DocFX metadata.
+
+## Syntax
+
+```csharp
+public class DocFxNavigationGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### DocFxNavigationGenerator
+
+```csharp
+public DocFxNavigationGenerator(DocFxMetadata metadata, MintlifyOptions options)
+```
+
+Initializes a new instance of the DocFxNavigationGenerator class.
+
+#### Parameters
+
+- **metadata** [DocFxMetadata](/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxmetadata): The DocFX metadata.
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+
+## Methods
+
+### GenerateNavigation
+
+```csharp
+public List<GroupConfig> GenerateNavigation()
+```
+
+Generates the navigation structure for the documentation.
+
+#### Returns
+
+[List&lt;GroupConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+The navigation structure.
+
+
+## Remarks
+
+This class creates a hierarchical navigation structure based on namespaces
+and types found in the DocFX metadata, suitable for use in docs.json configuration.
+

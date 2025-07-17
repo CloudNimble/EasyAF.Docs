@@ -1,0 +1,64 @@
+---
+title: "AzureActiveDirectorySqlAuthProvider"
+description: "Provides a custom authentication method that gets a <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# AzureActiveDirectorySqlAuthProvider
+
+<Badge variant="outline">Class</Badge>
+
+Provides a custom authentication method that gets a <xref href="Microsoft.Data.SqlClient.SqlAuthenticationToken" data-throw-if-not-resolved="false"></xref> from Azure Identity for the executing context.
+
+## Syntax
+
+```csharp
+public class AzureActiveDirectorySqlAuthProvider : SqlAuthenticationProvider
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [SqlAuthenticationProvider](https://learn.microsoft.com/dotnet/api/microsoft.data.sqlclient.sqlauthenticationprovider)
+
+## Methods
+
+### AcquireTokenAsync
+
+```csharp
+public override Task<SqlAuthenticationToken> AcquireTokenAsync(SqlAuthenticationParameters parameters)
+```
+
+Request token from the provider using the specified <xref href="Microsoft.Data.SqlClient.SqlAuthenticationParameters" data-throw-if-not-resolved="false"></xref>.
+Uses DefaultAzureCredential to obtain an access token for SQL Database authentication.
+
+#### Parameters
+
+- **parameters** [SqlAuthenticationParameters](https://learn.microsoft.com/dotnet/api/microsoft.data.sqlclient.sqlauthenticationparameters): The authentication parameters from SQL Client.
+
+#### Returns
+
+[Task&lt;SqlAuthenticationToken&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A SqlAuthenticationToken containing the access token and expiration time.
+
+### IsSupported
+
+```csharp
+public override bool IsSupported(SqlAuthenticationMethod authenticationMethod)
+```
+
+Returns a flag indicating if the requested <xref href="Microsoft.Data.SqlClient.SqlAuthenticationMethod" data-throw-if-not-resolved="false"></xref> is supported by this custom <xref href="Microsoft.Data.SqlClient.SqlAuthenticationProvider" data-throw-if-not-resolved="false"></xref>.
+This provider supports ActiveDirectoryDeviceCodeFlow authentication method.
+
+#### Parameters
+
+- **authenticationMethod** [SqlAuthenticationMethod](https://learn.microsoft.com/dotnet/api/microsoft.data.sqlclient.sqlauthenticationmethod): The authentication method to check for support.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+True if the authentication method is ActiveDirectoryDeviceCodeFlow; otherwise, false.
+
+

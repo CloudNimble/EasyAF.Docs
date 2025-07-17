@@ -1,0 +1,162 @@
+---
+title: "EasyObservableObject"
+description: "A base class for objects to implement <xref href=\"System."
+icon: "cube"
+---
+
+# EasyObservableObject
+
+<Badge variant="outline">Class</Badge>
+
+A base class for objects to implement <xref href="System.ComponentModel.INotifyPropertyChanged" data-throw-if-not-resolved="false"></xref>.
+Provides strongly-typed property change notifications and automatic property setting with change detection.
+
+## Syntax
+
+```csharp
+public class EasyObservableObject : INotifyPropertyChanged, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### EasyObservableObject
+
+```csharp
+public EasyObservableObject()
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Core.EasyObservableObject" data-throw-if-not-resolved="false"></xref> class.
+
+
+## Properties
+
+### PropertyChangedHandler
+
+```csharp
+protected PropertyChangedEventHandler PropertyChangedHandler { get; }
+```
+
+Provides access to the PropertyChanged event handler to derived classes.
+
+#### Returns
+
+[PropertyChangedEventHandler](https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventhandler)
+
+
+## Methods
+
+### Clone&lt;T&gt;
+
+```csharp
+public T Clone<T>() where T : EasyObservableObject
+```
+
+Creates a deep copy of the current object using JSON serialization.
+
+#### Returns
+
+``T``
+
+A new instance of type <code class="typeparamref">T</code> that is a deep copy of the current object.
+
+#### Exceptions
+
+- `[JsonException](https://learn.microsoft.com/dotnet/api/system.text.json.jsonexception)`: Thrown when the object cannot be serialized or deserialized.
+
+### Dispose
+
+```csharp
+public void Dispose()
+```
+
+Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+
+### Dispose
+
+```csharp
+protected virtual void Dispose(bool disposing)
+```
+
+Releases the unmanaged resources used by the <xref href="CloudNimble.EasyAF.Core.EasyObservableObject" data-throw-if-not-resolved="false"></xref> and optionally releases the managed resources.
+
+#### Parameters
+
+- **disposing** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): true to release both managed and unmanaged resources; false to release only unmanaged resources.
+
+### RaisePropertyChanged
+
+```csharp
+protected virtual void RaisePropertyChanged(string propertyName = null)
+```
+
+Raises the PropertyChanged event if needed.
+
+#### Parameters
+
+- **propertyName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the property that changed.
+
+### RaisePropertyChanged&lt;T&gt;
+
+```csharp
+protected virtual void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpression)
+```
+
+Raises the PropertyChanged event if needed.
+
+#### Parameters
+
+- **propertyExpression** [Expression&lt;Func&lt;T&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An expression identifying the property that changed.
+
+### Set&lt;T&gt;
+
+```csharp
+protected void Set<T>(Expression<Func<T>> propertyExpression, ref T field, T newValue)
+```
+
+Assigns a new value to the property. Then, raises the PropertyChanged event if needed.
+
+#### Parameters
+
+- **propertyExpression** [Expression&lt;Func&lt;T&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An expression identifying the property that changed.
+- **field** ``T``: The field storing the property's value.
+- **newValue** ``T``: The property's value after the change occurred.
+
+### Set&lt;T&gt;
+
+```csharp
+protected virtual void Set<T>(string propertyName, ref T field, T newValue)
+```
+
+Assigns a new value to the property. Then, raises the PropertyChanged event if needed.
+
+#### Parameters
+
+- **propertyName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the property that changed.
+- **field** ``T``: The field storing the property's value.
+- **newValue** ``T``: The property's value after the change occurred.
+
+
+## Events
+
+### PropertyChanged
+
+```csharp
+public event PropertyChangedEventHandler PropertyChanged
+```
+
+Occurs when a property value changes.
+
+#### Returns
+
+[PropertyChangedEventHandler](https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventhandler)
+
+

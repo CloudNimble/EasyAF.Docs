@@ -1,0 +1,64 @@
+---
+title: "ODataV4ErrorDetail"
+description: "Represents more details about an OData error."
+icon: "cube"
+---
+
+# ODataV4ErrorDetail
+
+<Badge variant="outline">Class</Badge>
+
+Represents more details about an OData error.
+
+## Syntax
+
+```csharp
+public class ODataV4ErrorDetail
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Code
+
+```csharp
+[JsonPropertyName("code")]
+public string Code { get; set; }
+```
+
+Gets or sets the error code to be used in payloads.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Message
+
+```csharp
+[JsonPropertyName("message")]
+public string Message { get; set; }
+```
+
+Gets or sets the error message.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Target
+
+```csharp
+[JsonPropertyName("target")]
+public string Target { get; set; }
+```
+
+Gets or sets the target of the particular error.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

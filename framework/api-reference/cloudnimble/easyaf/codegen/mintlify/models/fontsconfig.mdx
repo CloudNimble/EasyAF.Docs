@@ -1,0 +1,82 @@
+---
+title: "FontsConfig"
+description: "Represents the font configuration for the Mintlify documentation site."
+icon: "cube"
+---
+
+# FontsConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the font configuration for the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class FontsConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Family
+
+```csharp
+[JsonPropertyName("family")]
+public string Family { get; set; }
+```
+
+Gets or sets the font family name.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Format
+
+```csharp
+[JsonPropertyName("format")]
+public string Format { get; set; }
+```
+
+Gets or sets the font file format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Source
+
+```csharp
+[JsonPropertyName("source")]
+public string Source { get; set; }
+```
+
+Gets or sets the font source URL.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Weight
+
+```csharp
+[JsonPropertyName("weight")]
+public int? Weight { get; set; }
+```
+
+Gets or sets the font weight.
+
+#### Returns
+
+[int?](https://learn.microsoft.com/dotnet/api/system.int32)
+
+
+## Remarks
+
+This configuration allows customization of typography by specifying custom fonts
+including font family, weight, source URLs, and format specifications.
+

@@ -1,0 +1,71 @@
+---
+title: "CSharpViewGenerator"
+description: "Class to produce the template output."
+icon: "cube"
+---
+
+# CSharpViewGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Class to produce the template output
+
+## Syntax
+
+```csharp
+public class CSharpViewGenerator : CSharpViewGeneratorBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CSharpViewGeneratorBase](/api-reference/microsoft/dbcontextpackage/utilities/csharpviewgeneratorbase)
+
+## Properties
+
+### ContextTypeName
+
+```csharp
+public string ContextTypeName { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### MappingHashValue
+
+```csharp
+public string MappingHashValue { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Views
+
+```csharp
+public dynamic Views { get; set; }
+```
+
+#### Returns
+
+``dynamic``
+
+
+## Methods
+
+### TransformText
+
+```csharp
+public virtual string TransformText()
+```
+
+Create the template output
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

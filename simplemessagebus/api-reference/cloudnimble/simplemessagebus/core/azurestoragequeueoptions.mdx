@@ -1,0 +1,96 @@
+---
+title: "AzureStorageQueueOptions"
+description: "Specifies the options required to leverage Azure Queue Storage as the SimpleMessageBus backing queue."
+icon: "cube"
+---
+
+# AzureStorageQueueOptions
+
+<Badge variant="outline">Class</Badge>
+
+Specifies the options required to leverage Azure Queue Storage as the SimpleMessageBus backing queue.
+
+## Syntax
+
+```csharp
+public class AzureStorageQueueOptions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### AzureStorageQueueOptions
+
+```csharp
+public AzureStorageQueueOptions()
+```
+
+The default constructor, which sets the default values equal to the values specified in <xref href="CloudNimble.SimpleMessageBus.Core.AzureStorageQueueConstants" data-throw-if-not-resolved="false"></xref>.
+
+
+## Properties
+
+### CompletedQueueName
+
+```csharp
+public string CompletedQueueName { get; set; }
+```
+
+A <xref href="System.String" data-throw-if-not-resolved="false"></xref> representing the name of the Queue that successfully-executed messages will be stored in.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ConcurrentJobs
+
+```csharp
+public int ConcurrentJobs { get; set; }
+```
+
+An <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> representing the number of Messages that can be processed simultaneously. The default is 16.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### MessageEncoding
+
+```csharp
+public AzureStorageQueueEncoding MessageEncoding { get; set; }
+```
+
+Sets the MessageEncoding for Queue messages. Defaults to AzureStorageQueueEncoding.None.
+
+#### Returns
+
+[AzureStorageQueueEncoding](/api-reference/cloudnimble/simplemessagebus/core/azurestoragequeueencoding)
+
+### QueueName
+
+```csharp
+public string QueueName { get; set; }
+```
+
+A <xref href="System.String" data-throw-if-not-resolved="false"></xref> representing the name of the Queue in Azure Queue Storage.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### StorageConnectionString
+
+```csharp
+public string StorageConnectionString { get; set; }
+```
+
+A <xref href="System.String" data-throw-if-not-resolved="false"></xref> representing the ConnectionString for your Azure Storage account.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

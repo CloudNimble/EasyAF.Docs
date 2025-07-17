@@ -1,0 +1,77 @@
+---
+title: "ODataV4ResultList<T>"
+description: "A container for deserializing an OData v4 result and its associated metadata."
+icon: "cube"
+---
+
+# ODataV4ResultList&lt;T&gt;
+
+<Badge variant="outline">Class</Badge>
+
+A container for deserializing an OData v4 result and its associated metadata.
+
+## Syntax
+
+```csharp
+public class ODataV4ResultList<T>
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### ExpectedItemCount
+
+```csharp
+[JsonPropertyName("@odata.count")]
+public string ExpectedItemCount { get; set; }
+```
+
+Maps to the "odata.count" property.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Items
+
+```csharp
+[JsonPropertyName("value")]
+public List<T> Items { get; set; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containing the items returned from the service.
+
+#### Returns
+
+[List&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### MetadataReferenceLink
+
+```csharp
+[JsonPropertyName("@odata.context")]
+public string MetadataReferenceLink { get; set; }
+```
+
+Maps to the "@odata.context" property, and specifies which item in the model metadata is being returned.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### NextPageLink
+
+```csharp
+[JsonPropertyName("@odata.nextLink")]
+public string NextPageLink { get; set; }
+```
+
+Maps to the "@odata.nextLink" property, and specifies the URL to call to get the next page of results.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

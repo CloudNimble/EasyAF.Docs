@@ -1,0 +1,736 @@
+---
+title: "PrivateObject"
+description: "This class represents the live NON public INTERNAL object in the system."
+icon: "cube"
+---
+
+# PrivateObject
+
+<Badge variant="outline">Class</Badge>
+
+This class represents the live NON public INTERNAL object in the system
+
+## Syntax
+
+```csharp
+public class PrivateObject
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### PrivateObject
+
+```csharp
+public PrivateObject(object obj, PrivateType type)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateObject" data-throw-if-not-resolved="false"></xref> class that wraps
+the given object.
+
+#### Parameters
+
+- **obj** [object](https://learn.microsoft.com/dotnet/api/system.object): object to wrap
+- **type** [PrivateType](/api-reference/cloudnimble/breakdance/assemblies/privatetype): PrivateType object
+
+### PrivateObject
+
+```csharp
+public PrivateObject(object obj, string memberToAccess)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateObject" data-throw-if-not-resolved="false"></xref> class that contains
+the already existing object of the private class
+
+#### Parameters
+
+- **obj** [object](https://learn.microsoft.com/dotnet/api/system.object): object that serves as starting point to reach the private members
+- **memberToAccess** [string](https://learn.microsoft.com/dotnet/api/system.string): the derefrencing string using . that points to the object to be retrived as in m_X.m_Y.m_Z
+
+### PrivateObject
+
+```csharp
+public PrivateObject(object obj)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateObject" data-throw-if-not-resolved="false"></xref> class that wraps
+the given object.
+
+#### Parameters
+
+- **obj** [object](https://learn.microsoft.com/dotnet/api/system.object): object to wrap
+
+### PrivateObject
+
+```csharp
+public PrivateObject(string assemblyName, string typeName, params object[] args)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateObject" data-throw-if-not-resolved="false"></xref> class that wraps the
+specified type.
+
+#### Parameters
+
+- **assemblyName** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the assembly
+- **typeName** [string](https://learn.microsoft.com/dotnet/api/system.string): fully qualified name
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Argmenets to pass to the constructor
+
+### PrivateObject
+
+```csharp
+public PrivateObject(string assemblyName, string typeName, Type[] parameterTypes, object[] args)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateObject" data-throw-if-not-resolved="false"></xref> class that wraps the
+specified type.
+
+#### Parameters
+
+- **assemblyName** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the assembly
+- **typeName** [string](https://learn.microsoft.com/dotnet/api/system.string): fully qualified name
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the constructor to get
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the constructor
+
+### PrivateObject
+
+```csharp
+public PrivateObject(Type type, params object[] args)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateObject" data-throw-if-not-resolved="false"></xref> class that wraps the
+specified type.
+
+#### Parameters
+
+- **type** [Type](https://learn.microsoft.com/dotnet/api/system.type): type of the object to create
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the constructor
+
+### PrivateObject
+
+```csharp
+public PrivateObject(Type type, Type[] parameterTypes, object[] args)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateObject" data-throw-if-not-resolved="false"></xref> class that wraps the
+specified type.
+
+#### Parameters
+
+- **type** [Type](https://learn.microsoft.com/dotnet/api/system.type): type of the object to create
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the constructor to get
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the constructor
+
+
+## Properties
+
+### RealType
+
+```csharp
+public Type RealType { get; }
+```
+
+Gets the type of underlying object
+
+#### Returns
+
+[Type](https://learn.microsoft.com/dotnet/api/system.type)
+
+### Target
+
+```csharp
+public object Target { get; set; }
+```
+
+Gets or sets the target
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+
+## Methods
+
+### Equals
+
+```csharp
+public override bool Equals(object obj)
+```
+
+Equals
+
+#### Parameters
+
+- **obj** [object](https://learn.microsoft.com/dotnet/api/system.object): Object with whom to compare
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+returns true if the objects are equal.
+
+### GetArrayElement
+
+```csharp
+public object GetArrayElement(string name, BindingFlags bindingFlags, params int[] indices)
+```
+
+Gets the array element using array of subsrcipts for each dimension
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **indices** [int[]](https://learn.microsoft.com/dotnet/api/system.int32): the indices of array
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+An arrya of elements.
+
+### GetArrayElement
+
+```csharp
+public object GetArrayElement(string name, params int[] indices)
+```
+
+Gets the array element using array of subsrcipts for each dimension
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **indices** [int[]](https://learn.microsoft.com/dotnet/api/system.int32): the indices of array
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+An arrya of elements.
+
+### GetField
+
+```csharp
+public object GetField(string name, BindingFlags bindingFlags)
+```
+
+Gets the field
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The field.
+
+### GetField
+
+```csharp
+public object GetField(string name)
+```
+
+Get the field
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The field.
+
+### GetFieldOrProperty
+
+```csharp
+public object GetFieldOrProperty(string name, BindingFlags bindingFlags)
+```
+
+Gets the field or property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The field or property.
+
+### GetFieldOrProperty
+
+```csharp
+public object GetFieldOrProperty(string name)
+```
+
+Get the field or property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The field or property.
+
+### GetHashCode
+
+```csharp
+public override int GetHashCode()
+```
+
+returns the hash code of the target object
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+int representing hashcode of the target object
+
+### GetProperty
+
+```csharp
+public object GetProperty(string name, BindingFlags bindingFlags, params object[] args)
+```
+
+Gets the property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The property.
+
+### GetProperty
+
+```csharp
+public object GetProperty(string name, BindingFlags bindingFlags, Type[] parameterTypes, object[] args)
+```
+
+Gets the property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the indexed property.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The property.
+
+### GetProperty
+
+```csharp
+public object GetProperty(string name, params object[] args)
+```
+
+Gets the property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The property.
+
+### GetProperty
+
+```csharp
+public object GetProperty(string name, Type[] parameterTypes, object[] args)
+```
+
+Gets the property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the indexed property.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The property.
+
+### Invoke
+
+```csharp
+public object Invoke(string name, BindingFlags bindingFlags, object[] args, CultureInfo culture)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture info
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, BindingFlags bindingFlags, params object[] args)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, BindingFlags bindingFlags, Type[] parameterTypes, object[] args, CultureInfo culture, Type[] typeArguments)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to get.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture info
+- **typeArguments** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of types corresponding to the types of the generic arguments.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, BindingFlags bindingFlags, Type[] parameterTypes, object[] args, CultureInfo culture)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to get.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture info
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, BindingFlags bindingFlags, Type[] parameterTypes, object[] args)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to get.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, object[] args, CultureInfo culture)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture info
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, params object[] args)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, Type[] parameterTypes, object[] args, CultureInfo culture)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to get.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture info
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, Type[] parameterTypes, object[] args, Type[] typeArguments)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to get.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+- **typeArguments** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of types corresponding to the types of the generic arguments.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### Invoke
+
+```csharp
+public object Invoke(string name, Type[] parameterTypes, object[] args)
+```
+
+Invokes the specified method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the method
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to get.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of method call
+
+### SetArrayElement
+
+```csharp
+public void SetArrayElement(string name, BindingFlags bindingFlags, object value, params int[] indices)
+```
+
+Sets the array element using array of subsrcipts for each dimension
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Value to set
+- **indices** [int[]](https://learn.microsoft.com/dotnet/api/system.int32): the indices of array
+
+### SetArrayElement
+
+```csharp
+public void SetArrayElement(string name, object value, params int[] indices)
+```
+
+Sets the array element using array of subsrcipts for each dimension
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Value to set
+- **indices** [int[]](https://learn.microsoft.com/dotnet/api/system.int32): the indices of array
+
+### SetField
+
+```csharp
+public void SetField(string name, BindingFlags bindingFlags, object value)
+```
+
+Sets the field
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+
+### SetField
+
+```csharp
+public void SetField(string name, object value)
+```
+
+Sets the field
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+
+### SetFieldOrProperty
+
+```csharp
+public void SetFieldOrProperty(string name, BindingFlags bindingFlags, object value)
+```
+
+Sets the field or property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+
+### SetFieldOrProperty
+
+```csharp
+public void SetFieldOrProperty(string name, object value)
+```
+
+Sets the field or property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+
+### SetProperty
+
+```csharp
+public void SetProperty(string name, BindingFlags bindingFlags, object value, params object[] args)
+```
+
+Sets the property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+### SetProperty
+
+```csharp
+public void SetProperty(string name, BindingFlags bindingFlags, object value, Type[] parameterTypes, object[] args)
+```
+
+Sets the property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): A bitmask comprised of one or more <xref href="System.Reflection.BindingFlags" data-throw-if-not-resolved="false"></xref> that specify how the search is conducted.
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the indexed property.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+### SetProperty
+
+```csharp
+public void SetProperty(string name, object value, params object[] args)
+```
+
+Set the property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+### SetProperty
+
+```csharp
+public void SetProperty(string name, Type[] parameterTypes, object value, object[] args)
+```
+
+Set the property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the indexed property.
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+
+## Remarks
+
+This type originally lived in Microsoft.VisualStudio.TestTools.UnitTesting but was removed from V2.
+

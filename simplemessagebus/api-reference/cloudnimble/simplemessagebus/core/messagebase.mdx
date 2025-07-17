@@ -1,0 +1,128 @@
+---
+title: "MessageBase"
+description: "Base class providing a complete implementation of common message functionality."
+icon: "cube"
+---
+
+# MessageBase
+
+<Badge variant="outline">Class</Badge>
+
+Base class providing a complete implementation of common message functionality.
+
+## Syntax
+
+```csharp
+public abstract class MessageBase : IMessage, IMetadataAware, ITrackable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage)
+- [IMetadataAware](/api-reference/cloudnimble/simplemessagebus/core/imetadataaware)
+- [ITrackable](/api-reference/cloudnimble/simplemessagebus/core/itrackable)
+
+## Constructors
+
+### MessageBase
+
+```csharp
+protected MessageBase()
+```
+
+Creates a new instance of the message with automatically generated ID and correlation ID.
+
+### MessageBase
+
+```csharp
+protected MessageBase(IMessage parent)
+```
+
+Creates a new instance of the message as a child of another message.
+
+#### Parameters
+
+- **parent** [IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage): The parent message to inherit metadata from.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown when <code class="paramref">parent</code> is null.
+
+
+## Properties
+
+### CorrelationId
+
+```csharp
+public Guid CorrelationId { get; set; }
+```
+
+Gets or sets the correlation ID for tracking related messages across the entire processing chain.
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+A <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> that groups all messages belonging to the same business transaction or workflow.
+All related messages should share the same correlation ID regardless of their parent-child relationships.
+
+### Id
+
+```csharp
+public Guid Id { get; set; }
+```
+
+Gets or sets the unique identifier for this Message.
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+A <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> that uniquely identifies this message instance. This value should be set when
+the message is created and remain constant throughout the message's lifetime.
+
+### Metadata
+
+```csharp
+public ConcurrentDictionary<string, object> Metadata { get; set; }
+```
+
+Gets or sets the thread-safe metadata storage for passing data between handlers in the processing pipeline.
+
+#### Returns
+
+[ConcurrentDictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2)
+
+A <xref href="System.Collections.Concurrent.ConcurrentDictionary%602" data-throw-if-not-resolved="false"></xref> where keys are string identifiers and values are objects
+containing the metadata. The dictionary must be thread-safe as it may be accessed concurrently.
+
+### ParentId
+
+```csharp
+public Guid? ParentId { get; set; }
+```
+
+Gets or sets the ID of the parent message that triggered this message, enabling message lineage tracking.
+
+#### Returns
+
+[Guid?](https://learn.microsoft.com/dotnet/api/system.guid)
+
+A nullable <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> that identifies the immediate parent message. This value should be null
+for root messages that start a new workflow, and set to the parent's ID for derived or spawned messages.
+
+
+## Remarks
+
+MessageBase provides a convenient base class that implements all core message interfaces, making it easy
+to create new message types without having to implement the common functionality manually. It automatically
+handles ID generation, metadata initialization, tracking properties, and provides constructors for creating
+child messages with proper lineage tracking.
+
+This class is abstract and must be inherited to create concrete message types. It's recommended to use this
+base class for most message implementations unless you have specific requirements that prevent inheritance.
+

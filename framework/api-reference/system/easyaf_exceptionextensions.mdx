@@ -1,0 +1,42 @@
+---
+title: "EasyAF_ExceptionExtensions"
+description: ""
+icon: "cube"
+---
+
+# EasyAF_ExceptionExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class EasyAF_ExceptionExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### TraceDemystifiedException
+
+```csharp
+public static Exception TraceDemystifiedException(this Exception ex, string logPrefix = "")
+```
+
+Demystifies the Exception and writes it to <xref href="System.Diagnostics.Trace.TraceError(System.String%2cSystem.Object%5b%5d)" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **ex** [Exception](https://learn.microsoft.com/dotnet/api/system.exception): The exception instance to manipulate.
+- **logPrefix** [string](https://learn.microsoft.com/dotnet/api/system.string): A string that will be prepended to the log entry. Defaults to the calling function name.
+
+#### Returns
+
+[Exception](https://learn.microsoft.com/dotnet/api/system.exception)
+
+The Demystified exception.
+
+

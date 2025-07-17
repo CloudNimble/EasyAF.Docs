@@ -1,0 +1,83 @@
+---
+title: "XmlGenericElement"
+description: "Represents a generic XML documentation element for unrecognized tags."
+icon: "cube"
+---
+
+# XmlGenericElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a generic XML documentation element for unrecognized tags.
+
+## Syntax
+
+```csharp
+public class XmlGenericElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlGenericElement
+
+```csharp
+public XmlGenericElement()
+```
+
+Initializes a new instance of the XmlGenericElement class.
+
+### XmlGenericElement
+
+```csharp
+public XmlGenericElement(XElement element)
+```
+
+Initializes a new instance of the XmlGenericElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### ElementName
+
+```csharp
+public string ElementName { get; set; }
+```
+
+Gets or sets the XML element name.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this generic element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this element.
+
+
+## Remarks
+
+This class handles XML documentation elements that don't have specific implementations.
+It provides basic text extraction and formatting capabilities for any XML element.
+

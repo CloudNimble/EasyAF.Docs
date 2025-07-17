@@ -1,0 +1,45 @@
+---
+title: "EditContextExtensions"
+description: ""
+icon: "cube"
+---
+
+# EditContextExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class EditContextExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### NotifyFieldChanged
+
+```csharp
+public static void NotifyFieldChanged(this EditContext editContext, string field)
+```
+
+#### Parameters
+
+- **editContext** [EditContext](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.forms.editcontext): 
+- **field** [string](https://learn.microsoft.com/dotnet/api/system.string): The field name that was changed in the process, typically specified using "nameof(YourObject.YourProperty").
+
+### NotifyFieldsChanged
+
+```csharp
+public static void NotifyFieldsChanged(this EditContext editContext, params string[] fields)
+```
+
+#### Parameters
+
+- **editContext** [EditContext](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.forms.editcontext): 
+- **fields** [string[]](https://learn.microsoft.com/dotnet/api/system.string): An inline list of fields that were changed in the process, typically specified using "nameof(YourObject.YourProperty").
+
+

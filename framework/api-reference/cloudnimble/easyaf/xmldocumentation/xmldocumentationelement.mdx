@@ -1,0 +1,138 @@
+---
+title: "XmlDocumentationElement"
+description: "Represents a base XML documentation element with common properties."
+icon: "cube"
+---
+
+# XmlDocumentationElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a base XML documentation element with common properties.
+
+## Syntax
+
+```csharp
+public abstract class XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### XmlDocumentationElement
+
+```csharp
+protected XmlDocumentationElement()
+```
+
+Initializes a new instance of the XmlDocumentationElement class.
+
+### XmlDocumentationElement
+
+```csharp
+protected XmlDocumentationElement(XElement element)
+```
+
+Initializes a new instance of the XmlDocumentationElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### InnerElements
+
+```csharp
+public List<XmlDocumentationElement> InnerElements { get; set; }
+```
+
+Gets or sets the inner XML elements for nested content.
+
+#### Returns
+
+[List&lt;XmlDocumentationElement&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### RawXml
+
+```csharp
+public string RawXml { get; set; }
+```
+
+Gets or sets the raw XML content of the element.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Text
+
+```csharp
+public string Text { get; set; }
+```
+
+Gets or sets the parsed text content of the element.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### CreateDocumentationElement
+
+```csharp
+protected virtual XmlDocumentationElement CreateDocumentationElement(XElement element)
+```
+
+Creates the appropriate documentation element based on the XML element name.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to convert.
+
+#### Returns
+
+[XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+The appropriate documentation element, or null if not supported.
+
+### ParseInnerElements
+
+```csharp
+protected virtual void ParseInnerElements(XElement element)
+```
+
+Parses inner XML elements recursively.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The parent XML element to parse.
+
+### ToMdx
+
+```csharp
+public abstract string ToMdx()
+```
+
+Converts this element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this element.
+
+
+## Remarks
+
+This abstract class provides the foundation for all XML documentation elements,
+including summary, remarks, parameters, returns, and other documentation tags.
+It handles parsing of XML content and preserves the original structure for
+conversion to MDX format.
+

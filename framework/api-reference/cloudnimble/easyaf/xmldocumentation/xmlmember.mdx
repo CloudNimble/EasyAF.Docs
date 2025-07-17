@@ -1,0 +1,243 @@
+---
+title: "XmlMember"
+description: "Represents a documented member from XML documentation."
+icon: "cube"
+---
+
+# XmlMember
+
+<Badge variant="outline">Class</Badge>
+
+Represents a documented member from XML documentation.
+
+## Syntax
+
+```csharp
+public class XmlMember
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### XmlMember
+
+```csharp
+public XmlMember()
+```
+
+Initializes a new instance of the XmlMember class.
+
+### XmlMember
+
+```csharp
+public XmlMember(XElement memberElement)
+```
+
+Initializes a new instance of the XmlMember class from an XML element.
+
+#### Parameters
+
+- **memberElement** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML member element to parse.
+
+
+## Properties
+
+### Examples
+
+```csharp
+public List<XmlExampleElement> Examples { get; set; }
+```
+
+Gets the collection of example documentation elements.
+
+#### Returns
+
+[List&lt;XmlExampleElement&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Exceptions
+
+```csharp
+public List<XmlExceptionElement> Exceptions { get; set; }
+```
+
+Gets the collection of exception documentation elements.
+
+#### Returns
+
+[List&lt;XmlExceptionElement&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### MemberType
+
+```csharp
+public MemberType MemberType { get; set; }
+```
+
+Gets or sets the member type (Type, Method, Property, Field, Event).
+
+#### Returns
+
+[MemberType](/api-reference/cloudnimble/easyaf/xmldocumentation/membertype)
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+Gets or sets the full member name with prefix (e.g., T:System.String, M:System.String.Length).
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Parameters
+
+```csharp
+public List<XmlParameterElement> Parameters { get; set; }
+```
+
+Gets the collection of parameter documentation elements.
+
+#### Returns
+
+[List&lt;XmlParameterElement&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Permissions
+
+```csharp
+public List<XmlPermissionElement> Permissions { get; set; }
+```
+
+Gets the collection of permission documentation elements.
+
+#### Returns
+
+[List&lt;XmlPermissionElement&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Remarks
+
+```csharp
+public XmlRemarksElement Remarks { get; set; }
+```
+
+Gets or sets the remarks documentation element.
+
+#### Returns
+
+[XmlRemarksElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlremarkselement)
+
+### Returns
+
+```csharp
+public XmlReturnsElement Returns { get; set; }
+```
+
+Gets or sets the returns documentation element.
+
+#### Returns
+
+[XmlReturnsElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlreturnselement)
+
+### SeeAlso
+
+```csharp
+public List<XmlSeeAlsoElement> SeeAlso { get; set; }
+```
+
+Gets the collection of see also references.
+
+#### Returns
+
+[List&lt;XmlSeeAlsoElement&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Summary
+
+```csharp
+public XmlSummaryElement Summary { get; set; }
+```
+
+Gets or sets the summary documentation element.
+
+#### Returns
+
+[XmlSummaryElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlsummaryelement)
+
+### TypeParameters
+
+```csharp
+public List<XmlTypeParameterElement> TypeParameters { get; set; }
+```
+
+Gets the collection of type parameter documentation elements.
+
+#### Returns
+
+[List&lt;XmlTypeParameterElement&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Value
+
+```csharp
+public XmlValueElement Value { get; set; }
+```
+
+Gets or sets the value documentation element (for properties).
+
+#### Returns
+
+[XmlValueElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlvalueelement)
+
+
+## Methods
+
+### GetContainingType
+
+```csharp
+public string GetContainingType()
+```
+
+Gets the containing type name for members.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The containing type name, or empty string for types.
+
+### GetNamespace
+
+```csharp
+public string GetNamespace()
+```
+
+Gets the namespace of the member.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The namespace name.
+
+### GetSimpleName
+
+```csharp
+public string GetSimpleName()
+```
+
+Gets the simple name of the member without prefix and namespace.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The simple member name.
+
+
+## Remarks
+
+This class contains all the documentation elements for a single member,
+including summary, remarks, parameters, return values, exceptions, and examples.
+It provides methods to convert the documentation to various formats.
+

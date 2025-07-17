@@ -1,0 +1,194 @@
+---
+title: "LanguageConfig"
+description: "Represents a language configuration in Mintlify navigation."
+icon: "cube"
+---
+
+# LanguageConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a language configuration in Mintlify navigation.
+
+## Syntax
+
+```csharp
+public class LanguageConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Anchors
+
+```csharp
+[JsonPropertyName("anchors")]
+public List<AnchorConfig> Anchors { get; set; }
+```
+
+Gets or sets the anchors for the language.
+
+#### Returns
+
+[List&lt;AnchorConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### AsyncApi
+
+```csharp
+[JsonPropertyName("asyncapi")]
+public object AsyncApi { get; set; }
+```
+
+Gets or sets the AsyncAPI configuration.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Default
+
+```csharp
+[JsonPropertyName("default")]
+public bool? Default { get; set; }
+```
+
+Gets or sets whether this language is the default language.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Dropdowns
+
+```csharp
+[JsonPropertyName("dropdowns")]
+public List<DropdownConfig> Dropdowns { get; set; }
+```
+
+Gets or sets the dropdowns for the language.
+
+#### Returns
+
+[List&lt;DropdownConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Global
+
+```csharp
+[JsonPropertyName("global")]
+public GlobalNavigationConfig Global { get; set; }
+```
+
+Gets or sets the global navigation configuration.
+
+#### Returns
+
+[GlobalNavigationConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globalnavigationconfig)
+
+### Groups
+
+```csharp
+[JsonPropertyName("groups")]
+public List<GroupConfig> Groups { get; set; }
+```
+
+Gets or sets the groups for the language.
+
+#### Returns
+
+[List&lt;GroupConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Hidden
+
+```csharp
+[JsonPropertyName("hidden")]
+public bool? Hidden { get; set; }
+```
+
+Gets or sets whether the current option is default hidden.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the URL or path for the language.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Language
+
+```csharp
+[JsonPropertyName("language")]
+public string Language { get; set; }
+```
+
+Gets or sets the language code in ISO 639-1 format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### OpenApi
+
+```csharp
+[JsonPropertyName("openapi")]
+public object OpenApi { get; set; }
+```
+
+Gets or sets the OpenAPI configuration.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Pages
+
+```csharp
+[JsonPropertyName("pages")]
+public List<object> Pages { get; set; }
+```
+
+Gets or sets the pages for the language.
+
+#### Returns
+
+[List&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Tabs
+
+```csharp
+[JsonPropertyName("tabs")]
+public List<TabConfig> Tabs { get; set; }
+```
+
+Gets or sets the tabs for the language.
+
+#### Returns
+
+[List&lt;TabConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Versions
+
+```csharp
+[JsonPropertyName("versions")]
+public List<VersionConfig> Versions { get; set; }
+```
+
+Gets or sets the versions for the language.
+
+#### Returns
+
+[List&lt;VersionConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

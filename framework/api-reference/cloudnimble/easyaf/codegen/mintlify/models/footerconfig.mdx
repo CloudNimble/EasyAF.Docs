@@ -1,0 +1,51 @@
+---
+title: "FooterConfig"
+description: "Represents the footer configuration for Mintlify."
+icon: "cube"
+---
+
+# FooterConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the footer configuration for Mintlify.
+
+## Syntax
+
+```csharp
+public class FooterConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Links
+
+```csharp
+[JsonPropertyName("links")]
+public List<FooterLinkGroup> Links { get; set; }
+```
+
+Gets or sets the footer links.
+
+#### Returns
+
+[List&lt;FooterLinkGroup&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Socials
+
+```csharp
+[JsonPropertyName("socials")]
+public Dictionary<string, string> Socials { get; set; }
+```
+
+Gets or sets the social media links.
+
+#### Returns
+
+[Dictionary&lt;string, string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+

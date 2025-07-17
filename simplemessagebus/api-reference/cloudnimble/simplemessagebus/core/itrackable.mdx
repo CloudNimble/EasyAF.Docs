@@ -1,0 +1,60 @@
+---
+title: "ITrackable"
+description: "Defines a message that can track its parent for message lineage and correlation across the processing chain."
+icon: "plug"
+---
+
+# ITrackable
+
+<Badge variant="outline">Interface</Badge>
+
+Defines a message that can track its parent for message lineage and correlation across the processing chain.
+
+## Syntax
+
+```csharp
+public interface ITrackable
+```
+
+## Properties
+
+### CorrelationId
+
+```csharp
+Guid CorrelationId { get; set; }
+```
+
+Gets or sets the correlation ID for tracking related messages across the entire processing chain.
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+A <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> that groups all messages belonging to the same business transaction or workflow.
+All related messages should share the same correlation ID regardless of their parent-child relationships.
+
+### ParentId
+
+```csharp
+Guid? ParentId { get; set; }
+```
+
+Gets or sets the ID of the parent message that triggered this message, enabling message lineage tracking.
+
+#### Returns
+
+[Guid?](https://learn.microsoft.com/dotnet/api/system.guid)
+
+A nullable <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> that identifies the immediate parent message. This value should be null
+for root messages that start a new workflow, and set to the parent's ID for derived or spawned messages.
+
+
+## Remarks
+
+Message tracking enables building a complete audit trail of how messages flow through the system and
+which messages are related to each other. This is essential for debugging, monitoring, and understanding
+complex business processes that span multiple message types and handlers.
+
+The ParentId property creates a direct parent-child relationship, while CorrelationId groups all related
+messages in the same business transaction or workflow, regardless of their hierarchical relationship.
+

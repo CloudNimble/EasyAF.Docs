@@ -1,0 +1,81 @@
+---
+title: "DbContextPartialGenerator"
+description: ""
+icon: "cube"
+---
+
+# DbContextPartialGenerator
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class DbContextPartialGenerator : ContainerGeneratorBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+    - [ContainerGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/containergeneratorbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### DbContextPartialGenerator
+
+```csharp
+public DbContextPartialGenerator(List<string> extraUsings, string contextNamespace, EntityContainer container, string onModelCreatingBody, string edmxPath)
+```
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **contextNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): 
+- **onModelCreatingBody** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **edmxPath** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+
+## Properties
+
+### FileName
+
+```csharp
+public string FileName { get; set; }
+```
+
+/
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### Generate
+
+```csharp
+public override void Generate()
+```
+
+### WriteFile
+
+```csharp
+public string WriteFile(string directory = null)
+```
+
+#### Parameters
+
+- **directory** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

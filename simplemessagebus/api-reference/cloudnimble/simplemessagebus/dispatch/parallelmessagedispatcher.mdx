@@ -1,0 +1,67 @@
+---
+title: "ParallelMessageDispatcher"
+description: "An <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# ParallelMessageDispatcher
+
+<Badge variant="outline">Class</Badge>
+
+An <xref href="CloudNimble.SimpleMessageBus.Dispatch.IMessageDispatcher" data-throw-if-not-resolved="false"></xref> implementation that processes the messages in parallel, regardless of the order the <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=IMessageHandlers" data-throw-if-not-resolved="false"></xref> 
+were registered with the Dependency Injection container.
+
+## Syntax
+
+```csharp
+public class ParallelMessageDispatcher : IMessageDispatcher
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IMessageDispatcher](/api-reference/cloudnimble/simplemessagebus/dispatch/imessagedispatcher)
+
+## Constructors
+
+### ParallelMessageDispatcher
+
+```csharp
+public ParallelMessageDispatcher(IEnumerable<IMessageHandler> messageHandlers)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.SimpleMessageBus.Dispatch.ParallelMessageDispatcher" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **messageHandlers** [IEnumerable&lt;IMessageHandler&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The collection of message handlers to dispatch to.
+
+
+## Methods
+
+### Dispatch
+
+```csharp
+public Task Dispatch(MessageEnvelope messageEnvelope)
+```
+
+Sends the <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> to the <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=MessageHandlers" data-throw-if-not-resolved="false"></xref> registered to that type, for processing.
+
+#### Parameters
+
+- **messageEnvelope** [MessageEnvelope](/api-reference/cloudnimble/simplemessagebus/core/messageenvelope): The <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> instance to be processed.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+
+## Remarks
+
+This dispatcher invokes all matching message handlers concurrently using parallel execution. This provides
+better performance when handlers are independent and don't rely on execution order. However, it should be
+used carefully when handlers have side effects or shared dependencies that aren't thread-safe.
+

@@ -1,0 +1,200 @@
+---
+title: "IndexedDbDatabase"
+description: "Provides functionality for accessing IndexedDB from Blazor application."
+icon: "cube"
+---
+
+# IndexedDbDatabase
+
+<Badge variant="outline">Class</Badge>
+
+Provides functionality for accessing IndexedDB from Blazor application
+
+## Syntax
+
+```csharp
+public abstract class IndexedDbDatabase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### IndexedDbDatabase
+
+```csharp
+public IndexedDbDatabase(IJSRuntime jsRuntime)
+```
+
+#### Parameters
+
+- **jsRuntime** [IJSRuntime](https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime): 
+
+
+## Properties
+
+### DatabaseDefinition
+
+```csharp
+public IndexedDbDatabaseDefinition DatabaseDefinition { get; }
+```
+
+#### Returns
+
+[IndexedDbDatabaseDefinition](/api-reference/cloudnimble/blazoressentials/indexeddb/schema/indexeddbdatabasedefinition)
+
+### Name
+
+```csharp
+public string Name { get; init; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ObjectStores
+
+```csharp
+public List<IndexedDbObjectStore> ObjectStores { get; }
+```
+
+#### Returns
+
+[List&lt;IndexedDbObjectStore&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Version
+
+```csharp
+public int Version { get; set; }
+```
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+
+## Methods
+
+### CallJavaScriptAsync
+
+```csharp
+public Task CallJavaScriptAsync(string functionName, params object[] args)
+```
+
+#### Parameters
+
+- **functionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+#### Exceptions
+
+- `[IndexedDbException](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbexception)`: 
+
+### CallJavaScriptAsync&lt;TResult&gt;
+
+```csharp
+public Task<TResult> CallJavaScriptAsync<TResult>(string functionName, params object?[] args)
+```
+
+#### Parameters
+
+- **functionName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[Task&lt;TResult&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+#### Exceptions
+
+- `[IndexedDbException](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbexception)`: 
+
+### ConsoleLog
+
+```csharp
+public Task ConsoleLog(params object[] args)
+```
+
+#### Parameters
+
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+#### Exceptions
+
+- `[IndexedDbException](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbexception)`: 
+
+### CreateObjectStoreAsync
+
+```csharp
+public Task CreateObjectStoreAsync(IndexedDbObjectStore objectStore)
+```
+
+This function provides the means to add a store to an existing database,
+
+#### Parameters
+
+- **objectStore** [IndexedDbObjectStore](/api-reference/cloudnimble/blazoressentials/indexeddb/indexeddbobjectstore): 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### DeleteDatabaseAsync
+
+```csharp
+public Task DeleteDatabaseAsync()
+```
+
+Deletes this IndexedDb instance from the browser.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### EnsureIsOpenAsync
+
+```csharp
+public Task EnsureIsOpenAsync()
+```
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### LoadSchemaAsync
+
+```csharp
+public Task LoadSchemaAsync()
+```
+
+Load database schema from databaseName
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OpenAsync
+
+```csharp
+public Task OpenAsync()
+```
+
+Opens the IndexedDB defined in the DbDatabase. Under the covers will create the database if it does not exist
+and create the stores defined in DbDatabase.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+

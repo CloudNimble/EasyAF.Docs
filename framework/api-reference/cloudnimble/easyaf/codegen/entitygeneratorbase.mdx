@@ -1,0 +1,53 @@
+---
+title: "EntityGeneratorBase"
+description: ""
+icon: "cube"
+---
+
+# EntityGeneratorBase
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public abstract class EntityGeneratorBase : CodeGeneratorBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### EntityGeneratorBase
+
+```csharp
+public EntityGeneratorBase(List<string> extraUsings, string namespaceName, EntityComposition entity)
+```
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **namespaceName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **entity** [EntityComposition](/api-reference/cloudnimble/easyaf/codegen/entitycomposition): 
+
+
+## Properties
+
+### Entity
+
+```csharp
+public EntityComposition Entity { get; set; }
+```
+
+#### Returns
+
+[EntityComposition](/api-reference/cloudnimble/easyaf/codegen/entitycomposition)
+
+

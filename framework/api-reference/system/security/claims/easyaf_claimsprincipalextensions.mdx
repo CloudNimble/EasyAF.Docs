@@ -1,0 +1,150 @@
+---
+title: "EasyAF_ClaimsPrincipalExtensions"
+description: ""
+icon: "cube"
+---
+
+# EasyAF_ClaimsPrincipalExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class EasyAF_ClaimsPrincipalExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### NameClaimType
+
+```csharp
+public static string NameClaimType { get; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### RoleClaimType
+
+```csharp
+public static string RoleClaimType { get; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### GetAllClaims
+
+```csharp
+public static IEnumerable<Claim> GetAllClaims(this ClaimsPrincipal claimsPrincipal, string claimType)
+```
+
+#### Parameters
+
+- **claimsPrincipal** [ClaimsPrincipal](https://learn.microsoft.com/dotnet/api/system.security.claims.claimsprincipal): The ClaimsPrincipal instance to check for Claims. Should be <xref href="System.Security.Claims.ClaimsPrincipal.Current" data-throw-if-not-resolved="false"></xref>, except in unit testing.
+- **claimType** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[IEnumerable&lt;Claim&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### GetClaimGuid
+
+```csharp
+public static Guid GetClaimGuid(this ClaimsPrincipal claimsPrincipal, string claimType)
+```
+
+#### Parameters
+
+- **claimsPrincipal** [ClaimsPrincipal](https://learn.microsoft.com/dotnet/api/system.security.claims.claimsprincipal): 
+- **claimType** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+#### Exceptions
+
+- `[FormatException](https://learn.microsoft.com/dotnet/api/system.formatexception)`: If the <code class="paramref">claimType</code> is not formatted like a Guid (32 characters with 4 dashes), this exception will be thrown.
+
+### GetClaimValue
+
+```csharp
+public static string GetClaimValue(this ClaimsPrincipal claimsPrincipal, string claimType)
+```
+
+#### Parameters
+
+- **claimsPrincipal** [ClaimsPrincipal](https://learn.microsoft.com/dotnet/api/system.security.claims.claimsprincipal): The ClaimsPrincipal instance to check for Claims. Should be <xref href="System.Security.Claims.ClaimsPrincipal.Current" data-throw-if-not-resolved="false"></xref>, except in unit testing.
+- **claimType** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### GetIdClaim
+
+```csharp
+public static Guid GetIdClaim(this ClaimsPrincipal principal)
+```
+
+A shortcut for returning the AppUserProfileId for the current User.
+
+#### Parameters
+
+- **principal** [ClaimsPrincipal](https://learn.microsoft.com/dotnet/api/system.security.claims.claimsprincipal): The ClaimsPrincipal instance we're extending.
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+### Initialize
+
+```csharp
+public static void Initialize()
+```
+
+### Initialize
+
+```csharp
+public static void Initialize(string schemaUri, string idClaimName)
+```
+
+#### Parameters
+
+- **schemaUri** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **idClaimName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### SetIdClaimName
+
+```csharp
+public static void SetIdClaimName(string idClaimName)
+```
+
+#### Parameters
+
+- **idClaimName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### SetSchemaUri
+
+```csharp
+public static void SetSchemaUri(string schemaUri)
+```
+
+Sets the SchemaUrl used <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/async">async</a>the basis for all custom claims.
+
+#### Parameters
+
+- **schemaUri** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+

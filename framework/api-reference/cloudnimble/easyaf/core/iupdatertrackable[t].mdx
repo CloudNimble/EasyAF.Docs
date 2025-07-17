@@ -1,0 +1,33 @@
+---
+title: "IUpdaterTrackable<T>"
+description: "An interface that implements the CloudNimble common pattern for tracking who updated an Entity."
+icon: "plug"
+---
+
+# IUpdaterTrackable&lt;T&gt;
+
+<Badge variant="outline">Interface</Badge>
+
+An interface that implements the CloudNimble common pattern for tracking who updated an Entity.
+
+## Syntax
+
+```csharp
+public interface IUpdaterTrackable<T> where T : struct
+```
+
+## Properties
+
+### UpdatedById
+
+```csharp
+T? UpdatedById { get; set; }
+```
+
+The unique identifier for the User that updated this particular Entity.
+
+#### Returns
+
+``T?``
+
+

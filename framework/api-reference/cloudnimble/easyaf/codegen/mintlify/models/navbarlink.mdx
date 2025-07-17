@@ -1,0 +1,69 @@
+---
+title: "NavbarLink"
+description: "Represents a navigation link in the Mintlify navbar."
+icon: "cube"
+---
+
+# NavbarLink
+
+<Badge variant="outline">Class</Badge>
+
+Represents a navigation link in the Mintlify navbar.
+
+## Syntax
+
+```csharp
+public class NavbarLink
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the destination URL for the navigation link.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Icon
+
+```csharp
+[JsonPropertyName("icon")]
+public object Icon { get; set; }
+```
+
+Gets or sets the icon to display alongside the navigation link.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Label
+
+```csharp
+[JsonPropertyName("label")]
+public string Label { get; set; }
+```
+
+Gets or sets the display text for the navigation link.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+Each navbar link consists of a label, optional icon, and destination URL.
+These links provide quick access to important pages or external resources.
+

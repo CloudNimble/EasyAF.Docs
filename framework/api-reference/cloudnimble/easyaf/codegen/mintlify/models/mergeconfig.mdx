@@ -1,0 +1,75 @@
+---
+title: "MergeConfig"
+description: "Represents the merge configuration for external documentation sources."
+icon: "cube"
+---
+
+# MergeConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the merge configuration for external documentation sources.
+
+## Syntax
+
+```csharp
+public class MergeConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### DocsJson
+
+```csharp
+[JsonPropertyName("docsJson")]
+public string DocsJson { get; set; }
+```
+
+Gets or sets the path to the external docs.json file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The relative path to the navigation configuration from the external documentation.
+
+### PreserveStructure
+
+```csharp
+[JsonPropertyName("preserveStructure")]
+public bool PreserveStructure { get; set; }
+```
+
+Gets or sets whether to preserve the original folder structure.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+If true, maintains the original directory structure when copying files.
+
+### Transformations
+
+```csharp
+[JsonPropertyName("transformations")]
+public MergeTransformations Transformations { get; set; }
+```
+
+Gets or sets the transformations to apply during merge.
+
+#### Returns
+
+[MergeTransformations](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/mergetransformations)
+
+Settings for how to modify paths and navigation during the merge process.
+
+
+## Remarks
+
+This class defines how external documentation should be transformed and integrated
+into the combined documentation site.
+

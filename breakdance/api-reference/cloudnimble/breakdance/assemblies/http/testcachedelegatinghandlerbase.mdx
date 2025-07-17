@@ -1,0 +1,93 @@
+---
+title: "TestCacheDelegatingHandlerBase"
+description: "Base class for implementation of TestCache handlers for unit testing."
+icon: "cube"
+---
+
+# TestCacheDelegatingHandlerBase
+
+<Badge variant="outline">Class</Badge>
+
+Base class for implementation of TestCache handlers for unit testing.
+
+## Syntax
+
+```csharp
+public class TestCacheDelegatingHandlerBase : DelegatingHandler, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [HttpMessageHandler](https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler)
+    - [DelegatingHandler](https://learn.microsoft.com/dotnet/api/system.net.http.delegatinghandler)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### TestCacheDelegatingHandlerBase
+
+```csharp
+public TestCacheDelegatingHandlerBase(string responseFilesPath)
+```
+
+Constructor overload for specifying the root folder path.
+
+#### Parameters
+
+- **responseFilesPath** [string](https://learn.microsoft.com/dotnet/api/system.string): Root folder path for storing static response files.
+
+
+## Properties
+
+### ResponseFilesPath
+
+```csharp
+public string ResponseFilesPath { get; }
+```
+
+Stores the root folder for reading/writing static response files.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### GetFileExtensionString
+
+```csharp
+public static string GetFileExtensionString(HttpRequestMessage request)
+```
+
+Maps the MediaType header in the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref> to a known list of file extensions.
+
+#### Parameters
+
+- **request** [HttpRequestMessage](https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### GetResponseMediaTypeString
+
+```csharp
+public static string GetResponseMediaTypeString(string filePath)
+```
+
+Maps the file extension in the specified path to a known list of media types.
+
+#### Parameters
+
+- **filePath** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

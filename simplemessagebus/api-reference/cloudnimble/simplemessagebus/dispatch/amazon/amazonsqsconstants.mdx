@@ -1,0 +1,61 @@
+---
+title: "AmazonSQSConstants"
+description: "A set of constants for SimpleMessageBus instances backed by Amazon SQS."
+icon: "cube"
+---
+
+# AmazonSQSConstants
+
+<Badge variant="outline">Class</Badge>
+
+A set of constants for SimpleMessageBus instances backed by Amazon SQS.
+
+## Syntax
+
+```csharp
+public static class AmazonSQSConstants
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Fields
+
+### CompletedQueueAttribute
+
+```csharp
+public const string CompletedQueueAttribute = "%CompletedQueueName%"
+```
+
+The WebJobs attribute name for the name of the completed messages queue.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PoisonQueueAttribute
+
+```csharp
+public const string PoisonQueueAttribute = "%PoisonQueueName%"
+```
+
+The WebJobs attribute name for the name of the poison messages queue.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### QueueTriggerAttribute
+
+```csharp
+public const string QueueTriggerAttribute = "%QueueName%"
+```
+
+The WebJobs attribute name for the name of the queue triggers.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

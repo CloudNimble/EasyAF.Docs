@@ -1,0 +1,33 @@
+---
+title: "IIdentifiable<T>"
+description: "An interface that guarantees a particular Entity contains an \"Id\" property with a type <code class=\"typeparamref\">T</code>."
+icon: "plug"
+---
+
+# IIdentifiable&lt;T&gt;
+
+<Badge variant="outline">Interface</Badge>
+
+An interface that guarantees a particular Entity contains an "Id" property with a type <code class="typeparamref">T</code>.
+
+## Syntax
+
+```csharp
+public interface IIdentifiable<T> where T : struct
+```
+
+## Properties
+
+### Id
+
+```csharp
+T Id { get; set; }
+```
+
+The unique identifier for this particular Entity.
+
+#### Returns
+
+``T``
+
+

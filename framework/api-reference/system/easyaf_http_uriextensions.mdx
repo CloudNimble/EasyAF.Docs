@@ -1,0 +1,52 @@
+---
+title: "EasyAF_Http_UriExtensions"
+description: "Provides extension methods for Uri objects to support OData query string construction."
+icon: "cube"
+---
+
+# EasyAF_Http_UriExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Provides extension methods for Uri objects to support OData query string construction.
+Enables fluent API for building OData-compliant URLs with filtering, paging, and sorting capabilities.
+
+## Syntax
+
+```csharp
+public static class EasyAF_Http_UriExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### ToODataUri
+
+```csharp
+public static Uri ToODataUri(this Uri uri, bool dollarSign = true, string filter = null, int? top = null, int? skip = null, string orderby = null, string expand = null, string select = null, bool? count = null)
+```
+
+Creates an properly-constructed OData Uri with the correct querystring values, if specified.
+
+#### Parameters
+
+- **uri** [Uri](https://learn.microsoft.com/dotnet/api/system.uri): The <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> instance to extend.
+- **dollarSign** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Specifies whether or not the query string name should have a "$" in it. Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+- **filter** [string](https://learn.microsoft.com/dotnet/api/system.string): The filter.
+- **top** [int?](https://learn.microsoft.com/dotnet/api/system.int32): An <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> representing the number of records to take.
+- **skip** [int?](https://learn.microsoft.com/dotnet/api/system.int32): An <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> representing the number of records to skip over.
+- **orderby** [string](https://learn.microsoft.com/dotnet/api/system.string): The orderby.
+- **expand** [string](https://learn.microsoft.com/dotnet/api/system.string): The expand.
+- **select** [string](https://learn.microsoft.com/dotnet/api/system.string): The select.
+- **count** [bool?](https://learn.microsoft.com/dotnet/api/system.boolean): A <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> representing whether to return a count of the total number of records in the response.
+
+#### Returns
+
+[Uri](https://learn.microsoft.com/dotnet/api/system.uri)
+
+A new <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> instance with a properly-formatted OData-compatible query string.
+
+

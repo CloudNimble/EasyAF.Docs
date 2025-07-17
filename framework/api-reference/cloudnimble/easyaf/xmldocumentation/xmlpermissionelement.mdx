@@ -1,0 +1,83 @@
+---
+title: "XmlPermissionElement"
+description: "Represents a permission XML documentation element."
+icon: "cube"
+---
+
+# XmlPermissionElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a permission XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlPermissionElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlPermissionElement
+
+```csharp
+public XmlPermissionElement()
+```
+
+Initializes a new instance of the XmlPermissionElement class.
+
+### XmlPermissionElement
+
+```csharp
+public XmlPermissionElement(XElement element)
+```
+
+Initializes a new instance of the XmlPermissionElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### Cref
+
+```csharp
+public string Cref { get; set; }
+```
+
+Gets or sets the permission type reference.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this permission element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this permission requirement.
+
+
+## Remarks
+
+The permission element documents the security permissions required
+to access or use a particular type or member.
+

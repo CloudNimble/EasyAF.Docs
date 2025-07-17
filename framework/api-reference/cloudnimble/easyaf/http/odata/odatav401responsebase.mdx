@@ -1,0 +1,40 @@
+---
+title: "ODataV401ResponseBase"
+description: "Represents the base class for OData v4."
+icon: "cube"
+---
+
+# ODataV401ResponseBase
+
+<Badge variant="outline">Class</Badge>
+
+Represents the base class for OData v4.01 responses containing common OData metadata properties.
+Provides the foundation for strongly-typed OData v4.01 response handling with simplified context notation.
+
+## Syntax
+
+```csharp
+public class ODataV401ResponseBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### ODataContext
+
+```csharp
+[JsonPropertyName("@context")]
+public string ODataContext { get; set; }
+```
+
+Gets or sets the OData context URL that describes the payload using OData v4.01 simplified notation.
+This metadata property provides information about the entity set, type, and other context details.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

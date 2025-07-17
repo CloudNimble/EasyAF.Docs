@@ -1,0 +1,60 @@
+---
+title: "DocFxTypeGenerator"
+description: "Generates MDX documentation files for types using DocFX metadata."
+icon: "cube"
+---
+
+# DocFxTypeGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates MDX documentation files for types using DocFX metadata.
+
+## Syntax
+
+```csharp
+public class DocFxTypeGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### DocFxTypeGenerator
+
+```csharp
+public DocFxTypeGenerator(DocFxMetadata metadata, MintlifyOptions options)
+```
+
+Initializes a new instance of the DocFxTypeGenerator class.
+
+#### Parameters
+
+- **metadata** [DocFxMetadata](/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxmetadata): The DocFX metadata.
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+
+## Methods
+
+### GenerateTypesAsync
+
+```csharp
+public Task GenerateTypesAsync()
+```
+
+Generates MDX files for all types in the metadata.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+
+## Remarks
+
+This class processes DocFX API metadata and generates Mintlify-compatible
+MDX files for types including classes, interfaces, enums, and structs.
+

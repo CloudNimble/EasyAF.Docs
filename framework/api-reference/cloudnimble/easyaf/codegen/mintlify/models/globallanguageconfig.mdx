@@ -1,0 +1,82 @@
+---
+title: "GlobalLanguageConfig"
+description: "Represents a language configuration for global navigation in the Mintlify documentation site."
+icon: "cube"
+---
+
+# GlobalLanguageConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a language configuration for global navigation in the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class GlobalLanguageConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Default
+
+```csharp
+[JsonPropertyName("default")]
+public bool? Default { get; set; }
+```
+
+Gets or sets whether this language is the default language for the documentation.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Hidden
+
+```csharp
+[JsonPropertyName("hidden")]
+public bool? Hidden { get; set; }
+```
+
+Gets or sets whether this language option is hidden by default.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the URL or path for this language version.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Language
+
+```csharp
+[JsonPropertyName("language")]
+public string Language { get; set; }
+```
+
+Gets or sets the language code in ISO 639-1 format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+This configuration defines a language option that appears globally across all sections
+and pages, allowing users to switch between different language versions of the documentation.
+

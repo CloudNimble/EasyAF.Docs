@@ -1,0 +1,66 @@
+---
+title: "NameOf"
+description: "Fills a gap in <a href=\"https://learn."
+icon: "cube"
+---
+
+# NameOf
+
+<Badge variant="outline">Class</Badge>
+
+Fills a gap in <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/operators/nameof">nameof</a> by allowing you to use deep name references instead of local name references.
+
+## Syntax
+
+```csharp
+public static class NameOf
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### Full&lt;TSource&gt;
+
+```csharp
+public static string Full<TSource>(Expression<Func<TSource, object>> expression, string separator = ".")
+```
+
+Gets the full property path name from the specified expression, optionally using a custom separator.
+
+#### Parameters
+
+- **expression** [Expression&lt;Func&lt;TSource, object&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An expression pointing to the property whose full name should be returned.
+- **separator** [string](https://learn.microsoft.com/dotnet/api/system.string): The character(s) used to separate property names in the result. Defaults to ".".
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The full property path as a string with the specified separator.
+
+### Full&lt;TSource&gt;
+
+```csharp
+public static string Full<TSource>(string sourceFieldName, Expression<Func<TSource, object>> expression, string separator = ".")
+```
+
+Allows you to create a source name expression when you need to have a prefixing variable in the result.
+
+#### Parameters
+
+- **sourceFieldName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **expression** [Expression&lt;Func&lt;TSource, object&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): 
+- **separator** [string](https://learn.microsoft.com/dotnet/api/system.string): The characters used to separate the from the result.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+Solution modified from <a href="https://stackoverflow.com/a/58190566/403765">https://stackoverflow.com/a/58190566/403765</a>.
+

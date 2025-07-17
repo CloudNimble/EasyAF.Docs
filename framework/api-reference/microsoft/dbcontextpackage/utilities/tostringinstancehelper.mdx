@@ -1,0 +1,56 @@
+---
+title: "CSharpViewGeneratorBase.ToStringInstanceHelper"
+description: "Utility class to produce culture-oriented representation of an object as a string."
+icon: "cube"
+---
+
+# CSharpViewGeneratorBase.ToStringInstanceHelper
+
+<Badge variant="outline">Class</Badge>
+
+Utility class to produce culture-oriented representation of an object as a string.
+
+## Syntax
+
+```csharp
+public class CSharpViewGeneratorBase.ToStringInstanceHelper
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### FormatProvider
+
+```csharp
+public IFormatProvider FormatProvider { get; set; }
+```
+
+Gets or sets format provider to be used by ToStringWithCulture method.
+
+#### Returns
+
+[IFormatProvider](https://learn.microsoft.com/dotnet/api/system.iformatprovider)
+
+
+## Methods
+
+### ToStringWithCulture
+
+```csharp
+public string ToStringWithCulture(object objectToConvert)
+```
+
+This is called from the compile/run appdomain to convert objects within an expression block to a string
+
+#### Parameters
+
+- **objectToConvert** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

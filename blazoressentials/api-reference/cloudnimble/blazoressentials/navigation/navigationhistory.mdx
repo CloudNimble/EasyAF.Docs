@@ -1,0 +1,162 @@
+---
+title: "NavigationHistory"
+description: ""
+icon: "cube"
+---
+
+# NavigationHistory
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class NavigationHistory
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### NavigationHistory
+
+```csharp
+public NavigationHistory(IJSRuntime jsRuntime)
+```
+
+#### Parameters
+
+- **jsRuntime** [IJSRuntime](https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime): 
+
+
+## Methods
+
+### Back
+
+```csharp
+public ValueTask Back()
+```
+
+This asynchronous method goes to the previous page in session history.
+
+#### Returns
+
+[ValueTask](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask)
+
+### Count
+
+```csharp
+public ValueTask<int> Count()
+```
+
+Returns an Integer representing the number of elements in the session history, including the currently loaded page.
+
+#### Returns
+
+[ValueTask&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1)
+
+### CurrentState&lt;T&gt;
+
+```csharp
+public ValueTask<T> CurrentState<T>()
+```
+
+Returns an <code class="typeparamref">T</code> type representing the state at the top of the history stack.
+
+#### Returns
+
+[ValueTask&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1)
+
+### Forward
+
+```csharp
+public ValueTask Forward()
+```
+
+This asynchronous method goes to the next page in session history.
+
+#### Returns
+
+[ValueTask](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask)
+
+### GetScrollRestoration
+
+```csharp
+public ValueTask<ScrollRestorationType> GetScrollRestoration()
+```
+
+Allows web applications to explicitly get default scroll restoration behavior on history navigation.
+
+#### Returns
+
+[ValueTask&lt;ScrollRestorationType&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1)
+
+### Go
+
+```csharp
+public ValueTask Go(int index)
+```
+
+Asynchronously loads a page from the session history, identified by its relative location to the current page.
+
+#### Parameters
+
+- **index** [int](https://learn.microsoft.com/dotnet/api/system.int32): The index to move back or forward
+
+#### Returns
+
+[ValueTask](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask)
+
+### PushState&lt;T&gt;
+
+```csharp
+public ValueTask PushState<T>(T state, string url)
+```
+
+Pushes the given data onto the session history stack.
+
+#### Parameters
+
+- **state** ``T``: The state of the data
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): The url to navigate
+
+#### Returns
+
+[ValueTask](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask)
+
+### ReplaceState&lt;T&gt;
+
+```csharp
+public ValueTask ReplaceState<T>(T state, string url)
+```
+
+Updates the most recent entry on the history stack.
+
+#### Parameters
+
+- **state** ``T``: The state of the data
+- **url** [string](https://learn.microsoft.com/dotnet/api/system.string): The url to navigate
+
+#### Returns
+
+[ValueTask](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask)
+
+### SetScrollRestoration
+
+```csharp
+public ValueTask SetScrollRestoration(ScrollRestorationType scrollRestorationType)
+```
+
+Allows web applications to explicitly set default scroll restoration behavior on history navigation. This property can be either auto or manual.
+
+#### Parameters
+
+- **scrollRestorationType** [ScrollRestorationType](/api-reference/cloudnimble/blazoressentials/navigation/scrollrestorationtype): 
+
+#### Returns
+
+[ValueTask](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask)
+
+

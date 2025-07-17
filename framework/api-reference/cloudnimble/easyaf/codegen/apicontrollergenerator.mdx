@@ -1,0 +1,69 @@
+---
+title: "ApiControllerGenerator"
+description: ""
+icon: "cube"
+---
+
+# ApiControllerGenerator
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class ApiControllerGenerator : ContainerGeneratorBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+    - [ContainerGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/containergeneratorbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### ApiControllerGenerator
+
+```csharp
+public ApiControllerGenerator(List<string> extraUsings, string controllerNamespace, EntityContainer container, bool isEFCore, bool addInheritance = true, string baseClass = null)
+```
+
+Initializes a new instance of the ApiControllerGenerator class.
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): Additional using statements to include.
+- **controllerNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): The namespace for the generated controller.
+- **container** [EntityContainer](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entitycontainer): The EntityContainer to generate the controller for.
+- **isEFCore** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether the target is Entity Framework Core.
+- **addInheritance** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to include inheritance in the class declaration.
+- **baseClass** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the base class to inherit from.
+
+
+## Methods
+
+### Generate
+
+```csharp
+public override void Generate()
+```
+
+### WriteFile
+
+```csharp
+public string WriteFile(string directory = null)
+```
+
+#### Parameters
+
+- **directory** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

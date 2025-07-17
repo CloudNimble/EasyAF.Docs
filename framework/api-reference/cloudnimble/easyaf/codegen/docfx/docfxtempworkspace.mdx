@@ -1,0 +1,130 @@
+---
+title: "DocFxTempWorkspace"
+description: "Manages a temporary workspace for DocFX operations."
+icon: "cube"
+---
+
+# DocFxTempWorkspace
+
+<Badge variant="outline">Class</Badge>
+
+Manages a temporary workspace for DocFX operations.
+
+## Syntax
+
+```csharp
+public class DocFxTempWorkspace : IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### DocFxTempWorkspace
+
+```csharp
+public DocFxTempWorkspace()
+```
+
+Initializes a new instance of the DocFxTempWorkspace class.
+
+
+## Properties
+
+### ApiOutputPath
+
+```csharp
+public string ApiOutputPath { get; }
+```
+
+Gets the path where DocFX API output will be generated.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### DocFxConfigPath
+
+```csharp
+public string DocFxConfigPath { get; }
+```
+
+Gets the path to the DocFX configuration file.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### WorkspacePath
+
+```csharp
+public string WorkspacePath { get; }
+```
+
+Gets the root path of the temporary workspace.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### Dispose
+
+```csharp
+public void Dispose()
+```
+
+Releases all resources used by the DocFxTempWorkspace.
+
+### Dispose
+
+```csharp
+protected virtual void Dispose(bool disposing)
+```
+
+Releases unmanaged and optionally managed resources.
+
+#### Parameters
+
+- **disposing** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): true to release both managed and unmanaged resources; false to release only unmanaged resources.
+
+### EnsureApiDirectoryExists
+
+```csharp
+public void EnsureApiDirectoryExists()
+```
+
+Ensures the API output directory exists.
+
+### GetFilePath
+
+```csharp
+public string GetFilePath(string relativePath)
+```
+
+Gets a file path within the workspace.
+
+#### Parameters
+
+- **relativePath** [string](https://learn.microsoft.com/dotnet/api/system.string): The relative path from the workspace root.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The full path to the file within the workspace.
+
+
+## Remarks
+
+This class creates and manages a temporary directory for DocFX operations,
+ensuring proper cleanup when the workspace is no longer needed.
+

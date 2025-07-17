@@ -1,0 +1,66 @@
+---
+title: "MintlifyMemberGenerator"
+description: "Generates Mintlify MDX content for individual members (methods, properties, fields, events)."
+icon: "cube"
+---
+
+# MintlifyMemberGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates Mintlify MDX content for individual members (methods, properties, fields, events).
+
+## Syntax
+
+```csharp
+public class MintlifyMemberGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### MintlifyMemberGenerator
+
+```csharp
+public MintlifyMemberGenerator(MintlifyOptions options, MintlifyLinkResolver linkResolver)
+```
+
+Initializes a new instance of the MintlifyMemberGenerator class.
+
+#### Parameters
+
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+- **linkResolver** [MintlifyLinkResolver](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifylinkresolver): The link resolver for cross-references.
+
+
+## Methods
+
+### GenerateMemberMdx
+
+```csharp
+public string GenerateMemberMdx(XmlMember member, AssemblyXmlDocumentation xmlDocumentation)
+```
+
+Generates MDX content for a member.
+
+#### Parameters
+
+- **member** [XmlMember](/api-reference/cloudnimble/easyaf/xmldocumentation/xmlmember): The member to generate content for.
+- **xmlDocumentation** [AssemblyXmlDocumentation](/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation): The complete XML documentation context.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX content for the member.
+
+
+## Remarks
+
+This class creates detailed documentation for individual type members, including
+parameters, return values, exceptions, and examples. It formats the content to
+be visually appealing and interactive in Mintlify.
+

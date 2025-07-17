@@ -1,0 +1,82 @@
+---
+title: "ODataV4InnerError"
+description: "Represents implementation-specific debugging information for OData errors."
+icon: "cube"
+---
+
+# ODataV4InnerError
+
+<Badge variant="outline">Class</Badge>
+
+Represents implementation-specific debugging information for OData errors.
+Contains detailed error information such as exception details, stack traces, and nested errors.
+
+## Syntax
+
+```csharp
+public class ODataV4InnerError
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### InnerError
+
+```csharp
+[JsonPropertyName("innererror")]
+public ODataV4InnerError InnerError { get; set; }
+```
+
+Gets or sets nested inner error information for chained exceptions.
+This property allows for hierarchical error reporting when multiple exceptions are involved.
+
+#### Returns
+
+[ODataV4InnerError](/api-reference/cloudnimble/easyaf/http/odata/odatav4innererror)
+
+### Message
+
+```csharp
+[JsonPropertyName("message")]
+public string Message { get; set; }
+```
+
+Gets or sets the detailed error message providing implementation-specific information about the error.
+This message is typically more technical than the outer error message.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### StackTrace
+
+```csharp
+[JsonPropertyName("stacktrace")]
+public string StackTrace { get; set; }
+```
+
+Gets or sets the stack trace information for debugging purposes.
+This property provides detailed execution path information when the error occurred.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### TypeName
+
+```csharp
+[JsonPropertyName("typename")]
+public string TypeName { get; set; }
+```
+
+Gets or sets the type name of the exception that caused the error.
+This property helps identify the specific type of error that occurred on the server.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

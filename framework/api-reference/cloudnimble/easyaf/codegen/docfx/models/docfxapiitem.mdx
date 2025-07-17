@@ -1,0 +1,306 @@
+---
+title: "DocFxApiItem"
+description: "Represents an API item in DocFX metadata."
+icon: "cube"
+---
+
+# DocFxApiItem
+
+<Badge variant="outline">Class</Badge>
+
+Represents an API item in DocFX metadata.
+
+## Syntax
+
+```csharp
+public class DocFxApiItem
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### AssemblyName
+
+```csharp
+public string AssemblyName { get; set; }
+```
+
+Gets or sets the assembly name.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Children
+
+```csharp
+public List<string> Children { get; set; }
+```
+
+Gets or sets the children UIDs for this item.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### DerivedClasses
+
+```csharp
+public List<string> DerivedClasses { get; set; }
+```
+
+Gets or sets the derived types.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Example
+
+```csharp
+public string Example { get; set; }
+```
+
+Gets or sets the example documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Exceptions
+
+```csharp
+public List<DocFxException> Exceptions { get; set; }
+```
+
+Gets or sets the list of exceptions that can be thrown.
+
+#### Returns
+
+[List&lt;DocFxException&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### FullName
+
+```csharp
+public string FullName { get; set; }
+```
+
+Gets or sets the full name including namespace.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Id
+
+```csharp
+public string Id { get; set; }
+```
+
+Gets or sets the ID of this API item.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Implements
+
+```csharp
+public List<string> Implements { get; set; }
+```
+
+Gets or sets the implemented interfaces.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Inheritance
+
+```csharp
+public List<string> Inheritance { get; set; }
+```
+
+Gets or sets the inheritance hierarchy.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+Gets or sets the name of this API item.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Namespace
+
+```csharp
+public string Namespace { get; set; }
+```
+
+Gets or sets the namespace.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### NameWithType
+
+```csharp
+public string NameWithType { get; set; }
+```
+
+Gets or sets the name with type information.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Overload
+
+```csharp
+public string Overload { get; set; }
+```
+
+Gets or sets the overload reference.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Overridden
+
+```csharp
+public string Overridden { get; set; }
+```
+
+Gets or sets the overridden member reference.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Parent
+
+```csharp
+public string Parent { get; set; }
+```
+
+Gets or sets the parent UID for this item.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Remarks
+
+```csharp
+public string Remarks { get; set; }
+```
+
+Gets or sets the remarks documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SeeAlso
+
+```csharp
+public List<string> SeeAlso { get; set; }
+```
+
+Gets or sets the see also references.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Source
+
+```csharp
+public DocFxSource Source { get; set; }
+```
+
+Gets or sets the source information.
+
+#### Returns
+
+[DocFxSource](/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxsource)
+
+### Summary
+
+```csharp
+public string Summary { get; set; }
+```
+
+Gets or sets the summary documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Syntax
+
+```csharp
+public DocFxSyntax Syntax { get; set; }
+```
+
+Gets or sets the syntax information for this API item.
+
+#### Returns
+
+[DocFxSyntax](/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxsyntax)
+
+### Type
+
+```csharp
+public string Type { get; set; }
+```
+
+Gets or sets the type of this API item (Type, Method, Property, etc.).
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### TypeParameters
+
+```csharp
+public List<DocFxTypeParameter> TypeParameters { get; set; }
+```
+
+Gets or sets the type parameters for generic types.
+
+#### Returns
+
+[List&lt;DocFxTypeParameter&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Uid
+
+```csharp
+public string Uid { get; set; }
+```
+
+Gets or sets the unique identifier for this API item.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+This class models the structure of API items as generated by DocFX,
+including types, members, and their associated documentation.
+

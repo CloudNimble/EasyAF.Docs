@@ -1,0 +1,63 @@
+---
+title: "ObjectStoreAttribute"
+description: "Helps define the structure of a <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# ObjectStoreAttribute
+
+<Badge variant="outline">Class</Badge>
+
+Helps define the structure of a <xref href="CloudNimble.BlazorEssentials.IndexedDb.IndexedDbObjectStore" data-throw-if-not-resolved="false"></xref> so you don't have to subclass one for every object store.
+
+## Syntax
+
+```csharp
+[AttributeUsage(AttributeTargets.Property)]
+public class ObjectStoreAttribute : Attribute
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [Attribute](https://learn.microsoft.com/dotnet/api/system.attribute)
+
+## Properties
+
+### AutoIncrementKeys
+
+```csharp
+public bool AutoIncrementKeys { get; set; }
+```
+
+Specifies if the keys for this <xref href="CloudNimble.BlazorEssentials.IndexedDb.IndexedDbObjectStore" data-throw-if-not-resolved="false"></xref> should auto-increment. Defaults to false.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### KeyPath
+
+```csharp
+public string KeyPath { get; set; }
+```
+
+Specifies the name of the Key for this <xref href="CloudNimble.BlazorEssentials.IndexedDb.IndexedDbObjectStore" data-throw-if-not-resolved="false"></xref>. Defaults to "id".
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+Specifies the name of the Object Store. Defaults to the the name of the property in the <xref href="CloudNimble.BlazorEssentials.IndexedDb.IndexedDbDatabase" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

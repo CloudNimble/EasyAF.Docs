@@ -1,0 +1,106 @@
+---
+title: "RestierOperationType"
+description: "Specifies the type of operation being performed in Restier for logging and tracking purposes."
+icon: "list"
+---
+
+# RestierOperationType
+
+<Badge variant="outline">Enum</Badge>
+
+Specifies the type of operation being performed in Restier for logging and tracking purposes.
+Used by RestierHelpers to provide consistent operation logging across entity lifecycle events.
+
+## Syntax
+
+```csharp
+public enum RestierOperationType
+```
+
+## Fields
+
+### Deleted
+
+```csharp
+Deleted = 7
+```
+
+Indicates that an entity has been successfully deleted (completed).
+
+#### Returns
+
+[RestierOperationType](/api-reference/cloudnimble/easyaf/restier/restieroperationtype)
+
+### Deleting
+
+```csharp
+Deleting = 6
+```
+
+Indicates that an entity is currently being deleted (in progress).
+
+#### Returns
+
+[RestierOperationType](/api-reference/cloudnimble/easyaf/restier/restieroperationtype)
+
+### Filtered
+
+```csharp
+Filtered = 1
+```
+
+Indicates that entities have been filtered during query operations.
+
+#### Returns
+
+[RestierOperationType](/api-reference/cloudnimble/easyaf/restier/restieroperationtype)
+
+### Inserted
+
+```csharp
+Inserted = 3
+```
+
+Indicates that an entity has been successfully inserted (completed).
+
+#### Returns
+
+[RestierOperationType](/api-reference/cloudnimble/easyaf/restier/restieroperationtype)
+
+### Inserting
+
+```csharp
+Inserting = 2
+```
+
+Indicates that an entity is currently being inserted (in progress).
+
+#### Returns
+
+[RestierOperationType](/api-reference/cloudnimble/easyaf/restier/restieroperationtype)
+
+### Updated
+
+```csharp
+Updated = 5
+```
+
+Indicates that an entity has been successfully updated (completed).
+
+#### Returns
+
+[RestierOperationType](/api-reference/cloudnimble/easyaf/restier/restieroperationtype)
+
+### Updating
+
+```csharp
+Updating = 4
+```
+
+Indicates that an entity is currently being updated (in progress).
+
+#### Returns
+
+[RestierOperationType](/api-reference/cloudnimble/easyaf/restier/restieroperationtype)
+
+

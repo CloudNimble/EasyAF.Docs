@@ -1,0 +1,68 @@
+---
+title: "XmlExampleElement"
+description: "Represents an example XML documentation element."
+icon: "cube"
+---
+
+# XmlExampleElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents an example XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlExampleElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlExampleElement
+
+```csharp
+public XmlExampleElement()
+```
+
+Initializes a new instance of the XmlExampleElement class.
+
+### XmlExampleElement
+
+```csharp
+public XmlExampleElement(XElement element)
+```
+
+Initializes a new instance of the XmlExampleElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this example element to MDX format with proper code formatting.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this example.
+
+
+## Remarks
+
+The example element contains code examples that demonstrate how to use a type or member.
+It can contain both description text and code blocks.
+

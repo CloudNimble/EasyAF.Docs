@@ -1,0 +1,96 @@
+---
+title: "EasyAFEntityFrameworkApi<TContext>"
+description: "Provides a base implementation of an Entity Framework API for EasyAF,  integrating SimpleMessageBus event publishing and logging capabilities."
+icon: "cube"
+---
+
+# EasyAFEntityFrameworkApi&lt;TContext&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Provides a base implementation of an Entity Framework API for EasyAF, 
+integrating SimpleMessageBus event publishing and logging capabilities.
+<p>
+This class extends <xref href="Microsoft.Restier.EntityFramework.EntityFrameworkApi%601" data-throw-if-not-resolved="false"></xref> and is intended to be used as a base class 
+for APIs that require access to the current HTTP context, logging, and SimpleMessageBus publishing.
+</p>
+
+## Syntax
+
+```csharp
+public abstract class EasyAFEntityFrameworkApi<TContext> : EntityFrameworkApi<TContext>, IDisposable, IEntityFrameworkApi where TContext : DbContext
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `ApiBase`
+    - `EntityFrameworkApi&lt;TContext&gt;`
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+- `IEntityFrameworkApi`
+
+## Constructors
+
+### EasyAFEntityFrameworkApi
+
+```csharp
+public EasyAFEntityFrameworkApi(IServiceProvider serviceProvider, IHttpContextAccessor httpContextAccessor, IMessagePublisher messagePublisher, ILogger<EasyAFEntityFrameworkApi<TContext>> logger)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Restier.EasyAFEntityFrameworkApi%601" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **serviceProvider** [IServiceProvider](https://learn.microsoft.com/dotnet/api/system.iserviceprovider): The service provider for dependency injection.
+- **httpContextAccessor** [IHttpContextAccessor](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor): The <xref href="Microsoft.AspNetCore.Http.IHttpContextAccessor" data-throw-if-not-resolved="false"></xref> for the current HTTP context.
+- **messagePublisher** ``IMessagePublisher``: The <xref href="CloudNimble.SimpleMessageBus.Publish.IMessagePublisher" data-throw-if-not-resolved="false"></xref> used for publishing messages to SimpleMessageBus.
+- **logger** [ILogger&lt;EasyAFEntityFrameworkApi&lt;TContext&gt;&gt;](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1): The <xref href="Microsoft.Extensions.Logging.ILogger%601" data-throw-if-not-resolved="false"></xref> instance for writing log traces.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown if <code class="paramref">httpContextAccessor</code> or <code class="paramref">messagePublisher</code> is <code>null</code>.
+
+
+## Properties
+
+### HttpContextAccessor
+
+```csharp
+public IHttpContextAccessor HttpContextAccessor { get; set; }
+```
+
+Gets or sets the accessor for the current HTTP context.
+Used to access HTTP-specific information about the current request.
+
+#### Returns
+
+[IHttpContextAccessor](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor)
+
+### Logger
+
+```csharp
+public ILogger<EasyAFEntityFrameworkApi<TContext>> Logger { get; set; }
+```
+
+Gets or sets the <xref href="Microsoft.Extensions.Logging.ILogger%601" data-throw-if-not-resolved="false"></xref> instance used for writing log traces.
+
+#### Returns
+
+[ILogger&lt;EasyAFEntityFrameworkApi&lt;TContext&gt;&gt;](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1)
+
+### MessagePublisher
+
+```csharp
+public IMessagePublisher MessagePublisher { get; set; }
+```
+
+Gets or sets the <xref href="CloudNimble.SimpleMessageBus.Publish.IMessagePublisher" data-throw-if-not-resolved="false"></xref> used for publishing messages to SimpleMessageBus.
+
+#### Returns
+
+``IMessagePublisher``
+
+

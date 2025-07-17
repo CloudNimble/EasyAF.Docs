@@ -1,0 +1,83 @@
+---
+title: "AdminApiControllerGenerator"
+description: ""
+icon: "cube"
+---
+
+# AdminApiControllerGenerator
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class AdminApiControllerGenerator : ApiControllerGenerator, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+    - [ContainerGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/containergeneratorbase)
+      - [ApiControllerGenerator](/api-reference/cloudnimble/easyaf/codegen/apicontrollergenerator)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### AdminApiControllerGenerator
+
+```csharp
+public AdminApiControllerGenerator(List<string> extraUsings, string controllerNamespace, EdmxLoader loader, bool isEFCore, bool addInheritance = true, string baseClass = null)
+```
+
+Initializes a new instance of the AdminApiControllerGenerator class.
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): Additional using statements to include.
+- **controllerNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): The namespace for the generated controller.
+- **loader** [EdmxLoader](/api-reference/cloudnimble/easyaf/codegen/edmxloader): The EdmxLoader containing the entity model.
+- **isEFCore** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether the target is Entity Framework Core.
+- **addInheritance** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to include inheritance in the class declaration.
+- **baseClass** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the base class to inherit from.
+
+
+## Properties
+
+### EdmxLoader
+
+```csharp
+public EdmxLoader EdmxLoader { get; set; }
+```
+
+#### Returns
+
+[EdmxLoader](/api-reference/cloudnimble/easyaf/codegen/edmxloader)
+
+
+## Methods
+
+### Generate
+
+```csharp
+public override void Generate()
+```
+
+### WriteFile
+
+```csharp
+public string WriteFile(string directory = null)
+```
+
+#### Parameters
+
+- **directory** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

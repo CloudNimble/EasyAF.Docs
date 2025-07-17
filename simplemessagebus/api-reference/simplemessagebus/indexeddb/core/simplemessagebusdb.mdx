@@ -1,0 +1,82 @@
+---
+title: "SimpleMessageBusDb"
+description: "Represents the IndexedDB database structure for SimpleMessageBus in Blazor WebAssembly applications."
+icon: "cube"
+---
+
+# SimpleMessageBusDb
+
+<Badge variant="outline">Class</Badge>
+
+Represents the IndexedDB database structure for SimpleMessageBus in Blazor WebAssembly applications.
+
+## Syntax
+
+```csharp
+public class SimpleMessageBusDb : IndexedDbDatabase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `IndexedDbDatabase`
+
+## Constructors
+
+### SimpleMessageBusDb
+
+```csharp
+public SimpleMessageBusDb(IJSRuntime jsRuntime, IOptions<IndexedDbOptions> indexedDbOptions)
+```
+
+#### Parameters
+
+- **jsRuntime** [IJSRuntime](https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime): 
+- **indexedDbOptions** [IOptions&lt;IndexedDbOptions&gt;](https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1): 
+
+
+## Properties
+
+### Completed
+
+```csharp
+public IndexedDbObjectStore Completed { get; set; }
+```
+
+Gets or sets the object store for successfully processed messages.
+
+#### Returns
+
+``IndexedDbObjectStore``
+
+### Failed
+
+```csharp
+public IndexedDbObjectStore Failed { get; set; }
+```
+
+Gets or sets the object store for messages that failed processing.
+
+#### Returns
+
+``IndexedDbObjectStore``
+
+### Queue
+
+```csharp
+public IndexedDbObjectStore Queue { get; set; }
+```
+
+Gets or sets the object store for messages pending processing.
+
+#### Returns
+
+``IndexedDbObjectStore``
+
+
+## Remarks
+
+This class defines the IndexedDB schema used for client-side message queuing in Blazor WebAssembly.
+It provides three object stores for managing message lifecycle: Queue (pending), Completed (successful),
+and Failed (error) processing states.
+

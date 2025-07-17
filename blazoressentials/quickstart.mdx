@@ -1,0 +1,53 @@
+---
+title: Getting Started
+description: Get up and running quickly
+---
+
+Welcome to our API documentation. This guide will help you get started quickly.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- An API key (obtain one from your dashboard)
+- A development environment set up
+- Basic knowledge of REST APIs
+
+## Installation
+
+Install the SDK for your preferred language:
+
+<CodeGroup>
+```bash npm
+npm install @your-org/sdk
+```
+
+```bash yarn
+yarn add @your-org/sdk
+```
+
+```bash pnpm
+pnpm add @your-org/sdk
+```
+</CodeGroup>
+
+## Your First API Call
+
+Here's a simple example to get you started:
+
+```typescript
+import { Client } from '@your-org/sdk';
+
+const client = new Client({
+  apiKey: 'your-api-key'
+});
+
+const response = await client.getData();
+console.log(response);
+```
+
+## Next Steps
+
+- Explore the [API Reference](/api-reference) for detailed endpoint documentation
+- Check out our [Examples](https://github.com/your-org/examples) repository
+- Join our [Community](https://community.your-org.com) for support

@@ -1,0 +1,82 @@
+---
+title: "GlobalVersionConfig"
+description: "Represents a version configuration for global navigation in the Mintlify documentation site."
+icon: "cube"
+---
+
+# GlobalVersionConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a version configuration for global navigation in the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class GlobalVersionConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Default
+
+```csharp
+[JsonPropertyName("default")]
+public bool? Default { get; set; }
+```
+
+Gets or sets whether this version is the default version for the documentation.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Hidden
+
+```csharp
+[JsonPropertyName("hidden")]
+public bool? Hidden { get; set; }
+```
+
+Gets or sets whether this version option is hidden by default.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the URL or path for this version of the documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Version
+
+```csharp
+[JsonPropertyName("version")]
+public string Version { get; set; }
+```
+
+Gets or sets the version identifier or name.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+This configuration defines a version option that appears globally across all sections
+and pages, allowing users to switch between different versions of the documentation.
+

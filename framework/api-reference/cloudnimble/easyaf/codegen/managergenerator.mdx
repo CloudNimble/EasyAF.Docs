@@ -1,0 +1,78 @@
+---
+title: "ManagerGenerator"
+description: ""
+icon: "cube"
+---
+
+# ManagerGenerator
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class ManagerGenerator : EntityGeneratorBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+    - [EntityGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/entitygeneratorbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### ManagerGenerator
+
+```csharp
+public ManagerGenerator(List<string> extraUsings, string managerNamespace, EntityComposition entity, string dbContextName)
+```
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **managerNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **entity** [EntityComposition](/api-reference/cloudnimble/easyaf/codegen/entitycomposition): 
+- **dbContextName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+
+## Properties
+
+### DbContextName
+
+```csharp
+public string DbContextName { get; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### Generate
+
+```csharp
+public override void Generate()
+```
+
+### WriteFile
+
+```csharp
+public string WriteFile(string directory = null)
+```
+
+#### Parameters
+
+- **directory** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

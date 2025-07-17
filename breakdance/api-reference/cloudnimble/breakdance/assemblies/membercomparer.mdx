@@ -1,0 +1,77 @@
+---
+title: "MemberComparer"
+description: "Legacy class used to compare members."
+icon: "cube"
+---
+
+# MemberComparer
+
+<Badge variant="outline">Class</Badge>
+
+Legacy class used to compare members.
+
+## Syntax
+
+```csharp
+public sealed class MemberComparer : IComparer, IComparer<object>
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IComparer](https://learn.microsoft.com/dotnet/api/system.collections.icomparer)
+- [IComparer&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1)
+
+## Constructors
+
+### MemberComparer
+
+```csharp
+public MemberComparer(Type type)
+```
+
+#### Parameters
+
+- **type** [Type](https://learn.microsoft.com/dotnet/api/system.type): 
+
+
+## Methods
+
+### Compare
+
+```csharp
+public int Compare(MemberInfo x, MemberInfo y)
+```
+
+#### Parameters
+
+- **x** [MemberInfo](https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo): 
+- **y** [MemberInfo](https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo): 
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### Compare
+
+```csharp
+public int Compare(object x, object y)
+```
+
+#### Parameters
+
+- **x** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **y** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+
+## Remarks
+
+Should be rewritten or eliminated at our earliest possible convenience.
+

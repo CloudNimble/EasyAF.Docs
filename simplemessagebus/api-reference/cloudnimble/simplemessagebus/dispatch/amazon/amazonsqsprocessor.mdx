@@ -1,0 +1,69 @@
+---
+title: "AmazonSQSProcessor"
+description: "Processes messages from Amazon SQS queues for SimpleMessageBus."
+icon: "cube"
+---
+
+# AmazonSQSProcessor
+
+<Badge variant="outline">Class</Badge>
+
+Processes messages from Amazon SQS queues for SimpleMessageBus.
+
+## Syntax
+
+```csharp
+public class AmazonSQSProcessor : IQueueProcessor
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IQueueProcessor](/api-reference/cloudnimble/simplemessagebus/dispatch/iqueueprocessor)
+
+## Constructors
+
+### AmazonSQSProcessor
+
+```csharp
+public AmazonSQSProcessor(IMessageDispatcher dispatcher, IServiceScopeFactory serviceScopeFactory)
+```
+
+Creates a new instance of the <xref href="CloudNimble.SimpleMessageBus.Dispatch.Amazon.AmazonSQSProcessor" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **dispatcher** [IMessageDispatcher](/api-reference/cloudnimble/simplemessagebus/dispatch/imessagedispatcher): The <xref href="CloudNimble.SimpleMessageBus.Dispatch.IMessageDispatcher" data-throw-if-not-resolved="false"></xref> to use for processing messages.
+- **serviceScopeFactory** [IServiceScopeFactory](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory): The <xref href="Microsoft.Extensions.DependencyInjection.IServiceScopeFactory" data-throw-if-not-resolved="false"></xref> to use for creating service scopes.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: <code class="paramref">dispatcher</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or
+<code class="paramref">serviceScopeFactory</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+
+
+## Methods
+
+### ProcessQueue
+
+```csharp
+public Task<Message> ProcessQueue(Message sqsMessage, ILogger logger)
+```
+
+Processes a message from the SQS queue.
+
+#### Parameters
+
+- **sqsMessage** [Message](https://github.com/aws/aws-sdk-net/blob/bbd29001e4e19efc7d8acf0918edc7db2c955290/sdk/src/Services/SQS/Generated/Model/Message.cs): The SQS message to process.
+- **logger** [ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger): The logger instance.
+
+#### Returns
+
+[Task&lt;Message&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> reference for the asynchronous function.
+
+

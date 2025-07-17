@@ -1,0 +1,83 @@
+---
+title: "XmlTypeParamRefElement"
+description: "Represents a typeparamref XML documentation element for type parameter references."
+icon: "cube"
+---
+
+# XmlTypeParamRefElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a typeparamref XML documentation element for type parameter references.
+
+## Syntax
+
+```csharp
+public class XmlTypeParamRefElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlTypeParamRefElement
+
+```csharp
+public XmlTypeParamRefElement()
+```
+
+Initializes a new instance of the XmlTypeParamRefElement class.
+
+### XmlTypeParamRefElement
+
+```csharp
+public XmlTypeParamRefElement(XElement element)
+```
+
+Initializes a new instance of the XmlTypeParamRefElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+Gets or sets the name of the referenced type parameter.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this typeparamref element to MDX format as inline code.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this type parameter reference.
+
+
+## Remarks
+
+The typeparamref element creates a reference to a generic type parameter within the documentation.
+It is used to refer to type parameters inline within text.
+

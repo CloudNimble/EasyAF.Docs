@@ -1,0 +1,90 @@
+---
+title: "GlobalNavigationConfig"
+description: "Represents global navigation configuration that appears on all sections and pages."
+icon: "cube"
+---
+
+# GlobalNavigationConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents global navigation configuration that appears on all sections and pages.
+
+## Syntax
+
+```csharp
+public class GlobalNavigationConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Anchors
+
+```csharp
+[JsonPropertyName("anchors")]
+public List<GlobalAnchorConfig> Anchors { get; set; }
+```
+
+Gets or sets the anchors configuration.
+
+#### Returns
+
+[List&lt;GlobalAnchorConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Dropdowns
+
+```csharp
+[JsonPropertyName("dropdowns")]
+public List<GlobalDropdownConfig> Dropdowns { get; set; }
+```
+
+Gets or sets the dropdowns configuration.
+
+#### Returns
+
+[List&lt;GlobalDropdownConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Languages
+
+```csharp
+[JsonPropertyName("languages")]
+public List<GlobalLanguageConfig> Languages { get; set; }
+```
+
+Gets or sets the languages configuration.
+
+#### Returns
+
+[List&lt;GlobalLanguageConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Tabs
+
+```csharp
+[JsonPropertyName("tabs")]
+public List<GlobalTabConfig> Tabs { get; set; }
+```
+
+Gets or sets the tabs configuration.
+
+#### Returns
+
+[List&lt;GlobalTabConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Versions
+
+```csharp
+[JsonPropertyName("versions")]
+public List<GlobalVersionConfig> Versions { get; set; }
+```
+
+Gets or sets the versions configuration.
+
+#### Returns
+
+[List&lt;GlobalVersionConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

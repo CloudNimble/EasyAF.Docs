@@ -1,0 +1,45 @@
+---
+title: "AzureStorageQueueEncoding"
+description: "Determines how QueueMessage."
+icon: "list"
+---
+
+# AzureStorageQueueEncoding
+
+<Badge variant="outline">Enum</Badge>
+
+Determines how QueueMessage.Body is represented in HTTP requests and responses.
+
+## Syntax
+
+```csharp
+public enum AzureStorageQueueEncoding
+```
+
+## Fields
+
+### Base64
+
+```csharp
+Base64 = 1
+```
+
+The QueueMessage.Body is represented as Base64 encoded string in HTTP requests and responses.
+
+#### Returns
+
+[AzureStorageQueueEncoding](/api-reference/cloudnimble/simplemessagebus/core/azurestoragequeueencoding)
+
+### None
+
+```csharp
+None = 0
+```
+
+The QueueMessage.Body is represented verbatim in HTTP requests and responses. I.e. message is not transformed.
+
+#### Returns
+
+[AzureStorageQueueEncoding](/api-reference/cloudnimble/simplemessagebus/core/azurestoragequeueencoding)
+
+

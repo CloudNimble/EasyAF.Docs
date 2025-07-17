@@ -1,0 +1,74 @@
+---
+title: "SolutionNavigationGroup"
+description: "Represents a navigation group within a solution."
+icon: "cube"
+---
+
+# SolutionNavigationGroup
+
+<Badge variant="outline">Class</Badge>
+
+Represents a navigation group within a solution.
+
+## Syntax
+
+```csharp
+public class SolutionNavigationGroup
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Group
+
+```csharp
+[JsonPropertyName("group")]
+public string Group { get; set; }
+```
+
+Gets or sets the display name of the navigation group.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The text shown as the group header in the sidebar navigation.
+
+### Pages
+
+```csharp
+[JsonPropertyName("pages")]
+public List<string> Pages { get; set; }
+```
+
+Gets or sets the list of pages in this group.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+The pages that appear under this group in the navigation.
+
+### Source
+
+```csharp
+[JsonPropertyName("source")]
+public string Source { get; set; }
+```
+
+Gets or sets the source type for pages in this group.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+How the pages in this group are generated or sourced.
+
+
+## Remarks
+
+This class defines a collapsible section in the sidebar navigation that contains related pages.
+

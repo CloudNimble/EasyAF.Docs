@@ -1,0 +1,255 @@
+---
+title: "DbObservableObject"
+description: "A base class for Entity Framework objects to implement <xref href=\"System."
+icon: "cube"
+---
+
+# DbObservableObject
+
+<Badge variant="outline">Class</Badge>
+
+A base class for Entity Framework objects to implement <xref href="System.ComponentModel.INotifyPropertyChanged" data-throw-if-not-resolved="false"></xref>, <xref href="System.ComponentModel.IChangeTracking" data-throw-if-not-resolved="false"></xref>, 
+and <xref href="System.ComponentModel.IRevertibleChangeTracking" data-throw-if-not-resolved="false"></xref> in front-end development.
+
+## Syntax
+
+```csharp
+public class DbObservableObject : EasyObservableObject, INotifyPropertyChanged, IDisposable, IRevertibleChangeTracking, IChangeTracking
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [EasyObservableObject](/api-reference/cloudnimble/easyaf/core/easyobservableobject)
+
+## Implements
+
+- [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+- [IRevertibleChangeTracking](https://learn.microsoft.com/dotnet/api/system.componentmodel.irevertiblechangetracking)
+- [IChangeTracking](https://learn.microsoft.com/dotnet/api/system.componentmodel.ichangetracking)
+
+## Constructors
+
+### DbObservableObject
+
+```csharp
+public DbObservableObject()
+```
+
+
+## Properties
+
+### IsChanged
+
+```csharp
+[JsonIgnore]
+public bool IsChanged { get; set; }
+```
+
+Specifies whether or not the object has changed.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### IsGraphChanged
+
+```csharp
+[JsonIgnore]
+public bool IsGraphChanged { get; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### OriginalValues
+
+```csharp
+[JsonIgnore]
+public Dictionary<string, object> OriginalValues { get; }
+```
+
+#### Returns
+
+[Dictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### ShouldTrackChanges
+
+```csharp
+[JsonIgnore]
+public bool ShouldTrackChanges { get; }
+```
+
+Specifies whether or not property value changes should be tracked.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+
+## Methods
+
+### AcceptChanges
+
+```csharp
+public void AcceptChanges()
+```
+
+Clears the <xref href="CloudNimble.EasyAF.Core.DbObservableObject.OriginalValues" data-throw-if-not-resolved="false"></xref> list and sets <xref href="CloudNimble.EasyAF.Core.DbObservableObject.IsChanged" data-throw-if-not-resolved="false"></xref> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+
+### AcceptChanges
+
+```csharp
+public void AcceptChanges(bool goDeep)
+```
+
+Clears the <xref href="CloudNimble.EasyAF.Core.DbObservableObject.OriginalValues" data-throw-if-not-resolved="false"></xref> list and sets <xref href="CloudNimble.EasyAF.Core.DbObservableObject.IsChanged" data-throw-if-not-resolved="false"></xref> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, and optionally traverses the object graph to call <xref href="CloudNimble.EasyAF.Core.DbObservableObject.AcceptChanges" data-throw-if-not-resolved="false"></xref> on any children.
+
+#### Parameters
+
+- **goDeep** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### ClearRelationships
+
+```csharp
+public void ClearRelationships()
+```
+
+Sets any child relationships (0..1:1 or 1:*) to null.
+
+### GetRelatedEntityCollectionProperties
+
+```csharp
+public IEnumerable<PropertyInfo> GetRelatedEntityCollectionProperties()
+```
+
+#### Returns
+
+[IEnumerable&lt;PropertyInfo&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### GetRelatedEntityProperties
+
+```csharp
+public IEnumerable<PropertyInfo> GetRelatedEntityProperties()
+```
+
+#### Returns
+
+[IEnumerable&lt;PropertyInfo&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### RecurseGraphInternal
+
+```csharp
+protected static void RecurseGraphInternal(DbObservableObject obj, Action<DbObservableObject> action, bool goDeep = false, HashSet<DbObservableObject> visited = null)
+```
+
+#### Parameters
+
+- **obj** [DbObservableObject](/api-reference/cloudnimble/easyaf/core/dbobservableobject): 
+- **action** [Action&lt;DbObservableObject&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+- **goDeep** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+- **visited** [HashSet&lt;DbObservableObject&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1): 
+
+### RecurseGraphInternal&lt;T&gt;
+
+```csharp
+protected static IEnumerable<T> RecurseGraphInternal<T>(DbObservableObject obj, Func<DbObservableObject, T> func, bool goDeep = false, HashSet<DbObservableObject> visited = null)
+```
+
+#### Parameters
+
+- **obj** [DbObservableObject](/api-reference/cloudnimble/easyaf/core/dbobservableobject): 
+- **func** [Func&lt;DbObservableObject, T&gt;](https://learn.microsoft.com/dotnet/api/system.func-2): 
+- **goDeep** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+- **visited** [HashSet&lt;DbObservableObject&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1): 
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### RejectChanges
+
+```csharp
+public void RejectChanges()
+```
+
+Loops through the <xref href="CloudNimble.EasyAF.Core.DbObservableObject.OriginalValues" data-throw-if-not-resolved="false"></xref> list, sets any property that has changed back to the value it had when <xref href="CloudNimble.EasyAF.Core.DbObservableObject.TrackChanges(System.Boolean)" data-throw-if-not-resolved="false"></xref> was called,
+clears the <xref href="CloudNimble.EasyAF.Core.DbObservableObject.OriginalValues" data-throw-if-not-resolved="false"></xref> list, and sets <xref href="CloudNimble.EasyAF.Core.DbObservableObject.IsChanged" data-throw-if-not-resolved="false"></xref> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+
+### RejectChanges
+
+```csharp
+public void RejectChanges(bool goDeep)
+```
+
+#### Parameters
+
+- **goDeep** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### Set&lt;T&gt;
+
+```csharp
+protected override void Set<T>(string propertyName, ref T field, T newValue)
+```
+
+Assigns a new value to the property. Then, raises the PropertyChanged event if needed.
+
+#### Parameters
+
+- **propertyName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the property that changed.
+- **field** ``T``: The field storing the property's value.
+- **newValue** ``T``: The property's value after the change occurred.
+
+### ToDeltaPayload
+
+```csharp
+public ExpandoObject ToDeltaPayload(bool deepTracking = false)
+```
+
+Loops through the keys in the <xref href="CloudNimble.EasyAF.Core.DbObservableObject.OriginalValues" data-throw-if-not-resolved="false"></xref> list and returns an <xref href="System.Dynamic.ExpandoObject" data-throw-if-not-resolved="false"></xref> containing JUST the new values for the properties that changed.
+
+#### Parameters
+
+- **deepTracking** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[ExpandoObject](https://learn.microsoft.com/dotnet/api/system.dynamic.expandoobject)
+
+An <xref href="System.Dynamic.ExpandoObject" data-throw-if-not-resolved="false"></xref> containing JUST the new values for the properties that changed.
+
+### ToDeltaPayloadInternal
+
+```csharp
+protected ExpandoObject ToDeltaPayloadInternal(DbObservableObject obj, bool deepTracking = false)
+```
+
+#### Parameters
+
+- **obj** [DbObservableObject](/api-reference/cloudnimble/easyaf/core/dbobservableobject): 
+- **deepTracking** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[ExpandoObject](https://learn.microsoft.com/dotnet/api/system.dynamic.expandoobject)
+
+### TrackChanges
+
+```csharp
+public void TrackChanges(bool deepTracking = false)
+```
+
+Starts tracking property value changes for every property, optionally activating this behavior for the entire object graph.
+
+#### Parameters
+
+- **deepTracking** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, loops recursively through the object graph and calls <xref href="CloudNimble.EasyAF.Core.DbObservableObject.TrackChanges(System.Boolean)" data-throw-if-not-resolved="false"></xref> on every object that 
+inherits from <xref href="CloudNimble.EasyAF.Core.EasyObservableObject" data-throw-if-not-resolved="false"></xref>.
+
+
+## Remarks
+
+https://stackoverflow.com/questions/2363801/what-would-be-the-best-way-to-implement-change-tracking-on-an-object
+

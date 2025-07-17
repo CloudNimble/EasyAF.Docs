@@ -1,0 +1,184 @@
+---
+title: "SimpleMessageBusFileProcessor"
+description: "Default file processor used by <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# SimpleMessageBusFileProcessor
+
+<Badge variant="outline">Class</Badge>
+
+Default file processor used by <xref href="Microsoft.Azure.WebJobs.FileTriggerAttribute" data-throw-if-not-resolved="false"></xref>.
+
+## Syntax
+
+```csharp
+public class SimpleMessageBusFileProcessor
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### SimpleMessageBusFileProcessor
+
+```csharp
+public SimpleMessageBusFileProcessor(SimpleMessageBusFileProcessorFactoryContext context)
+```
+
+Constructs a new instance.
+
+#### Parameters
+
+- **context** [SimpleMessageBusFileProcessorFactoryContext](/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfileprocessorfactorycontext): The <xref href="CloudNimble.SimpleMessageBus.Dispatch.Triggers.SimpleMessageBusFileProcessorFactoryContext" data-throw-if-not-resolved="false"></xref> to use.
+
+
+## Properties
+
+### InstanceId
+
+```csharp
+public virtual string InstanceId { get; }
+```
+
+Gets the current role instance ID. In Azure WebApps, this will be the
+WEBSITE_INSTANCE_ID. In non Azure scenarios, this will default to the
+Process ID.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### MaxDegreeOfParallelism
+
+```csharp
+public virtual int MaxDegreeOfParallelism { get; }
+```
+
+Gets the maximum degree of parallelism that will be used
+when processing files concurrently.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### MaxProcessCount
+
+```csharp
+public virtual int MaxProcessCount { get; }
+```
+
+Gets the maximum number of times file processing will
+be attempted for a file.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### MaxQueueSize
+
+```csharp
+public virtual int MaxQueueSize { get; }
+```
+
+Gets the bounds on the maximum number of files that can be queued
+up for processing at one time. When set to -1, the work queue is
+unbounded.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### StatusFileExtension
+
+```csharp
+public virtual string StatusFileExtension { get; }
+```
+
+Gets the file extension that will be used for the status files
+that are created for processed files.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### Cleanup
+
+```csharp
+public virtual void Cleanup()
+```
+
+Perform any required cleanup. This includes deleting processed files
+(when <xref href="Microsoft.Azure.WebJobs.FileTriggerAttribute.AutoDelete" data-throw-if-not-resolved="false"></xref> is True).
+
+### CleanupProcessedFiles
+
+```csharp
+public virtual void CleanupProcessedFiles()
+```
+
+Clean up any files that have been fully processed
+
+### GetRetryInterval
+
+```csharp
+protected virtual TimeSpan GetRetryInterval(FunctionResult result, int count)
+```
+
+Gets the next retry interval to use.
+
+#### Parameters
+
+- **result** ``FunctionResult``: The <xref href="Microsoft.Azure.WebJobs.Host.Executors.FunctionResult" data-throw-if-not-resolved="false"></xref> for the last failure.
+- **count** [int](https://learn.microsoft.com/dotnet/api/system.int32): The current execution count (the number of times the function has
+    been invoked).
+
+#### Returns
+
+[TimeSpan](https://learn.microsoft.com/dotnet/api/system.timespan)
+
+A <xref href="System.TimeSpan" data-throw-if-not-resolved="false"></xref> representing the delay interval that should be used.
+
+### ProcessFileAsync
+
+```csharp
+public virtual Task<bool> ProcessFileAsync(FileSystemEventArgs eventArgs, CancellationToken cancellationToken)
+```
+
+Process the file indicated by the specified <xref href="System.IO.FileSystemEventArgs" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **eventArgs** [FileSystemEventArgs](https://learn.microsoft.com/dotnet/api/system.io.filesystemeventargs): The <xref href="System.IO.FileSystemEventArgs" data-throw-if-not-resolved="false"></xref> indicating the file to process.
+- **cancellationToken** [CancellationToken](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken): The <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to use.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that returns true if the file was processed successfully, false otherwise.
+
+### ShouldProcessFile
+
+```csharp
+public virtual bool ShouldProcessFile(string filePath)
+```
+
+Determines whether the specified file should be processed.
+
+#### Parameters
+
+- **filePath** [string](https://learn.microsoft.com/dotnet/api/system.string): The candidate file for processing.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+True if the file should be processed, false otherwise.
+
+

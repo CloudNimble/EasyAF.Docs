@@ -1,0 +1,131 @@
+---
+title: "StateHasChangedConfig"
+description: ""
+icon: "cube"
+---
+
+# StateHasChangedConfig
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class StateHasChangedConfig : IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Properties
+
+### Action
+
+```csharp
+public Action Action { get; set; }
+```
+
+Allows the current Blazor container to pass the StateHasChanged action back to the BlazorObservable so ViewModel operations can 
+trigger state changes.
+
+#### Returns
+
+[Action](https://learn.microsoft.com/dotnet/api/system.action)
+
+### BlazorObservableType
+
+```csharp
+public Type BlazorObservableType { get; set; }
+```
+
+The <xref href="CloudNimble.BlazorEssentials.BlazorObservable" data-throw-if-not-resolved="false"></xref> <xref href="System.Type" data-throw-if-not-resolved="false"></xref> associated with this Configuration instance.
+
+#### Returns
+
+[Type](https://learn.microsoft.com/dotnet/api/system.type)
+
+### Count
+
+```csharp
+public int Count { get; set; }
+```
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### DebugMode
+
+```csharp
+public StateHasChangedDebugMode DebugMode { get; set; }
+```
+
+Flag for whether or not the render count and helpful debug feedback/warnings should be logged to the <xref href="System.Console" data-throw-if-not-resolved="false"></xref>.
+Default is <xref href="CloudNimble.BlazorEssentials.StateHasChangedDebugMode.Off" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[StateHasChangedDebugMode](/api-reference/cloudnimble/blazoressentials/statehaschangeddebugmode)
+
+### DelayInterval
+
+```csharp
+public int DelayInterval { get; set; }
+```
+
+An <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> specifying the number of milliseconds this BlazorObservable should wait between 
+<xref href="CloudNimble.BlazorEssentials.StateHasChangedConfig.Action" data-throw-if-not-resolved="false"></xref> calls. Default is 100 milliseconds.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### DelayMode
+
+```csharp
+public StateHasChangedDelayMode DelayMode { get; set; }
+```
+
+A <xref href="CloudNimble.BlazorEssentials.StateHasChangedConfig.DelayMode" data-throw-if-not-resolved="false"></xref> indicating whether or not this BlazorObservable should reduce the number of times
+<xref href="CloudNimble.BlazorEssentials.StateHasChangedConfig.Action" data-throw-if-not-resolved="false"></xref> should be called in a given <xref href="CloudNimble.BlazorEssentials.StateHasChangedConfig.DelayInterval" data-throw-if-not-resolved="false"></xref>
+Default is <xref href="CloudNimble.BlazorEssentials.StateHasChangedDelayMode.Off" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[StateHasChangedDelayMode](/api-reference/cloudnimble/blazoressentials/statehaschangeddelaymode)
+
+
+## Methods
+
+### Clone
+
+```csharp
+public StateHasChangedConfig Clone(BlazorObservable observable)
+```
+
+Copies the values from this <xref href="CloudNimble.BlazorEssentials.StateHasChangedConfig" data-throw-if-not-resolved="false"></xref> instance into a new one.
+
+#### Parameters
+
+- **observable** [BlazorObservable](/api-reference/cloudnimble/blazoressentials/blazorobservable): The <xref href="CloudNimble.BlazorEssentials.BlazorObservable" data-throw-if-not-resolved="false"></xref> instance the new <xref href="CloudNimble.BlazorEssentials.StateHasChangedConfig" data-throw-if-not-resolved="false"></xref> instance will be used for.
+
+#### Returns
+
+[StateHasChangedConfig](/api-reference/cloudnimble/blazoressentials/statehaschangedconfig)
+
+A new <xref href="CloudNimble.BlazorEssentials.StateHasChangedConfig" data-throw-if-not-resolved="false"></xref> instance with the values populated from this instance.
+
+### Dispose
+
+```csharp
+public void Dispose()
+```
+
+Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+
+

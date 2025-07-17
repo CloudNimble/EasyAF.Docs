@@ -1,0 +1,58 @@
+---
+title: "Files_IWebJobsBuilderExtensions"
+description: "Extension methods for Files integration."
+icon: "cube"
+---
+
+# Files_IWebJobsBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Extension methods for Files integration
+
+## Syntax
+
+```csharp
+public static class Files_IWebJobsBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### AddSimpleMessageBusFiles
+
+```csharp
+public static IWebJobsBuilder AddSimpleMessageBusFiles(this IWebJobsBuilder builder, Action<FilesOptions> configure)
+```
+
+Adds the Files extension to the provided <xref href="Microsoft.Azure.WebJobs.IWebJobsBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **builder** ``IWebJobsBuilder``: The <xref href="Microsoft.Azure.WebJobs.IWebJobsBuilder" data-throw-if-not-resolved="false"></xref> to configure.
+- **configure** [Action&lt;FilesOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): An <xref href="System.Action%601" data-throw-if-not-resolved="false"></xref> to configure the provided <xref href="Microsoft.Azure.WebJobs.Extensions.Files.FilesOptions" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+``IWebJobsBuilder``
+
+### AddSimpleMessageBusFiles
+
+```csharp
+public static IWebJobsBuilder AddSimpleMessageBusFiles(this IWebJobsBuilder builder)
+```
+
+Adds the Files extension to the provided <xref href="Microsoft.Azure.WebJobs.IWebJobsBuilder" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **builder** ``IWebJobsBuilder``: The <xref href="Microsoft.Azure.WebJobs.IWebJobsBuilder" data-throw-if-not-resolved="false"></xref> to configure.
+
+#### Returns
+
+``IWebJobsBuilder``
+
+

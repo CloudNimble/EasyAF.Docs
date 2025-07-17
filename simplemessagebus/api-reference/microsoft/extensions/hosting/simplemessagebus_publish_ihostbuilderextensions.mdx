@@ -1,0 +1,89 @@
+---
+title: "SimpleMessageBus_Publish_IHostBuilderExtensions"
+description: ""
+icon: "cube"
+---
+
+# SimpleMessageBus_Publish_IHostBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class SimpleMessageBus_Publish_IHostBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### UseAzureStorageQueueMessagePublisher
+
+```csharp
+public static IHostBuilder UseAzureStorageQueueMessagePublisher(this IHostBuilder builder, Action<AzureStorageQueueOptions> azureQueueOptions)
+```
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+- **azureQueueOptions** [Action&lt;AzureStorageQueueOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance being configured, for fluent interaction.
+
+### UseAzureStorageQueueMessagePublisher
+
+```csharp
+public static IHostBuilder UseAzureStorageQueueMessagePublisher(this IHostBuilder builder)
+```
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance being configured, for fluent interaction.
+
+### UseFileSystemMessagePublisher
+
+```csharp
+public static IHostBuilder UseFileSystemMessagePublisher(this IHostBuilder builder, Action<FileSystemOptions> fileSystemOptions)
+```
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+- **fileSystemOptions** [Action&lt;FileSystemOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): 
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance being configured, for fluent interaction.
+
+### UseFileSystemMessagePublisher
+
+```csharp
+public static IHostBuilder UseFileSystemMessagePublisher(this IHostBuilder builder)
+```
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance being configured, for fluent interaction.
+
+

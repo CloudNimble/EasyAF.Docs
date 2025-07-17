@@ -1,0 +1,72 @@
+---
+title: "TypeDefinition"
+description: ""
+icon: "cube"
+---
+
+# TypeDefinition
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class TypeDefinition
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### TypeDefinition
+
+```csharp
+public TypeDefinition(string classDefinition, List<string> attributes, List<MemberDefinition> members)
+```
+
+#### Parameters
+
+- **classDefinition** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **attributes** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **members** [List&lt;MemberDefinition&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+
+
+## Properties
+
+### Attributes
+
+```csharp
+public List<string> Attributes { get; }
+```
+
+A <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref> containging the full name of each attribute on the type.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Members
+
+```csharp
+public List<MemberDefinition> Members { get; }
+```
+
+#### Returns
+
+[List&lt;MemberDefinition&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### TypeName
+
+```csharp
+public string TypeName { get; set; }
+```
+
+The full name of the type member in question.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

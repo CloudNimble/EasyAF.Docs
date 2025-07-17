@@ -1,0 +1,57 @@
+---
+title: "EasyAF_CodeGen_DbContextExtensions"
+description: "A set of Reflection-based DbContext extensions."
+icon: "cube"
+---
+
+# EasyAF_CodeGen_DbContextExtensions
+
+<Badge variant="outline">Class</Badge>
+
+A set of Reflection-based DbContext extensions.
+
+## Syntax
+
+```csharp
+public static class EasyAF_CodeGen_DbContextExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetDbSets
+
+```csharp
+public static IEnumerable<PropertyInfo> GetDbSets(this DbContext dbContext)
+```
+
+Returns a list of all the <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref> properties on the <xref href="System.Data.Entity.DbContext" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **dbContext** [DbContext](https://learn.microsoft.com/dotnet/api/system.data.entity.dbcontext): 
+
+#### Returns
+
+[IEnumerable&lt;PropertyInfo&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### GetDbSetTypes
+
+```csharp
+public static IEnumerable<Type> GetDbSetTypes(this DbContext dbContext)
+```
+
+Returns a list of the entity types for all the <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref> properties on the <xref href="System.Data.Entity.DbContext" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **dbContext** [DbContext](https://learn.microsoft.com/dotnet/api/system.data.entity.dbcontext): 
+
+#### Returns
+
+[IEnumerable&lt;Type&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+

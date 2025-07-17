@@ -1,0 +1,50 @@
+---
+title: "Breakdance_WebApi_HttpClientExtensions"
+description: "Extension methods for making <xref href=\"System."
+icon: "cube"
+---
+
+# Breakdance_WebApi_HttpClientExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Extension methods for making <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> a little more test-friendly.
+
+## Syntax
+
+```csharp
+public static class Breakdance_WebApi_HttpClientExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### ExecuteTestRequest
+
+```csharp
+public static Task<HttpResponseMessage> ExecuteTestRequest(this HttpClient httpClient, HttpMethod httpMethod, string host = null, string routePrefix = null, string resource = null, string acceptHeader = null, object payload = null, JsonSerializerSettings jsonSerializerSettings = null)
+```
+
+Creates an <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref> for the given configuration and executes it asynchronously through the HttpClient.
+
+#### Parameters
+
+- **httpClient** [HttpClient](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient): The <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> instance to use.
+- **httpMethod** [HttpMethod](https://learn.microsoft.com/dotnet/api/system.net.http.httpmethod): The <xref href="System.Net.Http.HttpMethod" data-throw-if-not-resolved="false"></xref> to use for the request.
+- **host** [string](https://learn.microsoft.com/dotnet/api/system.string): The hostname to use for this request. Defaults to "http://localhost", only change it if that collides with other services running on the local machine.
+- **routePrefix** [string](https://learn.microsoft.com/dotnet/api/system.string): The routePrefix corresponding to the route already mapped in MapRestierRoute or GetTestableConfiguration. Defaults to "api/test", only change it if absolutely necessary.
+- **resource** [string](https://learn.microsoft.com/dotnet/api/system.string): The resource on the API to be requested.
+- **acceptHeader** [string](https://learn.microsoft.com/dotnet/api/system.string): The inbound MIME types to accept. Defaults to "application/json".
+- **payload** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **jsonSerializerSettings** ``JsonSerializerSettings``: 
+
+#### Returns
+
+[Task&lt;HttpResponseMessage&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+An <xref href="System.Net.Http.HttpResponseMessage" data-throw-if-not-resolved="false"></xref> containing the results of the attempted request.
+
+

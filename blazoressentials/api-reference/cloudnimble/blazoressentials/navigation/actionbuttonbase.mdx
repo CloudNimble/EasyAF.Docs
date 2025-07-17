@@ -1,0 +1,175 @@
+---
+title: "ActionButtonBase"
+description: "Defines a button that can be used to trigger an action in a User Interface."
+icon: "cube"
+---
+
+# ActionButtonBase
+
+<Badge variant="outline">Class</Badge>
+
+Defines a button that can be used to trigger an action in a User Interface. Useful for binding aq group of actions programmatically.
+
+## Syntax
+
+```csharp
+public abstract class ActionButtonBase : InterfaceElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [InterfaceElement](/api-reference/cloudnimble/blazoressentials/interfaceelement)
+
+## Constructors
+
+### ActionButtonBase
+
+```csharp
+public ActionButtonBase()
+```
+
+### ActionButtonBase
+
+```csharp
+public ActionButtonBase(string iconClass, string tooltip, Func<bool> isDisabledFunc = null)
+```
+
+Creates a new <xref href="CloudNimble.BlazorEssentials.Navigation.ActionButton" data-throw-if-not-resolved="false"></xref> instance specifically for icon-only buttons, usually in the header or footer.
+
+#### Parameters
+
+- **iconClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **tooltip** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **isDisabledFunc** [Func&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-1): 
+
+### ActionButtonBase
+
+```csharp
+public ActionButtonBase(string buttonText, string buttonClass, string iconClass, Func<bool> isDisabledFunc = null, string tooltip = null, string tooltipContainer = "body")
+```
+
+#### Parameters
+
+- **buttonText** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **buttonClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **iconClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **isDisabledFunc** [Func&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-1): 
+- **tooltip** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **tooltipContainer** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### ActionButtonBase
+
+```csharp
+public ActionButtonBase(string buttonText, string buttonClass, string iconClass, string popoverName, string popoverHeader, string popoverPlacement, Func<bool> isDisabledFunc = null, List<ActionButton> children = null)
+```
+
+#### Parameters
+
+- **buttonText** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **buttonClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **iconClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **popoverName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **popoverHeader** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **popoverPlacement** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **isDisabledFunc** [Func&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-1): 
+- **children** [List&lt;ActionButton&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+
+
+## Properties
+
+### AccessibilityText
+
+```csharp
+public string AccessibilityText { get; set; }
+```
+
+Test to be used for screen readers when this item is rendered.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Children
+
+```csharp
+public List<ActionButton> Children { get; set; }
+```
+
+#### Returns
+
+[List&lt;ActionButton&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### IsDisabledFunc
+
+```csharp
+public Func<bool> IsDisabledFunc { get; set; }
+```
+
+#### Returns
+
+[Func&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-1)
+
+### ModalTarget
+
+```csharp
+public string ModalTarget { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PopoverHeader
+
+```csharp
+public string PopoverHeader { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PopoverName
+
+```csharp
+public string PopoverName { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PopoverPlacement
+
+```csharp
+public string PopoverPlacement { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Tooltip
+
+```csharp
+public string Tooltip { get; set; }
+```
+
+The text that will be displayed to the end user when the cursor is hovered over the button.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### TooltipContainer
+
+```csharp
+public string TooltipContainer { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

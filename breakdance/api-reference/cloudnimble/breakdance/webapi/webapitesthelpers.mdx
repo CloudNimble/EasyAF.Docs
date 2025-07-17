@@ -1,0 +1,71 @@
+---
+title: "WebApiTestHelpers"
+description: "A set of methods that make it easier to pull out WebApi runtime components for unit testing."
+icon: "cube"
+---
+
+# WebApiTestHelpers
+
+<Badge variant="outline">Class</Badge>
+
+A set of methods that make it easier to pull out WebApi runtime components for unit testing.
+
+## Syntax
+
+```csharp
+public static class WebApiTestHelpers
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetTestableConfiguration
+
+```csharp
+public static HttpConfiguration GetTestableConfiguration()
+```
+
+Gets a new HttpConfiguration using the default AttributeRouting mapping engine, suitable for use in unit tests.
+
+#### Returns
+
+``HttpConfiguration``
+
+A new HttpConfiguration instance.
+
+### GetTestableHttpClient
+
+```csharp
+public static HttpClient GetTestableHttpClient()
+```
+
+Gets a new <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> instance using the default AttributeRouting mapping engine, suitable for use in unit tests
+
+#### Returns
+
+[HttpClient](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient)
+
+a new <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> instance.
+
+### GetTestableHttpServer
+
+```csharp
+public static HttpServer GetTestableHttpServer()
+```
+
+Gets a new HttpServer using the default AttributeRouting mapping engine, suitable for use in unit tests.
+
+#### Returns
+
+``HttpServer``
+
+A new HttpServer instance.
+
+
+## Remarks
+
+See WebApiTestHelperTests.cs for more examples of how to use these methods.
+

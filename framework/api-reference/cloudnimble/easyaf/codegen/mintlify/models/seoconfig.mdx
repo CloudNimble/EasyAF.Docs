@@ -1,0 +1,56 @@
+---
+title: "SeoConfig"
+description: "Represents the SEO (Search Engine Optimization) configuration for the Mintlify documentation site."
+icon: "cube"
+---
+
+# SeoConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the SEO (Search Engine Optimization) configuration for the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class SeoConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Indexing
+
+```csharp
+[JsonPropertyName("indexing")]
+public string Indexing { get; set; }
+```
+
+Gets or sets which pages should be indexed by search engines.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Metatags
+
+```csharp
+[JsonPropertyName("metatags")]
+public Dictionary<string, string> Metatags { get; set; }
+```
+
+Gets or sets custom meta tags to be added to every page.
+
+#### Returns
+
+[Dictionary&lt;string, string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+
+## Remarks
+
+This configuration controls how search engines index and display the documentation,
+including meta tags and indexing behavior.
+

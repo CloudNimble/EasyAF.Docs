@@ -1,0 +1,145 @@
+---
+title: "FunctionImportParameter"
+description: "Responsible for collecting together the actual method parameters and the parameters that need to be sent to the Execute method."
+icon: "cube"
+---
+
+# FunctionImportParameter
+
+<Badge variant="outline">Class</Badge>
+
+Responsible for collecting together the actual method parameters
+and the parameters that need to be sent to the Execute method.
+
+## Syntax
+
+```csharp
+public class FunctionImportParameter
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### EsqlParameterName
+
+```csharp
+public string EsqlParameterName { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ExecuteParameterName
+
+```csharp
+public string ExecuteParameterName { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### FunctionParameterName
+
+```csharp
+public string FunctionParameterName { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### FunctionParameterType
+
+```csharp
+public string FunctionParameterType { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### IsNullableOfT
+
+```csharp
+public bool IsNullableOfT { get; set; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### LocalVariableName
+
+```csharp
+public string LocalVariableName { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### NeedsLocalVariable
+
+```csharp
+public bool NeedsLocalVariable { get; set; }
+```
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### RawClrTypeName
+
+```csharp
+public string RawClrTypeName { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### RawFunctionParameterName
+
+```csharp
+public string RawFunctionParameterName { get; set; }
+```
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Source
+
+```csharp
+public FunctionParameter Source { get; set; }
+```
+
+#### Returns
+
+[FunctionParameter](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.functionparameter)
+
+
+## Methods
+
+### Create
+
+```csharp
+public static IEnumerable<FunctionImportParameter> Create(IEnumerable<FunctionParameter> parameters)
+```
+
+Creates a set of FunctionImportParameter objects from the parameters passed in.
+
+#### Parameters
+
+- **parameters** [IEnumerable&lt;FunctionParameter&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+
+#### Returns
+
+[IEnumerable&lt;FunctionImportParameter&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+

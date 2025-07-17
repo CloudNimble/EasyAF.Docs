@@ -1,0 +1,51 @@
+---
+title: "ColorPairConfig"
+description: "Represents a color pair configuration for light and dark modes."
+icon: "cube"
+---
+
+# ColorPairConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a color pair configuration for light and dark modes.
+
+## Syntax
+
+```csharp
+public class ColorPairConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Dark
+
+```csharp
+[JsonPropertyName("dark")]
+public string Dark { get; set; }
+```
+
+Gets or sets the color in hex format to use in dark mode.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Light
+
+```csharp
+[JsonPropertyName("light")]
+public string Light { get; set; }
+```
+
+Gets or sets the color in hex format to use in light mode.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

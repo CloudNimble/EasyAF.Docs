@@ -1,0 +1,106 @@
+---
+title: "SolutionsConfig"
+description: "Represents the configuration for multi-solution documentation generation."
+icon: "cube"
+---
+
+# SolutionsConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the configuration for multi-solution documentation generation.
+
+## Syntax
+
+```csharp
+public class SolutionsConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### GlobalSettings
+
+```csharp
+[JsonPropertyName("globalSettings")]
+public GlobalSiteConfig GlobalSettings { get; set; }
+```
+
+Gets or sets the global settings for the documentation site.
+
+#### Returns
+
+[GlobalSiteConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globalsiteconfig)
+
+Site-wide configuration that applies to the entire documentation site.
+
+### IgnoreFolders
+
+```csharp
+[JsonPropertyName("ignoreFolders")]
+public List<string> IgnoreFolders { get; set; }
+```
+
+Gets or sets the list of folders to ignore during processing.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+Folder names or patterns to exclude from documentation generation.
+
+### Schema
+
+```csharp
+[JsonPropertyName("$schema")]
+public string Schema { get; set; }
+```
+
+Gets or sets the schema URL for validation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The JSON schema URL for the solutions.json file.
+
+### Solutions
+
+```csharp
+[JsonPropertyName("solutions")]
+public List<SolutionConfig> Solutions { get; set; }
+```
+
+Gets or sets the list of solutions to include in the documentation.
+
+#### Returns
+
+[List&lt;SolutionConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+The solutions that will be processed and combined into the final documentation site.
+
+### Version
+
+```csharp
+[JsonPropertyName("version")]
+public string Version { get; set; }
+```
+
+Gets or sets the configuration version.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The version of the solutions.json format.
+
+
+## Remarks
+
+This class defines the structure for solutions.json files that configure
+how multiple solutions are combined into a single documentation site with
+tab-based navigation.
+

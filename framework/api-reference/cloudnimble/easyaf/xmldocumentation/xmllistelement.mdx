@@ -1,0 +1,83 @@
+---
+title: "XmlListElement"
+description: "Represents a list XML documentation element."
+icon: "cube"
+---
+
+# XmlListElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a list XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlListElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlListElement
+
+```csharp
+public XmlListElement()
+```
+
+Initializes a new instance of the XmlListElement class.
+
+### XmlListElement
+
+```csharp
+public XmlListElement(XElement element)
+```
+
+Initializes a new instance of the XmlListElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### Type
+
+```csharp
+public string Type { get; set; }
+```
+
+Gets or sets the type of list (bullet, number, table).
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this list element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this list.
+
+
+## Remarks
+
+The list element creates bulleted or numbered lists within documentation.
+It supports different list types including bullet, number, and table formats.
+

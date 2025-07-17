@@ -1,0 +1,194 @@
+---
+title: "TabConfig"
+description: "Represents a tab configuration in Mintlify navigation."
+icon: "cube"
+---
+
+# TabConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a tab configuration in Mintlify navigation.
+
+## Syntax
+
+```csharp
+public class TabConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Anchors
+
+```csharp
+[JsonPropertyName("anchors")]
+public List<AnchorConfig> Anchors { get; set; }
+```
+
+Gets or sets the anchors for the tab.
+
+#### Returns
+
+[List&lt;AnchorConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### AsyncApi
+
+```csharp
+[JsonPropertyName("asyncapi")]
+public object AsyncApi { get; set; }
+```
+
+Gets or sets the AsyncAPI configuration.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Dropdowns
+
+```csharp
+[JsonPropertyName("dropdowns")]
+public List<DropdownConfig> Dropdowns { get; set; }
+```
+
+Gets or sets the dropdowns for the tab.
+
+#### Returns
+
+[List&lt;DropdownConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Global
+
+```csharp
+[JsonPropertyName("global")]
+public GlobalNavigationConfig Global { get; set; }
+```
+
+Gets or sets the global navigation configuration.
+
+#### Returns
+
+[GlobalNavigationConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/globalnavigationconfig)
+
+### Groups
+
+```csharp
+[JsonPropertyName("groups")]
+public List<GroupConfig> Groups { get; set; }
+```
+
+Gets or sets the groups for the tab.
+
+#### Returns
+
+[List&lt;GroupConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Hidden
+
+```csharp
+[JsonPropertyName("hidden")]
+public bool? Hidden { get; set; }
+```
+
+Gets or sets whether the current option is default hidden.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the URL or path for the tab.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Icon
+
+```csharp
+[JsonPropertyName("icon")]
+public object Icon { get; set; }
+```
+
+Gets or sets the icon to be displayed in the section.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Languages
+
+```csharp
+[JsonPropertyName("languages")]
+public List<LanguageConfig> Languages { get; set; }
+```
+
+Gets or sets the languages for the tab.
+
+#### Returns
+
+[List&lt;LanguageConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### OpenApi
+
+```csharp
+[JsonPropertyName("openapi")]
+public object OpenApi { get; set; }
+```
+
+Gets or sets the OpenAPI configuration.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Pages
+
+```csharp
+[JsonPropertyName("pages")]
+public List<object> Pages { get; set; }
+```
+
+Gets or sets the pages for the tab.
+
+#### Returns
+
+[List&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Tab
+
+```csharp
+[JsonPropertyName("tab")]
+public string Tab { get; set; }
+```
+
+Gets or sets the name of the tab.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Versions
+
+```csharp
+[JsonPropertyName("versions")]
+public List<VersionConfig> Versions { get; set; }
+```
+
+Gets or sets the versions for the tab.
+
+#### Returns
+
+[List&lt;VersionConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

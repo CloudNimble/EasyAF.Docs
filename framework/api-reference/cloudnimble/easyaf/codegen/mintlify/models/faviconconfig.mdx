@@ -1,0 +1,76 @@
+---
+title: "FaviconConfig"
+description: "Represents the favicon configuration for Mintlify."
+icon: "cube"
+---
+
+# FaviconConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the favicon configuration for Mintlify.
+Can be a single file or separate files for light and dark mode.
+
+## Syntax
+
+```csharp
+[JsonConverter(typeof(FaviconConfigJsonConverter))]
+public class FaviconConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### FaviconConfig
+
+```csharp
+public FaviconConfig()
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.CodeGen.Mintlify.Models.FaviconConfig" data-throw-if-not-resolved="false"></xref> class.
+
+### FaviconConfig
+
+```csharp
+public FaviconConfig(string faviconPath)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.CodeGen.Mintlify.Models.FaviconConfig" data-throw-if-not-resolved="false"></xref> class with a single favicon path.
+
+#### Parameters
+
+- **faviconPath** [string](https://learn.microsoft.com/dotnet/api/system.string): The path to the favicon file.
+
+
+## Properties
+
+### Dark
+
+```csharp
+[JsonPropertyName("dark")]
+public string Dark { get; set; }
+```
+
+Gets or sets the path to the dark favicon file, including the file extension.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Light
+
+```csharp
+[JsonPropertyName("light")]
+public string Light { get; set; }
+```
+
+Gets or sets the path to the light favicon file, including the file extension.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

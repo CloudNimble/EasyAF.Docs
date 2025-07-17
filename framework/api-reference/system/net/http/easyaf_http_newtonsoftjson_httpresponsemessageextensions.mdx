@@ -1,0 +1,104 @@
+---
+title: "EasyAF_Http_NewtonsoftJson_HttpResponseMessageExtensions"
+description: "Provides extension methods for HttpResponseMessage to deserialize JSON responses using Newtonsoft."
+icon: "cube"
+---
+
+# EasyAF_Http_NewtonsoftJson_HttpResponseMessageExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Provides extension methods for HttpResponseMessage to deserialize JSON responses using Newtonsoft.Json.
+Includes support for both success and error response handling with automatic contract resolver configuration.
+
+## Syntax
+
+```csharp
+public static class EasyAF_Http_NewtonsoftJson_HttpResponseMessageExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### DeserializeResponseAsync&lt;T&gt;
+
+```csharp
+public static Task<(T Response, string ErrorContent)> DeserializeResponseAsync<T>(this HttpResponseMessage message, JsonSerializerSettings settings)
+```
+
+Deserializes the HTTP response message content to the specified type using Newtonsoft.Json with custom settings.
+Automatically configures SystemTextJsonContractResolver if not already set. Returns either the deserialized response or error content as a string.
+
+#### Parameters
+
+- **message** [HttpResponseMessage](https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage): The HTTP response message to deserialize.
+- **settings** ``JsonSerializerSettings``: The JSON serializer settings to use for deserialization.
+
+#### Returns
+
+[Task&lt;(T Response, string ErrorContent)&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A tuple containing either the deserialized response object or error content string.
+
+### DeserializeResponseAsync&lt;T&gt;
+
+```csharp
+public static Task<(T Response, string ErrorContent)> DeserializeResponseAsync<T>(this HttpResponseMessage message)
+```
+
+Deserializes the HTTP response message content to the specified type using Newtonsoft.Json with default settings.
+Returns either the deserialized response or error content as a string.
+
+#### Parameters
+
+- **message** [HttpResponseMessage](https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage): The HTTP response message to deserialize.
+
+#### Returns
+
+[Task&lt;(T Response, string ErrorContent)&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A tuple containing either the deserialized response object or error content string.
+
+### DeserializeResponseAsync&lt;TResponse, TError&gt;
+
+```csharp
+public static Task<(TResponse Response, TError ErrorContent)> DeserializeResponseAsync<TResponse, TError>(this HttpResponseMessage message, JsonSerializerSettings settings)
+```
+
+Deserializes the HTTP response message content to strongly-typed response and error objects using Newtonsoft.Json with custom settings.
+Automatically configures SystemTextJsonContractResolver if not already set. Provides type-safe error handling by deserializing error responses to a specific error type.
+
+#### Parameters
+
+- **message** [HttpResponseMessage](https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage): The HTTP response message to deserialize.
+- **settings** ``JsonSerializerSettings``: The JSON serializer settings to use for deserialization.
+
+#### Returns
+
+[Task&lt;(TResponse Response, TError ErrorContent)&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A tuple containing either the deserialized response object or deserialized error object.
+
+### DeserializeResponseAsync&lt;TResponse, TError&gt;
+
+```csharp
+public static Task<(TResponse Response, TError ErrorContent)> DeserializeResponseAsync<TResponse, TError>(this HttpResponseMessage message)
+```
+
+Deserializes the HTTP response message content to strongly-typed response and error objects using Newtonsoft.Json with default settings.
+Provides type-safe error handling by deserializing error responses to a specific error type.
+
+#### Parameters
+
+- **message** [HttpResponseMessage](https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage): The HTTP response message to deserialize.
+
+#### Returns
+
+[Task&lt;(TResponse Response, TError ErrorContent)&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A tuple containing either the deserialized response object or deserialized error object.
+
+

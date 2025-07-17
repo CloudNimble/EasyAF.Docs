@@ -1,0 +1,39 @@
+---
+title: "ODataV4ErrorResponse"
+description: "The wrapper around an <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# ODataV4ErrorResponse
+
+<Badge variant="outline">Class</Badge>
+
+The wrapper around an <xref href="CloudNimble.EasyAF.Http.OData.ODataV4Error" data-throw-if-not-resolved="false"></xref> returned from an OData service.
+
+## Syntax
+
+```csharp
+public class ODataV4ErrorResponse
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Error
+
+```csharp
+[JsonPropertyName("error")]
+public ODataV4Error Error { get; set; }
+```
+
+Gets or sets the OData error information returned from the service.
+Contains detailed error information including code, message, and optional debugging details.
+
+#### Returns
+
+[ODataV4Error](/api-reference/cloudnimble/easyaf/http/odata/odatav4error)
+
+

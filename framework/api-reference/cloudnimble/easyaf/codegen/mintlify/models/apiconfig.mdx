@@ -1,0 +1,56 @@
+---
+title: "ApiConfig"
+description: "Represents the API reference configuration and playground settings for Mintlify."
+icon: "cube"
+---
+
+# ApiConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the API reference configuration and playground settings for Mintlify.
+
+## Syntax
+
+```csharp
+public class ApiConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### AsyncApi
+
+```csharp
+[JsonPropertyName("asyncapi")]
+public object AsyncApi { get; set; }
+```
+
+Gets or sets the AsyncAPI specification configuration.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### OpenApi
+
+```csharp
+[JsonPropertyName("openapi")]
+public object OpenApi { get; set; }
+```
+
+Gets or sets the OpenAPI specification configuration.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+
+## Remarks
+
+This configuration controls how API documentation is displayed and how the API playground
+functions, including OpenAPI and AsyncAPI specifications.
+

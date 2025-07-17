@@ -1,0 +1,95 @@
+---
+title: "XmlSeeAlsoElement"
+description: "Represents a seealso XML documentation element for related references."
+icon: "cube"
+---
+
+# XmlSeeAlsoElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a seealso XML documentation element for related references.
+
+## Syntax
+
+```csharp
+public class XmlSeeAlsoElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlSeeAlsoElement
+
+```csharp
+public XmlSeeAlsoElement()
+```
+
+Initializes a new instance of the XmlSeeAlsoElement class.
+
+### XmlSeeAlsoElement
+
+```csharp
+public XmlSeeAlsoElement(XElement element)
+```
+
+Initializes a new instance of the XmlSeeAlsoElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### Cref
+
+```csharp
+public string Cref { get; set; }
+```
+
+Gets or sets the cross-reference target.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### LinkText
+
+```csharp
+public string LinkText { get; set; }
+```
+
+Gets or sets the link text to display.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this seealso element to MDX format as a link.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this related reference.
+
+
+## Remarks
+
+The seealso element creates a link to related types or members.
+These are typically displayed in a "See Also" section.
+

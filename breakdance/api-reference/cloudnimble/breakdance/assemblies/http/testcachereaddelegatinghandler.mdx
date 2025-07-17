@@ -1,0 +1,64 @@
+---
+title: "TestCacheReadDelegatingHandler"
+description: "Handler for mocking the HttpResponse returned by an HttpRequest using a UTF-8 encoded file."
+icon: "cube"
+---
+
+# TestCacheReadDelegatingHandler
+
+<Badge variant="outline">Class</Badge>
+
+Handler for mocking the HttpResponse returned by an HttpRequest using a UTF-8 encoded file.
+
+## Syntax
+
+```csharp
+public class TestCacheReadDelegatingHandler : TestCacheDelegatingHandlerBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [HttpMessageHandler](https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler)
+    - [DelegatingHandler](https://learn.microsoft.com/dotnet/api/system.net.http.delegatinghandler)
+      - [TestCacheDelegatingHandlerBase](/api-reference/cloudnimble/breakdance/assemblies/http/testcachedelegatinghandlerbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### TestCacheReadDelegatingHandler
+
+```csharp
+public TestCacheReadDelegatingHandler(string responseFilesPath)
+```
+
+Constructor overload for specifying the root folder path.
+
+#### Parameters
+
+- **responseFilesPath** [string](https://learn.microsoft.com/dotnet/api/system.string): Root folder path for storing static response files.
+
+
+## Methods
+
+### SendAsync
+
+```csharp
+protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+```
+
+Overrides the method in the base <xref href="System.Net.Http.DelegatingHandler" data-throw-if-not-resolved="false"></xref> to create a custom <xref href="System.Net.Http.HttpResponseMessage" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **request** [HttpRequestMessage](https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage): The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref> that is being intercepted by the <xref href="System.Net.Http.DelegatingHandler" data-throw-if-not-resolved="false"></xref>.
+- **cancellationToken** [CancellationToken](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken): Token for cancelling the asynchronous request.
+
+#### Returns
+
+[Task&lt;HttpResponseMessage&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+

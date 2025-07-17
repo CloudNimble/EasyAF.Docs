@@ -1,0 +1,176 @@
+---
+title: "MintlifyNavigationGenerator"
+description: "Generates Mintlify navigation configuration (docs."
+icon: "cube"
+---
+
+# MintlifyNavigationGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Generates Mintlify navigation configuration (docs.json) for the documentation site.
+
+## Syntax
+
+```csharp
+public class MintlifyNavigationGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### MintlifyNavigationGenerator
+
+```csharp
+public MintlifyNavigationGenerator(MintlifyOptions options)
+```
+
+Initializes a new instance of the MintlifyNavigationGenerator class.
+
+#### Parameters
+
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+
+## Methods
+
+### GenerateApiReferenceGroup
+
+```csharp
+public GroupConfig GenerateApiReferenceGroup(List<AssemblyXmlDocumentation> documentations)
+```
+
+Generates a single API Reference group configuration for updating existing docs.json navigation.
+
+#### Parameters
+
+- **documentations** [List&lt;AssemblyXmlDocumentation&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of XML documentations to generate navigation for.
+
+#### Returns
+
+[GroupConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/groupconfig)
+
+A GroupConfig object representing the API Reference section.
+
+### GenerateGlobalNavigation
+
+```csharp
+public DocsJsonConfig GenerateGlobalNavigation(List<AssemblyXmlDocumentation> documentations)
+```
+
+Generates global navigation configuration for multiple projects.
+
+#### Parameters
+
+- **documentations** [List&lt;AssemblyXmlDocumentation&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of XML documentations.
+
+#### Returns
+
+[DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig)
+
+The global navigation configuration object.
+
+### GenerateNavigation
+
+```csharp
+public DocsJsonConfig GenerateNavigation(AssemblyXmlDocumentation xmlDocumentation)
+```
+
+Generates navigation configuration for a single project.
+
+#### Parameters
+
+- **xmlDocumentation** [AssemblyXmlDocumentation](/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation): The XML documentation to generate navigation for.
+
+#### Returns
+
+[DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig)
+
+The navigation configuration object.
+
+### GenerateSimpleNavigation
+
+```csharp
+public DocsJsonConfig GenerateSimpleNavigation(string siteName, List<string> projects)
+```
+
+Generates a simple navigation structure for quick setup.
+
+#### Parameters
+
+- **siteName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the documentation site.
+- **projects** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The list of project names.
+
+#### Returns
+
+[DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig)
+
+A basic navigation configuration.
+
+### MergeWithExistingConfigAsync
+
+```csharp
+public Task<DocsJsonConfig> MergeWithExistingConfigAsync(string configPath, DocsJsonConfig generatedConfig)
+```
+
+Merges the generated navigation configuration with existing docs.json configuration.
+
+#### Parameters
+
+- **configPath** [string](https://learn.microsoft.com/dotnet/api/system.string): The path to the existing configuration file.
+- **generatedConfig** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The newly generated configuration.
+
+#### Returns
+
+[Task&lt;DocsJsonConfig&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+The merged configuration preserving existing non-API settings.
+
+### WriteConfigurationAsync
+
+```csharp
+public Task WriteConfigurationAsync(string configPath, DocsJsonConfig navigation)
+```
+
+Writes the navigation configuration to a docs.json file, preserving existing configuration.
+
+#### Parameters
+
+- **configPath** [string](https://learn.microsoft.com/dotnet/api/system.string): The path to write the configuration file.
+- **navigation** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The navigation configuration object.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+### WriteConfigurationInternalAsync
+
+```csharp
+public Task WriteConfigurationInternalAsync(string configPath, DocsJsonConfig navigation)
+```
+
+Writes the navigation configuration to a docs.json file without merging with existing content.
+
+#### Parameters
+
+- **configPath** [string](https://learn.microsoft.com/dotnet/api/system.string): The path to write the configuration file.
+- **navigation** [DocsJsonConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/docsjsonconfig): The navigation configuration object.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+
+## Remarks
+
+This class creates the navigation structure and configuration file for Mintlify,
+organizing the API documentation in a logical hierarchy that's easy to browse.
+It supports both single-project and multi-project documentation sites.
+

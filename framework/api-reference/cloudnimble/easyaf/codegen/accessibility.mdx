@@ -1,0 +1,196 @@
+---
+title: "Accessibility"
+description: "Responsible for encapsulating the retrieval and translation of the CodeGeneration annotations in the EntityFramework Metadata to a form that is useful in code generation."
+icon: "cube"
+---
+
+# Accessibility
+
+<Badge variant="outline">Class</Badge>
+
+Responsible for encapsulating the retrieval and translation of the CodeGeneration
+annotations in the EntityFramework Metadata to a form that is useful in code generation.
+
+## Syntax
+
+```csharp
+public static class Accessibility
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### ForGetter
+
+```csharp
+public static string ForGetter(EdmMember member)
+```
+
+Gets the accessibility that should be applied at the get level for a property being
+generated from the provided EdmMember.
+
+defaults to empty if no annotation is found or the accessibility is the same as the property level.
+
+#### Parameters
+
+- **member** [EdmMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmmember): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForMethod
+
+```csharp
+public static string ForMethod(EdmFunction function)
+```
+
+Gets the accessibility that should be applied to a method being generated from the provided EdmFunction.
+
+defaults to public if no annotation is found.
+
+#### Parameters
+
+- **function** [EdmFunction](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmfunction): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForNavigationProperty
+
+```csharp
+public static string ForNavigationProperty(NavigationProperty navProp)
+```
+
+Gets the accessibility that should be applied to a NavigationProperty being generated
+
+Looks up the accessibility for the property (as defined by its getterAccess and setterAccess)
+and compares to the accessibility for the target type (as defined by its typeAccess)
+and takes the minimum
+
+#### Parameters
+
+- **navProp** [NavigationProperty](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.navigationproperty): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForProperty
+
+```csharp
+public static string ForProperty(EdmMember member)
+```
+
+Gets the accessibility that should be applied at the property level for a property being
+generated from the provided EdmMember.
+
+defaults to public if no annotation is found.
+
+#### Parameters
+
+- **member** [EdmMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmmember): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForReadOnlyProperty
+
+```csharp
+public static string ForReadOnlyProperty(EdmMember member)
+```
+
+Gets the accessibility that should be applied at the property level for a Read-Only property being
+generated from the provided EdmMember.
+
+defaults to public if no annotation is found.
+
+#### Parameters
+
+- **member** [EdmMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmmember): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForReadOnlyProperty
+
+```csharp
+public static string ForReadOnlyProperty(EntitySet set)
+```
+
+Gets the accessibility that should be applied at the property level for a property being
+generated from the provided EntitySet.
+
+defaults to public if no annotation is found.
+
+#### Parameters
+
+- **set** [EntitySet](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.entityset): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForSetter
+
+```csharp
+public static string ForSetter(EdmMember member)
+```
+
+Gets the accessibility that should be applied at the set level for a property being
+generated from the provided EdmMember.
+
+defaults to empty if no annotation is found or the accessibility is the same as the property level.
+
+#### Parameters
+
+- **member** [EdmMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmmember): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForType
+
+```csharp
+public static string ForType(GlobalItem item)
+```
+
+Gets the accessibility that should be applied to a type being generated from the provided GlobalItem.
+
+defaults to public if no annotation is found.
+
+#### Parameters
+
+- **item** [GlobalItem](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.globalitem): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ForWriteOnlyProperty
+
+```csharp
+public static string ForWriteOnlyProperty(EdmMember member)
+```
+
+Gets the accessibility that should be applied at the property level for a Write-Only property being
+generated from the provided EdmMember.
+
+defaults to public if no annotation is found.
+
+#### Parameters
+
+- **member** [EdmMember](https://learn.microsoft.com/dotnet/api/system.data.entity.core.metadata.edm.edmmember): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

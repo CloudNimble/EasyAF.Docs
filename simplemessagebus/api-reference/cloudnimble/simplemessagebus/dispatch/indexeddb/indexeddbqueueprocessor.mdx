@@ -1,0 +1,91 @@
+---
+title: "IndexedDbQueueProcessor"
+description: "Processes queue items stored in an IndexedDB database and dispatches them to all <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# IndexedDbQueueProcessor
+
+<Badge variant="outline">Class</Badge>
+
+Processes queue items stored in an IndexedDB database and dispatches them to all <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=IMessageHandlers" data-throw-if-not-resolved="false"></xref> registered with the DI container.
+
+## Syntax
+
+```csharp
+public class IndexedDbQueueProcessor : IQueueProcessor, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IQueueProcessor](/api-reference/cloudnimble/simplemessagebus/dispatch/iqueueprocessor)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### IndexedDbQueueProcessor
+
+```csharp
+public IndexedDbQueueProcessor(SimpleMessageBusDb database, IMessageDispatcher dispatcher, IServiceScopeFactory serviceScopeFactory)
+```
+
+#### Parameters
+
+- **database** [SimpleMessageBusDb](/api-reference/simplemessagebus/indexeddb/core/simplemessagebusdb): 
+- **dispatcher** [IMessageDispatcher](/api-reference/cloudnimble/simplemessagebus/dispatch/imessagedispatcher): 
+- **serviceScopeFactory** [IServiceScopeFactory](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory): 
+
+
+## Methods
+
+### Dispose
+
+```csharp
+public void Dispose()
+```
+
+### Dispose
+
+```csharp
+protected virtual void Dispose(bool disposing)
+```
+
+#### Parameters
+
+- **disposing** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### LoadQueueItems
+
+```csharp
+public Task LoadQueueItems()
+```
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### Start
+
+```csharp
+public Task Start(CancellationToken cancellationToken = default)
+```
+
+#### Parameters
+
+- **cancellationToken** [CancellationToken](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken): 
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+
+## Remarks
+
+This processor is designed for Blazor WebAssembly applications where IndexedDB provides client-side
+persistent storage for message queuing. It uses a background processing model with a blocking collection
+to handle messages asynchronously while maintaining proper resource disposal.
+

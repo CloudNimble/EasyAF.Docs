@@ -1,0 +1,69 @@
+---
+title: "BackgroundConfig"
+description: "Represents the background configuration for the Mintlify documentation site."
+icon: "cube"
+---
+
+# BackgroundConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the background configuration for the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class BackgroundConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Color
+
+```csharp
+[JsonPropertyName("color")]
+public object Color { get; set; }
+```
+
+Gets or sets the background color configuration.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Decoration
+
+```csharp
+[JsonPropertyName("decoration")]
+public string Decoration { get; set; }
+```
+
+Gets or sets the background decoration style.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Image
+
+```csharp
+[JsonPropertyName("image")]
+public object Image { get; set; }
+```
+
+Gets or sets the background image configuration.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+
+## Remarks
+
+This configuration controls the background appearance including images, decorations,
+and colors for the documentation site.
+

@@ -1,0 +1,43 @@
+---
+title: "ErrorsConfig"
+description: "Represents the error pages configuration for the Mintlify documentation site."
+icon: "cube"
+---
+
+# ErrorsConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the error pages configuration for the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class ErrorsConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### NotFound
+
+```csharp
+[JsonPropertyName("404")]
+public Error404Config NotFound { get; set; }
+```
+
+Gets or sets the configuration for 404 (Not Found) error handling.
+
+#### Returns
+
+[Error404Config](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/error404config)
+
+
+## Remarks
+
+This configuration controls how various error conditions are handled,
+including 404 (Not Found) errors and their behavior.
+

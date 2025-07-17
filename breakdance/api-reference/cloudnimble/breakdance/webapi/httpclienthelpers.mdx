@@ -1,0 +1,47 @@
+---
+title: "HttpClientHelpers"
+description: ""
+icon: "cube"
+---
+
+# HttpClientHelpers
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class HttpClientHelpers
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetTestableHttpRequestMessage
+
+```csharp
+public static HttpRequestMessage GetTestableHttpRequestMessage(HttpMethod httpMethod, string host = null, string routePrefix = null, string resource = "", string acceptHeader = null, object payload = null, JsonSerializerSettings jsonSerializerSettings = null)
+```
+
+Gets an <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref> instance properly configured to be used to make test requests.
+
+#### Parameters
+
+- **httpMethod** [HttpMethod](https://learn.microsoft.com/dotnet/api/system.net.http.httpmethod): The <xref href="System.Net.Http.HttpMethod" data-throw-if-not-resolved="false"></xref> to use for the request.
+- **host** [string](https://learn.microsoft.com/dotnet/api/system.string): The hostname to use for this request. Defaults to "http://localhost", only change it if that collides with other services running on the local machine.
+- **routePrefix** [string](https://learn.microsoft.com/dotnet/api/system.string): The routePrefix corresponding to the route already mapped in MapRestierRoute or GetTestableConfiguration. Defaults to "api/test", only change it if absolutely necessary.
+- **resource** [string](https://learn.microsoft.com/dotnet/api/system.string): The resource on the API to be requested. Defaults to an empty string.
+- **acceptHeader** [string](https://learn.microsoft.com/dotnet/api/system.string): The inbound MIME types to accept. Defaults to "application/json".
+- **payload** [object](https://learn.microsoft.com/dotnet/api/system.object): 
+- **jsonSerializerSettings** ``JsonSerializerSettings``: 
+
+#### Returns
+
+[HttpRequestMessage](https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage)
+
+An <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref> that is ready to be sent through an HttpClient instance configured for the test.
+
+

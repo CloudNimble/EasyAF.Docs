@@ -1,0 +1,83 @@
+---
+title: "XmlTypeParameterElement"
+description: "Represents a type parameter XML documentation element."
+icon: "cube"
+---
+
+# XmlTypeParameterElement
+
+<Badge variant="outline">Class</Badge>
+
+Represents a type parameter XML documentation element.
+
+## Syntax
+
+```csharp
+public class XmlTypeParameterElement : XmlDocumentationElement
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [XmlDocumentationElement](/api-reference/cloudnimble/easyaf/xmldocumentation/xmldocumentationelement)
+
+## Constructors
+
+### XmlTypeParameterElement
+
+```csharp
+public XmlTypeParameterElement()
+```
+
+Initializes a new instance of the XmlTypeParameterElement class.
+
+### XmlTypeParameterElement
+
+```csharp
+public XmlTypeParameterElement(XElement element)
+```
+
+Initializes a new instance of the XmlTypeParameterElement class with XML content.
+
+#### Parameters
+
+- **element** [XElement](https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement): The XML element to parse.
+
+
+## Properties
+
+### Name
+
+```csharp
+public string Name { get; set; }
+```
+
+Gets or sets the name of the type parameter.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Methods
+
+### ToMdx
+
+```csharp
+public override string ToMdx()
+```
+
+Converts this type parameter element to MDX format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The MDX representation of this type parameter.
+
+
+## Remarks
+
+The typeparam element describes a generic type parameter.
+It includes the parameter name and description of its constraints and usage.
+

@@ -1,0 +1,601 @@
+---
+title: "PrivateType"
+description: "This class represents a private class for the Private Accessor functionality."
+icon: "cube"
+---
+
+# PrivateType
+
+<Badge variant="outline">Class</Badge>
+
+This class represents a private class for the Private Accessor functionality.
+
+## Syntax
+
+```csharp
+public class PrivateType
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### PrivateType
+
+```csharp
+public PrivateType(string assemblyName, string typeName)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateType" data-throw-if-not-resolved="false"></xref> class that contains the private type.
+
+#### Parameters
+
+- **assemblyName** [string](https://learn.microsoft.com/dotnet/api/system.string): Assembly name
+- **typeName** [string](https://learn.microsoft.com/dotnet/api/system.string): fully qualified name of the
+
+### PrivateType
+
+```csharp
+public PrivateType(Type type)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.Breakdance.Assemblies.PrivateType" data-throw-if-not-resolved="false"></xref> class that contains
+the private type from the type object
+
+#### Parameters
+
+- **type** [Type](https://learn.microsoft.com/dotnet/api/system.type): The wrapped Type to create.
+
+
+## Properties
+
+### ReferencedType
+
+```csharp
+public Type ReferencedType { get; }
+```
+
+Gets the referenced type
+
+#### Returns
+
+[Type](https://learn.microsoft.com/dotnet/api/system.type)
+
+
+## Methods
+
+### GetStaticArrayElement
+
+```csharp
+public object GetStaticArrayElement(string name, BindingFlags bindingFlags, params int[] indices)
+```
+
+Gets the element in satatic array
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the array
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional InvokeHelper attributes
+- **indices** [int[]](https://learn.microsoft.com/dotnet/api/system.int32): A one-dimensional array of 32-bit integers that represent the indexes specifying
+the position of the element to get. For instance, to access a[10][11] the array would be {10,11}
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+element at the spcified location
+
+### GetStaticArrayElement
+
+```csharp
+public object GetStaticArrayElement(string name, params int[] indices)
+```
+
+Gets the element in static array
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the array
+- **indices** [int[]](https://learn.microsoft.com/dotnet/api/system.int32): A one-dimensional array of 32-bit integers that represent the indexes specifying
+the position of the element to get. For instance, to access a[10][11] the indices would be {10,11}
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+element at the specified location
+
+### GetStaticField
+
+```csharp
+public object GetStaticField(string name, BindingFlags bindingFlags)
+```
+
+Gets the static field using specified InvokeHelper attributes
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The static field.
+
+### GetStaticField
+
+```csharp
+public object GetStaticField(string name)
+```
+
+Gets the static field
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The static field.
+
+### GetStaticFieldOrProperty
+
+```csharp
+public object GetStaticFieldOrProperty(string name, BindingFlags bindingFlags)
+```
+
+Gets the static field or property using specified InvokeHelper attributes
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The static field or property.
+
+### GetStaticFieldOrProperty
+
+```csharp
+public object GetStaticFieldOrProperty(string name)
+```
+
+Gets the static field or property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The static field or property.
+
+### GetStaticProperty
+
+```csharp
+public object GetStaticProperty(string name, BindingFlags bindingFlags, params object[] args)
+```
+
+Gets the static property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The static property.
+
+### GetStaticProperty
+
+```csharp
+public object GetStaticProperty(string name, BindingFlags bindingFlags, Type[] parameterTypes, object[] args)
+```
+
+Gets the static property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes.
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the indexed property.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The static property.
+
+### GetStaticProperty
+
+```csharp
+public object GetStaticProperty(string name, params object[] args)
+```
+
+Gets the static property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invocation
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The static property.
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, BindingFlags bindingFlags, object[] args, CultureInfo culture)
+```
+
+Invokes the static method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invocation
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, BindingFlags bindingFlags, params object[] args)
+```
+
+Invokes the static method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invocation
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, BindingFlags bindingFlags, Type[] parameterTypes, object[] args, CultureInfo culture, Type[] typeArguments)
+```
+
+Invokes the static method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to invoke
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invocation
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture
+- **typeArguments** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of types corresponding to the types of the generic arguments.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, BindingFlags bindingFlags, Type[] parameterTypes, object[] args, CultureInfo culture)
+```
+
+Invokes the static method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to invoke
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invocation
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, BindingFlags bindingFlags, Type[] parameterTypes, object[] args)
+```
+
+Invokes the static method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to invoke
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invocation
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, object[] args, CultureInfo culture)
+```
+
+Invokes the static method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invocation
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, params object[] args)
+```
+
+Invokes static member
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member to InvokeHelper
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invoction
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, Type[] parameterTypes, object[] args, CultureInfo culture)
+```
+
+Invokes the static method
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to invoke
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invocation
+- **culture** [CultureInfo](https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo): Culture info
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, Type[] parameterTypes, object[] args, Type[] typeArguments)
+```
+
+Invokes static member
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member to InvokeHelper
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to invoke
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invoction
+- **typeArguments** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of types corresponding to the types of the generic arguments.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### InvokeStatic
+
+```csharp
+public object InvokeStatic(string name, Type[] parameterTypes, object[] args)
+```
+
+Invokes static member
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the member to InvokeHelper
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the method to invoke
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguements to the invoction
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+Result of invocation
+
+### SetStaticArrayElement
+
+```csharp
+public void SetStaticArrayElement(string name, BindingFlags bindingFlags, object value, params int[] indices)
+```
+
+Sets the memeber of the static array
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the array
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional InvokeHelper attributes
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+- **indices** [int[]](https://learn.microsoft.com/dotnet/api/system.int32): A one-dimensional array of 32-bit integers that represent the indexes specifying
+the position of the element to set. For instance, to access a[10][11] the array would be {10,11}
+
+### SetStaticArrayElement
+
+```csharp
+public void SetStaticArrayElement(string name, object value, params int[] indices)
+```
+
+Sets the memeber of the static array
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the array
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): value to set
+- **indices** [int[]](https://learn.microsoft.com/dotnet/api/system.int32): A one-dimensional array of 32-bit integers that represent the indexes specifying
+the position of the element to set. For instance, to access a[10][11] the array would be {10,11}
+
+### SetStaticField
+
+```csharp
+public void SetStaticField(string name, BindingFlags bindingFlags, object value)
+```
+
+Sets the static field using binding attributes
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional InvokeHelper attributes
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Arguement to the invocation
+
+### SetStaticField
+
+```csharp
+public void SetStaticField(string name, object value)
+```
+
+Sets the static field
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Arguement to the invocation
+
+### SetStaticFieldOrProperty
+
+```csharp
+public void SetStaticFieldOrProperty(string name, BindingFlags bindingFlags, object value)
+```
+
+Sets the static field or property using binding attributes
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Value to be set to field or property
+
+### SetStaticFieldOrProperty
+
+```csharp
+public void SetStaticFieldOrProperty(string name, object value)
+```
+
+Sets the static field or property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the field or property
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Value to be set to field or property
+
+### SetStaticProperty
+
+```csharp
+public void SetStaticProperty(string name, BindingFlags bindingFlags, object value, params object[] args)
+```
+
+Sets the static property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes.
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Value to be set to field or property
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Optional index values for indexed properties. The indexes of indexed properties are zero-based. This value should be null for non-indexed properties.
+
+### SetStaticProperty
+
+```csharp
+public void SetStaticProperty(string name, BindingFlags bindingFlags, object value, Type[] parameterTypes, object[] args)
+```
+
+Sets the static property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **bindingFlags** [BindingFlags](https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags): Additional invocation attributes.
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Value to be set to field or property
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the indexed property.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+### SetStaticProperty
+
+```csharp
+public void SetStaticProperty(string name, object value, params object[] args)
+```
+
+Sets the static property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Value to be set to field or property
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+### SetStaticProperty
+
+```csharp
+public void SetStaticProperty(string name, object value, Type[] parameterTypes, object[] args)
+```
+
+Sets the static property
+
+#### Parameters
+
+- **name** [string](https://learn.microsoft.com/dotnet/api/system.string): Name of the property
+- **value** [object](https://learn.microsoft.com/dotnet/api/system.object): Value to be set to field or property
+- **parameterTypes** [Type[]](https://learn.microsoft.com/dotnet/api/system.type): An array of <xref href="System.Type" data-throw-if-not-resolved="false"></xref> objects representing the number, order, and type of the parameters for the indexed property.
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): Arguments to pass to the member to invoke.
+
+
+## Remarks
+
+This type originally lived in Microsoft.VisualStudio.TestTools.UnitTesting but was removed from V2.
+

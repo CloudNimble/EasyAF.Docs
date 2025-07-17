@@ -1,0 +1,71 @@
+---
+title: "IIdentifiableEqualityComparer<T>"
+description: "Provides an equality comparer for objects that implement <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# IIdentifiableEqualityComparer&lt;T&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Provides an equality comparer for objects that implement <xref href="CloudNimble.EasyAF.Core.IIdentifiable%601" data-throw-if-not-resolved="false"></xref>.
+Compares objects based on their Id property values for equality and hash code generation.
+
+## Syntax
+
+```csharp
+public class IIdentifiableEqualityComparer<T> : IEqualityComparer<IIdentifiable<T>> where T : struct
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IEqualityComparer&lt;IIdentifiable&lt;T&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1)
+
+## Methods
+
+### Equals
+
+```csharp
+public bool Equals(IIdentifiable<T> x, IIdentifiable<T> y)
+```
+
+Determines whether the specified <xref href="CloudNimble.EasyAF.Core.IIdentifiable%601" data-throw-if-not-resolved="false"></xref> objects are equal by comparing their Id properties.
+
+#### Parameters
+
+- **x** [IIdentifiable&lt;T&gt;](CloudNimble.EasyAF.Core.IIdentifiable-1.html): The first object to compare.
+- **y** [IIdentifiable&lt;T&gt;](CloudNimble.EasyAF.Core.IIdentifiable-1.html): The second object to compare.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+True if the objects are equal (including both being null), false otherwise.
+
+### GetHashCode
+
+```csharp
+public int GetHashCode(IIdentifiable<T> obj)
+```
+
+Returns a hash code for the specified <xref href="CloudNimble.EasyAF.Core.IIdentifiable%601" data-throw-if-not-resolved="false"></xref> object based on its Id property.
+
+#### Parameters
+
+- **obj** [IIdentifiable&lt;T&gt;](CloudNimble.EasyAF.Core.IIdentifiable-1.html): The object for which to get a hash code.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+A hash code for the specified object.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown when obj is null.
+
+

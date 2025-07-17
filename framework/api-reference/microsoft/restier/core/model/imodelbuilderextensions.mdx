@@ -1,0 +1,64 @@
+---
+title: "IModelBuilderExtensions"
+description: "Provides extension methods for Restier model configuration to handle EasyAF-specific entity properties."
+icon: "cube"
+---
+
+# IModelBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Provides extension methods for Restier model configuration to handle EasyAF-specific entity properties.
+Includes methods to ignore tracking fields and audit fields in OData model generation.
+
+## Syntax
+
+```csharp
+public static class IModelBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### IgnoreAuditFields&lt;T&gt;
+
+```csharp
+public static EntitySetConfiguration<T> IgnoreAuditFields<T>(this EntitySetConfiguration<T> configuration) where T : EasyObservableObject
+```
+
+Configures the entity set to ignore audit trail fields in the OData model.
+Dynamically removes DateCreated, DateUpdated, CreatedById, and UpdatedById properties based on implemented interfaces.
+
+#### Parameters
+
+- **configuration** [EntitySetConfiguration&lt;T&gt;](https://learn.microsoft.com/dotnet/api/microsoft.aspnet.odata.builder.entitysetconfiguration-1): The entity set configuration to modify.
+
+#### Returns
+
+[EntitySetConfiguration&lt;T&gt;](https://learn.microsoft.com/dotnet/api/microsoft.aspnet.odata.builder.entitysetconfiguration-1)
+
+The entity set configuration for method chaining.
+
+### IgnoreTrackingFields&lt;T&gt;
+
+```csharp
+public static EntitySetConfiguration<T> IgnoreTrackingFields<T>(this EntitySetConfiguration<T> configuration) where T : DbObservableObject
+```
+
+Configures the entity set to ignore DbObservableObject tracking fields in the OData model.
+Excludes IsChanged, IsGraphChanged, ShouldTrackChanges, and OriginalValues from the model.
+
+#### Parameters
+
+- **configuration** [EntitySetConfiguration&lt;T&gt;](https://learn.microsoft.com/dotnet/api/microsoft.aspnet.odata.builder.entitysetconfiguration-1): The entity set configuration to modify.
+
+#### Returns
+
+[EntitySetConfiguration&lt;T&gt;](https://learn.microsoft.com/dotnet/api/microsoft.aspnet.odata.builder.entitysetconfiguration-1)
+
+The entity set configuration for method chaining.
+
+

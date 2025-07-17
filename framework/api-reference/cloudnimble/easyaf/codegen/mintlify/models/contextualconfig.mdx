@@ -1,0 +1,43 @@
+---
+title: "ContextualConfig"
+description: "Represents the contextual options configuration for the Mintlify documentation site."
+icon: "cube"
+---
+
+# ContextualConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the contextual options configuration for the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class ContextualConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Options
+
+```csharp
+[JsonPropertyName("options")]
+public List<string> Options { get; set; }
+```
+
+Gets or sets the list of contextual options to enable.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+
+## Remarks
+
+This configuration controls the contextual options that appear in the documentation,
+such as copy buttons, view source links, and AI assistant integrations.
+

@@ -1,0 +1,61 @@
+---
+title: "DocFxMetadata"
+description: "Represents the complete DocFX metadata structure."
+icon: "cube"
+---
+
+# DocFxMetadata
+
+<Badge variant="outline">Class</Badge>
+
+Represents the complete DocFX metadata structure.
+
+## Syntax
+
+```csharp
+public class DocFxMetadata
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Items
+
+```csharp
+public Dictionary<string, DocFxApiItem> Items { get; set; }
+```
+
+Gets or sets all API items indexed by UID.
+
+#### Returns
+
+[Dictionary&lt;string, DocFxApiItem&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### References
+
+```csharp
+public Dictionary<string, DocFxReference> References { get; set; }
+```
+
+Gets or sets all references indexed by UID.
+
+#### Returns
+
+[Dictionary&lt;string, DocFxReference&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### TableOfContents
+
+```csharp
+public List<DocFxTocItem> TableOfContents { get; set; }
+```
+
+Gets or sets the table of contents structure.
+
+#### Returns
+
+[List&lt;DocFxTocItem&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

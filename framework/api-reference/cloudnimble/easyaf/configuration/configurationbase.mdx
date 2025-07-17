@@ -1,0 +1,95 @@
+---
+title: "ConfigurationBase"
+description: "A base class implementation of the configuration your Blazor app will pull from wwwroot/appsettings."
+icon: "cube"
+---
+
+# ConfigurationBase
+
+<Badge variant="outline">Class</Badge>
+
+A base class implementation of the configuration your Blazor app will pull from wwwroot/appsettings.json.
+Provides standard HttpClient configuration for API and application endpoints.
+
+## Syntax
+
+```csharp
+public class ConfigurationBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### ApiClientName
+
+```csharp
+public string ApiClientName { get; set; }
+```
+
+The name of the HttpClient that will be used to hit the app's Public API.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ApiRoot
+
+```csharp
+[HttpEndpoint("ApiClientName")]
+public string ApiRoot { get; set; }
+```
+
+The root of the API that your Blazor app will call.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### AppClientName
+
+```csharp
+public string AppClientName { get; set; }
+```
+
+The name of the HttpClient that will be used to hit the Blazor App's Controllers.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### AppRoot
+
+```csharp
+[HttpEndpoint("AppClientName")]
+public string AppRoot { get; set; }
+```
+
+The website your Blazor app is being served from.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### HttpHandlerMode
+
+```csharp
+public HttpHandlerMode HttpHandlerMode { get; set; }
+```
+
+Determines how HttpClient message handlers are configured when registering HTTP clients.
+Controls whether handlers are added to existing handlers or replace them entirely.
+
+#### Returns
+
+[HttpHandlerMode](/api-reference/cloudnimble/easyaf/core/httphandlermode)
+
+
+## Remarks
+
+This configuration class is typically used for customer-facing applications that need to communicate
+with external APIs and handle application-level HTTP requests. For administrative applications,
+consider using <xref href="CloudNimble.EasyAF.Configuration.ConfigurationPlusAdminBase" data-throw-if-not-resolved="false"></xref> instead.
+

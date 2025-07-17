@@ -1,0 +1,56 @@
+---
+title: "NavbarConfig"
+description: "Represents the navigation bar configuration for the Mintlify documentation site."
+icon: "cube"
+---
+
+# NavbarConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the navigation bar configuration for the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class NavbarConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Links
+
+```csharp
+[JsonPropertyName("links")]
+public List<NavbarLink> Links { get; set; }
+```
+
+Gets or sets the list of navigation links to display in the navbar.
+
+#### Returns
+
+[List&lt;NavbarLink&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Primary
+
+```csharp
+[JsonPropertyName("primary")]
+public object Primary { get; set; }
+```
+
+Gets or sets the primary call-to-action configuration in the navbar.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+
+## Remarks
+
+This configuration controls the content and appearance of the top navigation bar,
+including custom links and primary call-to-action buttons.
+

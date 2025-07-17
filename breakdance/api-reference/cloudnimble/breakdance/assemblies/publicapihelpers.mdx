@@ -1,0 +1,64 @@
+---
+title: "PublicApiHelpers"
+description: ""
+icon: "cube"
+---
+
+# PublicApiHelpers
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class PublicApiHelpers
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### PublicApiHelpers
+
+```csharp
+public PublicApiHelpers()
+```
+
+
+## Methods
+
+### GetPublicApiSurfaceReport
+
+```csharp
+public static string GetPublicApiSurfaceReport(string assemblyName)
+```
+
+#### Parameters
+
+- **assemblyName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### GetPublicApiSurfaceReport
+
+```csharp
+public static Dictionary<string, string> GetPublicApiSurfaceReport(string[] assemblyList)
+```
+
+#### Parameters
+
+- **assemblyList** [string[]](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[Dictionary&lt;string, string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+
+## Remarks
+
+This type originally lived in Microsoft.VisualStudio.TestTools.UnitTesting but was removed from V2.
+

@@ -1,0 +1,576 @@
+---
+title: "EntityManager<TContext, TEntity>"
+description: "Provides a base class for entity-specific business logic managers with built-in CRUD operations, audit trail support, and lifecycle event hooks."
+icon: "cube"
+---
+
+# EntityManager&lt;TContext, TEntity&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Provides a base class for entity-specific business logic managers with built-in CRUD operations,
+audit trail support, and lifecycle event hooks. Handles common entity operations and automatically
+manages audit fields for entities that implement auditing interfaces.
+
+## Syntax
+
+```csharp
+public abstract class EntityManager<TContext, TEntity> : ManagerBase<TContext> where TContext : DbContext where TEntity : class
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ManagerBase&lt;TContext&gt;](CloudNimble.EasyAF.Business.ManagerBase-1.html)
+
+## Constructors
+
+### EntityManager
+
+```csharp
+public EntityManager(TContext dataContext, IMessagePublisher messagePublisher)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Business.EntityManager%602" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **dataContext** ``TContext``: The database context instance for data operations. Should be injected by the DI container.
+- **messagePublisher** ``IMessagePublisher``: The message publisher instance for publishing events. Should be injected by the DI container.
+
+
+## Methods
+
+### DeleteAsync
+
+```csharp
+public Task<bool> DeleteAsync(List<TEntity> entities, bool save = true)
+```
+
+Delete all <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref> from a list with optional save operation.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### DeleteAsync
+
+```csharp
+public Task<bool> DeleteAsync(List<TEntity> entities, TContext context, bool save = true)
+```
+
+Delete all <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref> from a list with optional save operation using a specified <xref href="System.Data.Entity.DbContext" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **context** ``TContext``: 
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### DeleteAsync
+
+```csharp
+public Task<bool> DeleteAsync(TEntity entity, bool save = true)
+```
+
+Delete a specific <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref> with optional save operation.
+
+#### Parameters
+
+- **entity** ``TEntity``: 
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### DeleteAsync
+
+```csharp
+public Task<bool> DeleteAsync(TEntity entity, TContext context, bool save = true)
+```
+
+Delete a specific <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref> with optional save operation using a specified <xref href="System.Data.Entity.DbContext" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **entity** ``TEntity``: 
+- **context** ``TContext``: 
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### DirectDelete
+
+```csharp
+public int DirectDelete(Expression<Func<TEntity, bool>> predicate)
+```
+
+Delete entities returned by the specified query without individual entity processing.
+
+#### Parameters
+
+- **predicate** [Expression&lt;Func&lt;TEntity, bool&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An <xref href="System.Linq.Expressions.Expression%601" data-throw-if-not-resolved="false"></xref> to execute against the <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref>
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### DirectDeleteAsync
+
+```csharp
+public Task<int> DirectDeleteAsync(Expression<Func<TEntity, bool>> predicate)
+```
+
+Delete entities returned by the specified query without individual entity processing.
+
+#### Parameters
+
+- **predicate** [Expression&lt;Func&lt;TEntity, bool&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An <xref href="System.Linq.Expressions.Expression%601" data-throw-if-not-resolved="false"></xref> to execute against the <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref>
+
+#### Returns
+
+[Task&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### DirectUpdate
+
+```csharp
+public int DirectUpdate(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, TEntity>> updateExpression)
+```
+
+Executes a direct UPDATE query on the database without returning objects or processing them through the interceptors.
+
+#### Parameters
+
+- **predicate** [Expression&lt;Func&lt;TEntity, bool&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An <xref href="System.Linq.Expressions.Expression%601" data-throw-if-not-resolved="false"></xref> to execute against the <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref>
+- **updateExpression** [Expression&lt;Func&lt;TEntity, TEntity&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An <xref href="System.Linq.Expressions.Expression%601" data-throw-if-not-resolved="false"></xref> defining the updates to be performed on the records returned by the predicate.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### DirectUpdateAsync
+
+```csharp
+public Task<int> DirectUpdateAsync(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, TEntity>> updateExpression)
+```
+
+Executes a direct UPDATE query on the database without returning objects or processing them through the interceptors.
+
+#### Parameters
+
+- **predicate** [Expression&lt;Func&lt;TEntity, bool&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An <xref href="System.Linq.Expressions.Expression%601" data-throw-if-not-resolved="false"></xref> to execute against the <xref href="System.Data.Entity.DbSet%601" data-throw-if-not-resolved="false"></xref>
+- **updateExpression** [Expression&lt;Func&lt;TEntity, TEntity&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1): An <xref href="System.Linq.Expressions.Expression%601" data-throw-if-not-resolved="false"></xref> defining the updates to be performed on the records returned by the predicate.
+
+#### Returns
+
+[Task&lt;int&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+### InsertAsync
+
+```csharp
+public Task<bool> InsertAsync(List<TEntity> entities, bool save = true)
+```
+
+Inserts a collection of entities into the database with optional save operation.
+Executes the OnInsertingAsync and OnInsertedAsync lifecycle hooks for each entity.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities to be inserted.
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to immediately save changes to the database. Defaults to true.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the entities were successfully inserted; otherwise, false.
+
+### InsertAsync
+
+```csharp
+public Task<bool> InsertAsync(List<TEntity> entities, TContext context, bool save = true)
+```
+
+Inserts a collection of entities into the database using a specified context with optional save operation.
+Executes the OnInsertingAsync and OnInsertedAsync lifecycle hooks for each entity.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities to be inserted.
+- **context** ``TContext``: The database context to use for the operation.
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to immediately save changes to the database. Defaults to true.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the entities were successfully inserted; otherwise, false.
+
+### InsertAsync
+
+```csharp
+public Task<bool> InsertAsync(TEntity entity, bool save = true)
+```
+
+Inserts a single entity into the database with optional save operation.
+Executes the OnInsertingAsync and OnInsertedAsync lifecycle hooks.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity to be inserted.
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to immediately save changes to the database. Defaults to true.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the entity was successfully inserted; otherwise, false.
+
+### InsertAsync
+
+```csharp
+public Task<bool> InsertAsync(TEntity entity, TContext context, bool save = true)
+```
+
+Inserts a single entity into the database using a specified context with optional save operation.
+Executes the OnInsertingAsync and OnInsertedAsync lifecycle hooks.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity to be inserted.
+- **context** ``TContext``: The database context to use for the operation.
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to immediately save changes to the database. Defaults to true.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the entity was successfully inserted; otherwise, false.
+
+### OnDeletedAsync
+
+```csharp
+public virtual Task OnDeletedAsync(List<TEntity> entities)
+```
+
+Called after successfully deleting a collection of entities from the database.
+Applies OnDeletedAsync logic to each entity in the collection.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities that were deleted.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnDeletedAsync
+
+```csharp
+public virtual Task<bool> OnDeletedAsync(TEntity entity)
+```
+
+Called after successfully deleting an entity from the database. Use this method for post-deletion
+business logic such as cleanup operations, sending notifications, or triggering external systems.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity that was deleted.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if post-deletion processing was successful; otherwise, false.
+
+### OnDeletingAsync
+
+```csharp
+public virtual Task OnDeletingAsync(List<TEntity> entities)
+```
+
+Called before deleting a collection of entities from the database.
+Applies OnDeletingAsync logic to each entity in the collection.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities to be deleted.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnDeletingAsync
+
+```csharp
+public virtual Task OnDeletingAsync(TEntity entity)
+```
+
+Called before deleting an entity from the database. Override this method to add
+custom business logic or validation before deletion.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity to be deleted.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnInsertedAsync
+
+```csharp
+public virtual Task OnInsertedAsync(List<TEntity> entities)
+```
+
+Called after successfully inserting a collection of entities into the database.
+Applies OnInsertedAsync logic to each entity in the collection.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities that were inserted.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnInsertedAsync
+
+```csharp
+public virtual Task<bool> OnInsertedAsync(TEntity entity)
+```
+
+Called after successfully inserting an entity into the database. Use this method for post-insertion
+business logic such as sending notifications, publishing events, or triggering external systems.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity that was inserted.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if post-insertion processing was successful; otherwise, false.
+
+### OnInsertingAsync
+
+```csharp
+public Task OnInsertingAsync(List<TEntity> entities)
+```
+
+Called before inserting a collection of entities into the database.
+Applies OnInsertingAsync logic to each entity in the collection.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities to be inserted.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnInsertingAsync
+
+```csharp
+public virtual Task OnInsertingAsync(TEntity entity)
+```
+
+Called before inserting an entity into the database. Automatically handles audit field population
+and user tracking for entities implementing the appropriate interfaces.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity to be inserted.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnUpdatedAsync
+
+```csharp
+public virtual Task OnUpdatedAsync(List<TEntity> entities)
+```
+
+Called after successfully updating a collection of entities in the database.
+Applies OnUpdatedAsync logic to each entity in the collection.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities that were updated.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnUpdatedAsync
+
+```csharp
+public virtual Task<bool> OnUpdatedAsync(TEntity entity)
+```
+
+Called after successfully updating an entity in the database. Use this method for post-update
+business logic such as sending notifications, publishing events, or triggering external systems.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity that was updated.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if post-update processing was successful; otherwise, false.
+
+### OnUpdatingAsync
+
+```csharp
+public virtual Task OnUpdatingAsync(List<TEntity> entities)
+```
+
+Called before updating a collection of entities in the database.
+Applies OnUpdatingAsync logic to each entity in the collection.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities to be updated.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### OnUpdatingAsync
+
+```csharp
+public virtual Task OnUpdatingAsync(TEntity entity)
+```
+
+Called before updating an entity in the database. Automatically handles audit field population
+and user tracking for entities implementing the appropriate interfaces.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity to be updated.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+### ResetAuditProperties&lt;TDbObservable&gt;
+
+```csharp
+public void ResetAuditProperties<TDbObservable>(TDbObservable entity) where TDbObservable : DbObservableObject
+```
+
+Resets audit properties to an "Inserted" state by setting creation fields and clearing update fields.
+Sets CreatedById and DateCreated to current values, while clearing UpdatedById and DateUpdated.
+
+#### Parameters
+
+- **entity** ``TDbObservable``: The entity whose audit properties should be reset.
+
+### UpdateAsync
+
+```csharp
+public Task<bool> UpdateAsync(List<TEntity> entities, bool save = true)
+```
+
+Updates a collection of entities in the database with optional save operation.
+Executes the OnUpdatingAsync and OnUpdatedAsync lifecycle hooks for each entity.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities to be updated.
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to immediately save changes to the database. Defaults to true.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the entities were successfully updated; otherwise, false.
+
+### UpdateAsync
+
+```csharp
+public Task<bool> UpdateAsync(List<TEntity> entities, TContext context, bool save = true)
+```
+
+Updates a collection of entities in the database using a specified context with optional save operation.
+Executes the OnUpdatingAsync and OnUpdatedAsync lifecycle hooks for each entity.
+
+#### Parameters
+
+- **entities** [List&lt;TEntity&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The collection of entities to be updated.
+- **context** ``TContext``: The database context to use for the operation.
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to immediately save changes to the database. Defaults to true.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the entities were successfully updated; otherwise, false.
+
+### UpdateAsync
+
+```csharp
+public Task<bool> UpdateAsync(TEntity entity, bool save = true)
+```
+
+Updates a single entity in the database with optional save operation.
+Executes the OnUpdatingAsync and OnUpdatedAsync lifecycle hooks.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity to be updated.
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to immediately save changes to the database. Defaults to true.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the entity was successfully updated; otherwise, false.
+
+### UpdateAsync
+
+```csharp
+public Task<bool> UpdateAsync(TEntity entity, TContext context, bool save = true)
+```
+
+Updates a single entity in the database using a specified context with optional save operation.
+Executes the OnUpdatingAsync and OnUpdatedAsync lifecycle hooks.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity to be updated.
+- **context** ``TContext``: The database context to use for the operation.
+- **save** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether to immediately save changes to the database. Defaults to true.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the entity was successfully updated; otherwise, false.
+
+
+## Remarks
+
+This manager provides comprehensive entity lifecycle management including:
+- Automatic audit trail creation for entities implementing <xref href="CloudNimble.EasyAF.Core.ICreatedAuditable" data-throw-if-not-resolved="false"></xref>, <xref href="CloudNimble.EasyAF.Core.IUpdatedAuditable" data-throw-if-not-resolved="false"></xref>
+- User tracking for entities implementing <xref href="CloudNimble.EasyAF.Core.ICreatorTrackable%601" data-throw-if-not-resolved="false"></xref>, <xref href="CloudNimble.EasyAF.Core.IUpdaterTrackable%601" data-throw-if-not-resolved="false"></xref>
+- Virtual hooks for custom business logic before and after CRUD operations
+- Batch operations support for improved performance
+- Thread-safe interface caching for performance optimization
+

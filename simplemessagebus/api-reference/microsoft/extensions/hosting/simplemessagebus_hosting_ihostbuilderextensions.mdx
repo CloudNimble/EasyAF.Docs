@@ -1,0 +1,49 @@
+---
+title: "SimpleMessageBus_Hosting_IHostBuilderExtensions"
+description: "A set of <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# SimpleMessageBus_Hosting_IHostBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+A set of <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> extension methods that make it easy to register SimpleMessageBus with a DI container.
+
+## Syntax
+
+```csharp
+public static class SimpleMessageBus_Hosting_IHostBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### UseSimpleMessageBusLifetime
+
+```csharp
+public static IHostBuilder UseSimpleMessageBusLifetime(this IHostBuilder builder)
+```
+
+Configures SimpleMessageBus to use either the <xref href="Microsoft.Extensions.Hosting.WindowsServices.WindowsServiceLifetime" data-throw-if-not-resolved="false"></xref> or the <xref href="Microsoft.Extensions.Hosting.Internal.ConsoleLifetime" data-throw-if-not-resolved="false"></xref> depending on the currently-running context.
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance being configured, for fluent interaction.
+
+
+## Remarks
+
+These extensions provide hosting utilities for SimpleMessageBus applications, particularly for scenarios
+where the application needs to run as either a Windows Service or a console application depending on
+the execution context.
+

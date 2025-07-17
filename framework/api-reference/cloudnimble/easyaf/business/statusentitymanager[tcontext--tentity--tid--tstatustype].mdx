@@ -1,0 +1,93 @@
+---
+title: "StatusEntityManager<TContext, TEntity, TId, TStatusType>"
+description: "A Manager inheriting from <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# StatusEntityManager&lt;TContext, TEntity, TId, TStatusType&gt;
+
+<Badge variant="outline">Class</Badge>
+
+A Manager inheriting from <xref href="CloudNimble.EasyAF.Business.IdentifiableEntityManager%603" data-throw-if-not-resolved="false"></xref> that contains reusable logic for updating a <code class="typeparamref">TEntity</code>'s current Status.
+
+## Syntax
+
+```csharp
+public abstract class StatusEntityManager<TContext, TEntity, TId, TStatusType> : IdentifiableEntityManager<TContext, TEntity, TId> where TContext : DbContext where TEntity : class, IIdentifiable<TId>, IHasStatus<TStatusType> where TId : struct where TStatusType : class, IDbStatusEnum
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ManagerBase&lt;TContext&gt;](CloudNimble.EasyAF.Business.ManagerBase-1.html)
+    - [EntityManager&lt;TContext, TEntity&gt;](CloudNimble.EasyAF.Business.EntityManager-2.html)
+      - [IdentifiableEntityManager&lt;TContext, TEntity, TId&gt;](CloudNimble.EasyAF.Business.IdentifiableEntityManager-3.html)
+
+## Constructors
+
+### StatusEntityManager
+
+```csharp
+protected StatusEntityManager(TContext dataContext, IMessagePublisher messagePublisher)
+```
+
+Initializes a new instance of the StatusEntityManager class.
+
+#### Parameters
+
+- **dataContext** ``TContext``: The <xref href="System.Data.Entity.DbContext" data-throw-if-not-resolved="false"></xref> instance to use for the database connection. Should be injected by the DI container.
+- **messagePublisher** ``IMessagePublisher``: The SimpleMessageBus <xref href="CloudNimble.SimpleMessageBus.Publish.IMessagePublisher" data-throw-if-not-resolved="false"></xref> instance to use to publish Messages to a Queue. Should be injected by the DI container.
+
+
+## Properties
+
+### StatusTypes
+
+```csharp
+public List<TStatusType> StatusTypes { get; }
+```
+
+Gets the collection of active status types available for entities managed by this manager.
+This collection is populated during initialization from the database.
+
+#### Returns
+
+[List&lt;TStatusType&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+
+## Methods
+
+### Initialize
+
+```csharp
+public virtual void Initialize()
+```
+
+Initializes the StatusTypes collection by loading active status types from the database.
+This method is called automatically by status update methods if the collection is empty.
+
+### UpdateStatusAsync
+
+```csharp
+public Task<bool> UpdateStatusAsync(TEntity entity, int sortOrder)
+```
+
+Updates the entity's status to the status type with the specified sort order.
+Logs the status transition for tracking purposes.
+
+#### Parameters
+
+- **entity** ``TEntity``: The entity to update.
+- **sortOrder** [int](https://learn.microsoft.com/dotnet/api/system.int32): The sort order of the target status type.
+
+#### Returns
+
+[Task&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+True if the status was successfully updated; otherwise, false.
+
+#### Exceptions
+
+- `[Exception](https://learn.microsoft.com/dotnet/api/system.exception)`: Thrown when no status type is found with the specified sort order.
+
+

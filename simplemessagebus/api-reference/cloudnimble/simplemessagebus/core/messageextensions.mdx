@@ -1,0 +1,77 @@
+---
+title: "MessageExtensions"
+description: "Extension methods for IMessage operations."
+icon: "cube"
+---
+
+# MessageExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Extension methods for IMessage operations.
+
+## Syntax
+
+```csharp
+public static class MessageExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### CreateChild&lt;TChild&gt;
+
+```csharp
+public static TChild CreateChild<TChild>(this IMessage parent) where TChild : MessageBase, new()
+```
+
+Creates a child message that inherits metadata and correlation from the parent.
+
+#### Parameters
+
+- **parent** [IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage): The parent message.
+
+#### Returns
+
+``TChild``
+
+A new child message with inherited metadata and correlation.
+
+### LastRunSucceeded
+
+```csharp
+public static bool LastRunSucceeded(this IMessage message, string handlerTypeName = null)
+```
+
+Checks if the current handler has already successfully processed this message.
+This enables idempotent message processing.
+
+#### Parameters
+
+- **message** [IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage): The message to check.
+- **handlerTypeName** [string](https://learn.microsoft.com/dotnet/api/system.string): The handler type name. If not provided, attempts to detect from call stack.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+<code>true</code> if this handler already ran successfully; otherwise, <code>false</code>.
+
+### UpdateResult
+
+```csharp
+public static void UpdateResult(this IMessage message, bool status, string handlerTypeName = null)
+```
+
+Updates the execution status for the current handler.
+
+#### Parameters
+
+- **message** [IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage): The message to update.
+- **status** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): The execution status to record.
+- **handlerTypeName** [string](https://learn.microsoft.com/dotnet/api/system.string): The handler type name. If not provided, attempts to detect from call stack.
+
+

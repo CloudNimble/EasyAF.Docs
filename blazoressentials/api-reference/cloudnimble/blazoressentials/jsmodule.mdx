@@ -1,0 +1,142 @@
+---
+title: "JsModule"
+description: "A wrapper that makes it easier to dynamically import JavaScript modules in Blazor."
+icon: "cube"
+---
+
+# JsModule
+
+<Badge variant="outline">Class</Badge>
+
+A wrapper that makes it easier to dynamically import JavaScript modules in Blazor. Can be used as the foundation 
+to build strongly-typed .NET wrappers around JavaScript libraries.
+
+## Syntax
+
+```csharp
+public class JsModule : IJSObjectReference, IAsyncDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IJSObjectReference](https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsobjectreference)
+- [IAsyncDisposable](https://learn.microsoft.com/dotnet/api/system.iasyncdisposable)
+
+## Constructors
+
+### JsModule
+
+```csharp
+public JsModule(IJSRuntime jsRuntime, string packageName, string modulePath)
+```
+
+Creates a new instance of the <xref href="CloudNimble.BlazorEssentials.JsModule" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **jsRuntime** [IJSRuntime](https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime): The <xref href="Microsoft.JSInterop.IJSRuntime" data-throw-if-not-resolved="false"></xref> instance that was likely injected by the ViewModel / Page / Control this module is 
+being used in.
+- **packageName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **modulePath** [string](https://learn.microsoft.com/dotnet/api/system.string): The path to the file, usually from the 'wwwroot' folder in the base of the project.
+
+### JsModule
+
+```csharp
+public JsModule(IJSRuntime jsRuntime, string modulePath = "")
+```
+
+Creates a new instance of the <xref href="CloudNimble.BlazorEssentials.JsModule" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **jsRuntime** [IJSRuntime](https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime): The <xref href="Microsoft.JSInterop.IJSRuntime" data-throw-if-not-resolved="false"></xref> instance that was likely injected by the ViewModel / Page / Control this module is 
+being used in.
+- **modulePath** [string](https://learn.microsoft.com/dotnet/api/system.string): The full path to the JS file to wrap. Should usually be in the format "../content/{packageName}/{pathFromWwwRoot}.js".
+
+
+## Properties
+
+### Instance
+
+```csharp
+public Lazy<Task<IJSObjectReference>> Instance { get; }
+```
+
+Returns a <xref href="System.Lazy%601" data-throw-if-not-resolved="false"></xref> reference to the <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> of importing the module through
+<xref href="Microsoft.JSInterop.IJSRuntime" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[Lazy&lt;Task&lt;IJSObjectReference&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.lazy-1)
+
+
+## Methods
+
+### DisposeAsync
+
+```csharp
+public ValueTask DisposeAsync()
+```
+
+Disposes of
+
+#### Returns
+
+[ValueTask](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask)
+
+### InvokeAsync&lt;TValue&gt;
+
+```csharp
+public ValueTask<TValue> InvokeAsync<TValue>(string identifier, CancellationToken cancellationToken, object?[]? args = null)
+```
+
+#### Parameters
+
+- **identifier** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **cancellationToken** [CancellationToken](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken): 
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[ValueTask&lt;TValue&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1)
+
+### InvokeAsync&lt;TValue&gt;
+
+```csharp
+public ValueTask<TValue> InvokeAsync<TValue>(string identifier, object?[]? args = null)
+```
+
+#### Parameters
+
+- **identifier** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[ValueTask&lt;TValue&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1)
+
+### InvokeAsync&lt;TValue&gt;
+
+```csharp
+public ValueTask<TValue> InvokeAsync<TValue>(string identifier, TimeSpan timeout, object?[]? args = null)
+```
+
+#### Parameters
+
+- **identifier** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **timeout** [TimeSpan](https://learn.microsoft.com/dotnet/api/system.timespan): 
+- **args** [object[]](https://learn.microsoft.com/dotnet/api/system.object): 
+
+#### Returns
+
+[ValueTask&lt;TValue&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1)
+
+
+## Remarks
+
+I built this because trying to remember the same pattern for importing JS modules in Blazor was driving me nuts.
+

@@ -1,0 +1,96 @@
+---
+title: "ActionButton"
+description: "Defines a button that can be used to trigger an action in a User Interface."
+icon: "cube"
+---
+
+# ActionButton
+
+<Badge variant="outline">Class</Badge>
+
+Defines a button that can be used to trigger an action in a User Interface. Useful for binding aq group of actions programmatically.
+
+## Syntax
+
+```csharp
+public class ActionButton : ActionButtonBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [InterfaceElement](/api-reference/cloudnimble/blazoressentials/interfaceelement)
+    - [ActionButtonBase](/api-reference/cloudnimble/blazoressentials/navigation/actionbuttonbase)
+
+## Constructors
+
+### ActionButton
+
+```csharp
+public ActionButton()
+```
+
+### ActionButton
+
+```csharp
+public ActionButton(string iconClass, string tooltip, Action actionMethod = null, Func<bool> isDisabledFunc = null)
+```
+
+Creates a new <xref href="CloudNimble.BlazorEssentials.Navigation.ActionButton" data-throw-if-not-resolved="false"></xref> instance specifically for icon-only buttons, usually in the header or footer.
+
+#### Parameters
+
+- **iconClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **tooltip** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **actionMethod** [Action](https://learn.microsoft.com/dotnet/api/system.action): 
+- **isDisabledFunc** [Func&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-1): 
+
+### ActionButton
+
+```csharp
+public ActionButton(string buttonText, string buttonClass, string iconClass, Action actionMethod = null, Func<bool> isDisabledFunc = null, string tooltip = null, string tooltipContainer = "body")
+```
+
+#### Parameters
+
+- **buttonText** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **buttonClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **iconClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **actionMethod** [Action](https://learn.microsoft.com/dotnet/api/system.action): 
+- **isDisabledFunc** [Func&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-1): 
+- **tooltip** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **tooltipContainer** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+### ActionButton
+
+```csharp
+public ActionButton(string buttonText, string buttonClass, string iconClass, string popoverName, string popoverHeader, string popoverPlacement, Func<bool> isDisabledFunc = null, List<ActionButton> children = null)
+```
+
+#### Parameters
+
+- **buttonText** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **buttonClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **iconClass** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **popoverName** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **popoverHeader** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **popoverPlacement** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **isDisabledFunc** [Func&lt;bool&gt;](https://learn.microsoft.com/dotnet/api/system.func-1): 
+- **children** [List&lt;ActionButton&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+
+
+## Properties
+
+### ActionMethod
+
+```csharp
+public Action ActionMethod { get; set; }
+```
+
+A lambda expression that will be executed when the button is clicked.
+
+#### Returns
+
+[Action](https://learn.microsoft.com/dotnet/api/system.action)
+
+

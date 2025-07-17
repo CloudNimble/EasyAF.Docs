@@ -1,0 +1,74 @@
+---
+title: "ManagerBase<TContext>"
+description: "Represents the base class for all EasyAF business logic managers."
+icon: "cube"
+---
+
+# ManagerBase&lt;TContext&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Represents the base class for all EasyAF business logic managers. Provides access to a database context
+and message publishing capabilities for implementing business operations and workflows.
+
+## Syntax
+
+```csharp
+public class ManagerBase<TContext>
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### ManagerBase
+
+```csharp
+public ManagerBase(TContext dataContext, IMessagePublisher messagePublisher)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.EasyAF.Business.ManagerBase%601" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **dataContext** ``TContext``: The database context instance for data operations. Should be injected by the DI container.
+- **messagePublisher** ``IMessagePublisher``: The message publisher instance for publishing events. Should be injected by the DI container.
+
+
+## Properties
+
+### DataContext
+
+```csharp
+public TContext DataContext { get; }
+```
+
+Gets the database context instance used for data operations.
+This context is injected through the constructor and provides access to the database.
+
+#### Returns
+
+``TContext``
+
+### MessagePublisher
+
+```csharp
+public IMessagePublisher MessagePublisher { get; }
+```
+
+Gets the message publisher instance used for publishing events and messages to the message bus.
+This publisher is injected through the constructor and enables event-driven architecture patterns.
+
+#### Returns
+
+``IMessagePublisher``
+
+
+## Remarks
+
+This base class is designed to encapsulate business logic that requires database access and messaging capabilities.
+It's particularly useful for implementing complex business processes such as user registration, order processing,
+or any workflow that needs to coordinate database operations with message publishing for event-driven architectures.
+

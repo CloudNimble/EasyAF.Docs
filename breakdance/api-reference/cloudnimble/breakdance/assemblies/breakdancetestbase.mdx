@@ -1,0 +1,344 @@
+---
+title: "BreakdanceTestBase"
+description: "A base class for unit tests that maintains an <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# BreakdanceTestBase
+
+<Badge variant="outline">Class</Badge>
+
+A base class for unit tests that maintains an <xref href="Microsoft.Extensions.Hosting.IHost" data-throw-if-not-resolved="false"></xref> with configuration and a Dependency Injection container.
+
+## Syntax
+
+```csharp
+public abstract class BreakdanceTestBase : IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### BreakdanceTestBase
+
+```csharp
+public BreakdanceTestBase()
+```
+
+Creates a new <xref href="CloudNimble.Breakdance.Assemblies.BreakdanceTestBase" data-throw-if-not-resolved="false"></xref> instance.
+
+
+## Properties
+
+### DefaultScope
+
+```csharp
+public IServiceScope DefaultScope { get; set; }
+```
+
+Provides a default <xref href="Microsoft.Extensions.DependencyInjection.IServiceScope" data-throw-if-not-resolved="false"></xref> implementation to contain scoped services.
+
+#### Returns
+
+[IServiceScope](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope)
+
+### TestHost
+
+```csharp
+public IHost TestHost { get; }
+```
+
+The <xref href="Microsoft.Extensions.Hosting.IHost" data-throw-if-not-resolved="false"></xref> instance containing the test host.
+
+#### Returns
+
+[IHost](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihost)
+
+### TestHostBuilder
+
+```csharp
+public IHostBuilder TestHostBuilder { get; }
+```
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance used to configure the test host.
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+
+## Methods
+
+### AssemblySetup
+
+```csharp
+public virtual void AssemblySetup()
+```
+
+Method used by test assemblies to setup the environment.
+
+### AssemblyTearDown
+
+```csharp
+public virtual void AssemblyTearDown()
+```
+
+Method used by test assemblies to clean up the environment.
+
+### ClassSetup
+
+```csharp
+public virtual void ClassSetup()
+```
+
+Method used by test classes to setup the environment.
+
+### ClassTearDown
+
+```csharp
+public virtual void ClassTearDown()
+```
+
+Method used by test classes to clean up the environment.
+
+### Dispose
+
+```csharp
+public void Dispose()
+```
+
+Clean up disposable objects in the environment.
+
+### Dispose
+
+```csharp
+protected virtual void Dispose(bool disposing)
+```
+
+Removes references to all <xref href="CloudNimble.Breakdance.Assemblies.BreakdanceTestBase" data-throw-if-not-resolved="false"></xref> resources.
+
+#### Parameters
+
+- **disposing** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): Whether or not we are actively disposing of resources.
+
+### GetKeyedService&lt;T&gt;
+
+```csharp
+public virtual T GetKeyedService<T>(string key) where T : class
+```
+
+Get service of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Parameters
+
+- **key** [string](https://learn.microsoft.com/dotnet/api/system.string): The key of the service to get.
+
+#### Returns
+
+``T``
+
+A service object of type <code class="typeparamref">T</code>.
+
+### GetKeyedServices&lt;T&gt;
+
+```csharp
+public virtual IEnumerable<T> GetKeyedServices<T>(string key) where T : class
+```
+
+Get services of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Parameters
+
+- **key** [string](https://learn.microsoft.com/dotnet/api/system.string): The
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+An <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> of type <code class="typeparamref">T</code>.
+
+### GetScopedService&lt;T&gt;
+
+```csharp
+public T GetScopedService<T>() where T : class
+```
+
+Get the requested service from the default <xref href="Microsoft.Extensions.DependencyInjection.IServiceScope" data-throw-if-not-resolved="false"></xref> provided by Breakdance.
+
+#### Returns
+
+``T``
+
+### GetScopedService&lt;T&gt;
+
+```csharp
+public T GetScopedService<T>(IServiceScope scope) where T : class
+```
+
+Get the requested service from the specified <xref href="Microsoft.Extensions.DependencyInjection.IServiceScope" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **scope** [IServiceScope](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope): 
+
+#### Returns
+
+``T``
+
+### GetScopedServices&lt;T&gt;
+
+```csharp
+public IEnumerable<T> GetScopedServices<T>() where T : class
+```
+
+Get the requested service from the default <xref href="Microsoft.Extensions.DependencyInjection.IServiceScope" data-throw-if-not-resolved="false"></xref> provided by Breakdance.
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### GetScopedServices&lt;T&gt;
+
+```csharp
+public IEnumerable<T> GetScopedServices<T>(IServiceScope scope) where T : class
+```
+
+Get the requested service from the specified <xref href="Microsoft.Extensions.DependencyInjection.IServiceScope" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **scope** [IServiceScope](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope): 
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+### GetService&lt;T&gt;
+
+```csharp
+public virtual T GetService<T>() where T : class
+```
+
+Get service of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Returns
+
+``T``
+
+A service object of type <code class="typeparamref">T</code>.
+
+### GetServices&lt;T&gt;
+
+```csharp
+public virtual IEnumerable<T> GetServices<T>() where T : class
+```
+
+Get an enumeration of services of type <code class="typeparamref">T</code> from the System.IServiceProvider.
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+An enumeration of services of type <code class="typeparamref">T</code>.
+
+### ResetTestHostBuilder
+
+```csharp
+public void ResetTestHostBuilder()
+```
+
+Resets the test host by disposing of the current TestHost and initializing a new default TestHostBuilder.
+This prepares the environment for a fresh test setup.
+
+### SetClaimsPrincipalSelectorToThreadPrincipal
+
+```csharp
+public static void SetClaimsPrincipalSelectorToThreadPrincipal()
+```
+
+Sets the <xref href="System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector" data-throw-if-not-resolved="false"></xref> to the <xref href="System.Threading.Thread.CurrentPrincipal" data-throw-if-not-resolved="false"></xref>.
+
+### SetClaimsPrincipalSelectorToThreadPrincipal
+
+```csharp
+public static void SetClaimsPrincipalSelectorToThreadPrincipal(Claim claim, string authenticationType = "BreakdanceTests", string nameType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", string roleType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")
+```
+
+Sets the <xref href="System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector" data-throw-if-not-resolved="false"></xref> to the <xref href="System.Threading.Thread.CurrentPrincipal" data-throw-if-not-resolved="false"></xref> and sets the latter to a new ClaimsIdentity with the specified claim.
+
+#### Parameters
+
+- **claim** [Claim](https://learn.microsoft.com/dotnet/api/system.security.claims.claim): The Claims to set for the test run.
+- **authenticationType** [string](https://learn.microsoft.com/dotnet/api/system.string): If needed, the AuthenticationType of the ClaimsIdentity. Defaults to "BreakdanceTests".
+- **nameType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for the Name claim. Defaults to <xref href="System.Security.Claims.ClaimTypes.NameIdentifier" data-throw-if-not-resolved="false"></xref>.
+- **roleType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for Role claims. Defaults to <xref href="System.Security.Claims.ClaimTypes.Role" data-throw-if-not-resolved="false"></xref>.
+
+### SetClaimsPrincipalSelectorToThreadPrincipal
+
+```csharp
+public static void SetClaimsPrincipalSelectorToThreadPrincipal(List<Claim> claims, string authenticationType = "BreakdanceTests", string nameType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", string roleType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")
+```
+
+Sets the <xref href="System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector" data-throw-if-not-resolved="false"></xref> to the <xref href="System.Threading.Thread.CurrentPrincipal" data-throw-if-not-resolved="false"></xref> and sets the latter to a new ClaimsIdentity with the specified claims.
+
+#### Parameters
+
+- **claims** [List&lt;Claim&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The Claims to set for the test run.
+- **authenticationType** [string](https://learn.microsoft.com/dotnet/api/system.string): If needed, the AuthenticationType of the ClaimsIdentity. Defaults to "BreakdanceTests".
+- **nameType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for the Name claim. Defaults to <xref href="System.Security.Claims.ClaimTypes.NameIdentifier" data-throw-if-not-resolved="false"></xref>.
+- **roleType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for Role claims. Defaults to <xref href="System.Security.Claims.ClaimTypes.Role" data-throw-if-not-resolved="false"></xref>.
+
+### SetThreadPrincipal
+
+```csharp
+public static void SetThreadPrincipal(Claim claim, string authenticationType = "BreakdanceTests", string nameType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", string roleType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")
+```
+
+Sets the <xref href="System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector" data-throw-if-not-resolved="false"></xref> to a new ClaimsIdentity with the specified claim.
+
+#### Parameters
+
+- **claim** [Claim](https://learn.microsoft.com/dotnet/api/system.security.claims.claim): The Claims to set for the test run.
+- **authenticationType** [string](https://learn.microsoft.com/dotnet/api/system.string): If needed, the AuthenticationType of the ClaimsIdentity. Defaults to "BreakdanceTests".
+- **nameType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for the Name claim. Defaults to <xref href="System.Security.Claims.ClaimTypes.NameIdentifier" data-throw-if-not-resolved="false"></xref>.
+- **roleType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for Role claims. Defaults to <xref href="System.Security.Claims.ClaimTypes.Role" data-throw-if-not-resolved="false"></xref>.
+
+### SetThreadPrincipal
+
+```csharp
+public static void SetThreadPrincipal(List<Claim> claims, string authenticationType = "BreakdanceTests", string nameType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", string roleType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role")
+```
+
+Sets the <xref href="System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector" data-throw-if-not-resolved="false"></xref> to a new ClaimsIdentity with the specified claims.
+
+#### Parameters
+
+- **claims** [List&lt;Claim&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): The Claims to set for the test run.
+- **authenticationType** [string](https://learn.microsoft.com/dotnet/api/system.string): If needed, the AuthenticationType of the ClaimsIdentity. Defaults to "BreakdanceTests".
+- **nameType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for the Name claim. Defaults to <xref href="System.Security.Claims.ClaimTypes.NameIdentifier" data-throw-if-not-resolved="false"></xref>.
+- **roleType** [string](https://learn.microsoft.com/dotnet/api/system.string): The ClaimType to specify for Role claims. Defaults to <xref href="System.Security.Claims.ClaimTypes.Role" data-throw-if-not-resolved="false"></xref>.
+
+### TestSetup
+
+```csharp
+public virtual void TestSetup()
+```
+
+Method used by test classes to setup the environment.
+
+### TestTearDown
+
+```csharp
+public virtual void TestTearDown()
+```
+
+Method used by test classes to clean up the environment.
+
+

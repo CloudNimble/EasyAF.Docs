@@ -1,0 +1,129 @@
+---
+title: "GroupConfig"
+description: "Represents a group configuration in Mintlify navigation."
+icon: "cube"
+---
+
+# GroupConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents a group configuration in Mintlify navigation.
+
+## Syntax
+
+```csharp
+public class GroupConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### AsyncApi
+
+```csharp
+[JsonPropertyName("asyncapi")]
+public object AsyncApi { get; set; }
+```
+
+Gets or sets the AsyncAPI configuration for the group.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Group
+
+```csharp
+[JsonPropertyName("group")]
+public string Group { get; set; }
+```
+
+Gets or sets the name of the group.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Hidden
+
+```csharp
+[JsonPropertyName("hidden")]
+public bool? Hidden { get; set; }
+```
+
+Gets or sets whether the current option is default hidden.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Icon
+
+```csharp
+[JsonPropertyName("icon")]
+public object Icon { get; set; }
+```
+
+Gets or sets the icon to be displayed in the section.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### OpenApi
+
+```csharp
+[JsonPropertyName("openapi")]
+public object OpenApi { get; set; }
+```
+
+Gets or sets the OpenAPI configuration for the group.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+### Pages
+
+```csharp
+[JsonPropertyName("pages")]
+public List<object> Pages { get; set; }
+```
+
+Gets or sets the pages in the group.
+
+#### Returns
+
+[List&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Root
+
+```csharp
+[JsonPropertyName("root")]
+public string Root { get; set; }
+```
+
+Gets or sets the root page for the group.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Tag
+
+```csharp
+[JsonPropertyName("tag")]
+public string Tag { get; set; }
+```
+
+Gets or sets the tag for the group.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

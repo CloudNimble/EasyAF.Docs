@@ -1,0 +1,45 @@
+---
+title: "IHasState<T>"
+description: "An interface that specifes an implementing Entity changes State as part of the SimpleStateMachine."
+icon: "plug"
+---
+
+# IHasState&lt;T&gt;
+
+<Badge variant="outline">Interface</Badge>
+
+An interface that specifes an implementing Entity changes State as part of the SimpleStateMachine.
+
+## Syntax
+
+```csharp
+public interface IHasState<T> : IIdentifiable<Guid> where T : class, IDbStateEnum
+```
+
+## Properties
+
+### StateType
+
+```csharp
+T StateType { get; set; }
+```
+
+The populated instance of <xref href="CloudNimble.EasyAF.Core.IDbStateEnum" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+``T``
+
+### StateTypeId
+
+```csharp
+Guid StateTypeId { get; set; }
+```
+
+The unique identifier for the SimpleStateMachine <xref href="CloudNimble.EasyAF.Core.IDbStateEnum" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+

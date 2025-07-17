@@ -1,0 +1,135 @@
+---
+title: "GlobalSiteConfig"
+description: "Represents the global settings for the entire documentation site."
+icon: "cube"
+---
+
+# GlobalSiteConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the global settings for the entire documentation site.
+
+## Syntax
+
+```csharp
+public class GlobalSiteConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Colors
+
+```csharp
+[JsonPropertyName("colors")]
+public ColorsConfig Colors { get; set; }
+```
+
+Gets or sets the color scheme for the site.
+
+#### Returns
+
+[ColorsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/colorsconfig)
+
+The primary colors used throughout the site interface.
+
+### Favicon
+
+```csharp
+[JsonPropertyName("favicon")]
+public string Favicon { get; set; }
+```
+
+Gets or sets the favicon path for the site.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The relative path to the site's favicon file.
+
+### Footer
+
+```csharp
+[JsonPropertyName("footer")]
+public FooterConfig Footer { get; set; }
+```
+
+Gets or sets the footer configuration for the site.
+
+#### Returns
+
+[FooterConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/footerconfig)
+
+The footer content including social media links.
+
+### Logo
+
+```csharp
+[JsonPropertyName("logo")]
+public LogoConfig Logo { get; set; }
+```
+
+Gets or sets the logo configuration for the site.
+
+#### Returns
+
+[LogoConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/logoconfig)
+
+The logo images used in light and dark themes.
+
+### OutputFolder
+
+```csharp
+[JsonPropertyName("outputFolder")]
+public string OutputFolder { get; set; }
+```
+
+Gets or sets the output folder for the generated documentation.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The directory where the combined documentation will be generated.
+
+### SiteName
+
+```csharp
+[JsonPropertyName("siteName")]
+public string SiteName { get; set; }
+```
+
+Gets or sets the name of the documentation site.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The site title displayed in the browser and navigation.
+
+### Theme
+
+```csharp
+[JsonPropertyName("theme")]
+public string Theme { get; set; }
+```
+
+Gets or sets the theme name for the site.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The Mintlify theme to use for the site appearance.
+
+
+## Remarks
+
+This class contains site-wide configuration that applies across all solutions
+and defines the overall appearance and behavior of the documentation site.
+

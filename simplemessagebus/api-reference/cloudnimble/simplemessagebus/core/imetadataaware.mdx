@@ -1,0 +1,42 @@
+---
+title: "IMetadataAware"
+description: "Defines a message that supports metadata for passing data between handlers in the processing pipeline."
+icon: "plug"
+---
+
+# IMetadataAware
+
+<Badge variant="outline">Interface</Badge>
+
+Defines a message that supports metadata for passing data between handlers in the processing pipeline.
+
+## Syntax
+
+```csharp
+public interface IMetadataAware
+```
+
+## Properties
+
+### Metadata
+
+```csharp
+ConcurrentDictionary<string, object> Metadata { get; set; }
+```
+
+Gets or sets the thread-safe metadata storage for passing data between handlers in the processing pipeline.
+
+#### Returns
+
+[ConcurrentDictionary&lt;string, object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2)
+
+A <xref href="System.Collections.Concurrent.ConcurrentDictionary%602" data-throw-if-not-resolved="false"></xref> where keys are string identifiers and values are objects
+containing the metadata. The dictionary must be thread-safe as it may be accessed concurrently.
+
+
+## Remarks
+
+Metadata provides a way to attach additional context and data to messages without modifying the core message structure.
+This is particularly useful for cross-cutting concerns like tracking, auditing, user context, and handler-to-handler
+communication. The metadata survives serialization and can be accessed by any handler in the processing chain.
+

@@ -1,0 +1,97 @@
+---
+title: "OverrideContentLoader"
+description: "Loads override content and conceptual documentation for API types."
+icon: "cube"
+---
+
+# OverrideContentLoader
+
+<Badge variant="outline">Class</Badge>
+
+Loads override content and conceptual documentation for API types.
+
+## Syntax
+
+```csharp
+public class OverrideContentLoader
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### OverrideContentLoader
+
+```csharp
+public OverrideContentLoader(MintlifyOptions options)
+```
+
+Initializes a new instance of the OverrideContentLoader class.
+
+#### Parameters
+
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+
+## Methods
+
+### LoadAllOverrideContentAsync
+
+```csharp
+public Task<Dictionary<string, OverrideContent>> LoadAllOverrideContentAsync()
+```
+
+Loads all override content from the overrides directory.
+
+#### Returns
+
+[Task&lt;Dictionary&lt;string, OverrideContent&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+A dictionary of UID to override content.
+
+### LoadConceptualContentAsync
+
+```csharp
+public Task<ConceptualContent> LoadConceptualContentAsync(DocFxApiItem typeItem, OverrideContent overrideContent)
+```
+
+Loads conceptual content for a specific type based on override file references.
+
+#### Parameters
+
+- **typeItem** [DocFxApiItem](/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxapiitem): The type item to load conceptual content for.
+- **overrideContent** [OverrideContent](/api-reference/cloudnimble/easyaf/codegen/docfx/models/overridecontent): The override content that may reference conceptual files.
+
+#### Returns
+
+[Task&lt;ConceptualContent&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+The conceptual content.
+
+### LoadOverrideContentAsync
+
+```csharp
+public Task<OverrideContent> LoadOverrideContentAsync(DocFxApiItem typeItem)
+```
+
+Loads override content for a specific type.
+
+#### Parameters
+
+- **typeItem** [DocFxApiItem](/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxapiitem): The type item to load overrides for.
+
+#### Returns
+
+[Task&lt;OverrideContent&gt;](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1)
+
+The override content if found; otherwise, null.
+
+
+## Remarks
+
+This class handles loading override YAML files that specify custom frontmatter and
+additional content, as well as loading the actual conceptual documentation files
+referenced in the overrides.
+

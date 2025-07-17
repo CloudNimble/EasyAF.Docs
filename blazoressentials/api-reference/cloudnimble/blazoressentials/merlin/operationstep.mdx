@@ -1,0 +1,140 @@
+---
+title: "OperationStep"
+description: ""
+icon: "cube"
+---
+
+# OperationStep
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class OperationStep : BlazorObservable, INotifyPropertyChanged, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - `EasyObservableObject`
+    - [BlazorObservable](/api-reference/cloudnimble/blazoressentials/blazorobservable)
+
+## Implements
+
+- [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged)
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### OperationStep
+
+```csharp
+public OperationStep(int id, string displayText, Func<Task<bool>> onAction)
+```
+
+#### Parameters
+
+- **id** [int](https://learn.microsoft.com/dotnet/api/system.int32): 
+- **displayText** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **onAction** [Func&lt;Task&lt;bool&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.func-1): 
+
+
+## Properties
+
+### DisplayText
+
+```csharp
+public string DisplayText { get; set; }
+```
+
+The text to display to the end user regarding what is happening in this step.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ErrorText
+
+```csharp
+public string ErrorText { get; set; }
+```
+
+Any additional text you'd like to display to the end user when there is an error.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Id
+
+```csharp
+public int Id { get; set; }
+```
+
+A zero-based index identifying this step in relation to other steps in the process.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### Label
+
+```csharp
+public string Label { get; set; }
+```
+
+Returns a Bootstrap Label with the details of the a given <xref href="CloudNimble.BlazorEssentials.Merlin.OperationStep.Status" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### OnAction
+
+```csharp
+public Func<Task<bool>> OnAction { get; set; }
+```
+
+An async function that returns a boolean indicating whether or not the action succeeded.
+
+#### Returns
+
+[Func&lt;Task&lt;bool&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.func-1)
+
+### Status
+
+```csharp
+public OperationStepStatus Status { get; set; }
+```
+
+An OperationStepStatus where you can change the operation's status and the UI is re-rendered automatically.
+
+#### Returns
+
+[OperationStepStatus](/api-reference/cloudnimble/blazoressentials/merlin/operationstepstatus)
+
+
+## Methods
+
+### Reset
+
+```csharp
+public void Reset()
+```
+
+Resets the status of the OperationStep in the event it needs to run again.
+
+### Start
+
+```csharp
+public Task Start()
+```
+
+The Action that the Operation calls to trigger a Step. It wrapps the call to onAction with status update logic.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+

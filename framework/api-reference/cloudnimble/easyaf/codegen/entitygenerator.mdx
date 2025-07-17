@@ -1,0 +1,64 @@
+---
+title: "EntityGenerator"
+description: ""
+icon: "cube"
+---
+
+# EntityGenerator
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class EntityGenerator : EntityGeneratorBase, IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [CodeGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/codegeneratorbase)
+    - [EntityGeneratorBase](/api-reference/cloudnimble/easyaf/codegen/entitygeneratorbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### EntityGenerator
+
+```csharp
+public EntityGenerator(List<string> extraUsings, string entityNamespace, EntityComposition entity)
+```
+
+#### Parameters
+
+- **extraUsings** [List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1): 
+- **entityNamespace** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **entity** [EntityComposition](/api-reference/cloudnimble/easyaf/codegen/entitycomposition): 
+
+
+## Methods
+
+### Generate
+
+```csharp
+public override void Generate()
+```
+
+### WriteFile
+
+```csharp
+public string WriteFile(string directory = null)
+```
+
+#### Parameters
+
+- **directory** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

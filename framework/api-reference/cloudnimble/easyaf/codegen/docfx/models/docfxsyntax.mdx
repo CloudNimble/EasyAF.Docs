@@ -1,0 +1,78 @@
+---
+title: "DocFxSyntax"
+description: "Represents syntax information for a DocFX API item."
+icon: "cube"
+---
+
+# DocFxSyntax
+
+<Badge variant="outline">Class</Badge>
+
+Represents syntax information for a DocFX API item.
+
+## Syntax
+
+```csharp
+public class DocFxSyntax
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Content
+
+```csharp
+public string Content { get; set; }
+```
+
+Gets or sets the content of the syntax declaration.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Parameters
+
+```csharp
+public List<DocFxParameter> Parameters { get; set; }
+```
+
+Gets or sets the parameters for methods and constructors.
+
+#### Returns
+
+[List&lt;DocFxParameter&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Return
+
+```csharp
+public DocFxReturn Return { get; set; }
+```
+
+Gets or sets the return information for methods.
+
+#### Returns
+
+[DocFxReturn](/api-reference/cloudnimble/easyaf/codegen/docfx/models/docfxreturn)
+
+### TypeParameters
+
+```csharp
+public List<string> TypeParameters { get; set; }
+```
+
+Gets or sets the type parameters for generic types and methods.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+
+## Remarks
+
+This class contains the complete syntax definition including parameters,
+return types, and type parameters for methods and other members.
+

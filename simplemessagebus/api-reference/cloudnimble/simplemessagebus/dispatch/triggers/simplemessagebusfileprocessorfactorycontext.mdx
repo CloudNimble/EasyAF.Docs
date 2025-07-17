@@ -1,0 +1,104 @@
+---
+title: "SimpleMessageBusFileProcessorFactoryContext"
+description: "Context input for <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# SimpleMessageBusFileProcessorFactoryContext
+
+<Badge variant="outline">Class</Badge>
+
+Context input for <xref href="CloudNimble.SimpleMessageBus.Dispatch.Triggers.ISimpleMessageBusFileProcessorFactory" data-throw-if-not-resolved="false"></xref>
+
+## Syntax
+
+```csharp
+public class SimpleMessageBusFileProcessorFactoryContext
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### SimpleMessageBusFileProcessorFactoryContext
+
+```csharp
+public SimpleMessageBusFileProcessorFactoryContext(FileSystemOptions options, SimpleMessageBusFileTriggerAttribute attribute, string queueFolder, ITriggeredFunctionExecutor executor, ILogger logger)
+```
+
+Constructs a new instance
+
+#### Parameters
+
+- **options** [FileSystemOptions](/api-reference/cloudnimble/simplemessagebus/core/filesystemoptions): The <xref href="Microsoft.Azure.WebJobs.Extensions.Files.FilesOptions" data-throw-if-not-resolved="false"></xref>
+- **attribute** [SimpleMessageBusFileTriggerAttribute](/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfiletriggerattribute): The <xref href="CloudNimble.SimpleMessageBus.Dispatch.Triggers.SimpleMessageBusFileTriggerAttribute" data-throw-if-not-resolved="false"></xref>
+- **queueFolder** [string](https://learn.microsoft.com/dotnet/api/system.string): 
+- **executor** ``ITriggeredFunctionExecutor``: The function executor.
+- **logger** [ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger): The <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>.
+
+
+## Properties
+
+### Attribute
+
+```csharp
+public SimpleMessageBusFileTriggerAttribute Attribute { get; }
+```
+
+Gets the <xref href="CloudNimble.SimpleMessageBus.Dispatch.Triggers.SimpleMessageBusFileTriggerAttribute" data-throw-if-not-resolved="false"></xref>
+
+#### Returns
+
+[SimpleMessageBusFileTriggerAttribute](/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfiletriggerattribute)
+
+### Executor
+
+```csharp
+public ITriggeredFunctionExecutor Executor { get; }
+```
+
+Gets the function executor
+
+#### Returns
+
+``ITriggeredFunctionExecutor``
+
+### Logger
+
+```csharp
+public ILogger Logger { get; }
+```
+
+Gets the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger)
+
+### Options
+
+```csharp
+public FileSystemOptions Options { get; }
+```
+
+Gets the <xref href="Microsoft.Azure.WebJobs.Extensions.Files.FilesOptions" data-throw-if-not-resolved="false"></xref>
+
+#### Returns
+
+[FileSystemOptions](/api-reference/cloudnimble/simplemessagebus/core/filesystemoptions)
+
+### QueueFolder
+
+```csharp
+public string QueueFolder { get; }
+```
+
+Gets the queue folder.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

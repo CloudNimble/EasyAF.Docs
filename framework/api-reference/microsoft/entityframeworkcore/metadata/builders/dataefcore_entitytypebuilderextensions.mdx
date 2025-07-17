@@ -1,0 +1,43 @@
+---
+title: "DataEFCore_EntityTypeBuilderExtensions"
+description: "Provides extension methods for the <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# DataEFCore_EntityTypeBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+Provides extension methods for the <xref href="Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder%601" data-throw-if-not-resolved="false"></xref> class to configure EasyAF-based types in the Entity Framework Core model.
+
+## Syntax
+
+```csharp
+public static class DataEFCore_EntityTypeBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### IgnoreTrackingFields&lt;T&gt;
+
+```csharp
+public static EntityTypeBuilder<T> IgnoreTrackingFields<T>(this EntityTypeBuilder<T> builder) where T : DbObservableObject
+```
+
+Configures the entity type to ignore tracking fields defined in the <xref href="CloudNimble.EasyAF.Core.DbObservableObject" data-throw-if-not-resolved="false"></xref> class.
+
+#### Parameters
+
+- **builder** [EntityTypeBuilder&lt;T&gt;](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.metadata.builders.entitytypebuilder-1): The <xref href="Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder%601" data-throw-if-not-resolved="false"></xref> used to configure the entity type.
+
+#### Returns
+
+[EntityTypeBuilder&lt;T&gt;](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.metadata.builders.entitytypebuilder-1)
+
+The same <xref href="Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder%601" data-throw-if-not-resolved="false"></xref> instance so that multiple calls can be chained.
+
+

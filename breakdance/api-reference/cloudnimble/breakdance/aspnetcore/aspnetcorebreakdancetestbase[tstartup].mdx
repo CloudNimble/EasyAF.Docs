@@ -1,0 +1,39 @@
+---
+title: "AspNetCoreBreakdanceTestBase<TStartup>"
+description: "A base class for building unit tests for AspNetCore APIs that automatically maintains a <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# AspNetCoreBreakdanceTestBase&lt;TStartup&gt;
+
+<Badge variant="outline">Class</Badge>
+
+A base class for building unit tests for AspNetCore APIs that automatically maintains a <xref href="Microsoft.AspNetCore.TestHost.TestServer" data-throw-if-not-resolved="false"></xref> with configuration and a Dependency Injection containers for you.
+
+## Syntax
+
+```csharp
+public class AspNetCoreBreakdanceTestBase<TStartup> : AspNetCoreBreakdanceTestBase, IDisposable where TStartup : class
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [BreakdanceTestBase](/api-reference/cloudnimble/breakdance/assemblies/breakdancetestbase)
+    - [AspNetCoreBreakdanceTestBase](/api-reference/cloudnimble/breakdance/aspnetcore/aspnetcorebreakdancetestbase)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### AspNetCoreBreakdanceTestBase
+
+```csharp
+public AspNetCoreBreakdanceTestBase()
+```
+
+Creates a new <xref href="CloudNimble.Breakdance.AspNetCore.AspNetCoreBreakdanceTestBase" data-throw-if-not-resolved="false"></xref> instance.
+
+

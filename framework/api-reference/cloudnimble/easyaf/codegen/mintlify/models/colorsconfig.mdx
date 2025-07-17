@@ -1,0 +1,68 @@
+---
+title: "ColorsConfig"
+description: "Represents the color configuration for Mintlify themes."
+icon: "cube"
+---
+
+# ColorsConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the color configuration for Mintlify themes.
+
+## Syntax
+
+```csharp
+public class ColorsConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Dark
+
+```csharp
+[JsonPropertyName("dark")]
+public string Dark { get; set; }
+```
+
+Gets or sets the dark color of the theme in hex format. Used for light mode.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Light
+
+```csharp
+[JsonPropertyName("light")]
+public string Light { get; set; }
+```
+
+Gets or sets the light color of the theme in hex format. Used for dark mode.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Primary
+
+```csharp
+[JsonPropertyName("primary")]
+public string Primary { get; set; }
+```
+
+Gets or sets the primary color of the theme in hex format.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+The colors to use in your documentation. At the very least, you must define the primary color.
+

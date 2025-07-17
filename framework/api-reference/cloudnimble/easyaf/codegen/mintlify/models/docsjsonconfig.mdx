@@ -1,0 +1,330 @@
+---
+title: "DocsJsonConfig"
+description: "Represents the root configuration object for Mintlify docs."
+icon: "cube"
+---
+
+# DocsJsonConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents the root configuration object for Mintlify docs.json.
+
+## Syntax
+
+```csharp
+public class DocsJsonConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Api
+
+```csharp
+[JsonPropertyName("api")]
+public ApiConfig Api { get; set; }
+```
+
+Gets or sets the API reference configuration.
+
+#### Returns
+
+[ApiConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/apiconfig)
+
+### Appearance
+
+```csharp
+[JsonPropertyName("appearance")]
+public AppearanceConfig Appearance { get; set; }
+```
+
+Gets or sets the appearance configuration.
+
+#### Returns
+
+[AppearanceConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/appearanceconfig)
+
+### Background
+
+```csharp
+[JsonPropertyName("background")]
+public BackgroundConfig Background { get; set; }
+```
+
+Gets or sets the background configuration.
+
+#### Returns
+
+[BackgroundConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/backgroundconfig)
+
+### Banner
+
+```csharp
+[JsonPropertyName("banner")]
+public BannerConfig Banner { get; set; }
+```
+
+Gets or sets the banner configuration.
+
+#### Returns
+
+[BannerConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/bannerconfig)
+
+### Colors
+
+```csharp
+[JsonPropertyName("colors")]
+public ColorsConfig Colors { get; set; }
+```
+
+Gets or sets the color configuration.
+
+#### Returns
+
+[ColorsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/colorsconfig)
+
+### Contextual
+
+```csharp
+[JsonPropertyName("contextual")]
+public ContextualConfig Contextual { get; set; }
+```
+
+Gets or sets the contextual options configuration.
+
+#### Returns
+
+[ContextualConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/contextualconfig)
+
+### Description
+
+```csharp
+[JsonPropertyName("description")]
+public string Description { get; set; }
+```
+
+Gets or sets the optional description used for SEO and LLM indexing.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Errors
+
+```csharp
+[JsonPropertyName("errors")]
+public ErrorsConfig Errors { get; set; }
+```
+
+Gets or sets the error pages configuration.
+
+#### Returns
+
+[ErrorsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/errorsconfig)
+
+### Favicon
+
+```csharp
+[JsonPropertyName("favicon")]
+public FaviconConfig Favicon { get; set; }
+```
+
+Gets or sets the favicon configuration.
+
+#### Returns
+
+[FaviconConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/faviconconfig)
+
+### Fonts
+
+```csharp
+[JsonPropertyName("fonts")]
+public FontsConfig Fonts { get; set; }
+```
+
+Gets or sets the fonts configuration.
+
+#### Returns
+
+[FontsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/fontsconfig)
+
+### Footer
+
+```csharp
+[JsonPropertyName("footer")]
+public FooterConfig Footer { get; set; }
+```
+
+Gets or sets the footer configuration.
+
+#### Returns
+
+[FooterConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/footerconfig)
+
+### Icons
+
+```csharp
+[JsonPropertyName("icons")]
+public IconsConfig Icons { get; set; }
+```
+
+Gets or sets the icons configuration.
+
+#### Returns
+
+[IconsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/iconsconfig)
+
+### Integrations
+
+```csharp
+[JsonPropertyName("integrations")]
+public IntegrationsConfig Integrations { get; set; }
+```
+
+Gets or sets the integrations configuration.
+
+#### Returns
+
+[IntegrationsConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/integrationsconfig)
+
+### Logo
+
+```csharp
+[JsonPropertyName("logo")]
+public LogoConfig Logo { get; set; }
+```
+
+Gets or sets the logo configuration.
+
+#### Returns
+
+[LogoConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/logoconfig)
+
+### Name
+
+```csharp
+[JsonPropertyName("name")]
+public string Name { get; set; }
+```
+
+Gets or sets the name of the project, organization, or product.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Navbar
+
+```csharp
+[JsonPropertyName("navbar")]
+public NavbarConfig Navbar { get; set; }
+```
+
+Gets or sets the navbar configuration.
+
+#### Returns
+
+[NavbarConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/navbarconfig)
+
+### Navigation
+
+```csharp
+[JsonPropertyName("navigation")]
+[JsonConverter(typeof(NavigationJsonConverter))]
+public NavigationConfig Navigation { get; set; }
+```
+
+Gets or sets the navigation structure.
+
+#### Returns
+
+[NavigationConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/navigationconfig)
+
+### Redirects
+
+```csharp
+[JsonPropertyName("redirects")]
+public List<RedirectConfig> Redirects { get; set; }
+```
+
+Gets or sets the redirects.
+
+#### Returns
+
+[List&lt;RedirectConfig&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+### Schema
+
+```csharp
+[JsonPropertyName("$schema")]
+public string Schema { get; set; }
+```
+
+Gets or sets the JSON schema URL.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Search
+
+```csharp
+[JsonPropertyName("search")]
+public SearchConfig Search { get; set; }
+```
+
+Gets or sets the search configuration.
+
+#### Returns
+
+[SearchConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/searchconfig)
+
+### Seo
+
+```csharp
+[JsonPropertyName("seo")]
+public SeoConfig Seo { get; set; }
+```
+
+Gets or sets the SEO configuration.
+
+#### Returns
+
+[SeoConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/seoconfig)
+
+### Styling
+
+```csharp
+[JsonPropertyName("styling")]
+public StylingConfig Styling { get; set; }
+```
+
+Gets or sets the styling configuration.
+
+#### Returns
+
+[StylingConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/stylingconfig)
+
+### Theme
+
+```csharp
+[JsonPropertyName("theme")]
+public string Theme { get; set; }
+```
+
+Gets or sets the theme name.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+This class represents the complete structure of a Mintlify docs.json configuration file
+as defined by the official Mintlify schema. It supports all themes and configuration options.
+

@@ -1,0 +1,62 @@
+---
+title: "DispatchAmazon_IHostBuilderExtensions"
+description: "A set of <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# DispatchAmazon_IHostBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+A set of <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> extension methods that make it easy to register SimpleMessageBus with a DI container.
+
+## Syntax
+
+```csharp
+public static class DispatchAmazon_IHostBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### UseAmazonSQSProcessor
+
+```csharp
+public static IHostBuilder UseAmazonSQSProcessor(this IHostBuilder builder, Action<AmazonSQSOptions> amazonSQSOptions)
+```
+
+Configures SimpleMessageBus to use Amazon SQS as the backing queue and registers the <xref href="CloudNimble.SimpleMessageBus.Dispatch.Amazon.AmazonSQSProcessor" data-throw-if-not-resolved="false"></xref> with the DI container.
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+- **amazonSQSOptions** [Action&lt;AmazonSQSOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): An <xref href="System.Action%601" data-throw-if-not-resolved="false"></xref> that gives you a fluent interface for configuring the options for a queue backed by Amazon SQS.
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance being configured, for fluent interaction.
+
+### UseAmazonSQSProcessor
+
+```csharp
+public static IHostBuilder UseAmazonSQSProcessor(this IHostBuilder builder)
+```
+
+Configures SimpleMessageBus to use Amazon SQS as the backing queue and registers the <xref href="CloudNimble.SimpleMessageBus.Dispatch.Amazon.AmazonSQSProcessor" data-throw-if-not-resolved="false"></xref> with the DI container.
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance being configured, for fluent interaction.
+
+

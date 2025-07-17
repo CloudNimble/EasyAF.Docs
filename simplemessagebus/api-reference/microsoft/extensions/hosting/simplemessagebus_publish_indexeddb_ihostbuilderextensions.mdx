@@ -1,0 +1,41 @@
+---
+title: "SimpleMessageBus_Publish_IndexedDb_IHostBuilderExtensions"
+description: ""
+icon: "cube"
+---
+
+# SimpleMessageBus_Publish_IndexedDb_IHostBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class SimpleMessageBus_Publish_IndexedDb_IHostBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### UseIndexedDbMessagePublisher
+
+```csharp
+public static IHostBuilder UseIndexedDbMessagePublisher(this IHostBuilder builder, string configSectionName = "SimpleMessageBus:IndexedDb", Action<IndexedDbOptions> indexedDbOptions = null)
+```
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance to extend.
+- **configSectionName** [string](https://learn.microsoft.com/dotnet/api/system.string): The name of the <xref href="Microsoft.Extensions.Configuration.ConfigurationSection" data-throw-if-not-resolved="false"></xref> to load the <xref href="CloudNimble.SimpleMessageBus.IndexedDb.Core.IndexedDbOptions" data-throw-if-not-resolved="false"></xref> from. Defaults to 'SimpleMessageBus:IndexedDb'.
+- **indexedDbOptions** [Action&lt;IndexedDbOptions&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): An <xref href="System.Action%601" data-throw-if-not-resolved="false"></xref> lambda that allows you to set the <xref href="CloudNimble.SimpleMessageBus.IndexedDb.Core.IndexedDbOptions" data-throw-if-not-resolved="false"></xref> inline.
+
+#### Returns
+
+[IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+
+The <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance being configured, for fluent configuration.
+
+

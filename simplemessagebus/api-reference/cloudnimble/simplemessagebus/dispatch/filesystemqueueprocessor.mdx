@@ -1,0 +1,72 @@
+---
+title: "FileSystemQueueProcessor"
+description: "Processes queue items stored in the local file system and dispatches them to all <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# FileSystemQueueProcessor
+
+<Badge variant="outline">Class</Badge>
+
+Processes queue items stored in the local file system and dispatches them to all <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=IMessageHandlers" data-throw-if-not-resolved="false"></xref> registered with the DI container.
+
+## Syntax
+
+```csharp
+public class FileSystemQueueProcessor : IQueueProcessor
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IQueueProcessor](/api-reference/cloudnimble/simplemessagebus/dispatch/iqueueprocessor)
+
+## Constructors
+
+### FileSystemQueueProcessor
+
+```csharp
+public FileSystemQueueProcessor(IOptions<FileSystemOptions> options, IMessageDispatcher dispatcher, IServiceScopeFactory serviceScopeFactory)
+```
+
+The default constructor called by the Dependency Injection container.
+
+#### Parameters
+
+- **options** [IOptions&lt;FileSystemOptions&gt;](https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1): The injected <xref href="Microsoft.Extensions.Options.IOptions%601" data-throw-if-not-resolved="false"></xref> specifying the options required to leverage the local file system as the SimpleMessageBus backing queue.
+- **dispatcher** [IMessageDispatcher](/api-reference/cloudnimble/simplemessagebus/dispatch/imessagedispatcher): The message dispatcher to route messages to handlers.
+- **serviceScopeFactory** [IServiceScopeFactory](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory): The Dependency Injection container's <xref href="System.IServiceProvider" data-throw-if-not-resolved="false"></xref> instance, so that a "per-request" scope can be created that gives each <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref>
+its own set of isolated dependencies.
+
+
+## Methods
+
+### ProcessQueue
+
+```csharp
+public Task ProcessQueue(string messageEnvelopeJson, FileSystemEventArgs fileTrigger, ILogger logger)
+```
+
+Processes a message file when it appears in the queue directory.
+
+#### Parameters
+
+- **messageEnvelopeJson** [string](https://learn.microsoft.com/dotnet/api/system.string): The JSON content of the message envelope file.
+- **fileTrigger** [FileSystemEventArgs](https://learn.microsoft.com/dotnet/api/system.io.filesystemeventargs): The file system event that triggered this processing.
+- **logger** [ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger): The logger instance for this processing operation.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+
+## Remarks
+
+This processor monitors a configured file system directory for new message files and automatically
+processes them when they appear. It supports three-folder operation: queue (incoming), completed
+(successfully processed), and error (failed processing). The processor integrates with Azure WebJobs
+for file system monitoring and automatic triggering.
+

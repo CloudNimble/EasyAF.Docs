@@ -1,0 +1,95 @@
+---
+title: "GlobalAnchorConfig"
+description: "Represents an anchor configuration for global navigation in the Mintlify documentation site."
+icon: "cube"
+---
+
+# GlobalAnchorConfig
+
+<Badge variant="outline">Class</Badge>
+
+Represents an anchor configuration for global navigation in the Mintlify documentation site.
+
+## Syntax
+
+```csharp
+public class GlobalAnchorConfig
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Anchor
+
+```csharp
+[JsonPropertyName("anchor")]
+public string Anchor { get; set; }
+```
+
+Gets or sets the display name for the anchor link.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Color
+
+```csharp
+[JsonPropertyName("color")]
+public ColorPairConfig Color { get; set; }
+```
+
+Gets or sets the color configuration for the anchor.
+
+#### Returns
+
+[ColorPairConfig](/api-reference/cloudnimble/easyaf/codegen/mintlify/models/colorpairconfig)
+
+### Hidden
+
+```csharp
+[JsonPropertyName("hidden")]
+public bool? Hidden { get; set; }
+```
+
+Gets or sets whether this anchor is hidden by default.
+
+#### Returns
+
+[bool?](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### Href
+
+```csharp
+[JsonPropertyName("href")]
+public string Href { get; set; }
+```
+
+Gets or sets the URL or path for this anchor link.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Icon
+
+```csharp
+[JsonPropertyName("icon")]
+public object Icon { get; set; }
+```
+
+Gets or sets the icon to display alongside the anchor name.
+
+#### Returns
+
+[object](https://learn.microsoft.com/dotnet/api/system.object)
+
+
+## Remarks
+
+This configuration defines an anchor link that appears globally across all sections
+and pages, providing users with quick access to important external resources or key pages.
+

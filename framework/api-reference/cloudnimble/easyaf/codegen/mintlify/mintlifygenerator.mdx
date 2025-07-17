@@ -1,0 +1,82 @@
+---
+title: "MintlifyGenerator"
+description: "Main generator for converting."
+icon: "cube"
+---
+
+# MintlifyGenerator
+
+<Badge variant="outline">Class</Badge>
+
+Main generator for converting .NET XML documentation to Mintlify MDX format.
+
+## Syntax
+
+```csharp
+public class MintlifyGenerator
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### MintlifyGenerator
+
+```csharp
+public MintlifyGenerator(MintlifyOptions options)
+```
+
+Initializes a new instance of the MintlifyGenerator class.
+
+#### Parameters
+
+- **options** [MintlifyOptions](/api-reference/cloudnimble/easyaf/codegen/mintlify/mintlifyoptions): The generation options.
+
+
+## Methods
+
+### GenerateAsync
+
+```csharp
+public Task GenerateAsync(AssemblyXmlDocumentation xmlDocumentation)
+```
+
+Generates Mintlify documentation from XML documentation.
+
+#### Parameters
+
+- **xmlDocumentation** [AssemblyXmlDocumentation](/api-reference/cloudnimble/easyaf/xmldocumentation/assemblyxmldocumentation): The parsed XML documentation.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+### GenerateAsync
+
+```csharp
+public Task GenerateAsync(IEnumerable<AssemblyXmlDocumentation> documentations)
+```
+
+Generates documentation for multiple assemblies.
+
+#### Parameters
+
+- **documentations** [IEnumerable&lt;AssemblyXmlDocumentation&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): The collection of XML documentations to process.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+A task representing the asynchronous operation.
+
+
+## Remarks
+
+This class orchestrates the conversion process, coordinating between XML documentation parsing,
+type analysis, and MDX file generation. It handles the overall structure and organization
+of the generated documentation.
+

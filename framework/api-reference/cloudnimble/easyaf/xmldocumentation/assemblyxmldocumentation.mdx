@@ -1,0 +1,191 @@
+---
+title: "AssemblyXmlDocumentation"
+description: "Represents the root XML documentation structure for a."
+icon: "cube"
+---
+
+# AssemblyXmlDocumentation
+
+<Badge variant="outline">Class</Badge>
+
+Represents the root XML documentation structure for a .NET assembly.
+
+## Syntax
+
+```csharp
+public class AssemblyXmlDocumentation
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### AssemblyXmlDocumentation
+
+```csharp
+public AssemblyXmlDocumentation()
+```
+
+Initializes a new instance of the XmlDocumentationDocument class.
+
+### AssemblyXmlDocumentation
+
+```csharp
+public AssemblyXmlDocumentation(XDocument xmlDocument)
+```
+
+Initializes a new instance of the XmlDocumentationDocument class from an XML document.
+
+#### Parameters
+
+- **xmlDocument** [XDocument](https://learn.microsoft.com/dotnet/api/system.xml.linq.xdocument): The XML documentation to parse.
+
+
+## Properties
+
+### AssemblyName
+
+```csharp
+public string AssemblyName { get; set; }
+```
+
+Gets or sets the name of the assembly this documentation belongs to.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Events
+
+```csharp
+public Dictionary<string, XmlMember> Events { get; }
+```
+
+Gets the collection of all documented events in the assembly.
+
+#### Returns
+
+[Dictionary&lt;string, XmlMember&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### Fields
+
+```csharp
+public Dictionary<string, XmlMember> Fields { get; }
+```
+
+Gets the collection of all documented fields in the assembly.
+
+#### Returns
+
+[Dictionary&lt;string, XmlMember&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### Members
+
+```csharp
+public Dictionary<string, XmlMember> Members { get; set; }
+```
+
+Gets the collection of all documented members in the assembly.
+
+#### Returns
+
+[Dictionary&lt;string, XmlMember&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### Methods
+
+```csharp
+public Dictionary<string, XmlMember> Methods { get; }
+```
+
+Gets the collection of all documented methods in the assembly.
+
+#### Returns
+
+[Dictionary&lt;string, XmlMember&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### Properties
+
+```csharp
+public Dictionary<string, XmlMember> Properties { get; }
+```
+
+Gets the collection of all documented properties in the assembly.
+
+#### Returns
+
+[Dictionary&lt;string, XmlMember&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### Types
+
+```csharp
+public Dictionary<string, XmlMember> Types { get; }
+```
+
+Gets the collection of all documented types in the assembly.
+
+#### Returns
+
+[Dictionary&lt;string, XmlMember&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+
+## Methods
+
+### GetMembersByType
+
+```csharp
+public Dictionary<string, XmlMember> GetMembersByType(string typeName)
+```
+
+Gets all members belonging to a specific type.
+
+#### Parameters
+
+- **typeName** [string](https://learn.microsoft.com/dotnet/api/system.string): The fully qualified type name (without T: prefix).
+
+#### Returns
+
+[Dictionary&lt;string, XmlMember&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+A dictionary of members belonging to the specified type.
+
+### GetNamespaces
+
+```csharp
+public List<string> GetNamespaces()
+```
+
+Gets all unique namespaces represented in the documentation.
+
+#### Returns
+
+[List&lt;string&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+A list of unique namespace names.
+
+### GetTypesByNamespace
+
+```csharp
+public Dictionary<string, XmlMember> GetTypesByNamespace(string @namespace)
+```
+
+Gets all types within a specific namespace.
+
+#### Parameters
+
+- **namespace** [string](https://learn.microsoft.com/dotnet/api/system.string): The namespace to filter by.
+
+#### Returns
+
+[Dictionary&lt;string, XmlMember&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+A dictionary of types in the specified namespace.
+
+
+## Remarks
+
+This class parses and contains all the XML documentation for a single assembly,
+including all types, members, and their associated documentation elements.
+It provides methods to access and filter documentation by various criteria.
+

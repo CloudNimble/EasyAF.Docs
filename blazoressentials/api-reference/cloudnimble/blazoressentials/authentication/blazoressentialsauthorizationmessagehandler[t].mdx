@@ -1,0 +1,42 @@
+---
+title: "BlazorEssentialsAuthorizationMessageHandler<T>"
+description: ""
+icon: "cube"
+---
+
+# BlazorEssentialsAuthorizationMessageHandler&lt;T&gt;
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public class BlazorEssentialsAuthorizationMessageHandler<T> : AuthorizationMessageHandler, IDisposable where T : ConfigurationBase
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [HttpMessageHandler](https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler)
+    - [DelegatingHandler](https://learn.microsoft.com/dotnet/api/system.net.http.delegatinghandler)
+      - [AuthorizationMessageHandler](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.authentication.authorizationmessagehandler)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Constructors
+
+### BlazorEssentialsAuthorizationMessageHandler
+
+```csharp
+public BlazorEssentialsAuthorizationMessageHandler(T config, IAccessTokenProvider provider, NavigationManager navigationManager)
+```
+
+#### Parameters
+
+- **config** ``T``: 
+- **provider** [IAccessTokenProvider](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.authentication.iaccesstokenprovider): 
+- **navigationManager** [NavigationManager](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.navigationmanager): 
+
+

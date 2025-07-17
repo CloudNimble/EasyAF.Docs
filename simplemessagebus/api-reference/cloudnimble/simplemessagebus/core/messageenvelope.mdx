@@ -1,0 +1,222 @@
+---
+title: "MessageEnvelope"
+description: "Represents a wrapper for an <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# MessageEnvelope
+
+<Badge variant="outline">Class</Badge>
+
+Represents a wrapper for an <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref> that will be published to the SimpleMessageBus Queue.
+
+## Syntax
+
+```csharp
+public class MessageEnvelope
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### MessageEnvelope
+
+```csharp
+public MessageEnvelope()
+```
+
+Initializes a new instance of the <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> class.
+
+### MessageEnvelope
+
+```csharp
+public MessageEnvelope(IMessage message)
+```
+
+Initializes a new instance of the <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> class for a given <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **message** [IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage): The <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref> instance that will be wrapped in a <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope" data-throw-if-not-resolved="false"></xref> to be posted to the SimpleMessageBus.
+
+#### Exceptions
+
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown when <code class="paramref">message</code> is null.
+
+
+## Properties
+
+### AttemptsCount
+
+```csharp
+public long AttemptsCount { get; set; }
+```
+
+The number of times the system has previously attempted to process this message.
+
+#### Returns
+
+[long](https://learn.microsoft.com/dotnet/api/system.int64)
+
+### DatePublished
+
+```csharp
+public DateTimeOffset DatePublished { get; set; }
+```
+
+The UTC date and time that this nessage was published to the queue.
+
+#### Returns
+
+[DateTimeOffset](https://learn.microsoft.com/dotnet/api/system.datetimeoffset)
+
+### Id
+
+```csharp
+public Guid Id { get; set; }
+```
+
+A <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> uniquely identifying this message on the queue. Helps when looking at logs or correlating from telemetry.
+
+#### Returns
+
+[Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+### Message
+
+```csharp
+[JsonIgnore]
+public IMessage Message { get; }
+```
+
+Gets the deserialized message instance.
+
+#### Returns
+
+[IMessage](/api-reference/cloudnimble/simplemessagebus/core/imessage)
+
+The <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref> instance deserialized from <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope.MessageContent" data-throw-if-not-resolved="false"></xref> using the type specified
+in <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope.MessageType" data-throw-if-not-resolved="false"></xref>. This property provides convenient access to the message without requiring
+explicit type specification in handlers.
+
+#### Exceptions
+
+- `[InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception)`: Thrown when the message type cannot be resolved or deserialization fails.
+
+### MessageContent
+
+```csharp
+public string MessageContent { get; set; }
+```
+
+The serialized content of the <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref>.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### MessageState
+
+```csharp
+[JsonIgnore]
+public dynamic MessageState { get; }
+```
+
+A container to help track the state of a message as it flows between <xref href="CloudNimble.SimpleMessageBus.Core.IMessageHandler?text=IMessageHandlers" data-throw-if-not-resolved="false"></xref>. This value is ignored by the 
+serializer and will not be persisted between failed message runs.
+
+#### Returns
+
+``dynamic``
+
+### MessageType
+
+```csharp
+public string MessageType { get; set; }
+```
+
+A string representing the type name of the message. Defaults to IMessage.GetType().AssemblyQualifiedName".
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### ProcessLog
+
+```csharp
+[JsonIgnore]
+public ILogger ProcessLog { get; set; }
+```
+
+The processing log for this particular message across all MessageHandlers.
+
+#### Returns
+
+[ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger)
+
+### ServiceScope
+
+```csharp
+[JsonIgnore]
+public IServiceScope ServiceScope { get; set; }
+```
+
+The processing log for this particular message across all MessageHandlers.
+
+#### Returns
+
+[IServiceScope](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope)
+
+
+## Methods
+
+### GetMessage&lt;T&gt;
+
+```csharp
+public T GetMessage<T>() where T : IMessage
+```
+
+Retrieves the <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope.MessageContent" data-throw-if-not-resolved="false"></xref> deserialized into an <xref href="CloudNimble.SimpleMessageBus.Core.IMessage" data-throw-if-not-resolved="false"></xref> of the specified type.
+
+#### Returns
+
+``T``
+
+A concrete <code class="typeparamref">T</code> instance populated with the data from the <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope.MessageContent" data-throw-if-not-resolved="false"></xref>.
+
+#### Exceptions
+
+- `[JsonException](https://learn.microsoft.com/dotnet/api/system.text.json.jsonexception)`: Thrown when the <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope.MessageContent" data-throw-if-not-resolved="false"></xref> cannot be deserialized to type <code class="typeparamref">T</code>.
+- `[ArgumentNullException](https://learn.microsoft.com/dotnet/api/system.argumentnullexception)`: Thrown when <xref href="CloudNimble.SimpleMessageBus.Core.MessageEnvelope.MessageContent" data-throw-if-not-resolved="false"></xref> is null.
+
+### ToString
+
+```csharp
+public override string ToString()
+```
+
+Returns a string that represents the current object.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+A string that represents the current object.
+
+
+## Remarks
+
+The MessageEnvelope provides the transport container for messages within the SimpleMessageBus system.
+It wraps the actual message with metadata needed for processing, error handling, and tracking. The envelope
+handles message serialization/deserialization and provides processing context for handlers.
+
+Key responsibilities include:
+- Serializing messages for storage in queues
+- Tracking processing attempts and timestamps
+- Providing handler context through service scope and logging
+- Managing message state during processing pipeline
+- Facilitating message deserialization for handlers
+

@@ -1,0 +1,60 @@
+---
+title: "IdentifiableEntityManager<TContext, TEntity, TId>"
+description: "Provides a specialized entity manager for entities that implement IIdentifiable&lt;TId&gt;."
+icon: "cube"
+---
+
+# IdentifiableEntityManager&lt;TContext, TEntity, TId&gt;
+
+<Badge variant="outline">Class</Badge>
+
+Provides a specialized entity manager for entities that implement IIdentifiable&lt;TId&gt;.
+Automatically generates GUID identifiers for entities with empty IDs during insertion.
+
+## Syntax
+
+```csharp
+public abstract class IdentifiableEntityManager<TContext, TEntity, TId> : EntityManager<TContext, TEntity> where TContext : DbContext where TEntity : class, IIdentifiable<TId> where TId : struct
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [ManagerBase&lt;TContext&gt;](CloudNimble.EasyAF.Business.ManagerBase-1.html)
+    - [EntityManager&lt;TContext, TEntity&gt;](CloudNimble.EasyAF.Business.EntityManager-2.html)
+
+## Constructors
+
+### IdentifiableEntityManager
+
+```csharp
+public IdentifiableEntityManager(TContext dataContext, IMessagePublisher messagePublisher)
+```
+
+Create a new instance of the given Manager for a given <xref href="System.Data.Entity.DbContext" data-throw-if-not-resolved="false"></xref>.
+
+#### Parameters
+
+- **dataContext** ``TContext``: The <xref href="System.Data.Entity.DbContext" data-throw-if-not-resolved="false"></xref> instance to use for the database connection. Should be injected by the DI container.
+- **messagePublisher** ``IMessagePublisher``: The SimpleMessageBus <xref href="CloudNimble.SimpleMessageBus.Publish.IMessagePublisher" data-throw-if-not-resolved="false"></xref> instance to use to publish Messages to a Queue. Should be injected by the DI container.
+
+
+## Methods
+
+### OnInsertingAsync
+
+```csharp
+public override Task OnInsertingAsync(TEntity entity)
+```
+
+Perform business logic (like setting the entity's Id) prior to saving the <code class="typeparamref">TEntity</code> to the <code class="typeparamref">TContext</code>.
+
+#### Parameters
+
+- **entity** ``TEntity``: The <code class="typeparamref">TEntity</code> to be inserted.
+
+#### Returns
+
+[Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task)
+
+

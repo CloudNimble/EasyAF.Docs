@@ -1,0 +1,104 @@
+---
+title: "OperationStatusDisplay"
+description: "An object to store display values represented by specific statuses for an <xref href=\"CloudNimble."
+icon: "cube"
+---
+
+# OperationStatusDisplay
+
+<Badge variant="outline">Class</Badge>
+
+An object to store display values represented by specific statuses for an <xref href="CloudNimble.BlazorEssentials.Merlin.Operation" data-throw-if-not-resolved="false"></xref> or <xref href="CloudNimble.BlazorEssentials.Merlin.OperationStep" data-throw-if-not-resolved="false"></xref>.
+
+## Syntax
+
+```csharp
+public class OperationStatusDisplay
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Constructors
+
+### OperationStatusDisplay
+
+```csharp
+public OperationStatusDisplay(string success, string failure, string inProgress, string notStarted)
+```
+
+Constructor overload to set all texts.
+
+#### Parameters
+
+- **success** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for Success text.
+- **failure** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for Failure text.
+- **inProgress** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for InProgress text.
+- **notStarted** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for NotStarted text.
+
+### OperationStatusDisplay
+
+```csharp
+public OperationStatusDisplay(string success, string failure)
+```
+
+Constructor overload to set only success / failure texts.
+
+#### Parameters
+
+- **success** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for Success text.
+- **failure** [string](https://learn.microsoft.com/dotnet/api/system.string): Initializer for Failure text.
+
+
+## Properties
+
+### Failure
+
+```csharp
+public string Failure { get; set; }
+```
+
+Text to display when the operation has failed.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### InProgress
+
+```csharp
+public string InProgress { get; set; }
+```
+
+Text to display while the operation is in progress.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### NotStarted
+
+```csharp
+public string NotStarted { get; set; }
+```
+
+Text to display when the operation has not started.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Success
+
+```csharp
+public string Success { get; set; }
+```
+
+Text to display when the operation has succeeded.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

@@ -1,0 +1,40 @@
+---
+title: "ISimpleMessageBusFileProcessorFactory"
+description: "Factory interface for creating <xref href=\"CloudNimble."
+icon: "plug"
+---
+
+# ISimpleMessageBusFileProcessorFactory
+
+<Badge variant="outline">Interface</Badge>
+
+Factory interface for creating <xref href="CloudNimble.SimpleMessageBus.Dispatch.Triggers.SimpleMessageBusFileProcessor" data-throw-if-not-resolved="false"></xref> instances. This factory pattern allows
+different FileProcessors to be used for different job functions.
+
+## Syntax
+
+```csharp
+public interface ISimpleMessageBusFileProcessorFactory
+```
+
+## Methods
+
+### CreateFileProcessor
+
+```csharp
+SimpleMessageBusFileProcessor CreateFileProcessor(SimpleMessageBusFileProcessorFactoryContext context)
+```
+
+Create a <xref href="CloudNimble.SimpleMessageBus.Dispatch.Triggers.SimpleMessageBusFileProcessor" data-throw-if-not-resolved="false"></xref> for the specified inputs.
+
+#### Parameters
+
+- **context** [SimpleMessageBusFileProcessorFactoryContext](/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfileprocessorfactorycontext): The context to use.
+
+#### Returns
+
+[SimpleMessageBusFileProcessor](/api-reference/cloudnimble/simplemessagebus/dispatch/triggers/simplemessagebusfileprocessor)
+
+The <xref href="CloudNimble.SimpleMessageBus.Dispatch.Triggers.SimpleMessageBusFileProcessor" data-throw-if-not-resolved="false"></xref>
+
+

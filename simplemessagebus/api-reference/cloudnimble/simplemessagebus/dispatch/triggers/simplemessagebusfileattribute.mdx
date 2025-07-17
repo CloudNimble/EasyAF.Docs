@@ -1,0 +1,100 @@
+---
+title: "SimpleMessageBusFileAttribute"
+description: "Attribute used to bind a parameter to a file."
+icon: "cube"
+---
+
+# SimpleMessageBusFileAttribute
+
+<Badge variant="outline">Class</Badge>
+
+Attribute used to bind a parameter to a file.
+
+## Syntax
+
+```csharp
+[AttributeUsage(AttributeTargets.Parameter|AttributeTargets.ReturnValue)]
+[Binding]
+public sealed class SimpleMessageBusFileAttribute : Attribute
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [Attribute](https://learn.microsoft.com/dotnet/api/system.attribute)
+
+## Constructors
+
+### SimpleMessageBusFileAttribute
+
+```csharp
+public SimpleMessageBusFileAttribute(string path, FileAccess access, FileMode mode)
+```
+
+Constructs a new instance.
+
+#### Parameters
+
+- **path** [string](https://learn.microsoft.com/dotnet/api/system.string): The file path to bind to.
+- **access** [FileAccess](https://learn.microsoft.com/dotnet/api/system.io.fileaccess): The <xref href="System.IO.FileAccess" data-throw-if-not-resolved="false"></xref> to use.
+- **mode** [FileMode](https://learn.microsoft.com/dotnet/api/system.io.filemode): The <xref href="System.IO.FileMode" data-throw-if-not-resolved="false"></xref> to use.
+
+### SimpleMessageBusFileAttribute
+
+```csharp
+public SimpleMessageBusFileAttribute(string path, FileAccess access = FileAccess.Read)
+```
+
+Constructs a new instance.
+
+#### Parameters
+
+- **path** [string](https://learn.microsoft.com/dotnet/api/system.string): The file path to bind to.
+- **access** [FileAccess](https://learn.microsoft.com/dotnet/api/system.io.fileaccess): The <xref href="System.IO.FileAccess" data-throw-if-not-resolved="false"></xref> to use.
+
+
+## Properties
+
+### Access
+
+```csharp
+public FileAccess Access { get; }
+```
+
+Gets he <xref href="System.IO.FileAccess" data-throw-if-not-resolved="false"></xref> to use.
+
+#### Returns
+
+[FileAccess](https://learn.microsoft.com/dotnet/api/system.io.fileaccess)
+
+### Mode
+
+```csharp
+public FileMode Mode { get; }
+```
+
+Gets the <xref href="System.IO.FileMode" data-throw-if-not-resolved="false"></xref> to use.
+
+#### Returns
+
+[FileMode](https://learn.microsoft.com/dotnet/api/system.io.filemode)
+
+### Path
+
+```csharp
+[AutoResolve]
+public string Path { get; }
+```
+
+Gets the file path.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+The method parameter type can be one of the following:
+<ul><li><xref href="System.IO.FileStream" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.String" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.TextWriter" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.StreamWriter" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.TextReader" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.StreamReader" data-throw-if-not-resolved="false"></xref></li><li>A user-defined type (serialized as JSON)</li></ul>
+

@@ -1,0 +1,70 @@
+---
+title: "DependencyInjectionTestHelpers"
+description: "A set of utilities for Breakdance that help you verify Dependency Injection configurations, especially in architectures sensitive to injection order."
+icon: "cube"
+---
+
+# DependencyInjectionTestHelpers
+
+<Badge variant="outline">Class</Badge>
+
+A set of utilities for Breakdance that help you verify Dependency Injection configurations, especially in architectures sensitive to injection order.
+
+## Syntax
+
+```csharp
+public static class DependencyInjectionTestHelpers
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetContainerContentsLog
+
+```csharp
+[Obsolete("Use the IHostBuilder.GetContainerContentsLog() extension method instead.", false)]
+public static string GetContainerContentsLog(IHostBuilder hostBuilder)
+```
+
+#### Parameters
+
+- **hostBuilder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### GetContainerContentsLog
+
+```csharp
+[Obsolete("Use the IServiceProvider.GetContainerContentsLog() extension method instead.", false)]
+public static string GetContainerContentsLog(IServiceProvider provider)
+```
+
+#### Parameters
+
+- **provider** [IServiceProvider](https://learn.microsoft.com/dotnet/api/system.iserviceprovider): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### GetContainerContentsLog
+
+```csharp
+[Obsolete("Use the ServiceCollection.GetContainerContentsLog() extension method instead.", false)]
+public static string GetContainerContentsLog(ServiceCollection collection)
+```
+
+#### Parameters
+
+- **collection** [ServiceCollection](https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicecollection): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

@@ -1,0 +1,114 @@
+---
+title: "SimpleMessageBusFileTriggerAttribute"
+description: "Attribute used to mark a job function that should be invoked based on file events."
+icon: "cube"
+---
+
+# SimpleMessageBusFileTriggerAttribute
+
+<Badge variant="outline">Class</Badge>
+
+Attribute used to mark a job function that should be invoked based
+on file events.
+
+## Syntax
+
+```csharp
+[AttributeUsage(AttributeTargets.Parameter)]
+[Binding]
+public sealed class SimpleMessageBusFileTriggerAttribute : Attribute
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+  - [Attribute](https://learn.microsoft.com/dotnet/api/system.attribute)
+
+## Constructors
+
+### SimpleMessageBusFileTriggerAttribute
+
+```csharp
+public SimpleMessageBusFileTriggerAttribute(string path, string filter, WatcherChangeTypes changeTypes = WatcherChangeTypes.Created, bool autoDelete = false)
+```
+
+Constructs a new instance.
+
+#### Parameters
+
+- **path** [string](https://learn.microsoft.com/dotnet/api/system.string): The root path that this trigger is configured to watch for files on.
+- **filter** [string](https://learn.microsoft.com/dotnet/api/system.string): The optional file filter that will be used.
+- **changeTypes** [WatcherChangeTypes](https://learn.microsoft.com/dotnet/api/system.io.watcherchangetypes): The <xref href="System.IO.WatcherChangeTypes" data-throw-if-not-resolved="false"></xref> that will be used by the file watcher. The Default is Created.
+- **autoDelete** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): True if processed files should be deleted automatically, false otherwise. The default is False.
+
+
+## Properties
+
+### AutoDelete
+
+```csharp
+public bool AutoDelete { get; }
+```
+
+Gets a value indicating whether files should be automatically deleted after they
+are successfully processed. When set to true, all files including any companion files
+starting with the target file name will be deleted when the file is successfully processed.
+
+#### Returns
+
+[bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### ChangeTypes
+
+```csharp
+public WatcherChangeTypes ChangeTypes { get; }
+```
+
+Gets the <xref href="System.IO.WatcherChangeTypes" data-throw-if-not-resolved="false"></xref> that will be used by the file watcher.
+
+#### Returns
+
+[WatcherChangeTypes](https://learn.microsoft.com/dotnet/api/system.io.watcherchangetypes)
+
+### Filter
+
+```csharp
+public string Filter { get; }
+```
+
+Gets the optional file filter that will be used.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Path
+
+```csharp
+public string Path { get; }
+```
+
+Gets the root path that this trigger is configured to watch for files on.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### RootPath
+
+```csharp
+public string RootPath { get; }
+```
+
+Gets the root path that this trigger is configured to watch for files on.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+The method parameter type can be one of the following:
+<ul><li><xref href="System.IO.FileStream" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.FileSystemEventArgs" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.String" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.TextReader" data-throw-if-not-resolved="false"></xref></li><li><xref href="System.IO.StreamReader" data-throw-if-not-resolved="false"></xref></li><li>A user-defined type (serialized as JSON)</li></ul>
+

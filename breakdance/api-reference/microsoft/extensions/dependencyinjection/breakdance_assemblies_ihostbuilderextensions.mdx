@@ -1,0 +1,55 @@
+---
+title: "Breakdance_Assemblies_IHostBuilderExtensions"
+description: "A set of enhancements for an <xref href=\"Microsoft."
+icon: "cube"
+---
+
+# Breakdance_Assemblies_IHostBuilderExtensions
+
+<Badge variant="outline">Class</Badge>
+
+A set of enhancements for an <xref href="Microsoft.Extensions.Hosting.IHostBuilder" data-throw-if-not-resolved="false"></xref> instance.
+
+## Syntax
+
+```csharp
+public static class Breakdance_Assemblies_IHostBuilderExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### GetAllServiceDescriptors
+
+```csharp
+public static Dictionary<Type, ServiceDescriptor> GetAllServiceDescriptors(this IHostBuilder builder)
+```
+
+Get all registered <xref href="Microsoft.Extensions.DependencyInjection.ServiceDescriptor?text=ServiceDescriptors" data-throw-if-not-resolved="false"></xref> for a given container.
+
+#### Parameters
+
+- **builder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): 
+
+#### Returns
+
+[Dictionary&lt;Type, ServiceDescriptor&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
+
+### GetContainerContentsLog
+
+```csharp
+public static string GetContainerContentsLog(this IHostBuilder hostBuilder)
+```
+
+#### Parameters
+
+- **hostBuilder** [IHostBuilder](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder): 
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+

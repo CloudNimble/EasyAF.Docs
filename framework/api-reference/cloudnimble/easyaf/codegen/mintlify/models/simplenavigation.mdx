@@ -1,0 +1,39 @@
+---
+title: "SimpleNavigation"
+description: "Represents a simple navigation structure that contains only pages."
+icon: "cube"
+---
+
+# SimpleNavigation
+
+<Badge variant="outline">Class</Badge>
+
+Represents a simple navigation structure that contains only pages.
+This is used for the most common case where navigation is just a list of pages.
+
+## Syntax
+
+```csharp
+public class SimpleNavigation
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Properties
+
+### Pages
+
+```csharp
+[JsonPropertyName("pages")]
+public List<object> Pages { get; set; }
+```
+
+Gets or sets the pages in the navigation.
+
+#### Returns
+
+[List&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1)
+
+

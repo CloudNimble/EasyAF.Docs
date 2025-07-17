@@ -1,0 +1,79 @@
+---
+title: "WebApiConstants"
+description: "A set of constants used by BreakDance."
+icon: "cube"
+---
+
+# WebApiConstants
+
+<Badge variant="outline">Class</Badge>
+
+A set of constants used by BreakDance.WebApi to simplify the configuration of test runs.
+
+## Syntax
+
+```csharp
+public static class WebApiConstants
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Fields
+
+### DefaultAcceptHeader
+
+```csharp
+public const string DefaultAcceptHeader = "application/json"
+```
+
+Specifies the Accept HTTP header required for JSON payloads.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### Localhost
+
+```csharp
+public const string Localhost = "http://localhost/"
+```
+
+Specifies the default testing HTTP host.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### RouteName
+
+```csharp
+public const string RouteName = "api/tests"
+```
+
+The default name of the route for the ASP.NET route dictionary.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### RoutePrefix
+
+```csharp
+public const string RoutePrefix = "api/tests/"
+```
+
+Specifies the default prefix that should be appended to the host to route the request to the API.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+
+## Remarks
+
+Since unit testing a WebApi should not require knowledge of a *specific* endpoint Url to execute (that's required in *integration* testing),
+these constants allow the test to run in a way that abstracts the details of configuring the API away from the developer. That allows the
+developer to focus on what is being tested, not on messing with configuration.
+

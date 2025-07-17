@@ -1,0 +1,40 @@
+---
+title: "ListExtensions"
+description: ""
+icon: "cube"
+---
+
+# ListExtensions
+
+<Badge variant="outline">Class</Badge>
+
+## Syntax
+
+```csharp
+public static class ListExtensions
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Methods
+
+### Traverse&lt;T&gt;
+
+```csharp
+public static IEnumerable<T> Traverse<T>(this IEnumerable<T> items, Func<T, IEnumerable<T>> childSelector)
+```
+
+Return item and all children recursively.
+
+#### Parameters
+
+- **items** [IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1): 
+- **childSelector** [Func&lt;T, IEnumerable&lt;T&gt;&gt;](https://learn.microsoft.com/dotnet/api/system.func-2): 
+
+#### Returns
+
+[IEnumerable&lt;T&gt;](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)
+
+

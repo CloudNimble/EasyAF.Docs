@@ -1,0 +1,81 @@
+---
+title: "IDbStateEnum"
+description: "An interface that identifies this Entity as being the enumeration details for the SimpleStateMachine."
+icon: "plug"
+---
+
+# IDbStateEnum
+
+<Badge variant="outline">Interface</Badge>
+
+An interface that identifies this Entity as being the enumeration details for the SimpleStateMachine.
+
+## Syntax
+
+```csharp
+public interface IDbStateEnum : IDbEnum, IIdentifiable<Guid>, IActiveTrackable, IHumanReadable, ISortable
+```
+
+## Properties
+
+### InstructionText
+
+```csharp
+string InstructionText { get; set; }
+```
+
+Text to display to the user regarding the current state, and what needs to happen next.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PrimaryTargetDisplayText
+
+```csharp
+string PrimaryTargetDisplayText { get; set; }
+```
+
+A string that describes the next action in the SimpleStateMachine, usually displayed on a button or link.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### PrimaryTargetSortOrder
+
+```csharp
+int PrimaryTargetSortOrder { get; set; }
+```
+
+An integer that represents the State the Entity should be moved to once this action completes successfully.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### SecondaryTargetDisplayText
+
+```csharp
+string SecondaryTargetDisplayText { get; set; }
+```
+
+A string that describes an alternate action in the SimpleStateMachine. This action could skip States moving forward, or return the Entity to a previous State. This text is usually displayed on a button or link.
+
+#### Returns
+
+[string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### SecondaryTargetSortOrder
+
+```csharp
+int SecondaryTargetSortOrder { get; set; }
+```
+
+An integer that represents an alternate State the Entity should be moved to once this action is finished.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+

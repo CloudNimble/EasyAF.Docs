@@ -1,0 +1,128 @@
+---
+title: "DelayDispatcher"
+description: "Provides methods to reduce the number of events that are fired, usually so that rapid, imperceptible changes are ignored."
+icon: "cube"
+---
+
+# DelayDispatcher
+
+<Badge variant="outline">Class</Badge>
+
+Provides methods to reduce the number of events that are fired, usually so that rapid,
+imperceptible changes are ignored.
+
+## Syntax
+
+```csharp
+public class DelayDispatcher : IDisposable
+```
+
+## Inheritance
+
+- [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+## Implements
+
+- [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable)
+
+## Properties
+
+### DelayCount
+
+```csharp
+public int DelayCount { get; }
+```
+
+The number of events that have been dropped in a given interval.
+
+#### Returns
+
+[int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### TimerStarted
+
+```csharp
+public DateTime TimerStarted { get; }
+```
+
+The <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> that a new <xref href="System.Timers.Timer" data-throw-if-not-resolved="false"></xref> was started, in UTC.
+
+#### Returns
+
+[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime)
+
+
+## Methods
+
+### Debounce
+
+```csharp
+public void Debounce(int interval, Action<object> action, object param = null)
+```
+
+Debounce an event by resetting the event timeout every time the event is 
+fired. The behavior is that the Action passed is fired only after events
+stop firing for the given timeout period.
+
+Use Debounce when you want events to fire only after events stop firing
+after the given interval timeout period.
+
+Wrap the logic you would normally use in your event code into
+the  Action you pass to this method to debounce the event.
+Example: https://gist.github.com/RickStrahl/0519b678f3294e27891f4d4f0608519a
+
+#### Parameters
+
+- **interval** [int](https://learn.microsoft.com/dotnet/api/system.int32): An <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> specifying the <xref href="System.Timers.Timer" data-throw-if-not-resolved="false"></xref> duration (in milliseconds).
+- **action** [Action&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): The <xref href="System.Action" data-throw-if-not-resolved="false"></xref> to fire when the <xref href="System.Timers.Timer" data-throw-if-not-resolved="false"></xref> elapses.
+- **param** [object](https://learn.microsoft.com/dotnet/api/system.object): Any optional parameters to pass to the <code class="paramref">action</code>.
+
+### Dispose
+
+```csharp
+public void Dispose()
+```
+
+### Dispose
+
+```csharp
+protected virtual void Dispose(bool disposing)
+```
+
+#### Parameters
+
+- **disposing** [bool](https://learn.microsoft.com/dotnet/api/system.boolean): 
+
+### Throttle
+
+```csharp
+public void Throttle(int interval, Action<object> action, object param = null)
+```
+
+This method throttles events by allowing only 1 event to fire for the given
+timeout period. Only the last event fired is handled - all others are ignored.
+Throttle will fire events every timeout ms even if additional events are pending.
+
+Use Throttle where you need to ensure that events fire at given intervals.
+
+#### Parameters
+
+- **interval** [int](https://learn.microsoft.com/dotnet/api/system.int32): An <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> specifying the <xref href="System.Timers.Timer" data-throw-if-not-resolved="false"></xref> duration (in milliseconds).
+- **action** [Action&lt;object&gt;](https://learn.microsoft.com/dotnet/api/system.action-1): The <xref href="System.Action" data-throw-if-not-resolved="false"></xref> to fire when the <xref href="System.Timers.Timer" data-throw-if-not-resolved="false"></xref> elapses.
+- **param** [object](https://learn.microsoft.com/dotnet/api/system.object): Any optional parameters to pass to the <code class="paramref">action</code>.
+
+
+## Remarks
+
+<p>
+    Throttle() ensures that events are throttled by the interval specified.
+    Only the last event in the interval sequence of events fires.
+</p>
+<p>
+    Debounce() fires an event only after the specified interval has passed
+    in which no other pending event has fired. Only the last event in the
+    sequence is fired.
+</p>
+
+Adapted from https://weblog.west-wind.com/posts/2017/Jul/02/Debouncing-and-Throttling-Dispatcher-Events.
+
